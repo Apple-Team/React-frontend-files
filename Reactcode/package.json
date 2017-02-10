@@ -1,0 +1,31 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "font-awesome": "^4.7.0",
+    "react-scripts": "0.8.4",
+    "reactstrap": "^4.0.1",
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
+  },
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
+    "google-map-react": "^0.22.3",
+    "react": "^15.4.2",
+    "react-addons-css-transition-group": "^15.4.2",
+    "react-addons-transition-group": "^15.4.2",
+    "react-bootstrap": "^0.30.7",
+    "react-dom": "^15.4.2",
+    "react-helmet": "^4.0.0",
+    "react-router": "^3.0.0",
+    "reactstrap": "^4.0.1"
+  },
+  "scripts": {
+    "prebuild": "npm run lint",
+    "build": "webpack --progress --bail -p",
+    "lint": "eslint --ext .js --ext .jsx src test adapters ./*.js",
+    "start": "webpack-dev-server --progress --colors -d --watch --port 8081",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
