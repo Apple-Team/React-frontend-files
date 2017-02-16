@@ -9,7 +9,7 @@ export const wrapper = (options) => (WrappedComponent) => {
   const apiKey = options.apiKey;
   const libraries = options.libraries || ['places'];
 
-  class Wrapper extends React.Component {
+  class GoogleApiComponent extends React.Component {
     constructor(props, context) {
       super(props, context);
 

@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
+import ReactDOM from 'react-dom';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import './Signup.css';
+import ViewRest from './ViewRest';
+
 
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
@@ -16,17 +19,24 @@ class Header extends Component {
      this.modalOpen2=this.modalOpen2.bind(this);
     this.modalClose2=this.modalClose2.bind(this);
     this.state = { data: [] };
-    this.handleClick=this.handleClick.bind(this);
+    this.handleSignup=this.handleSignup.bind(this);
+    this.handleLogin=this.handleLogin.bind(this);
     console.log('test');
 
   }
 
-  handleClick(ev){
+  handleSignup(ev){
     var uname=document.getElementById('name').value;
     var email=document.getElementById('email').value;
     var pwd=document.getElementById('pwd').value;
     var confirm_pwd=document.getElementById('confirm_pwd').value;
     var role=document.getElementById('role').value;
+    if (role==''){
+      role='0';
+    }
+      else 
+        role='1';
+    
     if(uname!=''&&email!=''&&pwd!=''&&confirm_pwd!=''){
     fetch('http://localhost:9000/create_member',
       {
@@ -38,13 +48,13 @@ class Header extends Component {
                               "uname": document.getElementById('name').value,
                               "email": document.getElementById('email').value,
                               "pwd": document.getElementById('confirm_pwd').value,
-                              "role": document.getElementById('role').value
+                              "role": this.role
 
                             })
      })
      .then(function (data) {
   alert('Added into the database',data);
-  window.location.reload()
+
   })
   .catch(function (error) {
   alert('Not added into the database',error);
@@ -82,13 +92,29 @@ validatePassword(ev){
   }
 }
 
+handleLogin(){
+   var name=document.getElementById('username').value;
+   var password=document.getElementById('password').value;
+    var lgn=JSON.stringify({
+      "name":name,
+      "password":password
+    })
+    fetch("http://localhost:9000/authenticate_member_by_username_password/"+name+"?password="+password,
+            {
+        headers :{
+          "Content-Type" : "application/json",
+          "Accept" : "application/json"
+        }
+     })
+     ReactDOM.render(<ViewRest />,document.getElementById('dd'));
+ }
 
 
   // `render` is called whenever the component's props OR state are updated.
 render() {
 
 return(
-  <div>
+  <div id="dd">
   <div className="tf-nav">
  	 	<nav className="navbar navbar-toggleable-md fixed-top navbar-light bg-faded">
 
@@ -96,7 +122,7 @@ return(
         <span className="navbar-toggler-icon"></span>
       </button>
 
-        <a className="navbar-brand" href="#"><img src={require('./images/logo.png')} width="60" height="60" className="d-inline-block align-center" />FindO Bistro</a>
+        <a className="navbar-brand" href="#"><img src={require('./images/logo.png')} width="60" height="60" className="d-inline-block align-center" />Find'O Bistro</a>
 
         <div className="nav-dropdown collapse nav navbar-nav navbar-toggleable-sm" id="navbarTogglerDemo02">
              <ul className="nav navbar-nav pull-lg-right">
@@ -112,18 +138,10 @@ return(
                 <li className="nav-item">
                   <button className="btn1" type="button" className="btn btn-secondary btn-sm" onClick={this.modalOpen2}><i className="fa fa-user" aria-hidden="true"></i>LOGIN</button>
                 </li>
-                <li className="nav-item">
-                  <Link to ="/Admin" className="nav-link" ><i className="fa fa-sign-in" aria-hidden="true"></i>Admin</Link>
-               </li>
-               <li className="nav-item">
-                  <Link to ="/map" className="nav-link" ><i className="fa fa-sign-in" aria-hidden="true"></i>maps</Link>
-               </li>
-            </ul>
+             </ul>
           </div>
       </nav>
   </div>
-
-
 
   <div id="signup">
       <div id="Modal1" className="modal">
@@ -144,12 +162,12 @@ return(
 
            <div className="form-check form-check-inline">
                 <label className="form-check-label">
-                    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="role" value={1}/> Sign up as Administrator
+                    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="role" /> Sign up as Administrator
                 </label>
            </div>
 
         <div className="container">
-          <span id="btn1"><button className="btn" onClick={this.handleClick.bind(this)} type="submit">Signup</button></span><br /><br />
+          <span id="btn1"><button className="btn" onClick={this.handleSignup.bind(this)} type="submit">Signup</button></span><br /><br />
         </div>
         </div>
       </form>
@@ -166,12 +184,12 @@ return(
         </div>
         <div className="container" align="center">
           <label><b><center>USERNAME</center></b></label> <br />
-          <input type="text" placeholder="Enter Username" name="uname" required/><br />
+          <input type="text" placeholder="Enter Username" id="username" name="uname" required/><br />
           <label><b>PASSWORD</b></label><br />
-          <input type="password" placeholder="Enter Password" name="psw" required/><br /><br />
+          <input type="password" placeholder="Enter Password" name="psw" id="password" required/><br /><br />
         </div>
         <div className="container" id="btn1">
-          <button className="btn" type="submit">Login</button>
+          <button className="btn" type="submit" onClick={this.handleLogin.bind(this)}>Login</button>
           &nbsp; &nbsp; &nbsp;&nbsp;
           <span className="psw"><a href="#">Forgot password?</a></span> <br /><br />
           <p> New Member?  <Link to ="/Signup" className="btn btn-primary">Signup</Link></p>

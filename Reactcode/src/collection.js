@@ -1,15 +1,18 @@
+
 import React, { Component } from 'react';
 import { Link } from 'react-router';
+import ReactDOM from 'react-dom';
+import Restaurant_detail from './Restaurant_detail';
 
 class Collection extends Component {
   constructor() {
     // In a constructor, call `super` first if the classNameNameNameName extends another classNameNameNameName
     super();
      this.collectionlist=this.collectionlist.bind(this);
-    this.state = { data: [] };
-        console.log('test');
+     this.detailRest=this.detailRest.bind(this);
+    this.state = { data: [],detail_data:[],collection:'' };
   }
-
+//list view of collections
   collectionlist(name,cname){
     this.name=name;
     this.cname=cname;
@@ -24,6 +27,17 @@ class Collection extends Component {
     document.getElementById('list').style.display = "block";
   }
   // `render` is called whenever the component's props OR state are updated.
+  
+  //detail description view
+  detailRest(id){
+    this.id=id;
+    console.log(id);
+  var l=document.getElementById("list");  
+  ReactDOM.render(<Restaurant_detail index={id}/>,l);
+
+  }
+
+
   render() {
     let collections = [
     {
@@ -69,7 +83,7 @@ class Collection extends Component {
 
 
 return (
-  <div>
+  <div id="content1">
   <div id="tf-collection">
         <div className="container">
 
@@ -110,7 +124,7 @@ return (
         </div>
     </div>
     <div id="list" className="modal">
-    {console.log(this.state.data)}
+    
         <div className="alert alert-warning" role="alert">
            <h2><strong> {this.cname}</strong></h2>
         </div>
@@ -124,13 +138,14 @@ return (
                     <h5 className="card-subtitle">{data.name}</h5>
                     <p className="card-text">{data.cuisine}</p>
                     <p className="card-text">{data.area}</p>
-                    <a href="#" className="btn btn-primary">Learn More</a>
+                    <button type="button" className="btn btn-warning btn-sm" onClick={()=>this.detailRest(data.id)}>View More</button>
                 </div>
             </div>)
           })
         }
         </div>
      </div>
+    
   </div>
 
  );
