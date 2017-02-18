@@ -30,26 +30,16 @@ class Restaurant_detail extends Component {
     var lat=this.state.detail_data.latitude;
     var lng=this.state.detail_data.longitude;
   return (
-<div>
+  <div>
 		<div id="detailRest">
-        <div className="row ">
+        <div className="row" id="searchrest">
                 <div className="col col-sm-6branding">
                     <div className="card mb-10">
                        <img className="card-img-top" src={this.state.detail_data.image} alt="Card image cap"/>
-                       <div className="card-header">
-                            <b>{this.state.detail_data.name}</b>
-                       </div>
-                       <div className="card-block">
-                             <p className="card-text">Cuisine: {this.state.detail_data.cuisine} </p>
-                             <p className="card-text">Working Hours: {this.state.detail_data.workHours}</p>
-                             <p className="card-text"><a href={this.state.detail_data.homePage} target="_blank">View Restaurant Homepage</a></p>
-                             <p className="card-text"><a href={this.state.detail_data.fbUrl} target="_blank">View facebook page</a></p>
-                        </div>
                     </div>
                 </div>
           
-          <div className="col col-sm-4">
-                
+              <div className="col col-sm-4">                
                 <div className="row branding">
                   <div className="row">
                      <div className="card w-100">
@@ -67,19 +57,30 @@ class Restaurant_detail extends Component {
                      </div>
                   </div>                 
                 </div>
-                <div className="row branding">
-                     <div className="card">
-                         <div className="card-block">
-                           
-                              <Maps lati={lat} long={lng}/>
-                                                    
-                          </div>
-                     </div>
-                </div>
+              </div>
           </div>
-        </div>  
+           <div className="row">
+                <div className="col col-sm-14">
+                  <div className="card-block">
+                          <div className="card-sub-header">
+                            <b>{this.state.detail_data.name}</b>
+                          </div>
+                             <p className="card-text">Cuisine: {this.state.detail_data.cuisine} </p>
+                             <p className="card-text">Working Hours: {this.state.detail_data.workHours}</p>
+                             <p className="card-text"><a href={this.state.detail_data.homePage} target="_blank">View Restaurant Homepage</a></p>
+                             <p className="card-text"><a href={this.state.detail_data.fbUrl} target="_blank">View facebook page</a></p>
+                  </div>
+                </div>
+            </div>
+            <div className="row branding">
+                <div className="card">
+                   <div className="card-block">
+                      <Maps lati={lat} long={lng}/>                                                    
+                   </div>
+                </div>
+            </div>
+     </div>
   </div>
-</div>
 
 	);
  }

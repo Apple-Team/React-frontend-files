@@ -27,7 +27,7 @@ componentDidMount(){
  handleRest(id)
 {
   this.id=id;
-  var c=document.getElementById("searchlist");  
+  var c=document.getElementById("home");  
   ReactDOM.render(<Restaurant_detail index={id}/>,c);
 }
 render() {

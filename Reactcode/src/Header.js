@@ -38,12 +38,17 @@ class Header extends Component {
         role='1';
     
     if(uname!=''&&email!=''&&pwd!=''&&confirm_pwd!=''){
+
+    if(pwd.value !== confirm_pwd.value) {
+    confirm_pwd.setCustomValidity("Passwords Don't Match");
+  } 
+  else {
     fetch('http://localhost:9000/create_member',
       {
         headers :{
           "Content-Type" : "application/json"
         },
-      method: "POST",
+       method: "POST",
        body: JSON.stringify({
                               "uname": document.getElementById('name').value,
                               "email": document.getElementById('email').value,
@@ -52,13 +57,7 @@ class Header extends Component {
 
                             })
      })
-     .then(function (data) {
-  alert('Added into the database',data);
-
-  })
-  .catch(function (error) {
-  alert('Not added into the database',error);
-  });
+   }
 }
 else{
   alert('Enter all details');
@@ -162,7 +161,7 @@ return(
 
            <div className="form-check form-check-inline">
                 <label className="form-check-label">
-                    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="role" /> Sign up as Administrator
+                    <input className="form-check-input" type="radio" name="inlineRadioOptions" id="role" value="1"/> Sign up as Administrator
                 </label>
            </div>
 

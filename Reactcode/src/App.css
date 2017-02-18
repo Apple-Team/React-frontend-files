@@ -125,13 +125,7 @@ font-weight: 900;
 }
 
 #tf-home .overlay{
-  background: -moz-linear-gradient(top,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.73) 17%, rgba(0,0,0,0.66) 35%, rgba(0,0,0,0.55) 62%, rgba(0,0,0,0.4) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.8)), color-stop(17%,rgba(0,0,0,0.73)), color-stop(35%,rgba(0,0,0,0.66)), color-stop(62%,rgba(0,0,0,0.55)), color-stop(100%,rgba(0,0,0,0.4))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* W3C */
- 
+ opacity: 0.9; 
   height: 550px;
   background-attachment: fixed;
 }
@@ -241,7 +235,7 @@ ol.type li a.active { font-weight: 700; }
   margin-bottom: 30px;
 }
 .portfolio-item .hover-bg{
-  height: 260px;
+  height: 218px;
   overflow: hidden;
   position: relative;
 }
@@ -285,15 +279,7 @@ ol.type li a.active { font-weight: 700; }
 .hover-bg:hover .hover-txt{
   opacity: 1;
 }
-#tf-collection i.fa {
-  height: 30px;
-  width: 30px;
-  border: 1px solid #FCAC45;
-  font-size: 20px;
-  padding: 5px;
-  border-radius: 50%;
-  color: #FCAC45;
-}
+
 a.fa.fa-angle-up {
   padding: 10px 15px;
   color: #000;
@@ -313,6 +299,9 @@ a.fa.fa-angle-up:hover{
 /*serach*/
 #ss{
   padding-top: 20px;
+}
+#searchrest{
+  padding-top: 60px;
 }
 /*Footer*/
 nav#footer{

@@ -10,8 +10,6 @@ import App from './App';
 import Collection from './collection';
 import Login from './Login';
 import form from './form';
-import SignUp_admin from './SignUp_admin';
-import SignUp_user from './SignUp_user';
 import Signup from './Signup';
 import Search from './Search';
 
@@ -22,6 +20,7 @@ import AddRest from './AddRest';
 import ViewRest from './ViewRest';
 import UpdateRest from './UpdateRest';
 import Restaurant_detail from './Restaurant_detail';
+import Collectionfetch from './Collectionfetch';
 
 
 import Maps from './Maps';
@@ -38,13 +37,12 @@ ReactDOM.render(
  	  <Route path="/home" component={App}/>
  	  <Route path="/login" component={form}/>
  	  <Route path="/Signup" component={Signup}/>
- 	  <Route path="/SignUp_admin" component={SignUp_admin}/>
- 	  <Route path="/SignUp_user" component={SignUp_user}/>
  	  <Route path="/map" component={Maps}/>
  	  <Route path="/Search" component={Search}/>
  	  <Route path="/Restaurant_detail" component={Restaurant_detail}/>
  	  <Route path="/ViewRest" component={ViewRest}/>
-	    	<Route path="/AddRest" component={AddRest}/>
+	  <Route path="/AddRest" component={AddRest}/>
+	  <Route path="/Collectionfetch" component={Collectionfetch}/>
 	  
 	  <Route path="/Admin" component={Admin}>
 	  		<Route path="/ViewRest" component={ViewRest}/>

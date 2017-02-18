@@ -40,6 +40,7 @@ class App extends Component {
       var home=document.getElementById("ss");
       var name="restaurantname=";
       var searchName = name.concat(search);
+      document.getElementById('home').focus;
       ReactDOM.render(<Search s={searchName}/>,home);
  }
 
@@ -49,6 +50,7 @@ class App extends Component {
   return (
    <div id="dd">
     <Header />
+    <div id="home">
     <div id="tf-home" className="text-center">
         <div className="overlay">
             <div className="content">
@@ -73,10 +75,12 @@ class App extends Component {
     </div>
     <div id="ss">
     <Collection />
-    </div>
+    
     <div className="text-center"><a href="#tf-home" className="fa fa-angle-up fa-3x"></a></div>
+    </div>
     <Footer />
     </div>
+  </div>
 
     );
 

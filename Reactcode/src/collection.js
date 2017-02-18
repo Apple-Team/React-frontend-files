@@ -1,43 +1,29 @@
 
 import React, { Component } from 'react';
-import { Link } from 'react-router';
 import ReactDOM from 'react-dom';
-import Restaurant_detail from './Restaurant_detail';
+import { Link } from 'react-router';
+import Collectionfetch from './Collectionfetch';
 
-class Collection extends Component {
+class collection extends Component {
   constructor() {
     // In a constructor, call `super` first if the classNameNameNameName extends another classNameNameNameName
     super();
      this.collectionlist=this.collectionlist.bind(this);
-     this.detailRest=this.detailRest.bind(this);
-    this.state = { data: [],detail_data:[],collection:'' };
+     
+    this.state = { data: [] };
   }
 //list view of collections
   collectionlist(name,cname){
     this.name=name;
     this.cname=cname;
-     fetch("http://localhost:9000/restaurants_by_collection/"+name)
-            .then((response) => response.json())
-            .then((responseJson) => {
-               this.setState({
-                data: responseJson
+  var l=document.getElementById("home");  
+  ReactDOM.render(<Collectionfetch rname={name} rcname={cname}/>,l);
 
-               });
-            });
-    document.getElementById('list').style.display = "block";
   }
   // `render` is called whenever the component's props OR state are updated.
   
   //detail description view
-  detailRest(id){
-    this.id=id;
-    console.log(id);
-  var l=document.getElementById("list");  
-  ReactDOM.render(<Restaurant_detail index={id}/>,l);
-
-  }
-
-
+  
   render() {
     let collections = [
     {
@@ -87,9 +73,8 @@ return (
   <div id="tf-collection">
         <div className="container">
 
-            <div className="section-title text-center center">
-
-                <h2>Take a look at our <strong>Collections</strong></h2>
+            <div className="w3-container">
+                <h3 className="w3-center w3-animate-top">Take a look at our <strong>Collections</strong></h3>
                 <div className="line">
                     <hr />
                 </div>
@@ -110,7 +95,7 @@ return (
                                     <h4>{item.name}</h4>
 
                                     <div className="clearfix"></div>
-                                    <button type="button" onClick={() => this.collectionlist(item.id,item.name)}><i className="fa fa-plus"></i></button>
+                                    <button type="button" className="w3-button w3-orange w3-round-xxlarge" onClick={() => this.collectionlist(item.id,item.name)}><i className="fa fa-plus" aria-hidden="true"></i></button>
                                 </div>
                                 <img src={item.image} className="img-responsive" alt="..." />
 
@@ -123,32 +108,11 @@ return (
 
         </div>
     </div>
-    <div id="list" className="modal">
     
-        <div className="alert alert-warning" role="alert">
-           <h2><strong> {this.cname}</strong></h2>
-        </div>
-        <div className="card-deck">{
-           this.state.data.map((data, index)=>{
-            return (
-
-            <div className="card card-outline-warning mb-3 text-center" >
-                <img className="card-img" src={data.image} alt="Card image cap"/>
-                <div className="card-block">
-                    <h5 className="card-subtitle">{data.name}</h5>
-                    <p className="card-text">{data.cuisine}</p>
-                    <p className="card-text">{data.area}</p>
-                    <button type="button" className="btn btn-warning btn-sm" onClick={()=>this.detailRest(data.id)}>View More</button>
-                </div>
-            </div>)
-          })
-        }
-        </div>
-     </div>
     
   </div>
 
  );
  }
 }
-export default Collection;
+export default collection;

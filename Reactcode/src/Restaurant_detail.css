@@ -1,11 +1,18 @@
 .card-img-top{
 	 width:100%;
-	 height: 17rem;
+	 height: 16rem;
 }
-.card-header{
+.card-sub-header{
 	color: #FCAC45;
 	font-size: 28px;
 }
 
+.col {
+    text-align: left;
+}
+p
+{
+	padding-top: 0px;
+}
 
 
