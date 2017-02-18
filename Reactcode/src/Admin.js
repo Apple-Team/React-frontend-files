@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router';
+import {Router, Route, hashHistory,Link} from 'react-router';
+import './Admin.css';
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
 
@@ -14,7 +15,7 @@ class Admin extends Component {
   render() {
     // console.log('The App component was rendered')
  	 	return(
- 	 	<div id="tf-admin" >
+ 	 	<div className="wrapper" >
           <div className="overlay">
              <div className="row">       
                <div className="col" id="col1">
@@ -22,7 +23,7 @@ class Admin extends Component {
                         <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                           <span className="navbar-toggler-icon"></span>
                          </button>
-                         <a className="navbar-brand" href="#"><img src={require('./images/logo.png')} width="60" height="60" className="d-inline-block" />Find'O Bistro</a>
+                         <a className="navbar-brand" href="#"><img src={require('./images/logo.png')} width="40" height="40" className="d-inline-block" />Find'O Bistro</a>
 
                          <div className="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="navbarTogglerDemo02">
 
@@ -33,11 +34,8 @@ class Admin extends Component {
                                  <li className="nav-item">
                                       <Link to="/AddRest" className="nav-link" >Add Restaurant</Link>
                                  </li>
-                                 
-                                 <li className="nav-item" id="admin">
-                                     <Link to ="/Admin" className="nav-link">View Profile</Link>
-                                 </li>
-                                 <li className="nav-item ">
+                               
+                                 <li className="nav-item " id="admin">
                                      <Link to ="/Admin" className="nav-link">Logout</Link>
                                  </li>
 
@@ -49,7 +47,13 @@ class Admin extends Component {
              </div>
             <div className="row">
                 <div className="col" id="col2">
-                    <div className="p-2">{this.props.children}</div>
+                    	<div className="content">
+                			<div className="txt1">
+                				Welcome to Find'o Bistro,
+                				     <br/>{this.props.name}!!
+                				</div>
+                				</div>
+                			
                 </div>
             </div>
         </div>

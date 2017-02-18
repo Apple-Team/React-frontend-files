@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router';
+import {Link,hashHistory } from 'react-router';
 import ReactDOM from 'react-dom';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import './Signup.css';
-import ViewRest from './ViewRest';
+import Admin from './Admin';
 
 
 // webpack.config.js specifies index.js as the entry point, and
@@ -106,7 +106,7 @@ handleLogin(){
           "Accept" : "application/json"
         }
      })
-     ReactDOM.render(<ViewRest />,document.getElementById('dd'));
+     hashHistory.push('/Admin')
  }
 
 
@@ -114,7 +114,7 @@ handleLogin(){
 render() {
 
 return(
-  <div id="dd">
+  <div>
   <div className="tf-nav">
  	 	<nav className="navbar navbar-toggleable-md fixed-top navbar-light bg-faded">
 
@@ -122,7 +122,7 @@ return(
         <span className="navbar-toggler-icon"></span>
       </button>
 
-        <a className="navbar-brand" href="#"><img src={require('./images/logo.png')} width="60" height="60" className="d-inline-block align-center" />Find'O Bistro</a>
+        <a className="navbar-brand" href="#"><img src={require('./images/logo.png')} width="40" height="40" className="d-inline-block align-center" />Find'O Bistro</a>
 
         <div className="nav-dropdown collapse nav navbar-nav navbar-toggleable-sm" id="navbarTogglerDemo02">
              <ul className="nav navbar-nav pull-lg-right">

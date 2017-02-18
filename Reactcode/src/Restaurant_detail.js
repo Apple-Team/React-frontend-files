@@ -4,7 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import './Restaurant_detail.css';
 import GoogleMap from 'google-map-react';
-
+import Maps from'./Maps';
 class Restaurant_detail extends Component {
 	constructor() {
 		// In a constructor, call `super` first if the className extends another classNameName
@@ -22,21 +22,13 @@ class Restaurant_detail extends Component {
 
                });
             });
-      
-          
-          var loctn = {lat:17.4249, lng:78.4384};
-          var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 4,
-            center: loctn
-          });
-          var marker = new google.maps.Marker({
-            position: loctn,
-            map: map
-          });
+    
     }
   	// `render` is called whenever the component's props OR state are updated.
 	render() {
 		// console.log('The App component was rendered')
+    var lat=this.state.detail_data.latitude;
+    var lng=this.state.detail_data.longitude;
   return (
 <div>
 		<div id="detailRest">
@@ -78,9 +70,9 @@ class Restaurant_detail extends Component {
                 <div className="row branding">
                      <div className="card">
                          <div className="card-block">
-                            <div id="map">
-                              
-                            </div>                            
+                           
+                              <Maps lati={lat} long={lng}/>
+                                                    
                           </div>
                      </div>
                 </div>

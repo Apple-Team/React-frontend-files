@@ -13,6 +13,15 @@
     GENERAL  STYLES    
     =============================================*/
 
+.wrapper{
+    background-image: url(images/admin_back.jpg);
+  background-size: cover;
+  height: 550px;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #cfcfcf;
+}
 .col{
    
     text-align:center;
@@ -22,6 +31,15 @@
 }
 body {
     font-family: 'Open Sans', sans-serif;
+}
+
+.txt1{
+    position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+    font-size:290%;
+    font-color:black;
 }
 
  #wrapper {

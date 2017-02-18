@@ -43,9 +43,11 @@ ReactDOM.render(
  	  <Route path="/map" component={Maps}/>
  	  <Route path="/Search" component={Search}/>
  	  <Route path="/Restaurant_detail" component={Restaurant_detail}/>
-
+ 	  <Route path="/ViewRest" component={ViewRest}/>
+	    	<Route path="/AddRest" component={AddRest}/>
 	  
-	  <Route path="/ViewRest" component={ViewRest}>
+	  <Route path="/Admin" component={Admin}>
+	  		<Route path="/ViewRest" component={ViewRest}/>
 	    	<Route path="/AddRest" component={AddRest}/>
 	    	<Route path="/UpdateRest" component={UpdateRest}/>
 	  </Route>
