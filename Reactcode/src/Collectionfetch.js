@@ -1,33 +1,35 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Link } from 'react-router';
+import { Link,hashHistory} from 'react-router';
 import Restaurant_detail from './Restaurant_detail';
+import Header from './Header';
 
 class Collectionfetch extends Component {
     constructor() {
     // In a constructor, call `super` first if the classNameNameNameName extends another classNameNameNameName
     super();
-    this.state = { data: [] };
+    this.state = { data:[]};
     this.detailRest=this.detailRest.bind(this);
         console.log('test');
   }
-  componentDidMount(){
-    
-    fetch("http://localhost:9000/restaurants_by_collection/"+this.props.rname)
+  componentWillMount(){
+
+    fetch("http://localhost:9000/restaurants_by_collection/"+this.props.params.name)
             .then((response) => response.json())
             .then((responseJson) => {
                this.setState({
-                detail_data: responseJson
+                data: responseJson
 
                });
             });
-    
+     
     }
   detailRest(id){
     this.id=id;
     console.log(id);
   var l=document.getElementById("home");  
-  ReactDOM.render(<Restaurant_detail index={id}/>,l);
+  hashHistory.push('/Restaurant_detail/'+id)
+
 
   }
 
@@ -35,15 +37,15 @@ class Collectionfetch extends Component {
 
   // `render` is called
   render() {
-    // console.log('The App component was rendered')
+    console.log('The App component was rendered')
   return (
-      <div id="list">
-    
+      <div id="list1">
+      <Header />
         <div className="alert alert-warning" role="alert">
-           <h2><strong> {this.props.rcname}</strong></h2>
+           <h2><strong> {this.props.params.cname}</strong></h2>
         </div>
         <div className="card-deck">{
-           this.state.data.map((data, index)=>{
+           this.state.data.map((data,index)=>{
             return (
 
             <div className="card card-outline-warning mb-3 text-center" >

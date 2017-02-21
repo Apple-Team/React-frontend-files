@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link,hashHistory } from 'react-router';
 import ReactDOM from 'react-dom';
 import Restaurant_detail from './Restaurant_detail';
 import UpdateRest from './UpdateRest';
@@ -56,60 +56,18 @@ handleRest(id)
 {
   this.id=id;
   var c=document.getElementById("content");  
-  ReactDOM.render(<Restaurant_detail index={id}/>,c);
+  hashHistory.push('/Restaurant_detail/'+id)
 
 }
-handleGet(id){
-  this.id=id;
-  fetch("http://localhost:9000/restaurants_by_id/"+id)
-         .then((response) => response.json())
-         .then((responseJson) => {
-            this.setState({
-             get_data: responseJson
-
-            });
-         });
-  console.log(this.state.get_data);
-  document.getElementById('Update').style.display = "block";
+handleGet(index){
+  this.index=index;
+  hashHistory.push('/UpdateRest/'+index)
 }
 
- handleUpdate(id){
-  this.id=id;
-  fetch('http://localhost:9000/rest/'+ id,
-    {
-      headers :{
-        "Content-Type" : "application/json"
-      },
-    method: "PUT",
-    body: JSON.stringify({
-                           "name": document.getElementById('name').value,
-                           "cuisine": document.getElementById('cuisine').value,
-                           "address": document.getElementById('address').value,
-                           "area": document.getElementById('area').value,
-                           "collection": document.getElementById('collection').value,
-                           "homePage": document.getElementById('homepageurl').value,
-                           "fbUrl": document.getElementById('fbpageurl').value,
-                           "number": document.getElementById('telephone').value,
-                           "latitude": document.getElementById('lat').value,
-                           "longitude": document.getElementById('long').value,
-                           "workHours": document.getElementById('working hours').value,
-                           "image": document.getElementById('FileUpload').value
 
-                         })
-   })
-   .then((response) => response.json())
-   .then((responseJson) => {
-      this.setState({
-       data1: responseJson
-
-      });
-   });
-   alert('Added into the database',this.state.data1);
-   console.log(this.state.data1);
-   document.getElementById('Update').style.display = "block";
+ handleChange(event){
+  this.setState({get_data: event.target.value});
  }
-
-
 
 
   // `render` is called whenever the component's props OR state are updated.
@@ -117,8 +75,35 @@ handleGet(id){
 
    return( 
   <div id="content">
- 
-    <div className="card card-block">{
+      <div className="row">       
+               <div className="col" id="col1">
+                    <nav className="navbar  sticky-top navbar-toggleable-md navbar-light bg-faded">
+                        <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                          <span className="navbar-toggler-icon"></span>
+                         </button>
+                         <a className="navbar-brand" href="#"><img src={require('./images/logo.png')} width="40" height="40" className="d-inline-block" />Find'O Bistro</a>
+
+                         <div className="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="navbarTogglerDemo02">
+
+                             <ul className="navbar-nav">
+                                 <li className="nav-item active">
+                                      <Link to="/ViewRest" className="nav-link" >View All Restaurants</Link>
+                                 </li>
+                                 <li className="nav-item">
+                                      <Link to="/AddRest" className="nav-link" >Add Restaurant</Link>
+                                 </li>
+                               
+                                 <li className="nav-item " id="admin">
+                                     <Link to ="/Admin" className="nav-link">Logout</Link>
+                                 </li>
+
+                            </ul>                       
+                        </div>
+                       
+                    </nav>
+                 </div>
+             </div>
+    <div className="card card-block" id="redirect">{
       this.state.data.map((data, index) => {
         return (
          <ul>
@@ -139,98 +124,7 @@ handleGet(id){
       )}
     </div>
 
-  <div id="Update" className="modal" >
-    <div className="container">
-      <div className="form-group row">
-         <label className="col-2 col-form-label">Name</label>
-            <div className="col-6">
-              <input className="form-control" name="name" type="search" defaultValue={this.state.get_data.name} id="name"/>
-             </div>
-      </div>
-  <div className="form-group row">
-    <label for="example-text-input" className="col-2 col-form-label">Area</label>
-    <div className="col-6">
-       <input className="form-control" type="search" value={this.state.get_data.area} id="area"/>
-    </div>
-  </div>
-  <div className="form-group row">
-    <label for="example-text-input" className="col-2 col-form-label">Address</label>
-    <div className="col-6">
-      <input className="form-control" type="search" value={this.state.get_data.address} id="address"/>
-    </div>
-  </div>
-   <div className="form-group row">
-    <label for="example-text-input" className="col-2 col-form-label">Cuisine</label>
-    <div className="col-6">
-      <input className="form-control" type="search" value={this.state.get_data.cuisine} id="cuisine"/>
-    </div>
-  </div>
-  <div className="form-group row">
-    <label for="example-text-input" className="col-2 col-form-label">Collection</label>
-    <div className="col-6">
-  <select className="custom-select" id="collection">
-    <option selected>{this.state.get_data.collection}</option>
-    <option value="Breakfast">Breakfast</option>
-    <option value="Sunday Brunch">Sunday Brunch</option>
-    <option value="Fine Dining">Fine Dine</option>
-    <option value="Barbeque & Grills">Barbeque & Grills</option>
-    <option value="Frozen Delights">Frozen Delight</option>
-    <option value="Street Food">Street Food</option>
-  </select>
-  </div>
-  </div>
-  <div className="form-group row">
-    <label for="example-url-input" className="col-2 col-form-label">Home Page URL</label>
-    <div className="col-6">
-      <input className="form-control" type="url" value={this.state.get_data.homePage} id="homepageurl"/>
-    </div>
-  </div>
-  <div className="form-group row">
-    <label for="example-url-input" className="col-2 col-form-label">Facebook Page URL</label>
-    <div className="col-6">
-      <input className="form-control" type="url" value={this.state.get_data.fbUrl} id="fbpageurl"/>
-    </div>
-  </div>
-  <div className="form-group row">
-    <label for="example-tel-input" className="col-2 col-form-label">Telephone</label>
-    <div className="col-6">
-      <input className="form-control" type="tel" value={this.state.get_data.number} id="telephone"/>
-    </div>
-  </div>
-  <div className="form-group row">
-    <label for="example-text-input" className="col-2 col-form-label">Working Hours</label>
-    <div className="col-6">
-      <input className="form-control" type="search" value={this.state.get_data.workHours} id="working hours"/>
-    </div>
-  </div>
-  <div className="form-group row">
-    <label for="example-text-input" className="col-2 col-form-label">Latitude</label>
-    <div className="col-6">
-      <input className="form-control" type="search" value={this.state.get_data.latitude} id="lat"/>
-    </div>
-  </div>
-  <div className="form-group row">
-    <label for="example-text-input" className="col-2 col-form-label">Longitude</label>
-    <div className="col-6">
-      <input className="form-control" type="search" value={this.state.get_data.longitude} id="long"/>
-    </div>
-  </div>
-  <div className="form-group row">
-      <label for="exampleInputFile" className="col-2 col-form-label">Image</label>
-      <div className="col-6">
-         <input type="file" class="form-control-file" id="FileUpload" aria-describedby="fileHelp"/>
-         <small id="fileHelp" className="form-text text-muted">Browse Image file location </small>
-      </div>
-    </div>
-  <div className="form-group-row">
-      <div className="col-6">
-        <button type="button" className="btn btn-warning" onClick={() => this.handleUpdate(this.state.get_data.id)}>Submit</button>
-      </div>
-  </div>
 
-
-  </div>
-  </div>
 
   </div>
   );

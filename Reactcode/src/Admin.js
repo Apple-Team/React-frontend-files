@@ -49,8 +49,8 @@ class Admin extends Component {
                 <div className="col" id="col2">
                     	<div className="content">
                 			<div className="txt1">
-                				Welcome to Find'o Bistro,
-                				     <br/>{this.props.name}!!
+                				Welcome to Find'O Bistro,
+                				     <br/>{this.props.params.name}!!
                 				</div>
                 				</div>
                 			

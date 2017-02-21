@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import "./Maps.css";
-class Maps extends Component {
+class StaticMap extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another className
     super();
@@ -10,9 +10,9 @@ class Maps extends Component {
   }
 
   handleMap(){
-    var uluru = {lat:this.props.lati, lng:this.props.long};
+    var uluru = {lat:17.4429, lng:78.3573};
           var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 17,
+            zoom: 10,
             center: uluru
           });
           var marker = new google.maps.Marker({
@@ -28,4 +28,4 @@ class Maps extends Component {
     );
   }
 }
-export default Maps;
+export default StaticMap;

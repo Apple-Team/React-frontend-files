@@ -1,5 +1,5 @@
  import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link , hashHistory } from 'react-router';
 import ReactDOM from 'react-dom';
 import Restaurant_detail from './Restaurant_detail';
 import Footer from './Footer';
@@ -28,7 +28,7 @@ componentDidMount(){
 {
   this.id=id;
   var c=document.getElementById("home");  
-  ReactDOM.render(<Restaurant_detail index={id}/>,c);
+  hashHistory.push('/Restaurant_detail/'+id)
 }
 render() {
     // console.log('The App component was rendered')

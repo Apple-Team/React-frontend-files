@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
+import StaticMap from './StaticMap';
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
 
@@ -49,7 +50,38 @@ class AddRest extends Component {
   render() {
     // console.log('The App component was rendered')
     return(
-<div  className="container" >
+<div  id="content1">
+<div className="row">       
+               <div className="col" id="col1">
+                    <nav className="navbar  sticky-top navbar-toggleable-md navbar-light bg-faded">
+                        <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                          <span className="navbar-toggler-icon"></span>
+                         </button>
+                         <a className="navbar-brand" href="#"><img src={require('./images/logo.png')} width="40" height="40" className="d-inline-block" />Find'O Bistro</a>
+
+                         <div className="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="navbarTogglerDemo02">
+
+                             <ul className="navbar-nav">
+                                 <li className="nav-item active">
+                                      <Link to="/ViewRest" className="nav-link" >View All Restaurants</Link>
+                                 </li>
+                                 <li className="nav-item">
+                                      <Link to="/AddRest" className="nav-link" >Add Restaurant</Link>
+                                 </li>
+                               
+                                 <li className="nav-item " id="admin">
+                                     <Link to ="/Admin" className="nav-link">Logout</Link>
+                                 </li>
+
+                            </ul>                       
+                        </div>
+                       
+                    </nav>
+                 </div>
+             </div>
+    <div  className="container" >
+    <div className="row">
+    <div className="col col-sm-6">
  <div className="form-group row">
   <label className="col-2 col-form-label">Name</label>
   <div className="col-6">
@@ -136,6 +168,21 @@ class AddRest extends Component {
       <button type="button" className="btn btn-warning" onClick={this.handleClick.bind(this)}>Submit</button>
     </div>
 </div>
+</div>
+
+<div className="col col-sm-6">
+  <div className="card">
+    <div className="card-block">
+    <StaticMap />
+    </div>
+  </div>
+</div>
+
+</div>
+
+</div>
+
+
 </div>
        );
    }

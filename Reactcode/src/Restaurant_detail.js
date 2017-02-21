@@ -14,7 +14,7 @@ class Restaurant_detail extends Component {
 	}
   componentDidMount(){
     
-    fetch("http://localhost:9000/restaurants_by_id/"+this.props.index)
+    fetch("http://localhost:9000/restaurants_by_id/"+this.props.params.id)
             .then((response) => response.json())
             .then((responseJson) => {
                this.setState({
@@ -33,7 +33,7 @@ class Restaurant_detail extends Component {
   <div>
 		<div id="detailRest">
         <div className="row" id="searchrest">
-                <div className="col col-sm-6branding">
+                <div className="col col-sm-6 branding">
                     <div className="card mb-10">
                        <img className="card-img-top" src={this.state.detail_data.image} alt="Card image cap"/>
                     </div>

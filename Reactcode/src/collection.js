@@ -1,12 +1,12 @@
 
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Link } from 'react-router';
+import { Link,hashHistory } from 'react-router';
 import Collectionfetch from './Collectionfetch';
 
 class collection extends Component {
   constructor() {
-    // In a constructor, call `super` first if the classNameNameNameName extends another classNameNameNameName
+    // In a constructor, call `super` first if the className extends another classNameNameNameName
     super();
      this.collectionlist=this.collectionlist.bind(this);
      
@@ -15,10 +15,8 @@ class collection extends Component {
 //list view of collections
   collectionlist(name,cname){
     this.name=name;
-    this.cname=cname;
-  var l=document.getElementById("home");  
-  ReactDOM.render(<Collectionfetch rname={name} rcname={cname}/>,l);
-
+    this.cname=cname; 
+  hashHistory.push('/Collectionfetch/'+name+'/'+cname)
   }
   // `render` is called whenever the component's props OR state are updated.
   
@@ -31,7 +29,6 @@ class collection extends Component {
      image:require('./images/sb.jpg'),
      url:'sb',
      id:'Sunday%20Brunch'
-
    },
    {
     name:'Frozen Delight',

@@ -24,6 +24,7 @@ import Collectionfetch from './Collectionfetch';
 
 
 import Maps from './Maps';
+import StaticMap from './StaticMap';
 
 
 
@@ -38,16 +39,17 @@ ReactDOM.render(
  	  <Route path="/login" component={form}/>
  	  <Route path="/Signup" component={Signup}/>
  	  <Route path="/map" component={Maps}/>
- 	  <Route path="/Search" component={Search}/>
- 	  <Route path="/Restaurant_detail" component={Restaurant_detail}/>
+ 	  <Route path="/StaticMap" component={StaticMap}/>
+ 	  <Route path="/Search/:s" component={Search}/>
+ 	  <Route path="/Restaurant_detail/:id" component={Restaurant_detail}/>
  	  <Route path="/ViewRest" component={ViewRest}/>
 	  <Route path="/AddRest" component={AddRest}/>
-	  <Route path="/Collectionfetch" component={Collectionfetch}/>
+	  <Route path="/UpdateRest/:index" component={UpdateRest}/>
+	  <Route path="/Collectionfetch/:name/:cname" component={Collectionfetch}/>
 	  
-	  <Route path="/Admin" component={Admin}>
+	  <Route path="/Admin/:name" component={Admin}>
 	  		<Route path="/ViewRest" component={ViewRest}/>
 	    	<Route path="/AddRest" component={AddRest}/>
-	    	<Route path="/UpdateRest" component={UpdateRest}/>
 	  </Route>
 	    
       

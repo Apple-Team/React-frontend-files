@@ -105,7 +105,7 @@ handleLogin(){
           "Accept" : "application/json"
         }
      })
-     hashHistory.push('/Admin')
+     hashHistory.push('/Admin/'+name)
  }
 
 
@@ -132,10 +132,10 @@ return(
                    <a className="nav-link" href="#tf-collection">Collections</a>
                 </li>
                <li className="nav-item">
-                <span><button className="btn1" type="button" className="btn btn-secondary btn-sm" onClick={this.modalOpen1}><i className="fa fa-sign-in" aria-hidden="true"></i>SIGN UP</button></span>
+                <span><button className="btn1" type="button" className="btn btn-secondary btn-sm" onClick={this.modalOpen1}><i className="fa fa-sign-in" aria-hidden="true"></i> SIGN UP</button></span>
              </li>
                 <li className="nav-item">
-                  <button className="btn1" type="button" className="btn btn-secondary btn-sm" onClick={this.modalOpen2}><i className="fa fa-user" aria-hidden="true"></i>LOGIN</button>
+                  <button className="btn1" type="button" className="btn btn-secondary btn-sm" onClick={this.modalOpen2}><i className="fa fa-user" aria-hidden="true"></i> SIGN IN</button>
                 </li>
              </ul>
           </div>
