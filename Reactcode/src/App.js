@@ -57,7 +57,7 @@ class App extends Component {
                 <div className="txt">
                    <div className="input-group">
                        <input type="text" size ="100"  placeholder="Hungry??  Find your favourite Bistro...." className="form-control" id="search-bar"/>
-                          <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} className="input-group-btn" >
+                          <ButtonDropdown id="searchdrop" isOpen={this.state.dropdownOpen} toggle={this.toggle} className="input-group-btn" >
                           <DropdownToggle caret size="sm">
                           <i className="fa fa-search"></i>
                           </DropdownToggle>

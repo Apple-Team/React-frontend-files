@@ -16,16 +16,18 @@
 }
 /* Navigation */
 .navbar {
-  background-color:#fcac45;
+  background-color:transparent;
   border-color: rgba(231, 231, 231, 0);
   opacity: 0.9;
   }
-a.navbar-brand {
+.navbar-brand {
 font-family: cursive;
 font-weight: bold;
 font-size: 22px;
-color: #FCAC45;
 font-weight: 900;
+}
+.navbar-light .navbar-brand, .navbar-light .navbar-toggler {
+    color: #fcac45;
 }
 .card-img, .img-responsive{
   width:320px;
@@ -41,14 +43,17 @@ font-weight: 900;
 }
 .btn-secondary{
   text-transform: uppercase;
-  background-color: #FCAC45;
+  background-color: transparent;
   font-size: 12px;
   letter-spacing: 1px;
   width: auto;
   display:table-cell;
   text-decoration-color: #fff;
-  border-color:  #FCAC45;
+  border-color: transparent;
     
+}
+#searchdrop .btn-secondary{
+  background-color: #fcac45;
 }
 .menu{
   background-color:#FCAC45;
@@ -72,7 +77,9 @@ font-weight: 900;
   background-color: #222222 ;
   padding: ;
 }
-
+.nav{
+  color:#fcac45;
+}
 .navbar .navbar-nav > li > a:active{
   
   background-color: transparent;
@@ -113,10 +120,15 @@ font-weight: 900;
 }         
  li#nav{
   padding-left: 550px;
- }     
+ } 
+ .btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
+    color: #292b2c;
+     background-color: #fcac45;     
+     border-color: #fcac45; 
+}    
 /* Home Style */
 #tf-home{
-  background: url(images/images.jpg);
+  background: url(images/home1.jpg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -125,7 +137,7 @@ font-weight: 900;
 }
 
 #tf-home .overlay{
- opacity: 0.9; 
+ 
   height: 550px;
   background-attachment: fixed;
 }
@@ -355,3 +367,4 @@ li#admin{
   height:all;
   background-attachment: fixed;
 }
+/*collection fetch */

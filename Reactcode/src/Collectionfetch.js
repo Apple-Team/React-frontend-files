@@ -40,7 +40,7 @@ class Collectionfetch extends Component {
     console.log('The App component was rendered')
   return (
       <div id="list1">
-      <Header />
+      
         <div className="alert alert-warning" role="alert">
            <h2><strong> {this.props.params.cname}</strong></h2>
         </div>
@@ -54,6 +54,8 @@ class Collectionfetch extends Component {
                     <h5 className="card-subtitle">{data.name}</h5>
                     <p className="card-text">{data.cuisine}</p>
                     <p className="card-text">{data.area}</p>
+                </div>
+                <div className="card-footer">
                     <button type="button" className="btn btn-warning btn-sm" onClick={()=>this.detailRest(data.id)}>View More</button>
                 </div>
             </div>)

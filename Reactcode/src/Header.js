@@ -126,16 +126,16 @@ return(
         <div className="nav-dropdown collapse nav navbar-nav navbar-toggleable-sm" id="navbarTogglerDemo02">
              <ul className="nav navbar-nav pull-lg-right">
                 <li className="nav-item active" id="nav">
-                   <a className="nav-link" href="#">Home</a>
+                   <a className="nav-link" href="#"><b>Home</b></a>
                 </li>
-                <li className="nav-item">
-                   <a className="nav-link" href="#tf-collection">Collections</a>
+                <li className="nav-item active">
+                   <a className="nav-link" href="#tf-collection"><b>Collections</b></a>
                 </li>
                <li className="nav-item">
-                <span><button className="btn1" type="button" className="btn btn-secondary btn-sm" onClick={this.modalOpen1}><i className="fa fa-sign-in" aria-hidden="true"></i> SIGN UP</button></span>
+                <span><button className="btn1" type="button" className="btn btn-secondary btn-sm" onClick={this.modalOpen1}><i className="fa fa-sign-in" aria-hidden="true"></i><b> SIGN UP</b></button></span>
              </li>
                 <li className="nav-item">
-                  <button className="btn1" type="button" className="btn btn-secondary btn-sm" onClick={this.modalOpen2}><i className="fa fa-user" aria-hidden="true"></i> SIGN IN</button>
+                  <button className="btn1" type="button" className="btn btn-secondary btn-sm" onClick={this.modalOpen2}><i className="fa fa-user" aria-hidden="true"></i><b> SIGN IN</b></button>
                 </li>
              </ul>
           </div>
