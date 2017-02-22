@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {Router, Route, hashHistory,Link} from 'react-router';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+
 import './Admin.css';
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
@@ -9,7 +11,17 @@ class Admin extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another className
     super();
+    this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
   }
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
+  }
+
 
   // `render` is called whenever the component's props OR state are updated.
   render() {
@@ -18,31 +30,25 @@ class Admin extends Component {
  	 	<div className="wrapper" >
           <div className="overlay">
              <div className="row">       
-               <div className="col" id="col1">
-                    <nav className="navbar  sticky-top navbar-toggleable-md navbar-light bg-faded">
-                        <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                          <span className="navbar-toggler-icon"></span>
-                         </button>
-                         <a className="navbar-brand" href="#"><img src={require('./images/logo.png')} width="40" height="40" className="d-inline-block" />Find'O Bistro</a>
-
-                         <div className="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="navbarTogglerDemo02">
-
-                             <ul className="navbar-nav">
-                                 <li className="nav-item active">
-                                      <Link to="/ViewRest" className="nav-link" >View All Restaurants</Link>
-                                 </li>
-                                 <li className="nav-item">
-                                      <Link to="/AddRest" className="nav-link" >Add Restaurant</Link>
-                                 </li>
-                               
-                                 <li className="nav-item " id="admin">
-                                     <Link to ="/Admin" className="nav-link">Logout</Link>
-                                 </li>
-
-                            </ul>                       
-                        </div>
-                       
-                    </nav>
+               <div className="col" id="col1">                    
+                  <Navbar fixed="top" toggleable id="adminHeader">
+                     <NavbarToggler right onClick={this.toggle} />
+                         <NavbarBrand href="/">
+                           <img src={require('./images/logo.png')} width="60" height="60" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
+                           <Collapse isOpen={this.state.isOpen} navbar>
+                              <Nav className="ml-auto" navbar>
+                                <NavItem>
+                                  <Link to="/ViewRest" className="nav-link" >View All Restaurants</Link>
+                                </NavItem>
+                                <NavItem>
+                                  <Link to="/AddRest" className="nav-link" >Add Restaurant</Link>
+                                </NavItem>
+                                <NavItem>
+                                  <Link to ="/Admin" className="nav-link">Logout</Link>
+                                 </NavItem>
+                              </Nav>
+                           </Collapse>
+                        </Navbar>
                  </div>
              </div>
             <div className="row">

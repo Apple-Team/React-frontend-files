@@ -15,6 +15,7 @@
     padding-top:80px;
 }
 /* Navigation */
+
 .navbar {
   background-color:transparent;
   border-color: rgba(231, 231, 231, 0);
@@ -24,10 +25,15 @@
 font-family: cursive;
 font-weight: bold;
 font-size: 22px;
+color: #FCAC46;
 font-weight: 900;
 }
+.navbar-brand:hover{
+  color: #FCAC46;
+
+}
 .navbar-light .navbar-brand, .navbar-light .navbar-toggler {
-    color: #fcac45;
+    color: #000000;
 }
 .card-img, .img-responsive{
   width:320px;
@@ -35,7 +41,7 @@ font-weight: 900;
 }
 .navbar .navbar-nav > li > a {
   text-transform: uppercase;
-  color: #FCAC45;
+  color: #000000;
   font-size: 12px;
   letter-spacing: 1px;
   width: auto;
@@ -77,9 +83,7 @@ font-weight: 900;
   background-color: #222222 ;
   padding: ;
 }
-.nav{
-  color:#fcac45;
-}
+
 #tf-nav{
   background-color: transparent;
   font-weight: 700;
@@ -104,28 +108,28 @@ Navbar > NavItem:active{
   background-color: transparent;
   font-weight: 700;
 }
-.navbar-toggle {
+.navbar-toggler {
   border-radius: 0;
   }
-.navbar .navbar-toggle:hover,
-.navbar .navbar-toggle:focus {
-  background-color: #FCAC45;
-  border-color: #FCAC45;
+.navbar .navbar-toggler:hover,
+.navbar .navbar-toggler:focus {
+  background-color: #000000;
+  border-color: #000000;
   }
-.navbar .navbar-toggle:hover >.icon-bar {
-  background-color: #fcac45;
+.navbar .navbar-toggler:hover >.icon-bar {
+  background-color: #000000;
 }
 .navbar-caption: {
-              color: #ffffff
+              color: #ffffff;
             },
 .navbar-toggler: {
-              color: #ffffff
+              color: #000000;
             }
 .link, ButtonDropdown: {
-              color: #fcac45
+              color: #fcac45;
             },
 .link: {
-              font-size: 0.75rem
+              font-size: 0.75rem;
 }
  li#nav{
   padding-left: 550px;

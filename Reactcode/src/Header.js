@@ -129,10 +129,10 @@ return(
   <div>
   <div className="tf-nav">
 
-      <Navbar light toggleable>
-          <NavbarToggler right onClick={this.toggle} />
+      <Navbar fixed="top" toggleable>
+          <NavbarToggler right onClick={this.toggle}><span className="navbar-toggler-icon"></span></NavbarToggler>
           <NavbarBrand href="/">
-          <img src={require('./images/logo.png')} width="40" height="40" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
+          <img src={require('./images/logo.png')} width="60" height="60" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
