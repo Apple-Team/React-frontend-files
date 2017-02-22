@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link,hashHistory } from 'react-router';
 import ReactDOM from 'react-dom';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import './Signup.css';
 import Admin from './Admin';
 
@@ -21,8 +22,20 @@ class Header extends Component {
     this.state = { data: [] };
     this.handleSignup=this.handleSignup.bind(this);
     this.handleLogin=this.handleLogin.bind(this);
+
+      this.toggle = this.toggle.bind(this);
+    this.state = {
+      isOpen: false
+    };
+
     console.log('test');
 
+  }
+
+  toggle() {
+    this.setState({
+      isOpen: !this.state.isOpen
+    });
   }
 
   handleSignup(ev){
@@ -115,31 +128,28 @@ render() {
 return(
   <div>
   <div className="tf-nav">
- 	 	<nav className="navbar navbar-toggleable-md fixed-top navbar-light bg-faded">
 
-      <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-        <span className="navbar-toggler-icon"></span>
-      </button>
-
-        <a className="navbar-brand" href="#"><img src={require('./images/logo.png')} width="40" height="40" className="d-inline-block align-center" />FindO Bistro</a>
-
-        <div className="nav-dropdown collapse nav navbar-nav navbar-toggleable-sm pull-lg-right" id="navbarTogglerDemo02">
-             <ul className="nav navbar-nav pull-lg-right">
-                <li className="nav-item active" id="nav">
-                   <a className="nav-link" href="#"><b>Home</b></a>
-                </li>
-                <li className="nav-item active">
-                   <a className="nav-link" href="#tf-collection"><b>Collections</b></a>
-                </li>
-               <li className="nav-item">
+      <Navbar light toggleable>
+          <NavbarToggler right onClick={this.toggle} />
+          <NavbarBrand href="/">
+          <img src={require('./images/logo.png')} width="40" height="40" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="#"><b>Home</b></NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="#tf-collection"><b>Collections</b></NavLink>
+              </NavItem>
+              <NavItem>
                 <span><button className="btn1" type="button" className="btn btn-secondary btn-sm" onClick={this.modalOpen1}><i className="fa fa-sign-in" aria-hidden="true"></i><b> SIGN UP</b></button></span>
-             </li>
-                <li className="nav-item">
-                  <button className="btn1" type="button" className="btn btn-secondary btn-sm" onClick={this.modalOpen2}><i className="fa fa-user" aria-hidden="true"></i><b> SIGN IN</b></button>
-                </li>
-             </ul>
-          </div>
-      </nav>
+              </NavItem>
+              <NavItem>
+              <button className="btn1" type="button" className="btn btn-secondary btn-sm" onClick={this.modalOpen2}><i className="fa fa-user" aria-hidden="true"></i><b> SIGN IN</b></button>
+              </NavItem>
+            </Nav>
+          </Collapse>
+        </Navbar>
   </div>
 
   <div id="signup">

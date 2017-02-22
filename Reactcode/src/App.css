@@ -80,7 +80,16 @@ font-weight: 900;
 .nav{
   color:#fcac45;
 }
-.navbar .navbar-nav > li > a:active{
+#tf-nav{
+  background-color: transparent;
+  font-weight: 700;
+}
+
+Navbar{
+  background-color: transparent;
+  font-weight: 700;
+}
+Navbar > NavItem:active{
 
   background-color: transparent;
   font-weight: 700;
@@ -171,7 +180,7 @@ img{
 
 a.fa.fa-angle-down {
   padding: 10px 15px;
-  color: #fff;
+  color:#b4b4b4;
   border: 2px solid #b4b4b4;
   border-radius: 50%;
   font-size: 24px;
@@ -195,7 +204,7 @@ a.fa.fa-angle-down:hover{
   margin-left: auto;
 }
 #tf-collection{
-  padding: 80px 0;
+  padding: 80px 0
 }
 .categories{
   padding: 10px 0;
