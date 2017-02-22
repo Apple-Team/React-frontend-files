@@ -75,7 +75,7 @@ class App extends Component {
     </div>
     <div id="ss">
     <Collection />
-    
+
     <div className="text-center"><a href="#tf-home" className="fa fa-angle-up fa-3x"></a></div>
     </div>
     <Footer />

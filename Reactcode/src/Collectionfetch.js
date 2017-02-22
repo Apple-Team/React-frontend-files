@@ -22,12 +22,12 @@ class Collectionfetch extends Component {
 
                });
             });
-     
+
     }
   detailRest(id){
     this.id=id;
     console.log(id);
-  var l=document.getElementById("home");  
+  var l=document.getElementById("home");
   hashHistory.push('/Restaurant_detail/'+id)
 
 
@@ -40,7 +40,7 @@ class Collectionfetch extends Component {
     console.log('The App component was rendered')
   return (
       <div id="list1">
-      
+
         <div className="alert alert-warning" role="alert">
            <h2><strong> {this.props.params.cname}</strong></h2>
         </div>
@@ -49,7 +49,7 @@ class Collectionfetch extends Component {
             return (
 
             <div className="card card-outline-warning mb-3 text-center" >
-                <img className="card-img" src={data.image} alt="Card image cap"/>
+                <img className="card-img-top img-fluid" src={data.image} alt="Card image cap"/>
                 <div className="card-block">
                     <h5 className="card-subtitle">{data.name}</h5>
                     <p className="card-text">{data.cuisine}</p>

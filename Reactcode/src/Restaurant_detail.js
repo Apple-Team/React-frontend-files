@@ -10,10 +10,10 @@ class Restaurant_detail extends Component {
 		// In a constructor, call `super` first if the className extends another classNameName
 		super();
     this.state = { detail_data:[] };
-    
+
 	}
   componentDidMount(){
-    
+
     fetch("http://localhost:9000/restaurants_by_id/"+this.props.params.id)
             .then((response) => response.json())
             .then((responseJson) => {
@@ -22,7 +22,7 @@ class Restaurant_detail extends Component {
 
                });
             });
-    
+
     }
   	// `render` is called whenever the component's props OR state are updated.
 	render() {
@@ -35,11 +35,11 @@ class Restaurant_detail extends Component {
         <div className="row" id="searchrest">
                 <div className="col col-sm-6 branding">
                     <div className="card mb-10">
-                       <img className="card-img-top" src={this.state.detail_data.image} alt="Card image cap"/>
+                       <img className="card-img-top image-fluid" src={this.state.detail_data.image} alt="Card image cap"/>
                     </div>
                 </div>
-          
-              <div className="col col-sm-4">                
+
+              <div className="col col-sm-4">
                 <div className="row branding">
                   <div className="row">
                      <div className="card w-100">
@@ -55,7 +55,7 @@ class Restaurant_detail extends Component {
                               <p className="card-text">{this.state.detail_data.area}</p>
                         </div>
                      </div>
-                  </div>                 
+                  </div>
                 </div>
               </div>
           </div>
@@ -75,7 +75,7 @@ class Restaurant_detail extends Component {
             <div className="row branding">
                 <div className="card">
                    <div className="card-block">
-                      <Maps lati={lat} long={lng}/>                                                    
+                      <Maps lati={lat} long={lng}/>
                    </div>
                 </div>
             </div>

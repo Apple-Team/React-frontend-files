@@ -34,14 +34,14 @@ class Header extends Component {
     if (role==''){
       role='0';
     }
-      else 
+      else
         role='1';
-    
+
     if(uname!=''&&email!=''&&pwd!=''&&confirm_pwd!=''){
 
     if(pwd.value !== confirm_pwd.value) {
     confirm_pwd.setCustomValidity("Passwords Don't Match");
-  } 
+  }
   else {
     fetch('http://localhost:9000/create_member',
       {
@@ -121,9 +121,9 @@ return(
         <span className="navbar-toggler-icon"></span>
       </button>
 
-        <a className="navbar-brand" href="#"><img src={require('./images/logo.png')} width="40" height="40" className="d-inline-block align-center" />Find'O Bistro</a>
+        <a className="navbar-brand" href="#"><img src={require('./images/logo.png')} width="40" height="40" className="d-inline-block align-center" />FindO Bistro</a>
 
-        <div className="nav-dropdown collapse nav navbar-nav navbar-toggleable-sm" id="navbarTogglerDemo02">
+        <div className="nav-dropdown collapse nav navbar-nav navbar-toggleable-sm pull-lg-right" id="navbarTogglerDemo02">
              <ul className="nav navbar-nav pull-lg-right">
                 <li className="nav-item active" id="nav">
                    <a className="nav-link" href="#"><b>Home</b></a>

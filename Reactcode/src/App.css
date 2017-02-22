@@ -7,7 +7,7 @@
     position: fixed; /* Stay in place */
     z-index: 1; /* Sit on top */
     left: 0;
-   
+
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
@@ -50,7 +50,7 @@ font-weight: 900;
   display:table-cell;
   text-decoration-color: #fff;
   border-color: transparent;
-    
+
 }
 #searchdrop .btn-secondary{
   background-color: #fcac45;
@@ -59,17 +59,17 @@ font-weight: 900;
   background-color:#FCAC45;
 }
 .btn-secondary:active{
-  
+
   background-color: transparent;
   font-weight: 700;
 }
 .btn-secondary:hover{
-  
+
   background-color: transparent;
   font-weight: 700;
 }
 .btn-secondary:focus {
- 
+
   background-color: transparent;
   font-weight: 700;
 }
@@ -81,24 +81,24 @@ font-weight: 900;
   color:#fcac45;
 }
 .navbar .navbar-nav > li > a:active{
-  
+
   background-color: transparent;
   font-weight: 700;
 }
 .navbar .navbar-nav > li > a:hover{
-  
+
   background-color: transparent;
   font-weight: 700;
 }
 .navbar .navbar-nav > li > a:focus {
- 
+
   background-color: transparent;
   font-weight: 700;
 }
 .navbar-toggle {
   border-radius: 0;
   }
-.navbar .navbar-toggle:hover, 
+.navbar .navbar-toggle:hover,
 .navbar .navbar-toggle:focus {
   background-color: #FCAC45;
   border-color: #FCAC45;
@@ -117,28 +117,30 @@ font-weight: 900;
             },
 .link: {
               font-size: 0.75rem
-}         
+}
  li#nav{
   padding-left: 550px;
- } 
+ }
  .btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
     color: #292b2c;
-     background-color: #fcac45;     
-     border-color: #fcac45; 
-}    
+     background-color: #fcac45;
+     border-color: #fcac45;
+}
 /* Home Style */
 #tf-home{
-  background: url(images/home1.jpg);
-  background-size: cover;
-  background-position: center;
+  background: url(images/home1.jpg)  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   color: #cfcfcf;
 }
 
 #tf-home .overlay{
- 
-  height: 550px;
+
+  height: 1050px;
   background-attachment: fixed;
 }
 #tf-home p.lead{
@@ -187,15 +189,15 @@ a.fa.fa-angle-down:hover{
   left:50%;
   transform: translate(-50%,-50%);
 }
-.center-block {  
-  display: block;  
-  margin-right: auto;  
-  margin-left: auto;  
-}  
+.center-block {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}
 #tf-collection{
   padding: 80px 0;
 }
-.categories{ 
+.categories{
   padding: 10px 0;
 }
 ul.cat li{
@@ -209,7 +211,7 @@ ol.type li{
   margin-left: 20px;
 }
 ol.type li:after{
- 
+
   margin-left: 20px;
 }
 
