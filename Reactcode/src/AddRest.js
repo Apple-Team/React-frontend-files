@@ -31,6 +31,31 @@ class AddRest extends Component {
 
          // Create the search box and link it to the UI element.
          var input = document.getElementById('pac-input');
+         console.log(input.value);
+        if(null==input.value){
+
+          map.addListener('click', function(e) {
+            placeMarkerAndPanTo(e.latLng, map);
+          });
+
+         var marker;
+       function placeMarkerAndPanTo(latLng, map) {
+         if(null==marker){
+
+           marker = new google.maps.Marker({
+           position: latLng,
+           map: map
+         });
+       }
+       else {
+         marker.setPosition(latLng);
+        }
+         map.panTo(latLng);
+       }
+
+
+       }
+       else{
          var searchBox = new google.maps.places.SearchBox(input);
          map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
@@ -90,7 +115,10 @@ class AddRest extends Component {
            });
            map.fitBounds(bounds);
          });
-       }
+
+    }
+  }
+
 
    handleClick(ev){
     fetch('http://localhost:9000/rest',
@@ -104,7 +132,8 @@ class AddRest extends Component {
                               "cuisine": document.getElementById('cuisine').value,
                               "address": document.getElementById('address').value,
                               "area": document.getElementById('area').value,
-                              "collection": document.getElementById('collection').value,
+                              "cid": document.getElementById('collection').value,
+                              "description": document.getElementById('description').value,
                               "homePage": document.getElementById('homepageurl').value,
                               "fbUrl": document.getElementById('fbpageurl').value,
                               "number": document.getElementById('telephone').value,
@@ -187,6 +216,12 @@ class AddRest extends Component {
   <div className="col-6">
     <input className="form-control" type="search" placeholder="ex: American, Desserts, Cafe" id="cuisine"/>
   </div>
+</div>
+<div className="form-group row">
+ <label for="example-text-input" className="col-2 col-form-label">Description</label>
+ <div className="col-6">
+   <input className="form-control" type="search" placeholder="About ur Bistro" id="description"/>
+ </div>
 </div>
 <div className="form-group row">
   <label for="example-text-input" className="col-2 col-form-label">Collection</label>

@@ -83,6 +83,16 @@ class StaticMap extends Component {
           });
           map.fitBounds(bounds);
         });
+        map.addListener('click', function(e) {
+          placeMarkerAndPanTo(e.latLng, map);
+        });
+      }
+      placeMarkerAndPanTo(latLng, map) {
+        var marker = new google.maps.Marker({
+          position: position,
+          map: map
+        });
+        map.panTo(latLng);
       }
 
 

@@ -3,14 +3,14 @@
 .wrapper{
     background-image: url(images/admin_back.jpg);
   background-size: cover;
-  height: 550px;
+  height: 1300px;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   color: #cfcfcf;
 }
 .col{
-   
+
     text-align:center;
 }
 
@@ -43,7 +43,7 @@ a:focus, a:hover{
     padding: 15px 15px;
     min-height: 600px;
     background:#F3F3F3;
-   
+
 }
 #page-inner {
     width:100%;
@@ -67,7 +67,7 @@ h4 {
     padding-top:10px;
 }
 .square-btn-adjust {
-    border: 0px solid transparent; 
+    border: 0px solid transparent;
    -webkit-border-radius: 0px;
 -moz-border-radius: 0px;
 border-radius: 0px;
@@ -95,7 +95,7 @@ x {
 }
 
 /*==============================================
-    MENU STYLES    
+    MENU STYLES
     =============================================*/
 
 
@@ -145,7 +145,7 @@ font-weight: 700;
 	color:#fff;
 	background:#202020;
 	text-shadow:none;
-	
+
 }
 .sidebar-collapse{
 	padding:15px 10px;
@@ -155,7 +155,7 @@ font-weight: 700;
 }
 .sidebar-collapse .nav  li:hover,
 .sidebar-collapse .nav  li:focus {
-	
+
 	background:#0A0A0A;
 	outline:0;
 }
@@ -165,12 +165,12 @@ font-weight: 700;
 .navbar-side {
 	border:none;
 	background-color: #202020;
-	
+
 }
 .navbar-cls-top {
 	background:#4D4D4D;
 	border-bottom:none;
-	
+
 }
 .navbar-cls-top .navbar-brand:hover {
 
@@ -181,7 +181,7 @@ color:#fff;
 
 .navbar-light {
 border:0px solid black;
-     
+
 }
 .navbar-header {
     background: #A70303;
@@ -200,7 +200,7 @@ background-color: #FFF;
     margin-right:10px;
 }
 /*==============================================
-    UI ELEMENTS STYLES     
+    UI ELEMENTS STYLES
     =============================================*/
 .btn-circle {
 width: 50px;
@@ -215,18 +215,18 @@ line-height: 1.428571429;
 }
 
 /*==============================================
-    MEDIA QUERIES     
+    MEDIA QUERIES
     =============================================*/
- 
+
  @media(min-width:768px) {
      #page-wrapper{
                margin: 0 0 0 260px;
         padding: 15px 30px;
         min-height: 1200px;
-		
+
     }
-	
-	
+
+
     .navbar-side {
         z-index: 1;
         position: absolute;
@@ -234,9 +234,7 @@ line-height: 1.428571429;
     }
 
    .navbar {
- border-radius: 0px; 
-}
-   
+ border-radius: 0px;
 }
 
-
+}
