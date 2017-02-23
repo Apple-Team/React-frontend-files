@@ -1,7 +1,7 @@
 
 
 .wrapper{
-    background-image: url(images/home1.png);
+    background-image: url(images/admin_back.jpg);
   background-size: cover;
   height: 550px;
   background-position: center;
@@ -16,16 +16,22 @@
 
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Open sans', sans serif;
 }
 
-.txt1{
-    position: absolute;
-  top: 50%;
-  left:50%;
-  transform: translate(-50%,-50%);
-    font-size:290%;
-    font-color:black;
+x1{
+    color:#fff;
+}
+a {
+    color: #ffffff;
+   text-transform: uppercase;
+   font-size: 14px;
+}
+a:focus, a:hover{
+  color: #fcac46;
+   text-transform: uppercase;
+   font-weight: 700;
+
 }
 
  #wrapper {
@@ -67,10 +73,20 @@ h4 {
 border-radius: 0px;
 
 }
-p {
-    font-size:16px;
+x2{
+    font-size:250%;
+    padding-top:20px;
+    padding-left: 50%;
+    line-height: 50px;
+    font-family: 'Algerian';
+}
+x {
+    font-size:250%;
     line-height:25px;
     padding-top:20px;
+    padding-left: 50%;
+    line-height: 50px;
+    font-family: 'Monotype Corsiva'
 }
 
 .main-text {

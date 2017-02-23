@@ -21,7 +21,7 @@ import ViewRest from './ViewRest';
 import UpdateRest from './UpdateRest';
 import Restaurant_detail from './Restaurant_detail';
 import Collectionfetch from './Collectionfetch';
-
+import Logout from './Logout';
 
 import Maps from './Maps';
 import StaticMap from './StaticMap';
@@ -40,6 +40,7 @@ ReactDOM.render(
  	  <Route path="/Signup" component={Signup}/>
  	  <Route path="/map" component={Maps}/>
  	  <Route path="/StaticMap" component={StaticMap}/>
+ 	  <Route path="/Logout" component={Logout}/>
  	  <Route path="/Search/:s" component={Search}/>
  	  <Route path="/Restaurant_detail/:id" component={Restaurant_detail}/>
  	  <Route path="/ViewRest" component={ViewRest}/>

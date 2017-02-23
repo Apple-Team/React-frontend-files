@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Router, Route, hashHistory,Link} from 'react-router';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-
+import Logout from './Logout';
 import './Admin.css';
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
@@ -38,13 +38,13 @@ class Admin extends Component {
                            <Collapse isOpen={this.state.isOpen} navbar>
                               <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                  <Link to="/ViewRest" className="nav-link" >View All Restaurants</Link>
+                                  <x1><Link to="/ViewRest" className="nav-link" >View All Restaurants</Link></x1>
                                 </NavItem>
                                 <NavItem>
-                                  <Link to="/AddRest" className="nav-link" >Add Restaurant</Link>
+                                  <x1><Link to="/AddRest" className="nav-link" >Add Restaurant</Link></x1>
                                 </NavItem>
                                 <NavItem>
-                                  <Link to ="/Admin" className="nav-link">Logout</Link>
+                                  <x1><Link to ="/home" className="nav-link">Logout</Link></x1>
                                  </NavItem>
                               </Nav>
                            </Collapse>
@@ -54,10 +54,8 @@ class Admin extends Component {
             <div className="row">
                 <div className="col" id="col2">
                     	<div className="content">
-                			<div className="txt1">
-                				Welcome to Find'O Bistro,
-                				     <br/>{this.props.params.name}!!
-                				</div>
+                				<p><x2>Welcome, {this.props.params.name}!</x2>
+                		</p>
                 				</div>
                 			
                 </div>
