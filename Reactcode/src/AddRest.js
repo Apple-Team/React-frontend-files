@@ -132,7 +132,7 @@ class AddRest extends Component {
                               "cuisine": document.getElementById('cuisine').value,
                               "address": document.getElementById('address').value,
                               "area": document.getElementById('area').value,
-                              "cid": document.getElementById('collection').value,
+                              "collection": document.getElementById('collection').value,
                               "description": document.getElementById('description').value,
                               "homePage": document.getElementById('homepageurl').value,
                               "fbUrl": document.getElementById('fbpageurl').value,

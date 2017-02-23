@@ -44,6 +44,7 @@ class UpdateRest extends Component {
                            "address": document.getElementById('address').value,
                            "area": document.getElementById('area').value,
                            "collection": document.getElementById('collection').value,
+                           "description": document.getElementById('description').value,
                            "homePage": document.getElementById('homepageurl').value,
                            "fbUrl": document.getElementById('fbpageurl').value,
                            "number": document.getElementById('telephone').value,
@@ -133,6 +134,12 @@ class UpdateRest extends Component {
     <label for="example-text-input" className="col-2 col-form-label">Cuisine</label>
     <div className="col-6">
       <input type="text" value={this.state.get_data.cuisine} onChange={this.handleChange} id="cuisine"/>
+    </div>
+  </div>
+  <div className="form-group row">
+    <label for="example-text-input" className="col-2 col-form-label">Description</label>
+    <div className="col-6">
+      <input type="text" value={this.state.get_data.description} onChange={this.handleChange} id="description"/>
     </div>
   </div>
   <div className="form-group row">

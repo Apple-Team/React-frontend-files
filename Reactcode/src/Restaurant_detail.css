@@ -2,9 +2,13 @@
 	 width:100%;
 	 height: 16rem;
 }
-.card-sub-header{
+.card-header{
+	color: #000000;
+	font-size: 18px;
+}
+.card-title{
 	color: #FCAC45;
-	font-size: 28px;
+	font-size: 22px;
 }
 
 .col {
@@ -14,5 +18,18 @@ p
 {
 	padding-top: 0px;
 }
+a {
+    color: #FCAC45;   
+}
+a:focus, a:hover{
+  color: #fcac46;
+  font-weight: 700;
 
+}
+#secondcol{
+	padding-left: 2px;
+}
+#firstcol{
+	padding-left: 5px;
+}
 

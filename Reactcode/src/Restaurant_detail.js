@@ -33,52 +33,47 @@ class Restaurant_detail extends Component {
   <div>
 		<div id="detailRest">
         <div className="row" id="searchrest">
-                <div className="col col-sm-6 branding">
-                    <div className="card mb-10">
-                       <img className="card-img-top image-fluid" src={this.state.detail_data.image} alt="Card image cap"/>
-                    </div>
+                <div className="col col-sm-7 branding" id="firstcol">
+                  <div className="card" style={{width: "50rem"}}>
+                      <img className="card-img-top image-fluid" src={this.state.detail_data.image} alt="Card image cap"/>
+                      <div className="card-block">
+                        <h4 className="card-title">{this.state.detail_data.name}</h4>
+                         <p className="card-text">{this.state.detail_data.description}</p>
+                     </div>
+                     <ul className="list-group list-group-flush">
+                        <li className="list-group-item">Cuisine: {this.state.detail_data.cuisine}</li>
+                        <li className="list-group-item">Working Hours: {this.state.detail_data.workHours}</li>
+                     </ul>
+                     <ul className="list-group list-group-flush">
+                        <li className="list-group-item">Phone number: {this.state.detail_data.number}</li>                        
+                     </ul>
+                     <div className="card-block">
+                        <a href={this.state.detail_data.homePage} target="_blank">View Restaurant Homepage</a>&nbsp;&nbsp;&nbsp;
+                        <a href={this.state.detail_data.fbUrl} target="_blank">View facebook page</a>
+                     </div>
+                  </div>                    
                 </div>
 
-              <div className="col col-sm-4">
-                <div className="row branding">
-                  <div className="row">
-                     <div className="card w-100">
-                         <div className="card-block">
-                              <p className="card-text"><b>Contact details:</b></p>
-                              <p className="card-text">Phone number: {this.state.detail_data.number}</p>
-                        </div>
-                      </div>
-                     <div className="card w-100">
-                        <div className="card-block w-100">
-                              <p className="card-text"><b>Address:</b></p>
-                              <p className="card-text">{this.state.detail_data.address}</p>
-                              <p className="card-text">{this.state.detail_data.area}</p>
-                        </div>
+              <div className="col col-sm-5" id="secondcol">
+                  <div className="card text-center">
+                      <div className="card-header">
+                        Address
+                      </div>                      
+                     <div className="card-block">
+                         <p className="card-text">{this.state.detail_data.address}</p>
+                         <p className="card-text">{this.state.detail_data.area}</p>
                      </div>
-                  </div>
-                </div>
+                     <div className="card-header">
+                        Map View
+                      </div>                      
+                     <div className="card-block">
+                        <Maps lati={lat} long={lng}/>
+                     </div>                     
+                  </div>                
               </div>
-          </div>
-           <div className="row">
-                <div className="col col-sm-14">
-                  <div className="card-block">
-                          <div className="card-sub-header">
-                            <b>{this.state.detail_data.name}</b>
-                          </div>
-                             <p className="card-text">Cuisine: {this.state.detail_data.cuisine} </p>
-                             <p className="card-text">Working Hours: {this.state.detail_data.workHours}</p>
-                             <p className="card-text"><a href={this.state.detail_data.homePage} target="_blank">View Restaurant Homepage</a></p>
-                             <p className="card-text"><a href={this.state.detail_data.fbUrl} target="_blank">View facebook page</a></p>
-                  </div>
-                </div>
-            </div>
-            <div className="row branding">
-                <div className="card">
-                   <div className="card-block">
-                      <Maps lati={lat} long={lng}/>
-                   </div>
-                </div>
-            </div>
+
+              
+         </div>
      </div>
   </div>
 

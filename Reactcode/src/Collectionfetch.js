@@ -14,7 +14,7 @@ class Collectionfetch extends Component {
   }
   componentWillMount(){
 
-    fetch("http://localhost:9000/restaurants_by_collection/"+this.props.params.name)
+    fetch("http://localhost:9000/collections/"+this.props.params.name)
             .then((response) => response.json())
             .then((responseJson) => {
                this.setState({

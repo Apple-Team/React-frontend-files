@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Router, Route, hashHistory,Link} from 'react-router';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-import Logout from './Logout';
+import App from './App';
 import './Admin.css';
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
@@ -38,13 +38,13 @@ class Admin extends Component {
                            <Collapse isOpen={this.state.isOpen} navbar>
                               <Nav className="ml-auto" navbar>
                                 <NavItem>
-                                  <x1><Link to="/ViewRest" className="nav-link" >View All Restaurants</Link></x1>
+                                 <div style={{color:"#000000"}}><Link to="/ViewRest" className="nav-link" >VIEW ALL RESTAURANTS</Link></div>
                                 </NavItem>
                                 <NavItem>
-                                  <x1><Link to="/AddRest" className="nav-link" >Add Restaurant</Link></x1>
+                                  <div style={{color:"#000000"}}><Link to="/AddRest" className="nav-link" >ADD RESTAURANT</Link></div>
                                 </NavItem>
                                 <NavItem>
-                                  <x1><Link to ="/home" className="nav-link">Logout</Link></x1>
+                                  <div style={{color:"#000000"}}><Link to ="/home" className="nav-link">LOGOUT</Link></div>
                                  </NavItem>
                               </Nav>
                            </Collapse>
