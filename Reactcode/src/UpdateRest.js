@@ -16,7 +16,7 @@ class UpdateRest extends Component {
      console.log('test');
   }
 
-   
+
 
   componentWillMount(){
   fetch("http://localhost:9000/restaurants_by_id/"+this.props.params.index)
@@ -76,7 +76,7 @@ class UpdateRest extends Component {
 
       <div id="Update">
       <div className="overlay">
-             <div className="row">       
+             <div className="row">
                <div className="col" id="col1">
                     <nav className="navbar  sticky-top navbar-toggleable-md navbar-light bg-faded">
                         <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -93,21 +93,21 @@ class UpdateRest extends Component {
                                  <li className="nav-item">
                                       <Link to="/AddRest" className="nav-link" >Add Restaurant</Link>
                                  </li>
-                               
+
                                  <li className="nav-item " id="admin">
                                      <Link to ="/Admin" className="nav-link">Logout</Link>
                                  </li>
 
-                            </ul>                       
+                            </ul>
                         </div>
-                       
+
                     </nav>
                  </div>
              </div>
              </div>
        <div className="card card-block">
-      
-      
+
+
 
 
 <div className="container">

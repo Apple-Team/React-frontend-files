@@ -5,7 +5,7 @@ class Maps extends Component {
     super();
 
     this.handleMap = this.handleMap.bind(this);
-    
+
   }
 
   handleMap(){
