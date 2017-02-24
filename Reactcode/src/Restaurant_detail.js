@@ -34,10 +34,10 @@ class Restaurant_detail extends Component {
 		<div id="detailRest">
         <div className="row" id="searchrest">
                 <div className="col col-sm-7 branding" id="firstcol">
-                  <div className="card" style={{width: "50rem"}}>
+                  <div className="card" style={{width: "48.7rem"}}>
                       <img className="card-img-top image-fluid" src={this.state.detail_data.image} alt="Card image cap"/>
                       <div className="card-block">
-                        <h4 className="card-title">{this.state.detail_data.name}</h4>
+                        <div className="card-title"><h1><b>{this.state.detail_data.name}</b></h1></div>
                          <p className="card-text">{this.state.detail_data.description}</p>
                      </div>
                      <ul className="list-group list-group-flush">
