@@ -37,6 +37,7 @@ class UpdateRest extends Component {
       });
 
   }
+  var head;
 
 
   componentWillMount(){
@@ -69,7 +70,7 @@ class UpdateRest extends Component {
                            "homePage": document.getElementById('homepageurl').value,
                            "fbUrl": document.getElementById('fbpageurl').value,
                            "number": document.getElementById('telephone').value,
-                           "latitude": document.getElementById('lat').value,
+                           "latitude": docume0nt.getElementById('lat').value,
                            "longitude": document.getElementById('long').value,
                            "workHours": document.getElementById('working hours').value,
                            "image": this.state.image_data
