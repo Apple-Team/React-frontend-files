@@ -21,7 +21,7 @@ class Maps extends Component {
         }
   render() {
     return (
-      <div id="map" style={{height:"320px",width:"480px"}}>
+      <div id="map" style={{height:"420px",width:"520px"}}>
         <button type="button" className="btn btn-danger btn-sm" onClick={this.handleMap.bind(this)}>View Map</button>
       </div>
     );

@@ -33,7 +33,7 @@ class Restaurant_detail extends Component {
   <div>
 		<div id="detailRest">
         <div className="row" id="searchrest">
-                <div className="col col-sm-7 branding" id="firstcol">
+                <div className="col col-lg-7 branding" id="firstcol">
                   <div className="card" style={{width: "48.7rem"}}>
                       <img className="card-img-top image-fluid" src={this.state.detail_data.image} alt="Card image cap"/>
                       <div className="card-block">
@@ -45,34 +45,34 @@ class Restaurant_detail extends Component {
                         <li className="list-group-item">Working Hours: {this.state.detail_data.workHours}</li>
                      </ul>
                      <ul className="list-group list-group-flush">
-                        <li className="list-group-item">Phone number: {this.state.detail_data.number}</li>                        
+                        <li className="list-group-item">Phone number: {this.state.detail_data.number}</li>
                      </ul>
                      <div className="card-block">
                         <a href={this.state.detail_data.homePage} target="_blank">View Restaurant Homepage</a>&nbsp;&nbsp;&nbsp;
                         <a href={this.state.detail_data.fbUrl} target="_blank">View facebook page</a>
                      </div>
-                  </div>                    
+                  </div>
                 </div>
 
-              <div className="col col-sm-5" id="secondcol">
+              <div className="col col-lg-4" id="secondcol">
                   <div className="card text-center">
                       <div className="card-header">
                         Address
-                      </div>                      
+                      </div>
                      <div className="card-block">
                          <p className="card-text">{this.state.detail_data.address}</p>
                          <p className="card-text">{this.state.detail_data.area}</p>
                      </div>
                      <div className="card-header">
                         Map View
-                      </div>                      
+                      </div>
                      <div className="card-block">
                         <Maps lati={lat} long={lng}/>
-                     </div>                     
-                  </div>                
+                     </div>
+                  </div>
               </div>
 
-              
+
          </div>
      </div>
   </div>

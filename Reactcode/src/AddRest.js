@@ -32,7 +32,7 @@ class AddRest extends Component {
          // Create the search box and link it to the UI element.
          var input = document.getElementById('pac-input');
          console.log(input.value);
-        if(null==input.value){
+
 
           map.addListener('click', function(e) {
             placeMarkerAndPanTo(e.latLng, map);
@@ -46,16 +46,18 @@ class AddRest extends Component {
            position: latLng,
            map: map
          });
+         lat = latLng.lat();
+         lon =latLng.lng();
        }
        else {
          marker.setPosition(latLng);
+         lat = latLng.lat();
+         lon =latLng.lng();
         }
          map.panTo(latLng);
        }
 
 
-       }
-       else{
          var searchBox = new google.maps.places.SearchBox(input);
          map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
@@ -116,7 +118,7 @@ class AddRest extends Component {
            map.fitBounds(bounds);
          });
 
-    }
+
   }
 
 
