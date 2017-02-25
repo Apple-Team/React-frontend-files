@@ -37,7 +37,7 @@ class UpdateRest extends Component {
       });
 
   }
-
+var hh;
 
   componentWillMount(){
   fetch("http://localhost:9000/restaurants_by_id/"+this.props.params.index)
