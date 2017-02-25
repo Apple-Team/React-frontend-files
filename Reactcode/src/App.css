@@ -24,7 +24,7 @@
 .navbar-brand {
 font-family: cursive;
 font-weight: bold;
-font-size: 22px;
+font-size: 26px;
 color: #FCAC46;
 font-weight: 900;
 }
@@ -113,8 +113,8 @@ Navbar > NavItem:active{
   }
 .navbar .navbar-toggler:hover,
 .navbar .navbar-toggler:focus {
-  background-color: #000000;
-  border-color: #000000;
+  background-color: transparent;
+  border-color: transparent;
   }
 .navbar .navbar-toggler:hover >.icon-bar {
   background-color: #000000;

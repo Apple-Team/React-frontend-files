@@ -19,20 +19,6 @@ body {
     font-family: 'Open sans', sans serif;
 }
 
-/*x1{
-    color:#fff;
-}
-a {
-    color: #ffffff;
-   text-transform: uppercase;
-   font-size: 14px;
-}
-a:focus, a:hover{
-  color: #fcac46;
-   text-transform: uppercase;
-   font-weight: 700;
-
-}*/
 
  #wrapper {
     width: 100%;
@@ -109,7 +95,7 @@ max-width:70px;
 }
 
 .navbar-cls-top .navbar-brand {
-	color: #fff;
+color: #fff;
 background: #C90000;
 width: 260px;
 text-align: center;

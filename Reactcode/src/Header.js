@@ -156,7 +156,7 @@ return(
   <div className="tf-nav">
 
       <Navbar fixed="top" toggleable>
-          <NavbarToggler right onClick={this.toggle}><span className="navbar-toggler-icon"></span></NavbarToggler>
+          <NavbarToggler right onClick={this.toggle}><i className="fa fa-bars fa-2x" aria-hidden="true"></i></NavbarToggler>
           <NavbarBrand href="/">
           <img id="logo" width="60" height="60" className="d-inline-block align-center" />FindO Bistro</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
