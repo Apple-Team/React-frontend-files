@@ -9,19 +9,31 @@ class collection extends Component {
     // In a constructor, call `super` first if the className extends another classNameNameNameName
     super();
      this.collectionlist=this.collectionlist.bind(this);
-     
+
     this.state = { data: [] };
   }
+  componentWillMount(){
+
+    fetch("http://localhost:9000/get_all_collections")
+            .then((response) => response.json())
+            .then((responseJson) => {
+               this.setState({
+                data: responseJson
+
+               });
+            });
+
+    }
 //list view of collections
   collectionlist(name,cname){
     this.name=name;
-    this.cname=cname; 
-  hashHistory.push('/Collectionfetch/'+name+'/'+cname)
+    this.cname=cname;
+  hashHistory.push('/Collectionfetch/'+name)
   }
   // `render` is called whenever the component's props OR state are updated.
-  
+
   //detail description view
-  
+
   render() {
     let collections = [
     {
@@ -81,7 +93,7 @@ return (
             <div className="space"></div>
 
             <div id="lightbox" className="row">{
-              collections.map((item, index)=>{
+              this.state.data.map((data,index)=>{
                return (
 
                 <div className="col-sm-6 col-md-4 col-lg-4 branding">
@@ -89,12 +101,12 @@ return (
                         <div className="hover-bg">
 
                                 <div className="hover-txt">
-                                    <h4>{item.name}</h4>
+                                    <h4>{data.collection}</h4>
 
                                     <div className="clearfix"></div>
-                                    <button type="button" className="w3-button w3-orange w3-round-xxlarge" onClick={() => this.collectionlist(item.id,item.name)}><i className="fa fa-plus" aria-hidden="true"></i></button>
+                                    <button type="button" className="w3-button w3-orange w3-round-xxlarge" onClick={() => this.collectionlist(data.collection)}><i className="fa fa-plus" aria-hidden="true"></i></button>
                                 </div>
-                                <img src={item.image} className="img-responsive" alt="..." />
+                                <img src={data.collectionUrl} className="img-responsive" alt="..." />
 
                         </div>
                     </div>
@@ -105,8 +117,8 @@ return (
 
         </div>
     </div>
-    
-    
+
+
   </div>
 
  );

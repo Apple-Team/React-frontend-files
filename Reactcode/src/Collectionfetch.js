@@ -42,7 +42,7 @@ class Collectionfetch extends Component {
       <div id="list1">
 
         <div className="alert alert-warning" role="alert">
-           <h2><strong> {this.props.params.cname}</strong></h2>
+           <h2><strong> {this.props.params.name}</strong></h2>
         </div>
         <div className="card-deck">{
            this.state.data.map((data,index)=>{

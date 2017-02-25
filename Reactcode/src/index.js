@@ -46,14 +46,14 @@ ReactDOM.render(
  	  <Route path="/ViewRest" component={ViewRest}/>
 	  <Route path="/AddRest" component={AddRest}/>
 	  <Route path="/UpdateRest/:index" component={UpdateRest}/>
-	  <Route path="/Collectionfetch/:name/:cname" component={Collectionfetch}/>
-	  
+	  <Route path="/Collectionfetch/:name" component={Collectionfetch}/>
+
 	  <Route path="/Admin/:name" component={Admin}>
 	  		<Route path="/ViewRest" component={ViewRest}/>
 	    	<Route path="/AddRest" component={AddRest}/>
 	  </Route>
-	    
-      
+
+
 
 
    </Router>,
