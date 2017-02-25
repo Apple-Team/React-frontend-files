@@ -72,7 +72,7 @@ class UpdateRest extends Component {
                            "latitude": document.getElementById('lat').value,
                            "longitude": document.getElementById('long').value,
                            "workHours": document.getElementById('working hours').value,
-                           "image": document.getElementById('FileUpload').value
+                           "image": this.state.image_data
 
                          })
    })
