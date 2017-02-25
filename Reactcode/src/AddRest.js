@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {Link} from 'react-router';
 import StaticMap from './StaticMap';
+import AdminHeader from './AdminHeader';
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
 var lat,lon;
@@ -8,11 +9,32 @@ class AddRest extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another className
     super();
-    this.state = { data: [],lat1:[],lon1:[] };
+    this.state = { data: [],lat1:[],lon1:[],image_data:[] };
     this.handleClick=this.handleClick.bind(this);
     this.handleMap = this.handleMap.bind(this);
+    this.handleUpload = this.handleUpload.bind(this);
     this.getLoc = this.getLoc.bind(this);
     console.log('test');
+  }
+  handleUpload(){
+      var formData = new FormData();
+      var photo=document.getElementById('FileUpload').files[0];
+
+      console.log(photo);
+
+      formData.set('image',photo);
+      fetch('http://localhost:9000/images', {
+        method:'POST',
+         body: formData
+      }).then((response) => response.json())
+      .then((responseJson) => {
+         this.setState({
+          image_data: responseJson
+
+         });
+      });
+
+
   }
 
   handleMap() {
@@ -142,7 +164,7 @@ class AddRest extends Component {
                               "latitude": document.getElementById('lat').value,
                               "longitude": document.getElementById('long').value,
                               "workHours": document.getElementById('working hours').value,
-                              "image": document.getElementById('FileUpload').value
+                              "image": this.state.image_data
 
                             })
      })
@@ -161,35 +183,13 @@ class AddRest extends Component {
 
   // `render` is called whenever the component's props OR state are updated.
   render() {
+    console.log(this.state.image_data);
     // console.log('The App component was rendered')
     return(
 <div  id="content1">
 <div className="row">
                <div className="col" id="col1">
-                    <nav className="navbar  sticky-top navbar-toggleable-md navbar-light bg-faded">
-                        <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                          <span className="navbar-toggler-icon"></span>
-                         </button>
-                         <a className="navbar-brand" href="#"><img src={require('./images/logo.png')} width="40" height="40" className="d-inline-block" />FindO Bistro</a>
-
-                         <div className="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="navbarTogglerDemo02">
-
-                             <ul className="navbar-nav">
-                                 <li className="nav-item active">
-                                      <Link to="/ViewRest" className="nav-link" >View All Restaurants</Link>
-                                 </li>
-                                 <li className="nav-item">
-                                      <Link to="/AddRest" className="nav-link" >Add Restaurant</Link>
-                                 </li>
-
-                                 <li className="nav-item " id="admin">
-                                     <Link to ="/Admin" className="nav-link">Logout</Link>
-                                 </li>
-
-                            </ul>
-                        </div>
-
-                    </nav>
+                    <AdminHeader />
                  </div>
              </div>
     <div  className="container" >
@@ -278,8 +278,9 @@ class AddRest extends Component {
 <div className="form-group row">
     <label for="exampleInputFile" className="col-2 col-form-label">Image</label>
     <div className="col-6">
-       <input type="file" class="form-control-file" id="FileUpload" aria-describedby="fileHelp"/>
+       <input type="file" class="form-control-file" id="FileUpload" name="image" aria-describedby="fileHelp"/>
        <small id="fileHelp" className="form-text text-muted">Browse Image file location </small>
+       <button type="button" className="btn btn-danger btn-sm" onClick={this.handleUpload}>Upload</button>
     </div>
   </div>
 <div className="form-group-row">

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {Link,hashHistory} from 'react-router';
+import AdminHeader from './AdminHeader';
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
 
@@ -10,12 +11,32 @@ class UpdateRest extends Component {
 
     this.state = {
     data1: [],
-    get_data: []
+    get_data: [],
+    image_data:[]
   };
+      this.handleUpload = this.handleUpload.bind(this);
 
      console.log('test');
   }
+  handleUpload(){
+      var formData = new FormData();
+      var photo=document.getElementById('FileUpload').files[0];
 
+      console.log(photo);
+
+      formData.set('image',photo);
+      fetch('http://localhost:9000/images', {
+        method:'POST',
+         body: formData
+      }).then((response) => response.json())
+      .then((responseJson) => {
+         this.setState({
+          image_data: responseJson
+
+         });
+      });
+
+  }
 
 
   componentWillMount(){
@@ -79,30 +100,7 @@ class UpdateRest extends Component {
       <div className="overlay">
              <div className="row">
                <div className="col" id="col1">
-                    <nav className="navbar  sticky-top navbar-toggleable-md navbar-light bg-faded">
-                        <button className="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-                          <span className="navbar-toggler-icon"></span>
-                         </button>
-                         <a className="navbar-brand" href="#"><img src={require('./images/logo.png')} width="40" height="40" className="d-inline-block" />Find'O Bistro</a>
-
-                         <div className="nav-dropdown collapse pull-xs-right nav navbar-nav navbar-toggleable-sm" id="navbarTogglerDemo02">
-
-                             <ul className="navbar-nav">
-                                 <li className="nav-item active">
-                                      <Link to="/ViewRest" className="nav-link" >View All Restaurants</Link>
-                                 </li>
-                                 <li className="nav-item">
-                                      <Link to="/AddRest" className="nav-link" >Add Restaurant</Link>
-                                 </li>
-
-                                 <li className="nav-item " id="admin">
-                                     <Link to ="/Admin" className="nav-link">Logout</Link>
-                                 </li>
-
-                            </ul>
-                        </div>
-
-                    </nav>
+                    <AdminHeader />
                  </div>
              </div>
              </div>
@@ -195,8 +193,9 @@ class UpdateRest extends Component {
   <div className="form-group row">
       <label for="exampleInputFile" className="col-2 col-form-label">Image</label>
       <div className="col-6">
-         <input type="file" class="form-control-file" id="FileUpload" aria-describedby="fileHelp"/>
+         <input type="file" class="form-control-file" id="FileUpload" name="image" aria-describedby="fileHelp"/>
          <small id="fileHelp" className="form-text text-muted">Browse Image file location </small>
+         <button type="button" className="btn btn-danger btn-sm" onClick={this.handleUpload}>Update Image</button>
       </div>
     </div>
   <div className="form-group-row">

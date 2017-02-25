@@ -16,6 +16,7 @@ import Search from './Search';
 
 
 import Admin from './Admin';
+import AdminHeader from './AdminHeader';
 import AddRest from './AddRest';
 import ViewRest from './ViewRest';
 import UpdateRest from './UpdateRest';
@@ -47,6 +48,7 @@ ReactDOM.render(
 	  <Route path="/AddRest" component={AddRest}/>
 	  <Route path="/UpdateRest/:index" component={UpdateRest}/>
 	  <Route path="/Collectionfetch/:name" component={Collectionfetch}/>
+    <Route path="/AdminHeader" component={AdminHeader}/>
 
 	  <Route path="/Admin/:name" component={Admin}>
 	  		<Route path="/ViewRest" component={ViewRest}/>
