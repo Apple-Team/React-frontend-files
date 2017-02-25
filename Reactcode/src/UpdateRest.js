@@ -37,7 +37,6 @@ class UpdateRest extends Component {
       });
 
   }
-  var head1;
 
 
   componentWillMount(){
