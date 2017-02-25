@@ -34,48 +34,7 @@ class collection extends Component {
 
   //detail description view
 
-  render() {
-    let collections = [
-    {
-     name:'Sunday Brunch',
-     image:require('./images/sb.jpg'),
-     url:'sb',
-     id:'Sunday%20Brunch'
-   },
-   {
-    name:'Frozen Delight',
-    image:require('./images/fd1.jpg'),
-    url:'fd',
-    id:'Frozen%20Delights'
-  },
-  {
-    name:'Street Food',
-    image:require('./images/street1.jpg'),
-    url:'sf',
-    id:'Street%20Food'
-  },
-  {
-    name:'Fine Dine',
-    image:require('./images/dinner.jpeg'),
-    url:'fd',
-    id:'Fine%20Dining'
-  },
-  {
-    name:'Barbeque & Grills',
-    image:require('./images/bb.jpg'),
-    url:'bg',
-    id:'Barbeque%20&%20Grills'
-  },
-  {
-    name:'Breakfast',
-    image:require('./images/bf.jpg'),
-    url:'bf',
-    id:'Breakfast'
-  }
-  ]
-
-
-
+render() {
 
 return (
   <div id="content1">

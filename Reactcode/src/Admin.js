@@ -29,12 +29,12 @@ class Admin extends Component {
  	 	return(
  	 	<div className="wrapper" >
           <div className="overlay">
-             <div className="row">       
-               <div className="col" id="col1">                    
+             <div className="row">
+               <div className="col" id="col1">
                   <Navbar fixed="top" toggleable id="adminHeader">
                      <NavbarToggler right onClick={this.toggle} />
                          <NavbarBrand href="/">
-                           <img src={require('./images/logo.png')} width="60" height="60" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
+                           <img src={require('./images/logo.png')} width="60" height="60" className="d-inline-block align-center" />FindO Bistro</NavbarBrand>
                            <Collapse isOpen={this.state.isOpen} navbar>
                               <Nav className="ml-auto" navbar>
                                 <NavItem>
@@ -57,7 +57,7 @@ class Admin extends Component {
                 				<p><x2>Welcome, {this.props.params.name}!</x2>
                 		</p>
                 				</div>
-                			
+
                 </div>
             </div>
         </div>

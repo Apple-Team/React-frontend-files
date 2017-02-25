@@ -135,30 +135,6 @@ font-weight: 700;
 
 
 
-.sidebar-collapse{
-	background:none;
-}
-.sidebar-collapse{
-	padding:0;
-}
-.sidebar-collapse{
-	color:#fff;
-	background:#202020;
-	text-shadow:none;
-
-}
-.sidebar-collapse{
-	padding:15px 10px;
-}
-.sidebar-collapse {
-	border-bottom: 1px solid rgba(107, 108, 109, 0.19);
-}
-.sidebar-collapse .nav  li:hover,
-.sidebar-collapse .nav  li:focus {
-
-	background:#0A0A0A;
-	outline:0;
-}
 
 
 

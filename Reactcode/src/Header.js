@@ -25,12 +25,38 @@ class Header extends Component {
 
       this.toggle = this.toggle.bind(this);
     this.state = {
-      isOpen: false
+      isOpen: false,data:[]
     };
 
     console.log('test');
 
   }
+  componentWillMount(){
+
+  fetch("http://localhost:9000/images/5498f7c0-ca2f-44b4-826c-0deb07521b20")
+	.then(function(response) {
+	  return response.blob();
+	})
+	.then(function(imageBlob) {
+	  document.getElementById('logo').src = URL.createObjectURL(imageBlob);
+	});
+  fetch("http://localhost:9000/images/286b4b0f-c497-4d5e-81fe-906ef239b5d1")
+	.then(function(response) {
+	  return response.blob();
+	})
+	.then(function(imageBlob) {
+	  document.getElementById('signUp').src = URL.createObjectURL(imageBlob);
+	});
+  fetch("http://localhost:9000/images/286b4b0f-c497-4d5e-81fe-906ef239b5d1")
+	.then(function(response) {
+	  return response.blob();
+	})
+	.then(function(imageBlob) {
+	  document.getElementById('signIn').src = URL.createObjectURL(imageBlob);
+	});
+
+
+    }
 
   toggle() {
     this.setState({
@@ -132,7 +158,7 @@ return(
       <Navbar fixed="top" toggleable>
           <NavbarToggler right onClick={this.toggle}><span className="navbar-toggler-icon"></span></NavbarToggler>
           <NavbarBrand href="/">
-          <img src={require('./images/logo.png')} width="60" height="60" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
+          <img id="logo" width="60" height="60" className="d-inline-block align-center" />FindO Bistro</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
@@ -157,7 +183,7 @@ return(
       <form className="modal-content animate">
         <div className="imgcontainer">
           <button className="cancel" onClick={this.modalClose1}>&times;</button>
-          <img src={require('./images/user.png')} alt="Avatar" className="avatar" />
+          <img id="signUp" alt="Sign Up" className="avatar" />
         </div>
         <div className="container" align="center">
           <label><b><center>Username</center></b></label> <br />
@@ -189,7 +215,7 @@ return(
       <form className="modal-content animate">
         <div className="imgcontainer">
           <button className="cancel" onClick={this.modalClose2}>&times;</button>
-          <img src={require('./images/login.png')} alt="Avatar" className="avatar" />
+          <img id="signIn" alt="Sign In" className="avatar" />
         </div>
         <div className="container" align="center">
           <label><b><center>USERNAME</center></b></label> <br />

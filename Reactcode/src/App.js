@@ -9,7 +9,6 @@ import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reac
 
 import './App.css';
 
-
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
 class App extends Component {
@@ -22,6 +21,7 @@ class App extends Component {
     };
     this.state = { data: [] };
   }
+
   toggle() {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
