@@ -1,96 +1,97 @@
 import React, { Component } from 'react';
-
-
+import {Link,hashHistory} from 'react-router';
+import ReactDOM from 'react-dom';
+import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
   class NearBy extends Component {
+
+    constructor() {
+    // In a constructor, call `super` first if the className extends another className
+    super();
+    this.toggle = this.toggle.bind(this);
+    this.toggle1 = this.toggle1.bind(this);
+    this.state = {
+    dropdownOpen: false,
+    dropdownOpen1: false
+    };
+    this.state = { radius_data: [] };
+  }
+
+  toggle() {
+    this.setState({
+      dropdownOpen: !this.state.dropdownOpen
+    });
+  }
+  toggle1() {
+    this.setState({
+      dropdownOpen1: !this.state.dropdownOpen1
+    });
+  }
+
+  componentDidMount(){
+   
+    fetch("http://localhost:9000/search_nearby_restaurants/"+this.props.lati+"?longitude="+this.props.longi+"&distance="+this.props.radi)
+      .then((response) => response.json())
+            .then((responseJson) => {
+               this.setState({
+                radius_data: responseJson
+
+               });
+            }); 
+    
+ }
+
+ handleRest(id)
+{
+  this.id=id;
+  var c=document.getElementById("home");  
+  hashHistory.push('/Restaurant_detail/'+id)
+}
 
   render() {
 
   return(
     <div>
-    <div className="content-section-b">
-
-        <div className="container">
-            <div className="row">
-
-                    <h2 className="section-heading">Restaurants NearBy Your Location:<br/></h2>
-                          <div className="col-6 col-lg-4">
-                                    <div className="clearfix"></div>
-                                    <h4>Dialogue In The Dark</h4>
-                                    <p className="lead1">Completely unlit dining room experience with surprise vegetarian or non-vegetarian meals.<br/>
-                                        Located in: Inorbit Mall.<br/>
-                                        Address: Inorbit Mall, 5th Floor, Inorbit Mall, Madhapur, Hyderabad, Telangana 500081<br/>
-                                        Phone:040 6746 0020<br/>
-                                        Hours: Open today · 12:30–3:30PM, 7:30–9:30PM
-                                    </p>
-                                    <img className="img-responsive1" src="images/Dialogue-in-the-Dark.jpg" alt="" width="320px" height="200px" />
-                            </div>
-                            <div className="col-6 col-lg-4">
-                                      <div className="clearfix"></div>
-                                      <h4>Olivo Bistro</h4>
-                                      <p className="lead1">
-                                      High-end bungalow restaurant with views over a lake, cobbles and a menu of international dishes.<br/>
-                                      Address: Silent Valley hills, Jubilee Hills, inside durgam cheruvu,, G Rami Reddy Marg, Silent Valley hills, Jubilee Hills, Hyderabad, Telangana 500033
-                                      <br/>Phone:088888 88888<br/>
-                                      Hours: Open today · 12–11:30PM
-                                      </p>
-                                      <img className="img-responsive1" src="images/Olivo.jpg" alt="" width="320px" height="200px" /><br/>
-                              </div>
-                              <div className="col-6 col-lg-4">
-                                        <div className="clearfix"></div>
-                                        <h4>Kabita Services</h4>
-                                        <p className="lead1">Classics of Indian cuisine thoughtfully updated and served amid a hotels lavish, old-world decor.<br />
-                                        Located in: ITC Kakatiya<br/>
-                                        Address: ITC Kakatiya, a Luxury Collection Hotel, Hyderabad, 6-3-1187, Greenlands Rd, Greenlands, Begumpet, Hyderabad, Telangana 500082<br/>
-                                        Phone:098219 67057<br/>
-                                        </p>
-                                        <img className="img-responsive1" src="images/kabita.jpg" alt="" width="320px" height="200px" />
-                                </div>
-            </div>
-       </div>
-    </div>
-
-
-    <div className="content-section-b">
-
-        <div className="container">
-            <div className="row">
-
-
-                          <div className="col-6 col-lg-4">
-                                    <div className="clearfix"></div>
-                                    <h4>Absolute Barbecue</h4>
-                                    <p className="lead1">Indias first wish grill restaurant<br/>
-                                    Address: 4th Floor, Above Bajaj Electronics, Plot No. 722, Road No: 36, Near Madhupur Police Station , Pammasani Complex, Jubilee Hill, Hyderabad, Telangana 500033<br/>
-                                    Phone:040 3091 1222<br/>
-                                    Hours: Open today · 12–11:30PM
-                                    </p>
-                                    <img className="img-responsive1" src="images/barb.jpeg" alt="" width="320px" height="200px" />
-                            </div>
-                            <div className="col-6 col-lg-4">
-                                      <div className="clearfix"></div>
-                                      <h4>Jewel of Nizam</h4>
-                                      <p className="lead1">
-                                      Glamorous hotel dining room serving Hyderabadi cuisine amid chandeliers and live orchestral music.<br/>
-                                      Address: he Golkonda Hotel, Banjara Hills, Masab Tank, Hyderabad, Telangana 500028
-                                      <br/>Phone:097050 09881<br/>
-                                      Hours: 12:30–3PM, 7:30–11:30PM
-                                      </p>
-                                      <img className="img-responsive1" src="images/nijam.jpg" alt="" width="320px" height="200px" /><br/>
-                              </div>
-                              <div className="col-6 col-lg-4">
-                                        <div className="clearfix"></div>
-                                        <h4>Deccan Pavilion</h4>
-                                        <p className="lead1">International & Indian choices are served 24 hours a day in this refined hotel dining room.<br />
-                                        Address: ITC Kakatiya, a Luxury Collection Hotel, Hyderabad, 6 -3 -1187, Begumpet, Hyderabad, Telangana 500016<br/>
-                                        Phone:040 2340 0132<br/>
-                                        Hours: Open today · Open 24 hours
-                                        </p>
-                                        <img className="img-responsive1" src="images/deccan.jpg" alt="" width="320px" height="200px" />
-                                </div>
-            </div>
-       </div>
-    </div>
+        <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} size="sm" className="input-group-btn" >
+        <DropdownToggle caret size="sm">
+           Filter By
+        </DropdownToggle>
+        <DropdownMenu className="menu" right>
+             <DropdownItem  id="cuisine">Cuisine</DropdownItem>
+             <DropdownItem divider />
+              <ButtonDropdown isOpen={this.state.dropdownOpen1} toggle={this.toggle1} size="sm" className="input-group-btn" >
+                    <DropdownToggle caret size="sm">
+                        Opening Hours
+                    </DropdownToggle>
+                     <DropdownMenu className="menu">
+                          <DropdownItem  id="cuisine">9AM -9PM</DropdownItem>
+                          <DropdownItem divider />
+                          <DropdownItem id="openHours">10PM -3AM</DropdownItem>
+                    </DropdownMenu>
+             </ButtonDropdown>
+             </DropdownMenu>
+    </ButtonDropdown>
+    <div id="restlist">
+    <div className="card card-block">{
+       this.state.radius_data.map((data, index)=>{
+        return (
+           <ul>
+                <li className="media">
+                   <img className="d-flex mr-3" src={data[7]} height="100px" width="110px" alt="Generic placeholder image"/>
+                    <div className="media-body">
+                         <p className="card-text"><h5 className="mt-0 mb-1">{data[10]}</h5>
+                             Area: {data[2]}<br />
+                             Working Hours: {data[12]}
+                         </p>
+                    </div>
+                    <button type="button" className="btn btn-warning btn-sm" onClick={() => this.handleRest(data[0])}>View</button>
+                </li>
+            </ul>
+         )
+        })
+       } 
+    </div> 
+ </div>
    </div>
 
 

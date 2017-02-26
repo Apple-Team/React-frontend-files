@@ -42,12 +42,14 @@ componentDidMount(){
             }); 
     
  }
+
  handleRest(id)
 {
   this.id=id;
   var c=document.getElementById("home");  
   hashHistory.push('/Restaurant_detail/'+id)
 }
+
 render() {
     // console.log('The App component was rendered')
   return (
