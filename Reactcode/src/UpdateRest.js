@@ -73,24 +73,18 @@ class UpdateRest extends Component {
             placeMarkerAndPanTo(e.latLng, map);
           });
 
-         var marker;
+         var uluru= {lat:this.state.get_data.latitude, lng:this.state.get_data.longitude};
+          var marker = new google.maps.Marker({
+            position: uluru,
+            map: map
+          });
        function placeMarkerAndPanTo(latLng, map) {
-         if(null==marker){
-
-           marker = new google.maps.Marker({
-           position: latLng,
-           map: map
-         });
-         lat = latLng.lat();
-         lon =latLng.lng();
-       }
-       else {
          marker.setPosition(latLng);
          lat = latLng.lat();
          lon =latLng.lng();
-        }
          map.panTo(latLng);
-       }
+        }
+         
 
 
          var searchBox = new google.maps.places.SearchBox(input);
@@ -176,8 +170,8 @@ class UpdateRest extends Component {
                            "homePage": document.getElementById('homepageurl').value,
                            "fbUrl": document.getElementById('fbpageurl').value,
                            "number": document.getElementById('telephone').value,
-                           "latitude": document.getElementById('lat').value,
-                           "longitude": document.getElementById('long').value,
+                           "latitude": this.state.lat1,
+                           "longitude": this.state.lon1,
                            "workHours": document.getElementById('working hours').value,
                            "image": this.state.image_data
 
@@ -192,7 +186,6 @@ class UpdateRest extends Component {
    });
    console.log(this.state.data1);
    hashHistory.push('/ViewRest/')
-   window.location.reload();
  }
 
  handleChange(event){
