@@ -12,6 +12,7 @@ import Login from './Login';
 import form from './form';
 import Signup from './Signup';
 import Search from './Search';
+import SearchComponent from './SearchComponent';
 import NearBy from './NearBy';
 
 
@@ -50,7 +51,7 @@ ReactDOM.render(
 	  <Route path="/AddRest" component={AddRest}/>
 	  <Route path="/UpdateRest/:index" component={UpdateRest}/>
 	  <Route path="/Collectionfetch/:name" component={Collectionfetch}/>
-    <Route path="/AdminHeader" component={AdminHeader}/>
+     <Route path="/AdminHeader" component={AdminHeader}/>
 
 	  <Route path="/Admin/:name" component={Admin}>
 	  		<Route path="/ViewRest" component={ViewRest}/>

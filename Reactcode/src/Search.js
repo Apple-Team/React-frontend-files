@@ -32,7 +32,7 @@ class Search extends Component {
   }
 componentDidMount(){
    
-    fetch("http://localhost:9000/search_restaurants_by_name_area?"+this.props.s)
+    fetch("http://localhost:9000/search_restaurants_by_name_area?"+this.props.params.s)
       .then((response) => response.json())
             .then((responseJson) => {
                this.setState({

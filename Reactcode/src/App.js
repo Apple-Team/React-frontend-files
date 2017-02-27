@@ -41,17 +41,16 @@ class App extends Component {
       var search=document.getElementById('search-bar').value;
       var home=document.getElementById("ss");
       var area="area=";
-      var searchArea = area.concat(search);
-      ReactDOM.render(<Search s={searchArea}/>,home);
+      var s = area.concat(search);
+      hashHistory.push('/Search/'+s);
 
  }
   handleNameSearch(ev){
       var search=document.getElementById('search-bar').value;
       var home=document.getElementById("ss");
       var name="restaurantname=";
-      var searchName = name.concat(search);
-      document.getElementById('home').focus;
-      ReactDOM.render(<Search s={searchName}/>,home);
+      var s = name.concat(search);        
+      hashHistory.push('/Search/'+s);
  }
 
  handleNearby(){
@@ -97,10 +96,10 @@ class App extends Component {
                           </DropdownMenu>
                           </ButtonDropdown>
                           <div>&nbsp;&nbsp;
-        <Button id="Popover1" onClick={this.togglePop}>
+        <Button id="Popover1" onClick={this.togglePop.bind(this)}>
           Locate Me <i className="fa fa-location-arrow" aria-hidden="true"></i>
         </Button>
-        <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" togglePop={this.togglePop}>
+        <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" togglePop={this.togglePop.bind(this)}>
           <PopoverTitle>Please enter the distance in km</PopoverTitle>
           <PopoverContent><input type="text" size ="10"  placeholder="Enter radius in km" className="form-control" id="radius"/><button onClick={this.handleNearby}><i className="fa fa-search"></i></button></PopoverContent>
         </Popover>
