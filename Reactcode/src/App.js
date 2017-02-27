@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link ,hashHistory} from 'react-router';
 import ReactDOM from 'react-dom';
 import Collection from './collection';
 import Footer from './Footer';
@@ -66,7 +66,10 @@ class App extends Component {
             console.log(position.coords.latitude);
            var radius=document.getElementById('radius').value;
            var home=document.getElementById("ss");
-          ReactDOM.render(<NearBy lati={position.coords.latitude} longi={position.coords.longitude} radi={radius} />,home);
+           var lati=position.coords.latitude;
+           var longi=position.coords.longitude;
+           console.log(lati);
+          hashHistory.push('/NearBy/'+lati+'/'+longi+'/'+radius);
           });
  }
 
@@ -104,7 +107,7 @@ class App extends Component {
         </div>
       
                    </div>
-                   <div id="map" style={{height:"300px",width:"300px"}}></div>
+                   
                 </div>
                 <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
             </div>

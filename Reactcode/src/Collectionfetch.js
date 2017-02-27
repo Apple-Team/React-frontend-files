@@ -6,7 +6,7 @@ import Header from './Header';
 
 class Collectionfetch extends Component {
     constructor() {
-    // In a constructor, call `super` first if the classNameNameNameName extends another classNameNameNameName
+    // In a constructor, call `super` first if the className extends another classNameNameNameName
     super();
     this.state = { data:[]};
     this.detailRest=this.detailRest.bind(this);

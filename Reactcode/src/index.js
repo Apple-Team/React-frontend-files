@@ -44,7 +44,7 @@ ReactDOM.render(
  	  <Route path="/StaticMap" component={StaticMap}/>
  	  <Route path="/Logout" component={Logout}/>
  	  <Route path="/Search/:s" component={Search}/>
- 	  <Route path="/NearBy" component={NearBy}/>
+ 	  <Route path="/NearBy/:lati/:longi/:radius" component={NearBy}/>
  	  <Route path="/Restaurant_detail/:id" component={Restaurant_detail}/>
  	  <Route path="/ViewRest" component={ViewRest}/>
 	  <Route path="/AddRest" component={AddRest}/>

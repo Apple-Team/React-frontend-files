@@ -19,7 +19,7 @@ render() {
 
 return(
 <div>
-<Navbar fixed="top" toggleable id="adminHeader">
+<Navbar  toggleable id="adminHeader">
    <NavbarToggler right onClick={this.toggle} ><i className="fa fa-bars fa-2x" style={{color:"#fcac46"}}aria-hidden="true"></i></NavbarToggler>
        <NavbarBrand href="/">
          <img src={require('./images/logo.png')} width="60" height="60" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
