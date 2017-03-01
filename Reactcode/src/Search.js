@@ -6,6 +6,7 @@ import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reac
 import Restaurant_detail from './Restaurant_detail';
 import Footer from './Footer';
 import Header from './Header';
+import SearchComponent from './SearchComponent';
 import './ViewRest.css';
 
 class Search extends Component {
@@ -31,22 +32,22 @@ class Search extends Component {
     });
   }
 componentDidMount(){
-   
-    fetch("http://localhost:9000/search_restaurants_by_name_area?"+this.props.params.s)
+
+    fetch("http://localhost:9000/search_restaurants/"+this.props.params.s)
       .then((response) => response.json())
             .then((responseJson) => {
                this.setState({
                 data: responseJson
 
                });
-            }); 
-    
+            });
+
  }
 
  handleRest(id)
 {
   this.id=id;
-  var c=document.getElementById("home");  
+  var c=document.getElementById("home");
   hashHistory.push('/Restaurant_detail/'+id)
 }
 
@@ -54,6 +55,8 @@ render() {
     // console.log('The App component was rendered')
   return (
  <div>
+ <Header />
+ <SearchComponent/>
     <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} size="sm" className="input-group-btn" >
         <DropdownToggle caret size="sm">
            Filter By
@@ -79,11 +82,11 @@ render() {
         return (
            <ul>
                 <li className="media">
-                   <img className="d-flex mr-3" src={data.image} height="100px" width="110px" alt="Generic placeholder image"/>
+                   <img className="d-flex mr-3" src={data[7]} height="100px" width="110px" alt="Generic placeholder image"/>
                     <div className="media-body">
-                         <p className="card-text"><h5 className="mt-0 mb-1">{data.name}</h5>
-                             Area: {data.area}<br />
-                             Working Hours: {data.workHours}
+                         <p className="card-text"><h5 className="mt-0 mb-1">{data[10]}</h5>
+                             Area: {data[2]}<br />
+                             Working Hours: {data[12]}
                          </p>
                     </div>
                     <button type="button" className="btn btn-warning btn-sm" onClick={() => this.handleRest(data.id)}>View</button>
@@ -91,8 +94,8 @@ render() {
             </ul>
          )
         })
-       } 
-    </div> 
+       }
+    </div>
  </div>
  </div>
      );

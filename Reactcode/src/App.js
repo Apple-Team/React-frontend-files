@@ -6,6 +6,7 @@ import Footer from './Footer';
 import Header from './Header';
 import Search from './Search';
 import NearBy from './NearBy';
+import SearchComponent from './SearchComponent';
 import { Button, Popover, PopoverTitle, PopoverContent } from 'reactstrap';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
@@ -18,10 +19,10 @@ class App extends Component {
     // In a constructor, call `super` first if the className extends another classNameName
     super();
     this.togglePop = this.togglePop.bind(this);
-    this.toggle = this.toggle.bind(this);
+
     this.state = {
       popoverOpen: false,
-    dropdownOpen: false
+
     };
     this.state = { data: [] };
   }
@@ -32,45 +33,8 @@ class App extends Component {
     });
   }
 
-  toggle() {
-    this.setState({
-      dropdownOpen: !this.state.dropdownOpen
-    });
-  }
-  handleAreaSearch(ev){
-      var search=document.getElementById('search-bar').value;
-      var home=document.getElementById("ss");
-      var area="area=";
-      var s = area.concat(search);
-      hashHistory.push('/Search/'+s);
 
- }
-  handleNameSearch(ev){
-      var search=document.getElementById('search-bar').value;
-      var home=document.getElementById("ss");
-      var name="restaurantname=";
-      var s = name.concat(search);        
-      hashHistory.push('/Search/'+s);
- }
 
- handleNearby(){
-
-        // Try HTML5 geolocation.
-          navigator.geolocation.getCurrentPosition(function(position) {
-            var pos = {
-              lat: position.coords.latitude,
-              lng: position.coords.longitude
-            };
-
-            console.log(position.coords.latitude);
-           var radius=document.getElementById('radius').value;
-           var home=document.getElementById("ss");
-           var lati=position.coords.latitude;
-           var longi=position.coords.longitude;
-           console.log(lati);
-          hashHistory.push('/NearBy/'+lati+'/'+longi+'/'+radius);
-          });
- }
 
   // `render` is called whenever the component's props OR state are updated.
   render() {
@@ -80,36 +44,9 @@ class App extends Component {
     <Header />
     <div id="home">
     <div id="tf-home" className="text-center">
+    <SearchComponent />
         <div className="overlay">
-            <div className="content">
-                <div className="txt">
-                   <div className="input-group">
-                       <input type="text" size ="100"  placeholder="Hungry??  Find your favourite Bistro...." className="form-control" id="search-bar"/>
-                          <ButtonDropdown id="searchdrop" isOpen={this.state.dropdownOpen} toggle={this.toggle} className="input-group-btn" >
-                          <DropdownToggle caret size="sm">
-                          <i className="fa fa-search"></i>
-                          </DropdownToggle>
-                          <DropdownMenu className="menu">
-                          <DropdownItem onClick={this.handleAreaSearch} id="area">Area</DropdownItem>
-                          <DropdownItem divider />
-                          <DropdownItem onClick={this.handleNameSearch} id="name">Restaurant Name</DropdownItem>
-                          </DropdownMenu>
-                          </ButtonDropdown>
-                          <div>&nbsp;&nbsp;
-        <Button id="Popover1" onClick={this.togglePop.bind(this)}>
-          Locate Me <i className="fa fa-location-arrow" aria-hidden="true"></i>
-        </Button>
-        <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" togglePop={this.togglePop.bind(this)}>
-          <PopoverTitle>Please enter the distance in km</PopoverTitle>
-          <PopoverContent><input type="text" size ="10"  placeholder="Enter radius in km" className="form-control" id="radius"/><button onClick={this.handleNearby}><i className="fa fa-search"></i></button></PopoverContent>
-        </Popover>
-        </div>
-      
-                   </div>
-                   
-                </div>
-                <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
-            </div>
+                <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>      
         </div>
     </div>
     <div id="ss">

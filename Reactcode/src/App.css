@@ -149,11 +149,12 @@ Navbar > NavItem:active{
   background-attachment: fixed;
   background-repeat: no-repeat;
   color: #cfcfcf;
+  padding-top: 50px;
 }
 
 #tf-home .overlay{
 
-  height: 1050px;
+  height: 650px;
   background-attachment: fixed;
 }
 #tf-home p.lead{
@@ -161,9 +162,10 @@ Navbar > NavItem:active{
 }
 
 .content{
-  position: relative;
   padding: 20% 0 0;
+  position: relative;
 }
+
 .input-group-btn{
   padding-top: 7px;
 }
@@ -382,4 +384,13 @@ li#admin{
   height:all;
   background-attachment: fixed;
 }
-/*collection fetch */
+/*search componenet */
+#tf-nearby{
+  background: url(images/home1.jpg) ;
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #cfcfcf;
+}
