@@ -69,7 +69,7 @@ render() {
                      <PopoverTitle>Please enter the distance in km</PopoverTitle>
                      <PopoverContent><input type="text" size ="10"  placeholder="Enter radius in km" className="form-control" id="radius"/><button onClick={this.handleNearby}><i className="fa fa-search"></i></button></PopoverContent>
                    </Popover>
-                   <input type="text" size ="100"  placeholder="Hungry??  Find your favourite Bistro...." className="form-control" id="search-bar"/>
+                   <input type="text" ref="inputSearch" size ="100"  placeholder="Hungry??  Find your favourite Bistro...." className="form-control" id="search-bar"/>
                     <button type="button" className="btn btn-warning" onClick={this.handleSearch}>  <i className="fa fa-search"></i></button>
 
                    </div>
