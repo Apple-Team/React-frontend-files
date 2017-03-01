@@ -61,18 +61,24 @@ render() {
 
             <div className="content">
                 <div className="txt">
-                   <div className="input-group">
-                   <Button id="Popover1" onClick={this.togglePop}>
-                     Locate Me <i className="fa fa-location-arrow" aria-hidden="true"></i>
-                   </Button>
-                   <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" togglePop={this.togglePop}>
-                     <PopoverTitle>Please enter the distance in km</PopoverTitle>
-                     <PopoverContent><input type="text" size ="10"  placeholder="Enter radius in km" className="form-control" id="radius"/><button onClick={this.handleNearby}><i className="fa fa-search"></i></button></PopoverContent>
-                   </Popover>
-                   <input type="text" ref="inputSearch" size ="100"  placeholder="Hungry??  Find your favourite Bistro...." className="form-control" id="search-bar"/>
-                    <button type="button" className="btn btn-warning" onClick={this.handleSearch}>  <i className="fa fa-search"></i></button>
+                   <div className="form-group">
+                      <div className="input-group">
+                            <span className="input-group-btn">
+                            <Button id="Popover1" type="button" className="btn btn-default" onClick={this.togglePop}>
+                               Locate Me <i className="fa fa-location-arrow" aria-hidden="true"></i>
+                            </Button>
+                            </span>
+                            <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" togglePop={this.togglePop}>
+                            <PopoverTitle>Please enter the distance in km</PopoverTitle>
+                            <PopoverContent><input type="text" size ="10"  placeholder="Enter radius in km" className="form-control" id="radius"/><button onClick={this.handleNearby}><i className="fa fa-search"></i></button></PopoverContent>
+                            </Popover>
+                           <input type="text" placeholder="Hungry??  Find your favourite Bistro...." size ="100" className="form-control" id="search-bar" className="typeahead form-control" autocomplete="off" />
+                           <span className="input-group-btn">
+                           <button id="teamsearchbtn" type="button" className="btn btn-default" onClick={this.handleSearch}> <i className="fa fa-search"></i></button>
+                           </span>
+                      </div>
+                    </div>
 
-                   </div>
                 </div>
 
         </div>
