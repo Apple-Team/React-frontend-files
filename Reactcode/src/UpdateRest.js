@@ -13,7 +13,8 @@ class UpdateRest extends Component {
     data1: [],
     get_data: [],
     image_data:[],
-    lat1:[],lon1:[]
+    lat1:[],lon1:[],
+    imageStatus: 'loading....'
   };
       this.handleUpload = this.handleUpload.bind(this);
       this.handleUpdateMap = this.handleUpdateMap.bind(this);
@@ -29,7 +30,14 @@ class UpdateRest extends Component {
 
             });
          });
-}
+ }
+ handleImageLoaded() {
+    this.setState({ imageStatus: 'Image Uploaded' });
+  }
+
+  handleImageErrored() {
+    this.setState({ imageStatus: 'Upload Image' });
+  }
 
   handleUpload(){
       var formData = new FormData();
@@ -84,7 +92,7 @@ class UpdateRest extends Component {
          lon =latLng.lng();
          map.panTo(latLng);
         }
-         
+
 
 
          var searchBox = new google.maps.places.SearchBox(input);
@@ -210,24 +218,19 @@ class UpdateRest extends Component {
              <div className="row">
                <div className="col" id="col1">
                     <AdminHeader />
-                 </div>
+                </div>
              </div>
-             </div>
+       </div>
        <div className="card card-block">
-
-
-
-
-       <div  className="container" >
-       <div className="row">
-       <div className="col col-sm-6">
-
-             <div className="form-group row">
-         <label className="col-2 col-form-label">Name</label>
-            <div className="col-6">
-              <input type="text" value={this.state.get_data.name} onChange={this.handleChange} id="name"/>
-             </div>
-      </div>
+          <div  className="container" >
+            <div className="row">
+                <div className="col col-sm-6">
+                  <div className="form-group row">
+                      <label className="col-2 col-form-label">Name</label>
+                      <div className="col-6">
+                          <input type="text" value={this.state.get_data.name} onChange={this.handleChange} id="name"/>
+                      </div>
+                </div>
   <div className="form-group row">
     <label for="example-text-input" className="col-2 col-form-label">Area</label>
     <div className="col-6">
@@ -308,29 +311,37 @@ class UpdateRest extends Component {
          <input type="file" class="form-control-file" id="FileUpload" name="image" aria-describedby="fileHelp"/>
          <small id="fileHelp" className="form-text text-muted">Browse Image file location </small>
          <button type="button" className="btn btn-danger btn-sm" onClick={this.handleUpload}>Update Image</button>
+
       </div>
-    </div>
+  </div>
   <div className="form-group-row">
       <div className="col-6">
         <button type="button" className="btn btn-warning" onClick={() => this.handleUpdate(this.state.get_data.id)}>Submit</button>
       </div>
   </div>
-
-
-  </div>
+</div>
 
   <div className="col col-sm-6">
     <div className="card">
       <div className="card-block">
-      <div>
-       <input id="pac-input" className="form-control" size="45" type="text" placeholder="Search Box"/>
-      <button type="button" className="btn btn-danger btn-sm" onClick={this.handleUpdateMap.bind(this)}>View Map</button>
-      <div id="map"  style={{height:"500px",width:"450px"}}></div>
-      <button type="button" className="btn btn-danger btn-sm" onClick={this.getLoc}>Get LatLong</button>
-
-      </div>
-      </div>
+        <div>
+          <input id="pac-input" className="form-control" size="45" type="text" placeholder="Search Box"/>
+          <button type="button" className="btn btn-danger btn-sm" onClick={this.handleUpdateMap.bind(this)}>View Map</button>
+          <div id="map"  style={{height:"500px",width:"450px"}}></div>
+            <button type="button" className="btn btn-danger btn-sm" onClick={this.getLoc}>Get LatLong</button>
+          </div>
+       </div>
     </div>
+
+
+
+          <div>
+            <img src={this.state.image_data} onLoad={this.handleImageLoaded.bind(this)} onError={this.handleImageErrored.bind(this)} height="300px" width="450px"/>
+             {this.state.imageStatus}
+         </div>
+
+
+
   </div>
 
 
