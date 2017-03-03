@@ -168,6 +168,7 @@ Navbar > NavItem:active{
 
 .input-group-btn{
   padding-top: 7px;
+  padding-bottom: 7px;
 }
 .btn:hover,
 .btn:active,
@@ -393,4 +394,10 @@ li#admin{
   background-attachment: fixed;
   background-repeat: no-repeat;
   color: #cfcfcf;
+}
+/*collection list*/
+.card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
 }

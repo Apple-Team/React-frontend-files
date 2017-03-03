@@ -31,23 +31,20 @@ class Search extends Component {
       dropdownOpen1: !this.state.dropdownOpen1
     });
   }
-componentDidMount(){
+componentWillReceiveProps(nextProps){
+  console.log(nextProps);
+  fetch("http://localhost:9000/search_restaurants/"+nextProps.params.s)
+    .then((response) => response.json())
+          .then((responseJson) => {
+             this.setState({
+              data: responseJson
 
-    fetch("http://localhost:9000/search_restaurants/"+this.props.params.s)
-      .then((response) => response.json())
-            .then((responseJson) => {
-               this.setState({
-                data: responseJson
-
-               });
-            });
-
- }
-
+             });
+          });
+}
  handleRest(id)
 {
   this.id=id;
-  var c=document.getElementById("home");
   hashHistory.push('/Restaurant_detail/'+id)
 }
 

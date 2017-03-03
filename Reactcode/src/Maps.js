@@ -21,11 +21,12 @@ class Maps extends Component {
         }
   render() {
 
-    if(this.props.lati) this.handleMap();
+    if(this.props.lati)
+      this.handleMap();
     return (
-      
-      <div id="map" style={{height:"420px",width:"520px"}}>
-        
+
+      <div id="map" style={{height:"440px",width:"420px"}}>
+
       </div>
     );
   }

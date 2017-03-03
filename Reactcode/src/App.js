@@ -18,23 +18,8 @@ class App extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another classNameName
     super();
-    this.togglePop = this.togglePop.bind(this);
-
-    this.state = {
-      popoverOpen: false,
-
-    };
     this.state = { data: [] };
   }
-
-   togglePop() {
-    this.setState({
-      popoverOpen: !this.state.popoverOpen
-    });
-  }
-
-
-
 
   // `render` is called whenever the component's props OR state are updated.
   render() {
@@ -46,7 +31,7 @@ class App extends Component {
     <div id="tf-home" className="text-center">
     <SearchComponent />
         <div className="overlay">
-                <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>      
+                <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
         </div>
     </div>
     <div id="ss">
