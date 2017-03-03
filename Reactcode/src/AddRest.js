@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Link} from 'react-router';
+import {Link,hashHistory} from 'react-router';
 import StaticMap from './StaticMap';
 import AdminHeader from './AdminHeader';
 // webpack.config.js specifies index.js as the entry point, and
@@ -9,11 +9,12 @@ class AddRest extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another className
     super();
-    this.state = { data: [],lat1:[],lon1:[],image_data:[] };
+    this.state = { data: [],lat1:[],lon1:[],image_data:[],imgSrc:'' };
     this.handleClick=this.handleClick.bind(this);
 
     this.handleUpload = this.handleUpload.bind(this);
     this.getLoc = this.getLoc.bind(this);
+    this.onChange= this.onChange.bind(this);
     console.log('test');
   }
   handleUpload(){
@@ -168,18 +169,29 @@ class AddRest extends Component {
 
                             })
      })
-     .then(function (data) {
-  alert('Added into the database',data);
-
-  })
-  .catch(function (error) {
-  alert('Not added into the database',error);
-  });
- }
+      window.location.reload();
+     hashHistory.push('/ViewRest/');
+}
  getLoc(){
   this.setState({lat1:lat});
   this.setState({lon1:lon});
  }
+ onChange(){
+  // Assuming only image
+
+  var file = document.getElementById('FileUpload').files[0];
+  var reader = new FileReader();
+  var url = reader.readAsDataURL(file);
+
+   reader.onloadend = function (e) {
+      this.setState({
+          imgSrc: [reader.result]
+      })
+    }.bind(this);
+  console.log(url);
+
+}
+
 
   // `render` is called whenever the component's props OR state are updated.
   render() {
@@ -278,9 +290,9 @@ class AddRest extends Component {
 <div className="form-group row">
     <label for="exampleInputFile" className="col-2 col-form-label">Image</label>
     <div className="col-6">
-       <input type="file" class="form-control-file" id="FileUpload" name="image" aria-describedby="fileHelp"/>
+       <input type="file" class="form-control-file" id="FileUpload" name="image" aria-describedby="fileHelp" onChange={this.onChange}/>
        <small id="fileHelp" className="form-text text-muted">Browse Image file location </small>
-       <button type="button" className="btn btn-danger btn-sm" onClick={this.handleUpload}>Upload</button>
+       <button type="button" className="btn btn-warning btn-sm" onClick={this.handleUpload}>Upload</button>
     </div>
   </div>
 <div className="form-group-row">
@@ -295,13 +307,15 @@ class AddRest extends Component {
     <div className="card-block">
     <div>
      <input id="pac-input" className="form-control" size="45" type="text" placeholder="Search Box"/>
-  
+
     <div id="map"  style={{height:"500px",width:"450px"}}></div>
-    <button type="button" className="btn btn-danger btn-sm" onClick={this.getLoc}>Get LatLong</button>
+    <button type="button" className="btn btn-warning btn-sm" onClick={this.getLoc}>Get LatLong</button>
 
     </div>
     </div>
   </div>
+  <img src={this.state.imgSrc}  />
+
 </div>
 
 </div>

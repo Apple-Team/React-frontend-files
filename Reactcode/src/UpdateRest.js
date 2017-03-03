@@ -14,15 +14,16 @@ class UpdateRest extends Component {
     get_data: [],
     image_data:[],
     lat1:[],lon1:[],
-    imageStatus: 'loading....'
+    imageStatus: '',
+    imgSrc:''
   };
       this.handleUpload = this.handleUpload.bind(this);
-
+      this.onChange= this.onChange.bind(this);
       this.getLoc = this.getLoc.bind(this);
      console.log('test');
   }
-  componentWillMount(){
-  fetch("http://localhost:9000/restaurants_by_id/"+this.props.params.index)
+  componentWillReceiveProps(nextProps){
+  fetch("http://localhost:9000/restaurants_by_id/"+nextProps.params.index)
          .then((response) => response.json())
          .then((responseJson) => {
             this.setState({
@@ -30,8 +31,11 @@ class UpdateRest extends Component {
 
             });
          });
+
+
 }
-componentDidMount(){
+  componentDidMount(){
+
          var map = new google.maps.Map(document.getElementById('map'), {
            center: {lat: 17.3850, lng: 78.4867},
            zoom: 13,
@@ -128,13 +132,9 @@ componentDidMount(){
            map.fitBounds(bounds);
          });
  }
- handleImageLoaded() {
-    this.setState({ imageStatus: 'Image Uploaded' });
-  }
 
-  handleImageErrored() {
-    this.setState({ imageStatus: 'Upload Image' });
-  }
+
+
 
   handleUpload(){
       var formData = new FormData();
@@ -150,11 +150,25 @@ componentDidMount(){
       .then((responseJson) => {
          this.setState({
           image_data: responseJson
-
          });
-      });
-
+      })
   }
+
+  onChange(){
+   // Assuming only image
+
+   var file = document.getElementById('FileUpload').files[0];
+   var reader = new FileReader();
+   var url = reader.readAsDataURL(file);
+
+    reader.onloadend = function (e) {
+       this.setState({
+           imgSrc: [reader.result]
+       })
+     }.bind(this);
+   console.log(url);
+
+ }
 
 
 
@@ -191,12 +205,15 @@ componentDidMount(){
       });
    });
    console.log(this.state.data1);
+   window.location.reload();
    hashHistory.push('/ViewRest/')
  }
 
  handleChange(event){
   this.setState({get_data: event.target.value});
  }
+
+
 
 
  getLoc(){
@@ -208,7 +225,6 @@ componentDidMount(){
  }
 
  render() {
-    // console.log('The App component was rendered')
 
     return(
 
@@ -307,10 +323,10 @@ componentDidMount(){
   <div className="form-group row">
       <label for="exampleInputFile" className="col-2 col-form-label">Image</label>
       <div className="col-6">
-         <input type="file" class="form-control-file" id="FileUpload" name="image" aria-describedby="fileHelp"/>
+         <input type="file" className="form-control-file" id="FileUpload" name="image" aria-describedby="fileHelp" onChange={this.onChange}/>
          <small id="fileHelp" className="form-text text-muted">Browse Image file location </small>
-         <button type="button" className="btn btn-danger btn-sm" onClick={this.handleUpload}>Update Image</button>
-
+         <button type="button" className="btn btn-warning btn-sm" onClick={this.handleUpload}>Upload Image</button>
+         {this.state.imageStatus}
       </div>
   </div>
   <div className="form-group-row">
@@ -327,19 +343,12 @@ componentDidMount(){
           <input id="pac-input" className="form-control" size="45" type="text" placeholder="Search Box"/>
 
           <div id="map"  style={{height:"500px",width:"450px"}}></div>
-            <button type="button" className="btn btn-danger btn-sm" onClick={this.getLoc}>Get LatLong</button>
+            <button type="button" className="btn btn-warning btn-sm" onClick={this.getLoc}>Get LatLong</button>
           </div>
        </div>
     </div>
 
-
-
-          <div>
-            <img src={this.state.image_data} onLoad={this.handleImageLoaded.bind(this)} onError={this.handleImageErrored.bind(this)} height="300px" width="450px"/>
-             {this.state.imageStatus}
-         </div>
-
-
+  <img src={this.state.imgSrc}  />
 
   </div>
 
