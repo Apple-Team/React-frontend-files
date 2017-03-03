@@ -20,9 +20,12 @@ class Maps extends Component {
           });
         }
   render() {
+
+    if(this.props.lati) this.handleMap();
     return (
+      
       <div id="map" style={{height:"420px",width:"520px"}}>
-        <button type="button" className="btn btn-danger btn-sm" onClick={this.handleMap.bind(this)}>View Map</button>
+        
       </div>
     );
   }

@@ -18,6 +18,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
 
     };
     this.state = { radius_data: [] };
+    this.handleSearch=this.handleSearch.bind(this);
   }
  togglePop() {
     this.setState({
@@ -26,8 +27,9 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
   }
 
   handleSearch(ev){
-      var s=document.getElementById('search-bar').value;
-
+      var s=this.refs.inputSearch.value;
+      console.log(s);
+      
       hashHistory.push('/Search/'+s);
 
  }
@@ -72,7 +74,7 @@ render() {
                             <PopoverTitle>Please enter the distance in km</PopoverTitle>
                             <PopoverContent><input type="text" size ="10"  placeholder="Enter radius in km" className="form-control" id="radius"/><button onClick={this.handleNearby}><i className="fa fa-search"></i></button></PopoverContent>
                             </Popover>
-                           <input type="text" placeholder="Hungry??  Find your favourite Bistro...." size ="100" className="form-control" id="search-bar" className="typeahead form-control" autocomplete="off" />
+                           <input type="text" placeholder="Hungry??  Find your favourite Bistro...." size ="100" id="search-bar" ref="inputSearch" autocomplete="off" />
                            <span className="input-group-btn">
                            <button id="teamsearchbtn" type="button" className="btn btn-default" onClick={this.handleSearch}> <i className="fa fa-search"></i></button>
                            </span>
