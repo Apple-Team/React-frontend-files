@@ -17,7 +17,7 @@ class UpdateRest extends Component {
     imageStatus: 'loading....'
   };
       this.handleUpload = this.handleUpload.bind(this);
-      this.handleUpdateMap = this.handleUpdateMap.bind(this);
+
       this.getLoc = this.getLoc.bind(this);
      console.log('test');
   }
@@ -30,35 +30,8 @@ class UpdateRest extends Component {
 
             });
          });
- }
- handleImageLoaded() {
-    this.setState({ imageStatus: 'Image Uploaded' });
-  }
-
-  handleImageErrored() {
-    this.setState({ imageStatus: 'Upload Image' });
-  }
-
-  handleUpload(){
-      var formData = new FormData();
-      var photo=document.getElementById('FileUpload').files[0];
-
-      console.log(photo);
-
-      formData.set('image',photo);
-      fetch('http://localhost:9000/images', {
-        method:'POST',
-         body: formData
-      }).then((response) => response.json())
-      .then((responseJson) => {
-         this.setState({
-          image_data: responseJson
-
-         });
-      });
-
-  }
-  handleUpdateMap() {
+}
+componentDidMount(){
          var map = new google.maps.Map(document.getElementById('map'), {
            center: {lat: 17.3850, lng: 78.4867},
            zoom: 13,
@@ -154,7 +127,32 @@ class UpdateRest extends Component {
            });
            map.fitBounds(bounds);
          });
+ }
+ handleImageLoaded() {
+    this.setState({ imageStatus: 'Image Uploaded' });
+  }
 
+  handleImageErrored() {
+    this.setState({ imageStatus: 'Upload Image' });
+  }
+
+  handleUpload(){
+      var formData = new FormData();
+      var photo=document.getElementById('FileUpload').files[0];
+
+      console.log(photo);
+
+      formData.set('image',photo);
+      fetch('http://localhost:9000/images', {
+        method:'POST',
+         body: formData
+      }).then((response) => response.json())
+      .then((responseJson) => {
+         this.setState({
+          image_data: responseJson
+
+         });
+      });
 
   }
 
@@ -211,6 +209,7 @@ class UpdateRest extends Component {
 
  render() {
     // console.log('The App component was rendered')
+
     return(
 
       <div id="Update">
@@ -326,7 +325,7 @@ class UpdateRest extends Component {
       <div className="card-block">
         <div>
           <input id="pac-input" className="form-control" size="45" type="text" placeholder="Search Box"/>
-          <button type="button" className="btn btn-danger btn-sm" onClick={this.handleUpdateMap.bind(this)}>View Map</button>
+
           <div id="map"  style={{height:"500px",width:"450px"}}></div>
             <button type="button" className="btn btn-danger btn-sm" onClick={this.getLoc}>Get LatLong</button>
           </div>

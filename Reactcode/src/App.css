@@ -395,6 +395,10 @@ li#admin{
   background-repeat: no-repeat;
   color: #cfcfcf;
 }
+input:focus::-webkit-input-placeholder
+{
+    color: transparent;
+}
 /*collection list*/
 .card {
         margin: 0 auto; /* Added */

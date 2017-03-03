@@ -19,7 +19,6 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
     };
     this.state = { radius_data: [] };
     this.handleSearch=this.handleSearch.bind(this);
-    this.handleNearby=this.handleNearby.bind(this);
     this.handleChange=this.handleChange.bind(this);
   }
  togglePop() {
@@ -40,13 +39,13 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
    }
  handleNearby(){
 
-        // Try HTML5 geolocation.
+
           navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-
+              console.log("iv");
             console.log(position.coords.latitude);
            var radius=document.getElementById('radius').value;
            var home=document.getElementById("ss");
@@ -76,9 +75,9 @@ render() {
                             </span>
                             <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" togglePop={this.togglePop}>
                             <PopoverTitle>Please enter the distance in km</PopoverTitle>
-                            <PopoverContent><input type="text" size ="10"  placeholder="Enter radius in km" className="form-control" id="radius"/><button onClick={this.handleNearby.bind(this)}><i className="fa fa-search"></i></button></PopoverContent>
+                            <PopoverContent><input type="text" size ="10"  placeholder="Enter radius in km" className="form-control" id="radius"/><button onClick={this.handleNearby}><i className="fa fa-search"></i></button></PopoverContent>
                             </Popover>
-                           <input type="text" placeholder="Hungry??  Find your favourite Bistro...." size ="100" id="search-bar" ref="inputSearch" autocomplete="off" value={this.state.inputValue}
+                           <input type="text" placeholder="Hungry??  Find your favourite Bistro...." onfocus="placeholder=''" size ="100" id="search-bar" ref="inputSearch" autocomplete="off" value={this.state.inputValue}
                             onChange={this.handleChange.bind(this)}  />
                            <span className="input-group-btn">
                            <button id="teamsearchbtn" type="button" className="btn btn-default" onClick={this.handleSearch}> <i className="fa fa-search"></i></button>

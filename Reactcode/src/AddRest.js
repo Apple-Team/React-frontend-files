@@ -11,7 +11,7 @@ class AddRest extends Component {
     super();
     this.state = { data: [],lat1:[],lon1:[],image_data:[] };
     this.handleClick=this.handleClick.bind(this);
-    this.handleMap = this.handleMap.bind(this);
+
     this.handleUpload = this.handleUpload.bind(this);
     this.getLoc = this.getLoc.bind(this);
     console.log('test');
@@ -37,7 +37,7 @@ class AddRest extends Component {
 
   }
 
-  handleMap() {
+  componentDidMount() {
          var map = new google.maps.Map(document.getElementById('map'), {
            center: {lat: 17.3850, lng: 78.4867},
            zoom: 13,
@@ -295,7 +295,7 @@ class AddRest extends Component {
     <div className="card-block">
     <div>
      <input id="pac-input" className="form-control" size="45" type="text" placeholder="Search Box"/>
-    <button type="button" className="btn btn-danger btn-sm" onClick={this.handleMap.bind(this)}>View Map</button>
+  
     <div id="map"  style={{height:"500px",width:"450px"}}></div>
     <button type="button" className="btn btn-danger btn-sm" onClick={this.getLoc}>Get LatLong</button>
 

@@ -9,7 +9,6 @@ import 'font-awesome/css/font-awesome.css';
 import App from './App';
 import Collection from './collection';
 import Login from './Login';
-import form from './form';
 import Signup from './Signup';
 import Search from './Search';
 import SearchComponent from './SearchComponent';
@@ -39,7 +38,7 @@ ReactDOM.render(
 
  	  <Route path="/" component={App}/>
  	  <Route path="/home" component={App}/>
- 	  <Route path="/login" component={form}/>
+ 	  <Route path="/Login" component={Login}/>
  	  <Route path="/Signup" component={Signup}/>
  	  <Route path="/map" component={Maps}/>
  	  <Route path="/StaticMap" component={StaticMap}/>
