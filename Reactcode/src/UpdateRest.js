@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import {Link,hashHistory} from 'react-router';
 import AdminHeader from './AdminHeader';
+import PreviewImg from './PreviewImg';
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
-var lat,lon,image_data,imgSrc;
+var lat,lon;
 var lat1,lon1;
 class UpdateRest extends Component {
   constructor() {
@@ -13,10 +14,9 @@ class UpdateRest extends Component {
     this.state = {
     data1: [],
     get_data: [],
-    imageStatus: ''
+    img:[]
   };
-      this.handleUpload = this.handleUpload.bind(this);
-      this.onChange= this.onChange.bind(this);
+      this.PrvImg=this.PrvImg.bind(this);
       this.getLoc = this.getLoc.bind(this);
      console.log('test');
   }
@@ -130,48 +130,18 @@ class UpdateRest extends Component {
          });
  }
 
+PrvImg(image_data)
+{
+  console.log(image_data);
+  this.setState({
+    img:image_data
+  })
+  console.log(this.state.img);
 
-
-
-  handleUpload(){
-
-      var formData = new FormData();
-      var photo=document.getElementById('FileUpload').files[0];
-
-      console.log(photo);
-
-      formData.set('image',photo);
-      fetch('http://localhost:9000/images', {
-        method:'POST',
-         body: formData
-      }).then((response) => response.json())
-      .then((responseJson) => {
-
-          image_data= responseJson
-
-      });
-
-  }
-
-  onChange(){
-   // Assuming only image
-
-   var file = document.getElementById('FileUpload').files[0];
-   var reader = new FileReader();
-   var url = reader.readAsDataURL(file);
-
-    reader.onloadend = function (e) {
-
-           imgSrc=[reader.result]
-
-     }.bind(this);
-
-
- }
-
-
+}
 
  handleUpdate(id){
+   var img1=this.state.img;
    if(!this.state.image_data){
      this.state.image_data=this.state.get_data.image;
    }
@@ -195,7 +165,7 @@ class UpdateRest extends Component {
                            "latitude": lat1,
                            "longitude": lon1,
                            "workHours": document.getElementById('working hours').value,
-                           "image": image_data
+                           "image": img1
 
                          })
    })
@@ -223,6 +193,8 @@ class UpdateRest extends Component {
    lat1=lat;
    lon1=lon;
    console.log(lat);
+   document.getElementById('lat').value=lat1;
+   document.getElementById('long').value=lon1;
  }
 
  render() {
@@ -323,15 +295,7 @@ class UpdateRest extends Component {
       <input type="text" value={lon1} id="long"/>
     </div>
   </div>
-  <div className="form-group row">
-      <label for="exampleInputFile" className="col-2 col-form-label">Image</label>
-      <div className="col-6">
-         <input type="file" id="FileUpload" name="image" aria-describedby="fileHelp" onChange={this.onChange}/>
-         <small id="fileHelp" className="form-text text-muted">Browse Image file location </small>
-         <button type="button" className="btn btn-warning btn-sm" onClick={this.handleUpload}>Upload Image</button>
-         {this.state.imageStatus}
-      </div>
-  </div>
+
   <div className="form-group-row">
       <div className="col-6">
         <button type="button" className="btn btn-warning" onClick={() => this.handleUpdate(this.state.get_data.id)}>Submit</button>
@@ -350,8 +314,8 @@ class UpdateRest extends Component {
           </div>
        </div>
     </div>
+    <PreviewImg Img={this.PrvImg}/>
 
-  <img src={imgSrc}  />
 
   </div>
 
