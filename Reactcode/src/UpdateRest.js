@@ -3,7 +3,8 @@ import {Link,hashHistory} from 'react-router';
 import AdminHeader from './AdminHeader';
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
-var lat,lon;
+var lat,lon,image_data,imgSrc;
+var lat1,lon1;
 class UpdateRest extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another className
@@ -12,10 +13,7 @@ class UpdateRest extends Component {
     this.state = {
     data1: [],
     get_data: [],
-    image_data:[],
-    lat1:[],lon1:[],
-    imageStatus: '',
-    imgSrc:''
+    imageStatus: ''
   };
       this.handleUpload = this.handleUpload.bind(this);
       this.onChange= this.onChange.bind(this);
@@ -35,8 +33,7 @@ class UpdateRest extends Component {
 
 }
   componentDidMount(){
-
-         var map = new google.maps.Map(document.getElementById('map'), {
+          var map = new google.maps.Map(document.getElementById('map'), {
            center: {lat: 17.3850, lng: 78.4867},
            zoom: 13,
            panControl:true,
@@ -137,6 +134,7 @@ class UpdateRest extends Component {
 
 
   handleUpload(){
+
       var formData = new FormData();
       var photo=document.getElementById('FileUpload').files[0];
 
@@ -148,10 +146,11 @@ class UpdateRest extends Component {
          body: formData
       }).then((response) => response.json())
       .then((responseJson) => {
-         this.setState({
-          image_data: responseJson
-         });
-      })
+
+          image_data= responseJson
+
+      });
+
   }
 
   onChange(){
@@ -162,17 +161,20 @@ class UpdateRest extends Component {
    var url = reader.readAsDataURL(file);
 
     reader.onloadend = function (e) {
-       this.setState({
-           imgSrc: [reader.result]
-       })
+
+           imgSrc=[reader.result]
+
      }.bind(this);
-   console.log(url);
+
 
  }
 
 
 
  handleUpdate(id){
+   if(!this.state.image_data){
+     this.state.image_data=this.state.get_data.image;
+   }
   this.id=id;
   fetch('http://localhost:9000/update_a_restaurant/'+ id,
     {
@@ -190,10 +192,10 @@ class UpdateRest extends Component {
                            "homePage": document.getElementById('homepageurl').value,
                            "fbUrl": document.getElementById('fbpageurl').value,
                            "number": document.getElementById('telephone').value,
-                           "latitude": this.state.lat1,
-                           "longitude": this.state.lon1,
+                           "latitude": lat1,
+                           "longitude": lon1,
                            "workHours": document.getElementById('working hours').value,
-                           "image": this.state.image_data
+                           "image": image_data
 
                          })
    })
@@ -210,22 +212,23 @@ class UpdateRest extends Component {
  }
 
  handleChange(event){
-  this.setState({get_data: event.target.value});
+  this.setState({
+    get_data: event.target.value});
  }
 
 
 
 
  getLoc(){
-   this.setState({lat1:lat});
-   this.setState({lon1:lon});
-  this.state.get_data.latitude=this.state.lat1;
-   this.state.get_data.longitude=this.state.lon1;
-   console.log(this.state.get_data.latitude);
+   lat1=lat;
+   lon1=lon;
+   console.log(lat);
  }
 
  render() {
-
+   console.log('render');
+   lat1=this.state.get_data.latitude;
+   lon1=this.state.get_data.longitude;
     return(
 
       <div id="Update">
@@ -311,19 +314,19 @@ class UpdateRest extends Component {
   <div className="form-group row">
     <label for="example-text-input" className="col-2 col-form-label">Latitude</label>
     <div className="col-6">
-      <input type="text" value={this.state.get_data.latitude} id="lat"/>
+      <input type="text" value={lat1} id="lat"/>
     </div>
   </div>
   <div className="form-group row">
     <label for="example-text-input" className="col-2 col-form-label">Longitude</label>
     <div className="col-6">
-      <input type="text" value={this.state.get_data.longitude} id="long"/>
+      <input type="text" value={lon1} id="long"/>
     </div>
   </div>
   <div className="form-group row">
       <label for="exampleInputFile" className="col-2 col-form-label">Image</label>
       <div className="col-6">
-         <input type="file" className="form-control-file" id="FileUpload" name="image" aria-describedby="fileHelp" onChange={this.onChange}/>
+         <input type="file" id="FileUpload" name="image" aria-describedby="fileHelp" onChange={this.onChange}/>
          <small id="fileHelp" className="form-text text-muted">Browse Image file location </small>
          <button type="button" className="btn btn-warning btn-sm" onClick={this.handleUpload}>Upload Image</button>
          {this.state.imageStatus}
@@ -348,7 +351,7 @@ class UpdateRest extends Component {
        </div>
     </div>
 
-  <img src={this.state.imgSrc}  />
+  <img src={imgSrc}  />
 
   </div>
 

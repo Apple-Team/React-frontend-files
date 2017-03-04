@@ -408,7 +408,7 @@ input:focus::-webkit-input-placeholder
     color: transparent;
 }
 .btn-warning {
-    color: #000;
+    color: #FFF;
     background-color: #f0ad4e;
     border-color: #f0ad4e;
 }
