@@ -69,7 +69,7 @@ render() {
                    <div className="form-group">
                       <div className="input-group">
                             <span className="input-group-btn">
-                            <Button id="Popover1" type="button" className="btn btn-default" onClick={this.togglePop}>
+                            <Button id="Popover1" type="button" className="btn btn-warning" onClick={this.togglePop}>
                                Locate Me <i className="fa fa-location-arrow" aria-hidden="true"></i>
                             </Button>
                             </span>
@@ -80,7 +80,7 @@ render() {
                            <input type="text" placeholder="Hungry??  Find your favourite Bistro...." onfocus="placeholder=''" size ="100" id="search-bar" ref="inputSearch" autocomplete="off" value={this.state.inputValue}
                             onChange={this.handleChange.bind(this)}  />
                            <span className="input-group-btn">
-                           <button id="teamsearchbtn" type="button" className="btn btn-default" onClick={this.handleSearch}> <i className="fa fa-search"></i></button>
+                           <button id="teamsearchbtn" type="button" className="btn btn-warning" onClick={this.handleSearch}> <i className="fa fa-search"></i></button>
                            </span>
                       </div>
                     </div>

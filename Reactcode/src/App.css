@@ -42,7 +42,15 @@ font-weight: 900;
 .navbar .navbar-nav > li > a {
   text-transform: uppercase;
   color: #000000;
-  font-size: 12px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  width: auto;
+  display:table-cell;
+}
+.navbar .navbar-nav > li > a:hover {
+  text-transform: uppercase;
+  color: #000000;
+  font-size: 15px;
   letter-spacing: 1px;
   width: auto;
   display:table-cell;
@@ -398,6 +406,11 @@ li#admin{
 input:focus::-webkit-input-placeholder
 {
     color: transparent;
+}
+.btn-warning {
+    color: #000;
+    background-color: #f0ad4e;
+    border-color: #f0ad4e;
 }
 /*collection list*/
 .card {
