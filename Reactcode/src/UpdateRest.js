@@ -21,6 +21,7 @@ class UpdateRest extends Component {
      console.log('test');
   }
   componentWillReceiveProps(nextProps){
+    var that=this;
   fetch("http://localhost:9000/restaurants_by_id/"+nextProps.params.index)
          .then((response) => response.json())
          .then((responseJson) => {
@@ -28,11 +29,7 @@ class UpdateRest extends Component {
              get_data: responseJson
 
             });
-         });
-
-
-}
-  componentDidMount(){
+         }).then(function(e){
           var map = new google.maps.Map(document.getElementById('map'), {
            center: {lat: 17.3850, lng: 78.4867},
            zoom: 13,
@@ -55,7 +52,7 @@ class UpdateRest extends Component {
             placeMarkerAndPanTo(e.latLng, map);
           });
 
-         var uluru= {lat:this.state.get_data.latitude, lng:this.state.get_data.longitude};
+         var uluru= {lat:that.state.get_data.latitude, lng:that.state.get_data.longitude};
           var marker = new google.maps.Marker({
             position: uluru,
             map: map
@@ -128,6 +125,7 @@ class UpdateRest extends Component {
            });
            map.fitBounds(bounds);
          });
+       });
  }
 
 PrvImg(image_data)

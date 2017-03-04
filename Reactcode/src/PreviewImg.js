@@ -36,7 +36,7 @@ class PreviewImg extends Component {
 
         })
         .then(function(e){
-          that.props.Img(that.state.image_data);
+          that.props.Img(this.state.image_data);
         });
 
     }
