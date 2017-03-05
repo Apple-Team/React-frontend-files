@@ -86,7 +86,7 @@ render() {
                              Working Hours: {data[12]}
                          </p>
                     </div>
-                    <button type="button" className="btn btn-warning btn-sm" onClick={() => this.handleRest(data.id)}>View</button>
+                    <button type="button" className="btn btn-warning btn-sm" onClick={() => this.handleRest(data[0])}>View</button>
                 </li>
             </ul>
          )
