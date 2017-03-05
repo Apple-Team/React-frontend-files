@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Router, Route, hashHistory,Link} from 'react-router';
-
+import './PreviewImg.css';
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
 
@@ -20,6 +20,7 @@ class PreviewImg extends Component {
   }
     componentWillReceiveProps(nextProps){
       this.state.imgSrc=nextProps.pic;
+      
     }
 
     handleUpload(){
@@ -40,6 +41,7 @@ class PreviewImg extends Component {
         })
         .then(function(e){
           that.props.Img(that.state.image_data);
+          document.getElementById('spinner').style.display="none";
           document.getElementById('icon').style.display="block";
           that.setState({
             imgStatus:'Image uploaded'
@@ -50,7 +52,7 @@ class PreviewImg extends Component {
 
     onChange(){
      // Assuming only image
-
+      document.getElementById('spinner').style.display="block";
      var file = document.getElementById('FileUpload').files[0];
      var reader = new FileReader();
      var url = reader.readAsDataURL(file);
@@ -84,7 +86,9 @@ class PreviewImg extends Component {
           </div>
       </div>
 
+      <div className="loader" id="spinner" style={{display: 'none'}}></div>
       <img id="image" src={this.state.imgSrc} /><br /><br />
+      
       <i className="fa fa-check" id="icon" style={{display: 'none'}}></i>{this.state.imgStatus}
   </div>
     );
