@@ -7,11 +7,14 @@ class AddCollection extends Component {
     // In a constructor, call `super` first if the className extends another className
     super();
 
-    this.state = { data: [],
+    this.state = {
     imgSrc:'',
     image_data:[],
   };
+  	 this.handleClick=this.handleClick.bind(this);
 
+    this.handleUpload = this.handleUpload.bind(this);
+    this.onChange= this.onChange.bind(this);
     console.log('test');
   }
 
@@ -24,8 +27,8 @@ class AddCollection extends Component {
         },
       method: "POST",
        body: JSON.stringify({
-                              "name": document.getElementById('name').value,
-                              "image": this.state.image_data
+                              "collection": document.getElementById('name').value,
+                              "collectionUrl": this.state.image_data
 
                             })
      })
@@ -72,7 +75,7 @@ onChange(){
 
 
  render() {
-   
+   console.log(this.state.image_data);
     // console.log('The App component was rendered')
     return(
 <div  id="content1">
