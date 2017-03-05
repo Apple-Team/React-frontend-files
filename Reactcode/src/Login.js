@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link,hashHistory} from 'react-router';
 import './Login.css';
 import './Signup.css';
-import Admin from './Admin';
+import Signup from './Signup';
 
 class Login extends Component {
   constructor() {
@@ -11,16 +11,6 @@ class Login extends Component {
     this.handleLogin=this.handleLogin.bind(this);
 
   }
-componentWillMount(){
-  fetch("http://localhost:9000/images/286b4b0f-c497-4d5e-81fe-906ef239b5d1")
-	.then(function(response) {
-	  return response.blob();
-	})
-	.then(function(imageBlob) {
-	  document.getElementById('signIn').src = URL.createObjectURL(imageBlob);
-	});
-
-}
 
   handleLogin(){
      var name=document.getElementById('username').value;
@@ -41,28 +31,47 @@ componentWillMount(){
 
   render() {
     return (
-      <div id="fff">
-         <form >
-           <div className="imgcontainer">
-             <img id="signIn" alt="Sign In" className="avatar" />
-           </div>
-           <div className="container" align="center">
-             <label><b><center>USERNAME</center></b></label> <br />
-             <input type="text" placeholder="Enter Username" id="username" name="uname" required/><br />
-             <label><b>PASSWORD</b></label><br />
-             <input type="password" placeholder="Enter Password" name="psw" id="password" required/><br /><br />
-           </div>
-           <div className="container" id="btn1">
-             <button className="btn" type="submit" onClick={this.handleLogin.bind(this)}>Login</button>
-             &nbsp; &nbsp; &nbsp;&nbsp;
-             <span className="psw"><a href="#">Forgot password?</a></span> <br /><br />
-             <p> New Member?  <Link to ="/Signup" className="btn btn-primary">Signup</Link></p>
-           </div>
-         </form>
+      <div id="tf-home">
+        <div className="container1">
+           
+            <header>
+                <h1>Login Form</h1>
+                
+            </header>
+            <section>               
+                <div id="container1_demo" >            
+                    <div id="wrapper1">              
+                                               
+                        <div id="login" className="animate form">
+                            <form autocomplete="on"> 
+                                <h1>Sign In</h1> 
+                                <p> 
+                                    <label for="username" className="uname" > Your email or username </label>
+                                    <input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
+                                </p>
+                                <p> 
+                                    <label for="password" className="youpasswd"> Your password </label>
+                                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" /> 
+                                </p>
 
-         </div>
+                                <p className="login button">                               
+                                    <button type="button" className="btn btn-warning" onClick={this.handleLogin}>SIGN IN</button>                       
+                                </p>
+                                <p >
+                                    Not a member yet ?
+                                     <Link to="/Signup" className="to_register">Join us</Link>
+                                </p>
+                            </form>
+                        </div>
 
-      );
+                    </div>
+                </div>  
+            </section>
+        </div>                       
+         
+
+      </div>
+     );
   }
 }
 

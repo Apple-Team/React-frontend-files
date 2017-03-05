@@ -31,8 +31,8 @@ class UpdateRest extends Component {
             });
          }).then(function(e){
           var map = new google.maps.Map(document.getElementById('map'), {
-           center: {lat: 17.3850, lng: 78.4867},
-           zoom: 13,
+           center: {lat: that.state.get_data.latitude, lng: that.state.get_data.longitude},
+           zoom: 17,
            panControl:true,
           zoomControl:true,
           mapTypeControl:true,
