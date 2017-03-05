@@ -130,9 +130,13 @@ class UpdateRest extends Component {
 
 PrvImg(image_data)
 {
+  if(image_data!=''){
   console.log(image_data);
   this.state.img=image_data;
   console.log(this.state.img);
+  }
+  else 
+    this.state.img=this.state.get_data.image;
 
 }
 
