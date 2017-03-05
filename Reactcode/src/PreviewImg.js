@@ -86,9 +86,9 @@ class PreviewImg extends Component {
           </div>
       </div>
 
-      <div className="loader" id="spinner" style={{display: 'none'}}></div>
-      <img id="image" src={this.state.imgSrc} /><br /><br />
       
+      <img id="image" src={this.state.imgSrc} /><br /><br />
+      <div className="loader" id="spinner" style={{display: 'none'}}></div>
       <i className="fa fa-check" id="icon" style={{display: 'none'}}></i>{this.state.imgStatus}
   </div>
     );
