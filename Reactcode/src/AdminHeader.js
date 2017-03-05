@@ -26,6 +26,12 @@ return(
          <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
+               <div style={{color:"#000000"}}><Link to="/ViewCollection" className="nav-link" >VIEW ALL COLLECTIONS</Link></div>
+              </NavItem>
+              <NavItem>
+               <div style={{color:"#000000"}}><Link to="/AddCollection" className="nav-link" >ADD A COLLECTION</Link></div>
+              </NavItem>
+              <NavItem>
                <div style={{color:"#000000"}}><Link to="/ViewRest" className="nav-link" >VIEW ALL RESTAURANTS</Link></div>
               </NavItem>
               <NavItem>

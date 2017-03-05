@@ -25,6 +25,10 @@ import Restaurant_detail from './Restaurant_detail';
 import Collectionfetch from './Collectionfetch';
 import Logout from './Logout';
 
+
+import ViewCollection from './ViewCollection';
+import AddCollection from './AddCollection';
+
 import Maps from './Maps';
 import StaticMap from './StaticMap';
 
@@ -47,7 +51,9 @@ ReactDOM.render(
  	  <Route path="/NearBy/:lati/:longi/:radius" component={NearBy}/>
  	  <Route path="/Restaurant_detail/:id" component={Restaurant_detail}/>
  	  <Route path="/ViewRest" component={ViewRest}/>
+ 	  <Route path="/ViewCollection" component={ViewCollection}/>
 	  <Route path="/AddRest" component={AddRest}/>
+	  <Route path="/AddCollection" component={AddCollection}/>
 	  <Route path="/UpdateRest/:index" component={UpdateRest}/>
 	  <Route path="/Collectionfetch/:name" component={Collectionfetch}/>
      <Route path="/AdminHeader" component={AdminHeader}/>
