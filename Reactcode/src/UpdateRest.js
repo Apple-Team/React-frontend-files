@@ -314,7 +314,7 @@ PrvImg(image_data)
           </div>
        </div>
     </div>
-    <PreviewImg Img={this.PrvImg}/>
+    <PreviewImg Img={this.PrvImg} pic={this.state.get_data.image}/>
 
 
   </div>

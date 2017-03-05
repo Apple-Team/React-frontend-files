@@ -17,6 +17,9 @@ class PreviewImg extends Component {
     this.onChange= this.onChange.bind(this);
 
   }
+    componentWillReceiveProps(nextProps){
+      this.state.imgSrc=nextProps.pic;
+    }
 
     handleUpload(){
 
@@ -63,6 +66,7 @@ class PreviewImg extends Component {
   // `render` is called whenever the component's props OR state are updated.
   render() {
     console.log(this.state.image_data);
+
     // console.log('The App component was rendered')
      if(this.state.image_data=='')
       this.props.Img(this.state.image_data);
