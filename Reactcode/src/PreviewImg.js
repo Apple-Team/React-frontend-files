@@ -11,7 +11,8 @@ class PreviewImg extends Component {
     super();
     this.state = {
     imgSrc:'',
-    image_data:[]
+    image_data:[],
+    imgStatus:''
   };
     this.handleUpload = this.handleUpload.bind(this);
     this.onChange= this.onChange.bind(this);
@@ -36,10 +37,12 @@ class PreviewImg extends Component {
           that.setState({
             image_data:responseJson
           });
-
         })
         .then(function(e){
           that.props.Img(that.state.image_data);
+          that.setState({
+            imgStatus:'Image uploaded'
+          });
         });
 
     }
@@ -57,7 +60,6 @@ class PreviewImg extends Component {
            })
 
        }.bind(this);
-
 
 
    }
@@ -81,7 +83,8 @@ class PreviewImg extends Component {
           </div>
       </div>
 
-      <img id="image" src={this.state.imgSrc} />
+      <img id="image" src={this.state.imgSrc} /><br /><br />
+      {this.state.imgStatus}
   </div>
     );
     }
