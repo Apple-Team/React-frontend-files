@@ -40,6 +40,7 @@ class PreviewImg extends Component {
         })
         .then(function(e){
           that.props.Img(that.state.image_data);
+          document.getElementById('icon').style.display="block";
           that.setState({
             imgStatus:'Image uploaded'
           });
@@ -84,7 +85,7 @@ class PreviewImg extends Component {
       </div>
 
       <img id="image" src={this.state.imgSrc} /><br /><br />
-      {this.state.imgStatus}
+      <i className="fa fa-check" id="icon" style={{display: 'none'}}></i>{this.state.imgStatus}
   </div>
     );
     }
