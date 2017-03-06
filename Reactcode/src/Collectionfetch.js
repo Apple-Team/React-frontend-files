@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Link,hashHistory} from 'react-router';
 import Restaurant_detail from './Restaurant_detail';
 import Header from './Header';
+import MultipleMarkers from './MultipleMarkers';
 
 class Collectionfetch extends Component {
     constructor() {
@@ -40,7 +41,7 @@ class Collectionfetch extends Component {
     console.log('The App component was rendered')
   return (
       <div id="list1">
-
+       <div className="row">
         <div className="alert alert-warning" role="alert">
            <h2><strong> {this.props.params.name}</strong></h2>
         </div>
@@ -62,6 +63,13 @@ class Collectionfetch extends Component {
           })
         }
         </div>
+       </div>
+       <div className="row">
+          <div className="card card-outline-warning mb-3 text-center" >
+                <MultipleMarkers name={this.props.params.name} />
+          </div>
+       </div>
+
      </div>
     );
 
