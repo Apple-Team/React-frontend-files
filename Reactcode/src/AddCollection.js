@@ -85,7 +85,7 @@ onChange(){
                  </div>
              </div>
 
-    <div  className="container">
+    <div  className="contains">
      <div className="card card-block" id="redirect">
     <div className="row">
     <div className="col col-sm-6">

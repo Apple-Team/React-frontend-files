@@ -60,7 +60,7 @@ class ViewCollection extends Component {
 render() {
 
    return(
-  <div id="content">
+  <div id="content4">
       <div className="row">
                <div className="col" id="col1">
                     <AdminHeader/>
