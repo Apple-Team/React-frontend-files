@@ -84,7 +84,9 @@ onChange(){
                     <AdminHeader />
                  </div>
              </div>
-    <div  className="container" >
+
+    <div  className="container">
+     <div className="card card-block" id="redirect">
     <div className="row">
     <div className="col col-sm-6">
  <div className="form-group row">
@@ -113,6 +115,9 @@ onChange(){
 
 </div>
 </div>
+</div>
+
+
 
 </div>
 );

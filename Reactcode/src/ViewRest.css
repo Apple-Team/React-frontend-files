@@ -3,4 +3,42 @@
 }
 .card{
 	background-color: none;
+  align-self: center;
+}
+#content{
+	background: url(images/admin_back.jpg)  no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #cfcfcf;
+}
+.container{
+  padding-top: 10%;
+}
+
+#content1{
+  background: url(images/admin_back.jpg)  no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100%;  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #cfcfcf;
+  height: 60rem;
+}
+
+#content2{
+  background: url(images/admin_back.jpg)  no-repeat center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: 100%;  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  color: #cfcfcf;
+  height: 100%;
 }

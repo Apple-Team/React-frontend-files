@@ -45,8 +45,8 @@ class ViewRest extends Component {
       method: "DELETE"
      })
      .then(function (data) {
-  alert('Deleted from the database',id);
-  window.location.reload()
+  window.location.reload();
+  hashHistory.push('/ViewRest/');
   })
   .catch(function (error) {
   alert('Not deleted from the database',error);
@@ -81,23 +81,30 @@ handleGet(index){
                     <AdminHeader/>
                  </div>
              </div>
-    <div className="card card-block" id="redirect">{
+    <div>{
       this.state.data.map((data, index) => {
         return (
+          
          <ul>
+          <div className="card card-block" id="redirect">
             <li className="media">
+            
               <img className="d-flex mr-3" src={data.image} height="100px" width="110px" alt="Generic placeholder image"/>
               <div className="media-body">
                    <p className="card-text"><h5 className="mt-0 mb-1">{data.name}</h5>
                       Area: {data.area}<br />
                       Working Hours: {data.workHours}
                    </p>
-              </div>
+                </div>
               <button type="button" className="btn btn-warning btn-sm" onClick={() => this.handleRest(data.id)}>View Restaurant Page</button>&nbsp;
               <button type="button" className="btn btn-warning btn-sm" onClick={() => this.handleGet(data.id)}>Update</button>&nbsp;
               <button type="button" className="btn btn-danger btn-sm" onClick={() => this.handleDelete(data.id)}>Delete</button>
+              
+              
             </li>
+            </div>
           </ul>
+          
         )}
       )}
     </div>

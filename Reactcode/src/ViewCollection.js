@@ -47,8 +47,8 @@ class ViewCollection extends Component {
       method: "DELETE"
      })
      .then(function (data) {
-  alert('Deleted from the database',cname);
-  window.location.reload()
+  window.location.reload();
+  hashHistory.push('/ViewCollection/');
   })
   .catch(function (error) {
   alert('Not deleted from the database',error);
@@ -66,10 +66,14 @@ render() {
                     <AdminHeader/>
                  </div>
              </div>
-    <div className="card card-block" id="redirect">{
+
+             
+    
+    <div>{
       this.state.data.map((data, index) => {
         return (
          <ul>
+         <div className="card card-block" id="redirect">
             <li className="media">
               <img className="d-flex mr-3" src={data.collectionUrl} height="100px" width="110px" alt="Generic placeholder image"/>
               <div className="media-body">
@@ -79,10 +83,12 @@ render() {
               <button type="button" className="btn btn-warning btn-sm" onClick={() => this.handleCollection(data.collection)}>View this Collection</button>&nbsp;
               <button type="button" className="btn btn-danger btn-sm" onClick={() => this.handleDelete(data.collection)}>Delete</button>
             </li>
+            </div>
           </ul>
         )}
       )}
     </div>
+   
 
 
 
