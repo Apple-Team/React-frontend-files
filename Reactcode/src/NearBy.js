@@ -47,7 +47,10 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
  handleRest(id)
 {
   this.id=id;
-  hashHistory.push('/rl/'+id)
+  var lat=this.props.params.lati;
+  var long=this.props.params.longi;
+  
+  hashHistory.push('/rl/'+id+'/'+lat+'/'+long)
 }
 
   render() {

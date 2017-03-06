@@ -45,13 +45,13 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-              console.log("iv");
+              console.log(pos);
             console.log(position.coords.latitude);
            var radius=document.getElementById('radius').value;
            var home=document.getElementById("ss");
            var lati=position.coords.latitude;
            var longi=position.coords.longitude;
-           console.log(lati);
+           console.log(longi);
           hashHistory.push('/NearBy/'+lati+'/'+longi+'/'+radius);
           });
  }

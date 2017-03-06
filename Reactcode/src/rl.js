@@ -4,6 +4,7 @@ import Header from './Header';
 import Footer from './Footer';
 import './Restaurant_detail.css';
 import MapDirections from'./MapDirections';
+var lat1,long1;
 class Restaurant_detail extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another classNameName
@@ -12,7 +13,8 @@ class Restaurant_detail extends Component {
 
   }
   componentDidMount(){
-
+    lat1=this.props.params.lat;
+    long1=this.props.params.long;
     fetch("http://localhost:9000/restaurants_by_id/"+this.props.params.id)
             .then((response) => response.json())
             .then((responseJson) => {
@@ -66,7 +68,7 @@ class Restaurant_detail extends Component {
                         Map View
                       </div>
                      <div className="card-block">
-                        <MapDirections lati={lat} long={lng}/>
+                        <MapDirections destlat={lat} destlong={lng} orgnlat={lat1} orgnlong={long1}/>
                      </div>
                   </div>
               </div>

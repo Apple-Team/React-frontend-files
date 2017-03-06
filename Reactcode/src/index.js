@@ -52,7 +52,7 @@ ReactDOM.render(
  	  <Route path="/Search/:s" component={Search}/>
  	  <Route path="/NearBy/:lati/:longi/:radius" component={NearBy}/>
  	  <Route path="/Restaurant_detail/:id" component={Restaurant_detail}/>
- 	  <Route path="/rl/:id" component={rl}/>
+ 	  <Route path="/rl/:id/:lat/:long" component={rl}/>
  	  <Route path="/ViewRest" component={ViewRest}/>
  	  <Route path="/ViewCollection" component={ViewCollection}/>
 	  <Route path="/AddRest" component={AddRest}/>
