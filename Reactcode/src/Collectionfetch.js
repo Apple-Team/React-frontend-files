@@ -42,7 +42,7 @@ class Collectionfetch extends Component {
   return (
       <div id="list1">
        <div className="row">
-        <div className="alert alert-warning" role="alert">
+        <div className="alert alert-warning text-center" role="alert">
            <h2><strong> {this.props.params.name}</strong></h2>
         </div>
         <div className="card-deck">{
@@ -50,7 +50,7 @@ class Collectionfetch extends Component {
             return (
 
             <div className="card card-outline-warning mb-3 text-center" >
-                <img className="card-img-top img-fluid" src={data.image} alt="Card image cap"/>
+                <img className="card-img-top img-fluid" src={data.image} id="cardimg" alt="Card image cap"/>
                 <div className="card-block">
                     <h5 className="card-subtitle">{data.name}</h5>
                     <p className="card-text">{data.cuisine}</p>

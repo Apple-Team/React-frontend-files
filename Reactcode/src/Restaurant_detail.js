@@ -6,12 +6,12 @@ import './Restaurant_detail.css';
 import GoogleMap from 'google-map-react';
 import Maps from'./Maps';
 class Restaurant_detail extends Component {
-	constructor() {
-		// In a constructor, call `super` first if the className extends another classNameName
-		super();
+  constructor() {
+    // In a constructor, call `super` first if the className extends another classNameName
+    super();
     this.state = { detail_data:[] };
 
-	}
+  }
   componentDidMount(){
 
     fetch("http://localhost:9000/restaurants_by_id/"+this.props.params.id)
@@ -24,18 +24,18 @@ class Restaurant_detail extends Component {
             });
 
     }
-  	// `render` is called whenever the component's props OR state are updated.
-	render() {
-		// console.log('The App component was rendered')
+    // `render` is called whenever the component's props OR state are updated.
+  render() {
+    // console.log('The App component was rendered')
     var lat=this.state.detail_data.latitude;
     var lng=this.state.detail_data.longitude;
   return (
   <div>
-		<div id="detailRest">
+    <div id="detailRest">
         <div className="row" id="searchrest">
                 <div className="col col-lg-5 branding" id="firstcol">
                   <div className="card" >
-                      <img className="card-img-top image-fluid" src={this.state.detail_data.image} alt="Card image cap"/>
+                      <img className="card-img-top image-fluid" src={this.state.detail_data.image} id="cardrest" alt="Card image cap"/>
                       <div className="card-block">
                         <div className="card-title"><h1><b>{this.state.detail_data.name}</b></h1></div>
                          <p className="card-text">{this.state.detail_data.description}</p>
@@ -77,7 +77,7 @@ class Restaurant_detail extends Component {
      </div>
   </div>
 
-	);
+  );
  }
 }
 

@@ -21,8 +21,8 @@ componentWillMount(){
     }
 handleMap(){
  var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 10,
-      center: new google.maps.LatLng(17.3850, 78.4867)      
+      zoom: 12,
+      center: new google.maps.LatLng(this.state.data[0].latitude, this.state.data[0].longitude)      
     });
 
   for (var i = 0, length = this.state.data.length; i < length; i++) {
@@ -32,24 +32,36 @@ handleMap(){
   // Creating a marker and putting it on the map
    var marker = new google.maps.Marker({
     position: latLng,
-    map: map
+    map: map,
+    title:data1.name
    
   });
-   var  contentString=this.state.data.name;
-   var infowindow = new google.maps.InfoWindow({
-          content: contentString
-        });
-
+  var content='<div>'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">data1.name</h1>'+
+            '<div id="bodyContent">'+
+            '<p>data1.cuisine</p>' +
+            '<p>data1.address</p>'+'</div>'+'</div>';
+// Adding a new info window for the object
+    var clicker = addClicker(marker, data1.name);
    
-   marker.addListener('click', function() {
-          if (infowindow) {infowindow.close();}
-          infowindow = new google.maps.InfoWindow({content: contentString});
-          infowindow.open(map, marker);
-        });
+   function addClicker(marker, content) {
+    google.maps.event.addListener(marker, 'click', function() {
+      
+      if (infowindow) {infowindow.close();}
+       var infowindow = new google.maps.InfoWindow({content: content});
+      infowindow.open(map, marker);
+      
+    });
+  }
+
+      console.log(data1.name);  
  }
   console.log(latLng);
   console.log(data1);  
-      
+
+
   }
   render() {
 

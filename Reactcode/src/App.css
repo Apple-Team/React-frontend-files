@@ -418,3 +418,6 @@ input:focus::-webkit-input-placeholder
         float: none; /* Added */
         margin-bottom: 10px; /* Added */
 }
+#cardimg.card-img-top{
+  height: 16rem;
+}
