@@ -1,85 +1,83 @@
-<div className="RestaurantList">
-                <h3>Popular Events <span className="fa fa-angle-double-right"></span></h3>
-                <ul className="news_tab">
-                  <li>
-                    <div className="media">
-                      <div className="media-left">
-                        <a href="#" className="news_img">
-                          <img alt="img" src={require('./images/bf.jpg')} className="media-object" />
-                        </a>
+import React, { Component } from 'react';
+import { Link } from 'react-router';
+import Header from './Header';
+import Footer from './Footer';
+import './Restaurant_detail.css';
+import MapDirections from'./MapDirections';
+class Restaurant_detail extends Component {
+  constructor() {
+    // In a constructor, call `super` first if the className extends another classNameName
+    super();
+    this.state = { detail_data:[] };
+
+  }
+  componentDidMount(){
+
+    fetch("http://localhost:9000/restaurants_by_id/"+this.props.params.id)
+            .then((response) => response.json())
+            .then((responseJson) => {
+               this.setState({
+                detail_data: responseJson
+
+               });
+            });
+
+    }
+    // `render` is called whenever the component's props OR state are updated.
+  render() {
+    // console.log('The App component was rendered')
+    var lat=this.state.detail_data.latitude;
+    var lng=this.state.detail_data.longitude;
+  return (
+  <div>
+    <div id="detailRest">
+        <div className="row" id="searchrest">
+                <div className="col col-lg-5 branding" id="firstcol">
+                  <div className="card" >
+                      <img className="card-img-top image-fluid" src={this.state.detail_data.image} alt="Card image cap"/>
+                      <div className="card-block">
+                        <div className="card-title"><h1><b>{this.state.detail_data.name}</b></h1></div>
+                         <p className="card-text">{this.state.detail_data.description}</p>
+                     </div>
+                     <ul className="list-group list-group-flush">
+                        <li className="list-group-item">Cuisine: {this.state.detail_data.cuisine}</li>
+                        <li className="list-group-item">Working Hours: {this.state.detail_data.workHours}</li>
+                     </ul>
+                     <ul className="list-group list-group-flush">
+                        <li className="list-group-item">Phone number: {this.state.detail_data.number}</li>
+                     </ul>
+                     <div className="card-block">
+                        <a href={this.state.detail_data.homePage} target="_blank">View Restaurant Homepage</a>&nbsp;&nbsp;&nbsp;
+                        <a href={this.state.detail_data.fbUrl} target="_blank">View facebook page</a>
+                     </div>
+                  </div>
+                </div>
+
+              <div className="col col-lg-5" id="secondcol">
+                  <div className="card text-center">
+                      <div className="card-header">
+                        Address
                       </div>
-                      <div className="media-body">
-                       <a href="#">Dummy text of the printing and typesetting industry</a>
-                       <span className="feed_date">27.02.15</span>
+                     <div className="card-block">
+                         <p className="card-text">{this.state.detail_data.address}</p>
+                         <p className="card-text">{this.state.detail_data.area}</p>
+                     </div>
+                     <div className="card-header">
+                        Map View
                       </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="media">
-                      <div className="media-left">
-                        <a href="#" className="news_img">
-                          <img alt="img" src={require('./images/bf.jpg')} className="media-object" />
-                        </a>
-                      </div>
-                      <div className="media-body">
-                       <a href="#">Dummy text of the printing and typesetting industry</a>
-                       <span className="feed_date">28.02.15</span>                
-                      </div>
-                    </div>
-                  </li>
-                  <li>
-                    <div className="media">
-                      <div className="media-left">
-                        <a href="#" className="news_img">
-                          <img alt="img" src={require('./images/bf.jpg')} className="media-object" />
-                        </a>
-                      </div>
-                      <div className="media-body">
-                       <a href="#">Dummy text of the printing and typesetting industry</a>
-                       <span className="feed_date">28.02.15</span>                
-                      </div>
-                    </div>
-                  </li>                  
-                </ul>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                 <div className="w3-card-4 w3-margin w3-white">
-                 <img src={require('./images/bf.jpg')} alt="Nature" style="width:100%" />
-                 <div className="w3-container w3-padding-8">
-                 <h3><b>TITLE HEADING</b></h3>
-                 <h5>Title description, <span className="w3-opacity">April 7, 2014</span></h5>
+                     <div className="card-block">
+                        <MapDirections lati={lat} long={lng}/>
+                     </div>
+                  </div>
               </div>
 
-              <div className="w3-container">
-                 <p>Mauris neque quam, fermentum ut nisl vitae, convallis maximus nisl. Sed mattis nunc id lorem euismod placerat. Vivamus porttitor magna enim, ac accumsan tortor cursus at. Phasellus sed ultricies mi non congue ullam corper. Praesent tincidunt sed
-                  tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
-                 <div className="w3-row">
-                    <div className="w3-col m8 s12">
-                        <p><button className="w3-btn w3-padding-large w3-white w3-border w3-hover-border-black"><b>READ MORE »</b></button></p>
-                    </div>
-                    <div className="w3-col m4 w3-hide-small">
-                        <p><span className="w3-padding-large w3-right"><b>Comments  </b> <span className="w3-tag">0</span></span></p>
-                    </div>
-                 </div>
-             </div>
-            </div>
+
+         </div>
+     </div>
+  </div>
+
+  );
+ }
+}
+
+export default Restaurant_detail;

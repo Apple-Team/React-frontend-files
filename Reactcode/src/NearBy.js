@@ -47,7 +47,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
  handleRest(id)
 {
   this.id=id;
-  hashHistory.push('/Restaurant_detail/'+id)
+  hashHistory.push('/rl/'+id)
 }
 
   render() {
