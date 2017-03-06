@@ -4,29 +4,27 @@ class MultipleMarkers extends Component {
     // In a constructor, call `super` first if the className extends another className
     super();
      this.state = { data:[]};
-    this.handleMap = this.handleMap.bind(this);
+   
 
   }
-componentWillMount(){
-
-    fetch("http://localhost:9000/collections/"+this.props.name)
+componentWillReceiveProps(nextProps){
+    var that=this;
+    fetch("http://localhost:9000/collections/"+nextProps.name)
             .then((response) => response.json())
             .then((responseJson) => {
-               this.setState({
+               that.setState({
                 data: responseJson
 
                });
-            });
+            }).then(function(e){
 
-    }
-handleMap(){
  var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 12,
-      center: new google.maps.LatLng(this.state.data[0].latitude, this.state.data[0].longitude)      
+      center: new google.maps.LatLng(that.state.data[0].latitude, that.state.data[0].longitude)      
     });
 
-  for (var i = 0, length = this.state.data.length; i < length; i++) {
-    var data1 = this.state.data[i],
+  for (var i = 0, length = that.state.data.length; i < length; i++) {
+    var data1 = that.state.data[i],
       latLng = new google.maps.LatLng(data1.latitude, data1.longitude); 
 
   // Creating a marker and putting it on the map
@@ -61,15 +59,16 @@ handleMap(){
   console.log(latLng);
   console.log(data1);  
 
+});
 
   }
+
   render() {
 
-    if(this.props.lati)
-      this.handleMap();
+    
     return (
       <div>
-        <button type="button" className="btn btn-warning btn-sm" onClick={this.handleMap}>Map</button>
+        
         <div id="map" style={{height:"440px",width:"1120px"}}></div>
       </div>
     );
