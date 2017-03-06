@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link,hashHistory } from 'react-router';
 import './Signup.css';
 import Admin from './Admin';
 
@@ -41,7 +41,9 @@ class Signup extends Component {
                               "role": this.role
 
                             })
-     });
+     }).then(function(e){
+      hashHistory.push('/home');
+    });
    }
 }
 else{
