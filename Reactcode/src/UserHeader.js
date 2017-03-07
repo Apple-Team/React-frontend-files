@@ -38,7 +38,6 @@ class UserHeader extends Component {
 
   handleLogout(){
       console.log(window.sessionStorage.getItem('token'));
-
       window.sessionStorage.removeItem('token');
       window.sessionStorage.clear();
       hashHistory.push('/home');

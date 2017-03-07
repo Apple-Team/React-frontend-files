@@ -36,6 +36,7 @@ class Login extends Component {
                   window.sessionStorage.setItem('token',that.state.clientData.authToken);
                 }
                 else{
+                  window.sessionStorage.setItem('token',that.state.clientData.authToken);
                   hashHistory.push('/UserHome');
                 }
               });
@@ -48,7 +49,7 @@ class Login extends Component {
 
 
   render() {
-    console.log(this.state.clientData.authToken);
+  console.log(window.sessionStorage.getItem('token'));
     return (
       <div id="tf-home">
         <div className="container1">

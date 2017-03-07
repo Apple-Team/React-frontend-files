@@ -13,11 +13,12 @@ class Restaurant_detail extends Component {
 
   }
   componentDidMount(){
-  console.log(window.sessionStorage.getItem("token"));
+  console.log(window.sessionStorage.getItem('token'));
+  var tok=window.sessionStorage.getItem('token');
     fetch("http://localhost:9000/restaurants_by_id/"+this.props.params.id,{
        headers: {
-           'Content-Type': 'application/json',
-           'Authorization': 'Bearer ' + window.sessionStorage.getItem("token")
+           "Content-Type": "application/json",
+           "Authorization": "Bearer 22d9b3a9-9b61-4628-85fa-b157dda6b388" 
          }
         }).then((response) => response.json())
             .then((responseJson) => {
@@ -26,11 +27,10 @@ class Restaurant_detail extends Component {
 
                });
             });
-
     }
     // `render` is called whenever the component's props OR state are updated.
   render() {
-    console.log(window.sessionStorage.getItem("token"));
+
     // console.log('The App component was rendered')
     var lat=this.state.detail_data.latitude;
     var lng=this.state.detail_data.longitude;

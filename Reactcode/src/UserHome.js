@@ -19,6 +19,7 @@ class UserHome extends Component {
   }
 
      render() {
+       console.log(window.sessionStorage.getItem('token'));
       return (
         <div id="dd">
          <UserHeader />
