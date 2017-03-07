@@ -32,7 +32,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
   }
 
   componentWillMount(){
-   
+
     fetch("http://localhost:9000/search_nearby_restaurants/"+this.props.params.lati+"?longitude="+this.props.params.longi+"&distance="+this.props.params.radius)
       .then((response) => response.json())
             .then((responseJson) => {
@@ -40,8 +40,8 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
                 radius_data: responseJson
 
                });
-            }); 
-    
+            });
+
  }
 
  handleRest(id)
@@ -49,7 +49,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
   this.id=id;
   var lat=this.props.params.lati;
   var long=this.props.params.longi;
-  
+
   hashHistory.push('/rl/'+id+'/'+lat+'/'+long)
 }
 
@@ -57,7 +57,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
 
   return(
     <div>
-    <Header />    
+    <Header />
     <SearchComponent/>
 
         <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} size="sm" className="input-group-btn" >
@@ -97,8 +97,8 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
             </ul>
          )
         })
-       } 
-    </div> 
+       }
+    </div>
  </div>
 </div>
 

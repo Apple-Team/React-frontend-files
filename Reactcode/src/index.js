@@ -18,6 +18,8 @@ import NearBy from './NearBy';
 
 import Admin from './Admin';
 import AdminHeader from './AdminHeader';
+import UserHeader from './UserHeader';
+import UserHome from './UserHome';
 import AddRest from './AddRest';
 import ViewRest from './ViewRest';
 import UpdateRest from './UpdateRest';
@@ -59,7 +61,8 @@ ReactDOM.render(
 	  <Route path="/AddCollection" component={AddCollection}/>
 	  <Route path="/UpdateRest/:index" component={UpdateRest}/>
 	  <Route path="/Collectionfetch/:name" component={Collectionfetch}/>
-     <Route path="/AdminHeader" component={AdminHeader}/>
+    <Route path="/AdminHeader" component={AdminHeader}/>
+    <Route path="/UserHome" component={UserHome}/>
 
 	  <Route path="/Admin/:name" component={Admin}>
 	  		<Route path="/ViewRest" component={ViewRest}/>

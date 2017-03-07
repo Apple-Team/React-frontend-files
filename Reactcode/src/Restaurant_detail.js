@@ -13,9 +13,13 @@ class Restaurant_detail extends Component {
 
   }
   componentDidMount(){
-
-    fetch("http://localhost:9000/restaurants_by_id/"+this.props.params.id)
-            .then((response) => response.json())
+  console.log(window.sessionStorage.getItem("token"));
+    fetch("http://localhost:9000/restaurants_by_id/"+this.props.params.id,{
+       headers: {
+           'Content-Type': 'application/json',
+           'Authorization': 'Bearer ' + window.sessionStorage.getItem("token")
+         }
+        }).then((response) => response.json())
             .then((responseJson) => {
                this.setState({
                 detail_data: responseJson
@@ -26,9 +30,11 @@ class Restaurant_detail extends Component {
     }
     // `render` is called whenever the component's props OR state are updated.
   render() {
+    console.log(window.sessionStorage.getItem("token"));
     // console.log('The App component was rendered')
     var lat=this.state.detail_data.latitude;
     var lng=this.state.detail_data.longitude;
+
   return (
   <div>
     <div id="detailRest">

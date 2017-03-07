@@ -38,6 +38,7 @@ class Collectionfetch extends Component {
 
   // `render` is called
   render() {
+      
     console.log('The App component was rendered')
   return (
       <div id="list1">

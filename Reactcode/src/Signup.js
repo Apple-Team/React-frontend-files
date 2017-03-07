@@ -16,11 +16,7 @@ class Signup extends Component {
     var pwd=document.getElementById('passwordsignup').value;
     var confirm_pwd=document.getElementById('passwordsignup_confirm').value;
     var role=document.getElementById('role').value;
-    if (role==''){
-      role='0';
-    }
-      else
-        role='1';
+    console.log(role);
 
     if(uname!=''&&email!=''&&pwd!=''&&confirm_pwd!=''){
 
@@ -32,13 +28,14 @@ class Signup extends Component {
       {
         headers :{
           "Content-Type" : "application/json"
+
         },
        method: "POST",
        body: JSON.stringify({
                               "uname": uname,
                               "email": email,
                               "pwd": confirm_pwd,
-                              "role": this.role
+                              "role": role
 
                             })
      }).then(function(e){
@@ -55,54 +52,60 @@ else{
     return (
       <div id="tf-home">
           <div className="container1">
-           
+
             <header>
                 <h1> Registration Form</h1>
-                
+
             </header>
-            <section>               
+            <section>
                 <div id="container1_demo" >
-            
+
                     <div id="wrapper1">
 
                         <div id="register" className="animate form">
-                            <form autocomplete="on"> 
-                                <h1> Sign up </h1> 
-                                <p> 
+                            <form autocomplete="on">
+                                <h1> Sign up </h1>
+                                <p>
                                     <label for="usernamesignup" className="uname" >Your username</label>
                                     <input id="usernamesignup" name="usernamesignup" required="required" type="text" placeholder="mysuperusername690" />
                                 </p>
-                                <p> 
+                                <p>
                                     <label for="emailsignup" className="youmail"  > Your email</label>
-                                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/> 
+                                    <input id="emailsignup" name="emailsignup" required="required" type="email" placeholder="mysupermail@mail.com"/>
                                 </p>
-                                <p> 
+                                <p>
                                     <label for="passwordsignup" className="youpasswd" >Your password </label>
                                     <input id="passwordsignup" name="passwordsignup" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
-                                <p> 
+                                <p>
                                     <label for="passwordsignup_confirm" className="youpasswd" >Please confirm your password </label>
                                     <input id="passwordsignup_confirm" name="passwordsignup_confirm" required="required" type="password" placeholder="eg. X8df!90EO"/>
                                 </p>
                                 <p>
-                                <div className="radio">
-                                  <label><input type="radio" id="role"/>SignUp as Admin</label>
-                                </div>
+                                <label >Select Your Role </label>
+                                <label className="form-check-label">
+                                <select className="custom-select" id="role">
+                                  <option selected>Select Role</option>
+                                  <option value="ADMIN">ADMIN</option>
+                                  <option value="USER">USER</option>
+                                </select>
+                                </label>
                                 </p>
-                                <p className="signin button"> 
-                                    <button type="button" className="btn btn-warning" onClick={this.handleSignup}>Sign Up</button> 
+                                <p className="signin button">
+
+                                    <button type="button" className="btn btn-warning" onClick={this.handleSignup}>Sign Up</button>
                                 </p>
-                                <p>  
-                                    Already a member ?
+                                <p>
+                                     Already a member ?
                                      <Link to="/Login" className="to_register"> Go and log in </Link>
                                 </p>
                             </form>
                         </div>
-                       
+
                     </div>
-                </div>  
+                </div>
             </section>
-        </div>  
+        </div>
 
       </div>
       );
