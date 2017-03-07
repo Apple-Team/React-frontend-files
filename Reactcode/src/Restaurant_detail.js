@@ -18,7 +18,7 @@ class Restaurant_detail extends Component {
     fetch("http://localhost:9000/restaurants_by_id/"+this.props.params.id,{
        headers: {
            "Content-Type": "application/json",
-           "Authorization": "Bearer 22d9b3a9-9b61-4628-85fa-b157dda6b388" 
+           "Authorization": "Bearer "+tok 
          }
         }).then((response) => response.json())
             .then((responseJson) => {

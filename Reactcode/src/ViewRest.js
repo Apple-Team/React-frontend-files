@@ -23,8 +23,13 @@ class ViewRest extends Component {
   }
 
   componentWillMount(){
-     fetch("http://localhost:9000/list_of_all_restaurants")
-            .then((response) => response.json())
+    var tok=window.sessionStorage.getItem('token');
+     fetch("http://localhost:9000/list_of_all_restaurants",{
+       headers: {
+           "Content-Type": "application/json",
+           "Authorization": "Bearer "+tok
+         }
+     }).then((response) => response.json())
             .then((responseJson) => {
                this.setState({
                 data: responseJson
@@ -84,11 +89,11 @@ handleGet(index){
     <div>{
       this.state.data.map((data, index) => {
         return (
-          
+
          <ul>
           <div className="card card-block" id="redirect">
             <li className="media">
-            
+
               <img className="d-flex mr-3" src={data.image} height="100px" width="110px" alt="Generic placeholder image"/>
               <div className="media-body">
                    <p className="card-text"><h5 className="mt-0 mb-1">{data.name}</h5>
@@ -99,12 +104,12 @@ handleGet(index){
               <button type="button" className="btn btn-warning btn-sm" onClick={() => this.handleRest(data.id)}>View Restaurant Page</button>&nbsp;
               <button type="button" className="btn btn-warning btn-sm" onClick={() => this.handleGet(data.id)}>Update</button>&nbsp;
               <button type="button" className="btn btn-danger btn-sm" onClick={() => this.handleDelete(data.id)}>Delete</button>
-              
-              
+
+
             </li>
             </div>
           </ul>
-          
+
         )}
       )}
     </div>

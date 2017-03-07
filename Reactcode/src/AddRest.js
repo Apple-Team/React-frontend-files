@@ -146,10 +146,12 @@ class AddRest extends Component {
 
 
    handleClick(ev){
+   var tok=window.sessionStorage.getItem('token');
     fetch('http://localhost:9000/rest',
       {
         headers :{
-          "Content-Type" : "application/json"
+          "Content-Type" : "application/json",
+           "Authorization": "Bearer "+tok
         },
       method: "POST",
        body: JSON.stringify({
@@ -205,7 +207,7 @@ class AddRest extends Component {
                  </div>
              </div>
 
-             
+
     <div  className="contains" >
     <div className="card card-block" id="redirect">
     <div className="row">

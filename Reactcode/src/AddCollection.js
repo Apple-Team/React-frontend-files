@@ -16,14 +16,15 @@ class AddCollection extends Component {
     this.handleUpload = this.handleUpload.bind(this);
     this.onChange= this.onChange.bind(this);
     console.log('test');
-  }
-
+}
 
   handleClick(ev){
+    var tok=window.sessionStorage.getItem('token');
     fetch('http://localhost:9000/collection',
       {
         headers :{
-          "Content-Type" : "application/json"
+          "Content-Type" : "application/json",
+           "Authorization": "Bearer "+tok
         },
       method: "POST",
        body: JSON.stringify({
