@@ -9,6 +9,7 @@ import 'font-awesome/css/font-awesome.css';
 import App from './App';
 import Collection from './collection';
 import Login from './Login';
+import Logout from './Logout';
 import Signup from './Signup';
 import Search from './Search';
 import SearchComponent from './SearchComponent';
@@ -26,7 +27,7 @@ import UpdateRest from './UpdateRest';
 import Restaurant_detail from './Restaurant_detail';
 import rl from './rl';
 import Collectionfetch from './Collectionfetch';
-import Logout from './Logout';
+import AckHeader from './AckHeader'
 
 
 import ViewCollection from './ViewCollection';
@@ -52,7 +53,7 @@ ReactDOM.render(
  	  <Route path="/StaticMap" component={StaticMap}/>
  	  <Route path="/Logout" component={Logout}/>
  	  <Route path="/Search/:s" component={Search}/>
- 	  <Route path="/NearBy/:lati/:longi/:radius" component={NearBy}/>
+ 	  <Route path="/NearBy/:lati/:longi" component={NearBy}/>
  	  <Route path="/Restaurant_detail/:id" component={Restaurant_detail}/>
  	  <Route path="/rl/:id/:lat/:long" component={rl}/>
  	  <Route path="/ViewRest" component={ViewRest}/>
@@ -62,6 +63,7 @@ ReactDOM.render(
 	  <Route path="/UpdateRest/:index" component={UpdateRest}/>
 	  <Route path="/Collectionfetch/:name" component={Collectionfetch}/>
     <Route path="/AdminHeader" component={AdminHeader}/>
+    <Route path="/AckHeader" component={AckHeader}/>
     <Route path="/UserHome" component={UserHome}/>
 
 	  <Route path="/Admin/:name" component={Admin}>

@@ -66,8 +66,8 @@ class Login extends Component {
                             <form autocomplete="on">
                                 <h1>Sign In</h1>
                                 <p>
-                                    <label for="username" className="uname" > Your email or username </label>
-                                    <input id="username" name="username" required="required" type="text" placeholder="myusername or mymail@mail.com"/>
+                                    <label for="username" className="uname" > Your Username </label>
+                                    <input id="username" name="username" required="required" type="text" placeholder="myusername"/>
                                 </p>
                                 <p>
                                     <label for="password" className="youpasswd"> Your password </label>

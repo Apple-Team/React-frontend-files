@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link,hashHistory } from 'react-router';
 import './Signup.css';
 import Admin from './Admin';
+import AckHeader from './AckHeader';
 
 class Signup extends Component {
   constructor() {
@@ -39,7 +40,7 @@ class Signup extends Component {
 
                             })
      }).then(function(e){
-      hashHistory.push('/home');
+      hashHistory.push('/AckHeader');
     });
    }
 }

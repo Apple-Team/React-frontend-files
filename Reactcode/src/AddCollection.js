@@ -84,12 +84,10 @@ onChange(){
                <div className="col" id="col1">
                     <AdminHeader />
                  </div>
-             </div>
+ </div>
 
-    <div  className="contains">
-     <div className="card card-block" id="redirect">
-    <div className="row">
-    <div className="col col-sm-6">
+<div className="row">
+<div className="col col-sm-6 ">
  <div className="form-group row">
   <label className="col-2 col-form-label">Name</label>
   <div className="col-6">
@@ -115,10 +113,6 @@ onChange(){
 <img src={this.state.imgSrc}  />
 
 </div>
-</div>
-</div>
-
-
 
 </div>
 );

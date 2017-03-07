@@ -11,21 +11,16 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
     // In a constructor, call `super` first if the className extends another className
     super();
 
-    this.togglePop = this.togglePop.bind(this);
+    
     this.state = {
-    inputValue: '',
-    popoverOpen: false
+    inputValue: ''
 
     };
     this.state = { radius_data: [] };
     this.handleSearch=this.handleSearch.bind(this);
     this.handleChange=this.handleChange.bind(this);
   }
- togglePop() {
-    this.setState({
-      popoverOpen: !this.state.popoverOpen
-    });
-  }
+
 
   handleSearch(ev){
       console.log(this.state.inputValue);
@@ -47,12 +42,11 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
             };
               console.log(pos);
             console.log(position.coords.latitude);
-           var radius=document.getElementById('radius').value;
            var home=document.getElementById("ss");
            var lati=position.coords.latitude;
            var longi=position.coords.longitude;
            console.log(longi);
-          hashHistory.push('/NearBy/'+lati+'/'+longi+'/'+radius);
+          hashHistory.push('/NearBy/'+lati+'/'+longi);
           });
  }
 
@@ -69,14 +63,10 @@ render() {
                    <div className="form-group">
                       <div className="input-group">
                             <span className="input-group-btn">
-                            <Button id="Popover1" type="button" className="btn btn-warning" onClick={this.togglePop}>
+                            <Button id="Popover1" type="button" className="btn btn-warning" onClick={this.handleNearby}>
                                Locate Me <i className="fa fa-location-arrow" aria-hidden="true"></i>
                             </Button>
                             </span>
-                            <Popover placement="bottom" isOpen={this.state.popoverOpen} target="Popover1" togglePop={this.togglePop}>
-                            <PopoverTitle>Please enter the distance in km</PopoverTitle>
-                            <PopoverContent><input type="text" size ="10"  placeholder="Enter radius in km" className="form-control" id="radius"/><button onClick={this.handleNearby}><i className="fa fa-search"></i></button></PopoverContent>
-                            </Popover>
                            <input type="text" placeholder="Hungry??  Find your favourite Bistro...." onfocus="placeholder=''" size ="100" id="search-bar" ref="inputSearch" autocomplete="off" value={this.state.inputValue}
                             onChange={this.handleChange.bind(this)}  />
                            <span className="input-group-btn">

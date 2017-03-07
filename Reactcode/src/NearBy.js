@@ -33,7 +33,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
 
   componentWillMount(){
 
-    fetch("http://localhost:9000/search_nearby_restaurants/"+this.props.params.lati+"?longitude="+this.props.params.longi+"&distance="+this.props.params.radius)
+    fetch("http://localhost:9000/search_nearby_restaurants/"+this.props.params.lati+"?longitude="+this.props.params.longi)
       .then((response) => response.json())
             .then((responseJson) => {
                this.setState({
