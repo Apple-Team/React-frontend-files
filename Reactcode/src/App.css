@@ -35,7 +35,7 @@ font-weight: 900;
 .navbar-light .navbar-brand, .navbar-light .navbar-toggler {
     color: #000000;
 }
-.card-img, .img-responsive{
+.card-img{
   width:320px;
   height:218px;
 }
@@ -55,17 +55,49 @@ font-weight: 900;
   width: auto;
   display:table-cell;
 }
-.btn-secondary{
+#logout.btn-secondary{
   text-transform: uppercase;
-  background-color: transparent;
-  font-size: 12px;
+  background:none!important;
+  padding-top:9px;
+  border :none;
+  cursor:pointer;
+  color:#fcac45;
+  font-size: 14px;
   letter-spacing: 1px;
   width: auto;
   display:table-cell;
-  text-decoration-color: #fff;
-  border-color: transparent;
 
 }
+#logout.btn-secondary:hover{
+  text-transform: uppercase;
+
+  font-size: 15px;
+  letter-spacing: 1px;
+  width: auto;
+  display:table-cell;
+}
+#logout1.btn-secondary{
+  text-transform: uppercase;
+  background:none!important;
+  padding-top:9px;
+  border :none;
+  cursor:pointer;
+  color:#000;
+  font-size: 14px;
+  letter-spacing: 1px;
+  width: auto;
+  display:table-cell;
+
+}
+#logout1.btn-secondary:hover{
+  text-transform: uppercase;
+
+  font-size: 15px;
+  letter-spacing: 1px;
+  width: auto;
+  display:table-cell;
+}
+
 #searchdrop .btn-secondary{
   background-color: #fcac45;
 }
@@ -413,11 +445,53 @@ input:focus::-webkit-input-placeholder
     border-color: #f0ad4e;
 }
 /*collection list*/
+.alert-warning {
+    background-color: #fcf8e3;
+    border-color: #faf2cc;
+    color: #8a6d3b;
+    width: 100%;
+}
 .card {
         margin: 0 auto; /* Added */
         float: none; /* Added */
         margin-bottom: 10px; /* Added */
 }
 #cardimg.card-img-top{
-  height: 16rem;
+  height: 20rem;
+}
+/*Modal*/
+#Modal1{
+  background:url(images/home1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+  #modal{
+    padding-left:30%;
+    padding-top: 10%;
+}
+form.modal-content.animate{
+  height:200px;
+  width:500px;
+
+}
+
+.restaurant-container {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+    width: 50%;
+
+}
+#srchcard,.card-top{
+  padding: 10px 10px 10px 10px;
+}
+.card-bottom{
+  float: right;
+}
+#srchimg,#srchcard1{
+  height: 180px;
+  width: 280px;
 }

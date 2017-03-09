@@ -22,7 +22,13 @@ class UpdateRest extends Component {
   }
   componentWillReceiveProps(nextProps){
     var that=this;
-  fetch("http://localhost:9000/restaurants_by_id/"+nextProps.params.index)
+    var tok=window.sessionStorage.getItem('token');
+  fetch("http://localhost:9000/restaurants_by_id/"+nextProps.params.index,{
+    headers: {
+        "Content-Type": "application/json",
+        "Authorization": "Bearer "+tok
+      }
+  })
          .then((response) => response.json())
          .then((responseJson) => {
             this.setState({
@@ -135,7 +141,7 @@ PrvImg(image_data)
   this.state.img=image_data;
   console.log(this.state.img);
   }
-  else 
+  else
     this.state.img=this.state.get_data.image;
 
 }

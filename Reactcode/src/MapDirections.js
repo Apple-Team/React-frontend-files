@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 var apos1,apos2,apos3,apos4;
 class MapDirections extends Component {
-  
+
   constructor() {
     // In a constructor, call `super` first if the className extends another className
     super();
 
-   
+
 
   }
 
@@ -26,15 +26,15 @@ class MapDirections extends Component {
 
      var directionsService = new google.maps.DirectionsService(),
      directionsDisplay = new google.maps.DirectionsRenderer();
-    
-    
+
+
     var travel = {
     origin :new google.maps.LatLng(apos1, apos2) ,
     destination : new google.maps.LatLng(apos3, apos4),
     travelMode : google.maps.DirectionsTravelMode.DRIVING
     };
     // Exchanging DRIVING to WALKING above can prove quite amusing :-)
-    
+
     directionsDisplay.setMap(map);
     directionsDisplay.setPanel(document.getElementById("map"));
     directionsService.route(travel, function(result, status) {
@@ -48,9 +48,8 @@ class MapDirections extends Component {
  render() {
     return (
       <div>
-      <label>Driving Mode</label>
-    
-      <div id="map" style={{height:"420px",width:"520px"}}></div>
+
+      <div id="map" style={{height:"580px",width:"820px"}}></div>
       </div>
     );
   }

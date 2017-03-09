@@ -13,9 +13,15 @@ class Restaurant_detail extends Component {
 
   }
   componentDidMount(){
+    var tok=window.sessionStorage.getItem('token');
     lat1=this.props.params.lat;
     long1=this.props.params.long;
-    fetch("http://localhost:9000/restaurants_by_id/"+this.props.params.id)
+    fetch("http://localhost:9000/restaurants_by_id/"+this.props.params.id,{
+      headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer "+tok
+        }
+    })
             .then((response) => response.json())
             .then((responseJson) => {
                this.setState({
@@ -76,6 +82,7 @@ class Restaurant_detail extends Component {
 
          </div>
      </div>
+     
   </div>
 
   );

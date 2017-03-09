@@ -11,6 +11,8 @@ class Collectionfetch extends Component {
     super();
     this.state = { data:[]};
     this.detailRest=this.detailRest.bind(this);
+    this.modalOpen1=this.modalOpen1.bind(this);
+    this.modalClose1=this.modalClose1.bind(this);
         console.log('test');
   }
   componentWillMount(){
@@ -24,21 +26,33 @@ class Collectionfetch extends Component {
                });
             });
 
-    }
+}
+
+modalOpen1(event){
+  document.getElementById('Modal1').style.display = "inline-block";
+}
+
+modalClose1(event){
+ console.log('hhh');
+  document.getElementById('Modal1').style.display ="none";
+
+}
   detailRest(id){
+    if(window.sessionStorage.getItem('token')){
     this.id=id;
     console.log(id);
-  var l=document.getElementById("home");
-  hashHistory.push('/Restaurant_detail/'+id)
-
-
-  }
-
+    var l=document.getElementById("home");
+    hashHistory.push('/Restaurant_detail/'+id)
+   }
+   else{
+     this.modalOpen1();
+   }
+}
 
 
   // `render` is called
   render() {
-      
+
     console.log('The App component was rendered')
   return (
       <div id="list1">
@@ -70,6 +84,18 @@ class Collectionfetch extends Component {
                 <MultipleMarkers name={this.props.params.name} />
           </div>
        </div>
+
+       <div id="Modal1" className="modal">
+
+          <form className="modal-content animate">
+              <div id="modal" className="container">
+                <button className="btn" onClick={()=>this.modalClose1}>&times;</button>
+
+                <p>  please <Link to="/Login"><b>Login</b></Link> to view the page</p>
+                </div>
+         </form>
+
+      </div>
 
      </div>
     );

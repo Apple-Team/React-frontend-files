@@ -20,7 +20,7 @@ class PreviewImg extends Component {
   }
     componentWillReceiveProps(nextProps){
       this.state.imgSrc=nextProps.pic;
-      
+
     }
 
     handleUpload(){
@@ -41,7 +41,7 @@ class PreviewImg extends Component {
         })
         .then(function(e){
           that.props.Img(that.state.image_data);
-          document.getElementById('spinner').style.display="none";
+
           document.getElementById('icon').style.display="block";
           that.setState({
             imgStatus:'Image uploaded'
@@ -52,7 +52,7 @@ class PreviewImg extends Component {
 
     onChange(){
      // Assuming only image
-      document.getElementById('spinner').style.display="block";
+    document.getElementById('spinner').style.display="block";
      var file = document.getElementById('FileUpload').files[0];
      var reader = new FileReader();
      var url = reader.readAsDataURL(file);
@@ -63,6 +63,7 @@ class PreviewImg extends Component {
            })
 
        }.bind(this);
+       document.getElementById('spinner').style.display="none";
 
 
    }
@@ -86,10 +87,10 @@ class PreviewImg extends Component {
           </div>
       </div>
 
-      
+
       <img id="image" src={this.state.imgSrc} /><br /><br />
       <div className="loader" id="spinner" style={{display: 'none'}}></div>
-      <i className="fa fa-check" id="icon" style={{display: 'none'}}></i>{this.state.imgStatus}
+      <p><i className="fa fa-check" id="icon" style={{display: 'none'}}></i>{this.state.imgStatus}</p>
   </div>
     );
     }

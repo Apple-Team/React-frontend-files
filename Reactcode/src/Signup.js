@@ -40,7 +40,7 @@ class Signup extends Component {
 
                             })
      }).then(function(e){
-      hashHistory.push('/AckHeader');
+      hashHistory.push('/home');
     });
    }
 }
@@ -54,10 +54,7 @@ else{
       <div id="tf-home">
           <div className="container1">
 
-            <header>
-                <h1> Registration Form</h1>
-
-            </header>
+            
             <section>
                 <div id="container1_demo" >
 

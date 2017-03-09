@@ -54,10 +54,6 @@ class Login extends Component {
       <div id="tf-home">
         <div className="container1">
 
-            <header>
-                <h1>Login Form</h1>
-
-            </header>
             <section>
                 <div id="container1_demo" >
                     <div id="wrapper1">

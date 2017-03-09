@@ -68,7 +68,7 @@ return(
                 <NavLink href="#tf-collection"><b>Collections</b></NavLink>
               </NavItem>
               <NavItem>
-                <div style={{color:"#000000"}}><button type="button" className="btn btn-secondary" onClick={this.handleLogout}>LOGOUT</button></div>
+                <div style={{color:"#000000"}}><button type="button" id="logout1" className="btn btn-secondary" onClick={this.handleLogout}>LOGOUT</button></div>
               </NavItem>
             </Nav>
           </Collapse>

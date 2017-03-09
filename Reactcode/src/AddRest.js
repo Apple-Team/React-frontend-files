@@ -208,8 +208,7 @@ class AddRest extends Component {
              </div>
 
 
-    <div  className="contains" >
-    <div className="card card-block" id="redirect">
+
     <div className="row">
     <div className="col col-sm-6">
  <div className="form-group row">
@@ -308,23 +307,18 @@ class AddRest extends Component {
 </div>
 
 <div className="col col-sm-6">
-  <div className="card">
-    <div className="card-block">
+
     <div>
      <input id="pac-input" className="form-control" size="45" type="text" placeholder="Search Box"/>
 
     <div id="map"  style={{height:"500px",width:"450px"}}></div>
     <button type="button" className="btn btn-warning btn-sm" onClick={this.getLoc}>Get LatLong</button>
 
-    </div>
-    </div>
   </div>
   <img src={this.state.imgSrc}  />
 
 </div>
 
-</div>
-</div>
 </div>
 
 

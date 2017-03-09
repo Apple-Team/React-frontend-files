@@ -74,24 +74,33 @@ render() {
              </DropdownMenu>
     </ButtonDropdown>
     <div id="searchlist">
-    <div className="card card-block">{
+    <div className="restaurant-container">
+    <div className="row">{
        this.state.data.map((data, index)=>{
         return (
-           <ul>
-                <li className="media">
-                   <img className="d-flex mr-3" src={data[7]} height="100px" width="110px" alt="Generic placeholder image"/>
-                    <div className="media-body">
-                         <p className="card-text"><h5 className="mt-0 mb-1">{data[10]}</h5>
-                             Area: {data[2]}<br />
-                             Working Hours: {data[12]}
-                         </p>
-                    </div>
-                    <button type="button" className="btn btn-warning btn-sm" onClick={() => this.handleRest(data[0])}>View</button>
-                </li>
-            </ul>
-         )
+        <div id="srchcard" className="card">
+          <div className="row">
+             <div className="col">
+                <img id="srchimg" src={data[7]} id="srchimg" alt="Card image cap"/>
+              </div>
+              <div className="col" id="srchcard1">
+                <div className="card-top">
+                  <h5 className="card-subtitle">{data[10]}</h5><br/>
+                  <p className="card-text"> Area: {data[2]}</p>
+                  <p className="card-text">  Working Hours: {data[12]}</p>
+                </div>
+                <div className="card-bottom">
+                  <button type="button" className="btn btn-warning btn-sm" onClick={()=>this.handleRest(data[0])}>View</button>
+                </div>
+
+              </div>
+           </div>
+          </div>
+
+        )
         })
        }
+    </div>
     </div>
  </div>
  </div>
