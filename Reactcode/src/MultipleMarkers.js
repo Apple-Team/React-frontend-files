@@ -34,7 +34,7 @@ componentWillReceiveProps(nextProps){
     title:data1.name
 
   });
-  var content='<div>'+            
+  var content='<div>'+
             '<h1 id="firstHeading" class="firstHeading">data1.name</h1>'+
             '<div id="bodyContent">'+
             '<p>data1.cuisine</p>' +
@@ -62,11 +62,8 @@ componentWillReceiveProps(nextProps){
   }
 
   render() {
-
-
     return (
       <div>
-
         <div id="map" style={{height:"640px",width:"1120px"}}></div>
       </div>
     );

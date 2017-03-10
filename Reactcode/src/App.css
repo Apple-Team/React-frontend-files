@@ -489,9 +489,6 @@ form.modal-content.animate{
 #srchcard,#srch.card-top{
   padding: 10px 10px 10px 10px;
 }
-#srch.card-bottom{
-  float: right;
-}
 #srchimg,#srchcard1{
   height: 180px;
   width: 280px;
@@ -507,4 +504,10 @@ form.modal-content.animate{
  #srchcard.card {
        position: relative;
        width:600px!important;
+ }
+ div#srch.card-block{
+   position: relative;
+   height: auto;
+   width: auto;
+   background-color:#e8eaed;
  }

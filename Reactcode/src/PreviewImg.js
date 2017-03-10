@@ -65,7 +65,6 @@ class PreviewImg extends Component {
        }.bind(this);
        document.getElementById('spinner').style.display="none";
          this.handleUpload();
-
    }
 
 

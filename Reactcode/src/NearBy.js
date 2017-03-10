@@ -78,29 +78,39 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
              </ButtonDropdown>
              </DropdownMenu>
     </ButtonDropdown>
-    <div id="restlist">
-    <div className="card card-block">{
+  <div id="restlist">
+    <div className="restaurant-container">
+      <div id="cardrow" className="row">
+        <div className="card-columns" id="srch">{
        this.state.radius_data.map((data, index)=>{
         return (
-           <ul>
-                <li className="media">
-                   <img className="d-flex mr-3" src={data[7]} height="100px" width="110px" alt="Generic placeholder image"/>
-                    <div className="media-body">
-                         <p className="card-text"><h5 className="mt-0 mb-1">{data[10]}</h5>
-                             Area: {data[2]}<br />
-                             Working Hours: {data[12]}
-                         </p>
-                    </div>
-                    {data[14].toFixed(2)} kms &nbsp;
-                    <button type="button" className="btn btn-warning btn-sm" onClick={() => this.handleRest(data[0])}>View</button>
-                </li>
-            </ul>
+          <div id="srchcard" className="card w-100">
+            <div className="row" id="srch">
+              <div className="col-md-6">
+                <img id="srchimg" src={data[7]} id="srchimg" alt="Card image cap"/>
+              </div>
+              <div className="col-md-6" id="srchcard1">
+                  <div className="card-top">
+                    <h5 className="card-title">{data[10]}</h5>
+                    <p className="card-text"> Area: {data[2]}</p>
+                    <p className="card-text">  Working Hours: {data[12]}</p>
+                  </div>
+                  <hr />
+                  <div id="srch">
+                    <p className="card-text" style={{float:"left"}}>{data[14].toFixed(2)} kms away</p>
+                    <button type="button" style={{float:"right"}} className="btn btn-warning btn-sm" onClick={()=>this.handleRest(data[0])}>View</button>
+                  </div>
+            </div>
+          </div>
+        </div>
          )
         })
        }
     </div>
- </div>
- </div>
+  </div>
+</div>
+</div>
+</div>
 
 
 

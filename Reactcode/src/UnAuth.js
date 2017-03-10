@@ -7,7 +7,7 @@ class UnAuth extends Component {
       return (
          <div id="tf-home">
             <Header/>
-            <p><h2 style={{paddingTop:"20%"}}>You are not Authorized to view this page!!<br/>
+            <p><h2 style={{paddingTop:"13%"}}>You are not Authorized to view this page!!<br/>
                                         Please <Link to="/Signup">Register</Link>...</h2></p>
          </div>
       )
