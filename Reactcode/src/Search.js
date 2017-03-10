@@ -45,13 +45,8 @@ componentWillReceiveProps(nextProps){
 }
  handleRest(id)
 {
-  if(window.sessionStorage.getItem('token')){
   this.id=id;
   hashHistory.push('/Restaurant_detail/'+id)
- }
-  else{
-    this.modalOpen1();
-  }
 }
 
 render() {

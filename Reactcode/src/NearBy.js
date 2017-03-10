@@ -97,7 +97,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
                   </div>
                   <hr />
                   <div id="srch">
-                    <p className="card-text" style={{float:"left"}}>{data[14].toFixed(2)} kms away</p>
+                    <p className="card-text" style={{float:"left"}}>{data[18].toFixed(2)} kms away</p>
                     <button type="button" style={{float:"right"}} className="btn btn-warning btn-sm" onClick={()=>this.handleRest(data[0])}>View</button>
                   </div>
             </div>

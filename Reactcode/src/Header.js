@@ -52,7 +52,7 @@ return(
       <Navbar fixed="top" toggleable>
           <NavbarToggler right onClick={this.toggle}><i className="fa fa-bars fa-2x" aria-hidden="true"></i></NavbarToggler>
           <NavbarBrand href="/">
-          <img id="logo" width="80" height="80" className="d-inline-block align-center" />FindO Bistro</NavbarBrand>
+          <img id="logo" width="80" height="80" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
