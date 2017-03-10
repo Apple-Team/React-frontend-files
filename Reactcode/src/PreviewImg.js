@@ -64,13 +64,15 @@ class PreviewImg extends Component {
 
        }.bind(this);
        document.getElementById('spinner').style.display="none";
-
+         this.handleUpload();
 
    }
 
 
   // `render` is called whenever the component's props OR state are updated.
   render() {
+
+
     console.log(this.state.image_data);
 
     // console.log('The App component was rendered')
@@ -83,7 +85,7 @@ class PreviewImg extends Component {
           <div className="col-6">
              <input type="file" id="FileUpload" name="image" aria-describedby="fileHelp" onChange={this.onChange}/>
              <small id="fileHelp" className="form-text text-muted">Browse Image file location </small>
-             <button type="button" className="btn btn-warning btn-sm" onClick={this.handleUpload}>Upload Image</button>
+
           </div>
       </div>
 

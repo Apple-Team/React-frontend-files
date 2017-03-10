@@ -45,12 +45,18 @@ class ViewCollection extends Component {
            "Authorization": "Bearer "+tok
         },
       method: "DELETE"
-     })
-     .then(function (data) {
-  window.location.reload();
-  hashHistory.push('/ViewCollection/');
-  })
-  .catch(function (error) {
+     }).then(response=>{
+       if(200==response.status){
+         window.location.reload();
+         hashHistory.push('/ViewCollection/');
+        }
+        else if (403==response.status) {
+        window.alert("Forbidden!!");
+        }
+        else{
+           hashHistory.push('/UnAuth');
+        }
+      }).catch(function (error) {
   alert('Not deleted from the database',error);
   });
  }

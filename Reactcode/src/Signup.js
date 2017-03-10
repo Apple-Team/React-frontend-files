@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link,hashHistory } from 'react-router';
 import './Signup.css';
 import Admin from './Admin';
-import AckHeader from './AckHeader';
+import Header from './Header';
 
 class Signup extends Component {
   constructor() {
@@ -23,8 +23,8 @@ class Signup extends Component {
 
     if(pwd.value !== confirm_pwd.value) {
     confirm_pwd.setCustomValidity("Passwords Don't Match");
-  }
-  else {
+    }
+   else {
     fetch('http://localhost:9000/create_member',
       {
         headers :{
@@ -39,9 +39,13 @@ class Signup extends Component {
                               "role": role
 
                             })
-     }).then(function(e){
-      hashHistory.push('/home');
-    });
+     }).then(response=>{
+       if(200==response.status){
+          document.getElementById('Ack').style.display="block";
+            }
+      }).catch(function (error) {
+            document.getElementById('Ack1').style.display="block";
+        });
    }
 }
 else{
@@ -52,9 +56,17 @@ else{
   render() {
     return (
       <div id="tf-home">
+       <Header/>
           <div className="container1">
+          <br />
 
-            
+          <div id="Ack" style={{display: 'none'}}>
+              <h3> Thank you for Signing up! <i className="fa fa-smile-o" aria-hidden="true"></i> Please Sign in..</h3>
+          </div>
+          <div id="Ack1" style={{display: 'none'}}>
+              <h3> Sorry.. <i className="fa fa-frown-o" aria-hidden="true"></i> Something went wrong! Try Signing up again</h3>
+          </div>
+          <br />
             <section>
                 <div id="container1_demo" >
 
@@ -95,7 +107,7 @@ else{
                                 </p>
                                 <p>
                                      Already a member ?
-                                     <Link to="/Login" className="to_register"> Go and log in </Link>
+                                     <Link to="/Login" className="to_register">Please SignIn </Link>
                                 </p>
                             </form>
                         </div>
@@ -103,7 +115,11 @@ else{
                     </div>
                 </div>
             </section>
+
+
+
         </div>
+
 
       </div>
       );

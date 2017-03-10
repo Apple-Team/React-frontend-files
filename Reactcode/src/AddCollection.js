@@ -32,9 +32,18 @@ class AddCollection extends Component {
                               "collectionUrl": this.state.image_data
 
                             })
-     })
-      window.location.reload();
-     hashHistory.push('/ViewCollection/');
+     }).then(response=>{
+       if(200==response.status){
+          window.location.reload();
+          hashHistory.push('/ViewCollection/');
+        }
+        else if (403==response.status) {
+        window.alert("Forbidden!!");
+        }
+        else{
+            window.alert("please register!!");
+        }
+      });
 }
 
 onChange(){
@@ -85,8 +94,9 @@ onChange(){
                     <AdminHeader />
                  </div>
  </div>
-
-<div className="row">
+<div className="card card-block">
+<div  className="container" >
+<div className="row" style={{paddingLeft:"10%"}}>
 <div className="col col-sm-6 ">
  <div className="form-group row">
   <label className="col-2 col-form-label">Name</label>
@@ -113,7 +123,9 @@ onChange(){
 <img src={this.state.imgSrc}  />
 
 </div>
+</div>
 
+</div>
 </div>
 );
    }

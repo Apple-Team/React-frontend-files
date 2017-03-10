@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { Link ,hashHistory} from 'react-router';
 import Header from './Header';
 import Footer from './Footer';
 import './Restaurant_detail.css';
@@ -20,13 +20,23 @@ class Restaurant_detail extends Component {
            "Content-Type": "application/json",
            "Authorization": "Bearer "+tok
          }
-        }).then((response) => response.json())
-            .then((responseJson) => {
-               this.setState({
-                detail_data: responseJson
-               });
-            });
+        }).then(response=>{
+          if(200==response.status){
+            response.json().then((data)=>{
+                  this.setState({
+                   detail_data: data
+                  });
+                });
+               }
+           else if (403==response.status) {
+           window.alert("Forbidden!!");
+           }
+           else{
+              hashHistory.push('/UnAuth');
+           }
+         });
     }
+
     // `render` is called whenever the component's props OR state are updated.
   render() {
 
@@ -80,6 +90,7 @@ class Restaurant_detail extends Component {
 
          </div>
      </div>
+
   </div>
 
   );

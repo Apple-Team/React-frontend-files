@@ -27,6 +27,7 @@ import UpdateRest from './UpdateRest';
 import Restaurant_detail from './Restaurant_detail';
 import rl from './rl';
 import Collectionfetch from './Collectionfetch';
+import collection from './collection';
 import AckHeader from './AckHeader'
 
 
@@ -36,6 +37,7 @@ import AddCollection from './AddCollection';
 import Maps from './Maps';
 import StaticMap from './StaticMap';
 import MapDirections from './MapDirections';
+import UnAuth from './UnAuth';
 
 
 
@@ -61,10 +63,12 @@ ReactDOM.render(
 	  <Route path="/AddRest" component={AddRest}/>
 	  <Route path="/AddCollection" component={AddCollection}/>
 	  <Route path="/UpdateRest/:index" component={UpdateRest}/>
+    <Route path="/collection" component={collection}/>
 	  <Route path="/Collectionfetch/:name" component={Collectionfetch}/>
     <Route path="/AdminHeader" component={AdminHeader}/>
     <Route path="/AckHeader" component={AckHeader}/>
     <Route path="/UserHome" component={UserHome}/>
+    <Route path="/UnAuth" component={UnAuth}/>
 
 	  <Route path="/Admin/:name" component={Admin}>
 	  		<Route path="/ViewRest" component={ViewRest}/>

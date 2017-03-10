@@ -21,6 +21,7 @@ class Search extends Component {
     };
     this.state = { data: [] };
   }
+
   toggle() {
     this.setState({
       dropdownOpen: !this.state.dropdownOpen
@@ -44,8 +45,13 @@ componentWillReceiveProps(nextProps){
 }
  handleRest(id)
 {
+  if(window.sessionStorage.getItem('token')){
   this.id=id;
   hashHistory.push('/Restaurant_detail/'+id)
+ }
+  else{
+    this.modalOpen1();
+  }
 }
 
 render() {
@@ -74,39 +80,38 @@ render() {
              </DropdownMenu>
     </ButtonDropdown>
     <div id="searchlist">
-    <div className="restaurant-container">
-    <div className="row">{
-       this.state.data.map((data, index)=>{
-        return (
-        <div id="srchcard" className="card">
-          <div className="row">
-             <div className="col">
-                <img id="srchimg" src={data[7]} id="srchimg" alt="Card image cap"/>
-              </div>
-              <div className="col" id="srchcard1">
-                <div className="card-top">
-                  <h5 className="card-subtitle">{data[10]}</h5><br/>
-                  <p className="card-text"> Area: {data[2]}</p>
-                  <p className="card-text">  Working Hours: {data[12]}</p>
+      <div className="restaurant-container">
+        <div id="cardrow" className="row">
+          <div className="card-columns" id="srch">{
+              this.state.data.map((data, index)=>{
+                return (
+                  <div id="srchcard" className="card w-100">
+                    <div className="row" id="srch">
+                      <div className="col-md-6">
+                        <img id="srchimg" src={data[7]} id="srchimg" alt="Card image cap"/>
+                      </div>
+                      <div className="col-md-6" id="srchcard1">
+                          <div className="card-top">
+                            <h5 className="card-title">{data[10]}</h5>
+                            <p className="card-text"> Area: {data[2]}</p>
+                            <p className="card-text">  Working Hours: {data[12]}</p>
+                          </div>
+                          <div className="card-bottom" id="srch">
+                            <button type="button" className="btn btn-warning btn-sm" onClick={()=>this.handleRest(data[0])}>View</button>
+                          </div>
+                    </div>
+                  </div>
                 </div>
-                <div className="card-bottom">
-                  <button type="button" className="btn btn-warning btn-sm" onClick={()=>this.handleRest(data[0])}>View</button>
-                </div>
-
-              </div>
-           </div>
-          </div>
-
-        )
-        })
-       }
+              )
+            })
+          }
+        </div>
+      </div>
     </div>
-    </div>
- </div>
- </div>
-     );
-
-   }
+  </div>
+</div>
+ );
  }
+}
 
 export default Search;

@@ -11,10 +11,8 @@ class Collectionfetch extends Component {
     super();
     this.state = { data:[]};
     this.detailRest=this.detailRest.bind(this);
-    this.modalOpen1=this.modalOpen1.bind(this);
-    this.modalClose1=this.modalClose1.bind(this);
         console.log('test');
-  }
+    }
   componentWillMount(){
 
     fetch("http://localhost:9000/collections/"+this.props.params.name)
@@ -28,25 +26,14 @@ class Collectionfetch extends Component {
 
 }
 
-modalOpen1(event){
-  document.getElementById('Modal1').style.display = "inline-block";
-}
 
-modalClose1(event){
- console.log('hhh');
-  document.getElementById('Modal1').style.display ="none";
-
-}
   detailRest(id){
-    if(window.sessionStorage.getItem('token')){
     this.id=id;
     console.log(id);
     var l=document.getElementById("home");
     hashHistory.push('/Restaurant_detail/'+id)
-   }
-   else{
-     this.modalOpen1();
-   }
+
+
 }
 
 
@@ -60,12 +47,12 @@ modalClose1(event){
         <div className="alert alert-warning text-center" role="alert">
            <h2><strong> {this.props.params.name}</strong></h2>
         </div>
-        <div className="card-deck">{
+        <div className="card-deck" id="collcard">{
            this.state.data.map((data,index)=>{
             return (
 
             <div className="card card-outline-warning mb-3 text-center" >
-                <img className="card-img-top img-fluid" src={data.image} id="cardimg" alt="Card image cap"/>
+                <img className="card-img img-fluid" src={data.image} id="cardimg" alt="Card image cap"/>
                 <div className="card-block">
                     <h5 className="card-subtitle">{data.name}</h5>
                     <p className="card-text">{data.cuisine}</p>
@@ -84,19 +71,6 @@ modalClose1(event){
                 <MultipleMarkers name={this.props.params.name} />
           </div>
        </div>
-
-       <div id="Modal1" className="modal">
-
-          <form className="modal-content animate">
-              <div id="modal" className="container">
-                <button className="btn" onClick={()=>this.modalClose1}>&times;</button>
-
-                <p>  please <Link to="/Login"><b>Login</b></Link> to view the page</p>
-                </div>
-         </form>
-
-      </div>
-
      </div>
     );
 

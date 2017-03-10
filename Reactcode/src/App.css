@@ -24,7 +24,7 @@
 .navbar-brand {
 font-family: cursive;
 font-weight: bold;
-font-size: 26px;
+font-size: 36px;
 color: #FCAC46;
 font-weight: 900;
 }
@@ -375,7 +375,7 @@ a.fa.fa-angle-up:hover{
 nav#footer{
   background: #222222;
   color: #ffffff;
-  padding: 20px 0 15px 0;
+  padding: 20px 0 50px 0;
 }
 nav#footer .fnav{ vertical-align: middle;}
 ul.footer-social li{
@@ -400,6 +400,10 @@ nav#footer p{
   background: #FCAC45;
   border-color: #FCAC45;
   color: #ffffff;
+}
+
+#Ack,#Ack1{
+    color: rgb(18, 83, 93);
 }
 /*Admin*/
 li#admin{
@@ -451,14 +455,11 @@ input:focus::-webkit-input-placeholder
     color: #8a6d3b;
     width: 100%;
 }
-.card {
-        margin: 0 auto; /* Added */
-        float: none; /* Added */
-        margin-bottom: 10px; /* Added */
+#collcard{
+  padding: 1% 10% 2% 10% ;
 }
-#cardimg.card-img-top{
-  height: 20rem;
-}
+
+
 /*Modal*/
 #Modal1{
   background:url(images/home1.jpg);
@@ -485,13 +486,25 @@ form.modal-content.animate{
     width: 50%;
 
 }
-#srchcard,.card-top{
+#srchcard,#srch.card-top{
   padding: 10px 10px 10px 10px;
 }
-.card-bottom{
+#srch.card-bottom{
   float: right;
 }
 #srchimg,#srchcard1{
   height: 180px;
   width: 280px;
 }
+#srch.card-columns {
+        padding-top: 8%;
+        min-width:inherit;
+        column-count:2;
+     }
+#cardrow{
+   padding-left: 48%;
+ }
+ #srchcard.card {
+       position: relative;
+       width:600px!important;
+ }

@@ -3,6 +3,8 @@ import { Link,hashHistory} from 'react-router';
 import './Login.css';
 import './Signup.css';
 import Signup from './Signup';
+import Header from './Header';
+
 
 class Login extends Component {
   constructor() {
@@ -52,6 +54,7 @@ class Login extends Component {
   console.log(window.sessionStorage.getItem('token'));
     return (
       <div id="tf-home">
+      <Header />
         <div className="container1">
 
             <section>

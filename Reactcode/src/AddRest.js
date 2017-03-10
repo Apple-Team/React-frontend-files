@@ -12,30 +12,10 @@ class AddRest extends Component {
     this.state = { data: [],lat1:[],lon1:[],image_data:[],imgSrc:'' };
     this.handleClick=this.handleClick.bind(this);
 
-    this.handleUpload = this.handleUpload.bind(this);
+
     this.getLoc = this.getLoc.bind(this);
     this.onChange= this.onChange.bind(this);
     console.log('test');
-  }
-  handleUpload(){
-      var formData = new FormData();
-      var photo=document.getElementById('FileUpload').files[0];
-
-      console.log(photo);
-
-      formData.set('image',photo);
-      fetch('http://localhost:9000/images', {
-        method:'POST',
-         body: formData
-      }).then((response) => response.json())
-      .then((responseJson) => {
-         this.setState({
-          image_data: responseJson
-
-         });
-      });
-
-
   }
 
   componentDidMount() {
@@ -147,6 +127,23 @@ class AddRest extends Component {
 
    handleClick(ev){
    var tok=window.sessionStorage.getItem('token');
+   var that=this;
+   var formData = new FormData();
+   var photo=document.getElementById('FileUpload').files[0];
+
+   console.log(photo);
+
+   formData.set('image',photo);
+   fetch('http://localhost:9000/images', {
+     method:'POST',
+      body: formData
+   }).then((response) => response.json())
+   .then((responseJson) => {
+      that.setState({
+       image_data: responseJson
+
+      });
+   }).then(function(data){
     fetch('http://localhost:9000/rest',
       {
         headers :{
@@ -167,12 +164,22 @@ class AddRest extends Component {
                               "latitude": document.getElementById('lat').value,
                               "longitude": document.getElementById('long').value,
                               "workHours": document.getElementById('working hours').value,
-                              "image": this.state.image_data
+                              "image": that.state.image_data
 
                             })
-     })
-      window.location.reload();
-     hashHistory.push('/ViewRest/');
+     }).then(response=>{
+       if(200==response.status){
+         window.location.reload();
+        hashHistory.push('/ViewRest/');
+            }
+        else if (403==response.status) {
+        window.alert("Forbidden!!");
+        }
+        else{
+            window.alert("please register!!");
+        }
+      });
+    });
 }
  getLoc(){
   this.setState({lat1:lat});
@@ -202,14 +209,13 @@ class AddRest extends Component {
     return(
 <div  id="content3">
 <div className="row">
-               <div className="col" id="col1">
-                    <AdminHeader />
-                 </div>
-             </div>
-
-
-
-    <div className="row">
+   <div className="col" id="col1">
+      <AdminHeader />
+  </div>
+ </div>
+ <div className="card card-block">
+  <div  className="container" >
+   <div className="row" style={{paddingLeft:"10%"}}>
     <div className="col col-sm-6">
  <div className="form-group row">
   <label className="col-2 col-form-label">Name</label>
@@ -296,7 +302,6 @@ class AddRest extends Component {
     <div className="col-6">
        <input type="file" class="form-control-file" id="FileUpload" name="image" aria-describedby="fileHelp" onChange={this.onChange}/>
        <small id="fileHelp" className="form-text text-muted">Browse Image file location </small>
-       <button type="button" className="btn btn-warning btn-sm" onClick={this.handleUpload}>Upload</button>
     </div>
   </div>
 <div className="form-group-row">
@@ -317,6 +322,9 @@ class AddRest extends Component {
   </div>
   <img src={this.state.imgSrc}  />
 
+</div>
+
+</div>
 </div>
 
 </div>

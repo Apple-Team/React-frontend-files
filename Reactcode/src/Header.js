@@ -52,14 +52,14 @@ return(
       <Navbar fixed="top" toggleable>
           <NavbarToggler right onClick={this.toggle}><i className="fa fa-bars fa-2x" aria-hidden="true"></i></NavbarToggler>
           <NavbarBrand href="/">
-          <img id="logo" width="60" height="60" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
+          <img id="logo" width="80" height="80" className="d-inline-block align-center" />FindO Bistro</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="#"><b>Home</b></NavLink>
+                <Link to="/" className="nav-link"><b>Home</b></Link>
               </NavItem>
               <NavItem>
-                <NavLink href="#tf-collection"><b>Collections</b></NavLink>
+                <Link to="/collection" className="nav-link"><b>Collections</b></Link>
               </NavItem>
               <NavItem>
                 <Link to="/Signup" className="nav-link"><i className="fa fa-sign-in" aria-hidden="true"></i><b>SIGN UP</b></Link>

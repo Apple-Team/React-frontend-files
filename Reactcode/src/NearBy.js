@@ -13,8 +13,6 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
     super();
     this.toggle = this.toggle.bind(this);
     this.toggle1 = this.toggle1.bind(this);
-    this.modalOpen1=this.modalOpen1.bind(this);
-    this.modalClose1=this.modalClose1.bind(this);
     this.state = {
     dropdownOpen: false,
     dropdownOpen1: false
@@ -45,28 +43,13 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
             });
 
  }
- modalOpen1(event){
-   document.getElementById('Modal1').style.display = "inline-block";
- }
-
- modalClose1(event){
-  console.log('hhh');
-   document.getElementById('Modal1').style.display ="none";
-
- }
 
  handleRest(id)
 {
-  if(window.sessionStorage.getItem('token')){
   this.id=id;
   var lat=this.props.params.lati;
   var long=this.props.params.longi;
-
-  hashHistory.push('/rl/'+id+'/'+lat+'/'+long)
- }
- else{
-   this.modalOpen1();
- }
+  hashHistory.push('/rl/'+id+'/'+lat+'/'+long);
  }
 
   render() {
@@ -117,18 +100,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
        }
     </div>
  </div>
- <div id="Modal1" className="modal">
-
-    <form className="modal-content animate">
-        <div id="modal" className="container">
-          <button className="btn" onClick={()=>this.modalClose1}>&times;</button>
-
-          <p>  please <Link to="/Login"><b>Login</b></Link> to view the page</p>
-          </div>
-   </form>
-
-</div>
-</div>
+ </div>
 
 
 

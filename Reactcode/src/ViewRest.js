@@ -8,7 +8,6 @@ import AdminHeader from './AdminHeader';
 import './ViewRest.css';
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
-
 class ViewRest extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another className
@@ -22,41 +21,56 @@ class ViewRest extends Component {
     console.log('test');
   }
 
-  componentWillMount(){
-    var tok=window.sessionStorage.getItem('token');
+ componentWillMount(){
+  console.log(window.sessionStorage.getItem('token'));
+  var tok=window.sessionStorage.getItem('token');
      fetch("http://localhost:9000/list_of_all_restaurants",{
        headers: {
            "Content-Type": "application/json",
            "Authorization": "Bearer "+tok
          }
-     }).then((response) => response.json())
-            .then((responseJson) => {
+     }).then(response=>{
+       if(200==response.status){
+         response.json().then((data)=>{
                this.setState({
-                data: responseJson
-
+                data: data
                });
-            });
-  }
-
+             });
+            }
+        else if (403==response.status) {
+        window.alert("Forbidden!!");
+        }
+        else{
+            window.alert("please register!!");
+        }
+      });
+}
    handleDelete(id){
    console.log(id);
+   var tok=window.sessionStorage.getItem('token');
    if (window.confirm("Do you really want to Delete?")) {
     fetch('http://localhost:9000/rest/'+id,
       {
         headers :{
           "Content-Type" : "application/json",
-          "Accept" : "application/json"
+          "Authorization": "Bearer "+tok
         },
       method: "DELETE"
-     })
-     .then(function (data) {
-  window.location.reload();
-  hashHistory.push('/ViewRest/');
-  })
-  .catch(function (error) {
-  alert('Not deleted from the database',error);
-  });
- }
+     }).then(response=>{
+       if(200==response.status){
+         window.location.reload();
+         hashHistory.push('/ViewRest/');
+            }
+        else if (403==response.status) {
+        window.alert("Forbidden!!");
+        }
+        else{
+            window.alert("please register!!");
+        }
+      }).catch(function (error) {
+          alert('Not deleted from the database',error);
+        });
+      }
 }
 handleRest(id)
 {
@@ -104,8 +118,6 @@ handleGet(index){
               <button type="button" className="btn btn-warning btn-sm" onClick={() => this.handleRest(data.id)}>View Restaurant Page</button>&nbsp;
               <button type="button" className="btn btn-warning btn-sm" onClick={() => this.handleGet(data.id)}>Update</button>&nbsp;
               <button type="button" className="btn btn-danger btn-sm" onClick={() => this.handleDelete(data.id)}>Delete</button>
-
-
             </li>
             </div>
           </ul>

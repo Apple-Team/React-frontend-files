@@ -27,9 +27,8 @@ class UpdateRest extends Component {
     headers: {
         "Content-Type": "application/json",
         "Authorization": "Bearer "+tok
-      }
-  })
-         .then((response) => response.json())
+        }
+        }).then((response) => response.json())
          .then((responseJson) => {
             this.setState({
              get_data: responseJson
@@ -147,6 +146,7 @@ PrvImg(image_data)
 }
 
  handleUpdate(id){
+   var tok=window.sessionStorage.getItem('token');
    var img1=this.state.img;
    if(!this.state.image_data){
      this.state.image_data=this.state.get_data.image;
@@ -155,7 +155,8 @@ PrvImg(image_data)
   fetch('http://localhost:9000/update_a_restaurant/'+ id,
     {
       headers :{
-        "Content-Type" : "application/json"
+        "Content-Type" : "application/json",
+        "Authorization": "Bearer "+tok
       },
     method: "PUT",
     body: JSON.stringify({
@@ -174,18 +175,20 @@ PrvImg(image_data)
                            "image": img1
 
                          })
-   })
-   .then((response) => response.json())
-   .then((responseJson) => {
-      this.setState({
-       data1: responseJson
-
-      });
-   });
-   console.log(this.state.data1);
-   window.location.reload();
-   hashHistory.push('/ViewRest/')
- }
+   }).then(response=>{
+     if(200==response.status){
+       console.log(this.state.data1);
+       window.location.reload();
+       hashHistory.push('/ViewRest/')
+      }
+      else if (403==response.status) {
+      window.alert("Forbidden!!");
+      }
+      else{
+         hashHistory.push('/UnAuth');
+      }
+    });
+   }
 
  handleChange(event){
   this.setState({
@@ -209,14 +212,12 @@ PrvImg(image_data)
    lon1=this.state.get_data.longitude;
     return(
 
-      <div id="Update">
-      <div className="overlay">
-             <div className="row">
-               <div className="col" id="col1">
-                    <AdminHeader />
-                </div>
-             </div>
-       </div>
+    <div id="Update">
+      <div className="row">
+         <div className="col" id="col1">
+            <AdminHeader />
+        </div>
+        </div>
        <div className="card card-block">
           <div  className="container" >
             <div className="row">
