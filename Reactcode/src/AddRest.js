@@ -157,7 +157,7 @@ class AddRest extends Component {
                               "address": document.getElementById('address').value,
                               "area": document.getElementById('area').value,
                               "collection": document.getElementById('collection').value,
-                              "description": document.getElementById('description').value,
+                              "description": document.getElementById('descriptn').value,
                               "homePage": document.getElementById('homepageurl').value,
                               "fbUrl": document.getElementById('fbpageurl').value,
                               "number": document.getElementById('telephone').value,
@@ -207,7 +207,7 @@ class AddRest extends Component {
     console.log(this.state.image_data);
     // console.log('The App component was rendered')
     return(
-<div  id="content3">
+<div  id="content1">
 <div className="row">
    <div className="col" id="col1">
       <AdminHeader />
@@ -244,7 +244,7 @@ class AddRest extends Component {
 <div className="form-group row">
  <label for="example-text-input" className="col-2 col-form-label">Description</label>
  <div className="col-6">
-   <input className="form-control" type="search" placeholder="About ur Bistro" id="description"/>
+   <input className="form-control" type="search" placeholder="About ur Bistro" id="descriptn"/>
  </div>
 </div>
 <div className="form-group row">

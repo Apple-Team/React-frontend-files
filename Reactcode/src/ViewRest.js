@@ -5,7 +5,7 @@ import Restaurant_detail from './Restaurant_detail';
 import UpdateRest from './UpdateRest';
 import AddRest from './AddRest';
 import AdminHeader from './AdminHeader';
-import './ViewRest.css';
+import './Admin.css';
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
 class ViewRest extends Component {
@@ -94,7 +94,7 @@ handleGet(index){
   render() {
 
    return(
-  <div id="content">
+  <div id="content1">
       <div className="row">
                <div className="col" id="col1">
                     <AdminHeader/>

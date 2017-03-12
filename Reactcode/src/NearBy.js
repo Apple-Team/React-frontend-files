@@ -55,7 +55,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
   render() {
 
   return(
-    <div>
+    <div id="restlist">
     <Header />
     <SearchComponent/>
 
@@ -78,7 +78,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
              </ButtonDropdown>
              </DropdownMenu>
     </ButtonDropdown>
-  <div id="restlist">
+  <div >
     <div className="restaurant-container">
       <div id="cardrow" className="row">
         <div className="card-columns" id="srch">{
@@ -91,7 +91,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
               </div>
               <div className="col-md-6" id="srchcard1">
                   <div className="card-top">
-                    <h5 className="card-title">{data[10]}</h5>
+                    <h5 className="card-subtitle">{data[10]}</h5>
                     <p className="card-text"> Area: {data[2]}</p>
                     <p className="card-text">  Working Hours: {data[12]}</p>
                   </div>

@@ -46,7 +46,7 @@ return(
                 <div style={{color:"#000000"}}><Link to="/AddRest" className="nav-link" >ADD RESTAURANT</Link></div>
               </NavItem>
               <NavItem>
-                <div style={{color:"#000000"}}><button type="button" id="logout" className="btn btn-secondary" onClick={this.handleLogout}>LOGOUT</button></div>
+                <div style={{color:"#000000"}}><button type="button" id="logout" className="btn btn-secondary nav-link" onClick={this.handleLogout}>LOGOUT</button></div>
               </NavItem>
             </Nav>
          </Collapse>

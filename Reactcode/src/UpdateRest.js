@@ -165,7 +165,7 @@ PrvImg(image_data)
                            "address": document.getElementById('address').value,
                            "area": document.getElementById('area').value,
                            "collection": document.getElementById('collection').value,
-                           "description": document.getElementById('description').value,
+                           "description": document.getElementById('descriptn').value,
                            "homePage": document.getElementById('homepageurl').value,
                            "fbUrl": document.getElementById('fbpageurl').value,
                            "number": document.getElementById('telephone').value,
@@ -249,7 +249,7 @@ PrvImg(image_data)
   <div className="form-group row">
     <label for="example-text-input" className="col-2 col-form-label">Description</label>
     <div className="col-6">
-      <input type="text" value={this.state.get_data.description} onChange={this.handleChange} id="description"/>
+      <input type="text" value={this.state.get_data.description} onChange={this.handleChange} id="descriptn"/>
     </div>
   </div>
   <div className="form-group row">

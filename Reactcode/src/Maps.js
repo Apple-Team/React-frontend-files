@@ -25,7 +25,7 @@ class Maps extends Component {
       this.handleMap();
     return (
 
-      <div id="map" style={{height:"440px",width:"420px"}}>
+      <div id="map" style={{height:"422px",width:"460px"}}>
 
       </div>
     );

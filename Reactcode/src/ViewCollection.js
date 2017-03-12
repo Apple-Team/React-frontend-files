@@ -66,7 +66,7 @@ class ViewCollection extends Component {
 render() {
 
    return(
-  <div id="content4">
+  <div id="content1">
       <div className="row">
                <div className="col" id="col1">
                     <AdminHeader/>
@@ -83,7 +83,7 @@ render() {
             <li className="media">
               <img className="d-flex mr-3" src={data.collectionUrl} height="100px" width="110px" alt="Generic placeholder image"/>
               <div className="media-body">
-                   <p className="card-text"><h3 className="mt-0 mb-1">{data.collection}</h3>
+                   <p className="card-text"><h5 className="mt-0 mb-1">{data.collection}</h5>
                    </p>
               </div>
               <button type="button" className="btn btn-warning btn-sm" onClick={() => this.handleCollection(data.collection)}>View this Collection</button>&nbsp;

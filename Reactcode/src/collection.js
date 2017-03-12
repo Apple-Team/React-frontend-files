@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link,hashHistory } from 'react-router';
@@ -51,11 +50,11 @@ return (
             </div>
             <div className="space"></div>
 
-            <div id="lightbox" className="row">{
+            <div id="lightbox" className="row w3-center">{
               this.state.data.map((data,index)=>{
                return (
 
-                <div className="col-sm-6 col-md-4 col-lg-4 branding">
+                <div className="col-sm-5 col-md-3 col-lg-4 branding">
                     <div className="portfolio-item">
                         <div className="hover-bg">
 
@@ -65,7 +64,7 @@ return (
                                     <div className="clearfix"></div>
                                     <button type="button" className="w3-button w3-orange w3-round-xxlarge" onClick={() => this.collectionlist(data.collection)}><i className="fa fa-plus" aria-hidden="true"></i></button>
                                 </div>
-                                <img src={data.collectionUrl} className="img-responsive" alt="..." />
+                                <img src={data.collectionUrl} id="collimg" className="img-responsive" alt="..." />
 
                         </div>
                     </div>

@@ -47,9 +47,9 @@ class Restaurant_detail extends Component {
   <div>
     <div id="detailRest">
         <div className="row" id="searchrest">
-                <div className="col col-lg-5 branding" id="firstcol">
+                <div className="col col-lg-7 branding" id="firstcol">
                   <div className="card" >
-                      <img className="card-img-top image-fluid" src={this.state.detail_data.image} alt="Card image cap"/>
+                      <img className="card-img-top image-fluid" id="cardrest" src={this.state.detail_data.image} alt="Card image cap"/>
                       <div className="card-block">
                         <div className="card-title"><h1><b>{this.state.detail_data.name}</b></h1></div>
                          <p className="card-text">{this.state.detail_data.description}</p>

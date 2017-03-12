@@ -47,8 +47,8 @@ class Restaurant_detail extends Component {
   return (
   <div>
     <div id="detailRest">
-        <div className="row" id="searchrest">
-                <div className="col col-lg-5 branding" id="firstcol">
+        <div className="row" id="searchrest" >
+                <div className="col col-lg-7 branding" id="firstcol">
                   <div className="card" >
                       <img className="card-img-top image-fluid" src={this.state.detail_data.image} id="cardrest" alt="Card image cap"/>
                       <div className="card-block">

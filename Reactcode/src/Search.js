@@ -52,7 +52,7 @@ componentWillReceiveProps(nextProps){
 render() {
     // console.log('The App component was rendered')
   return (
- <div>
+ <div id="restlist">
  <Header />
  <SearchComponent/>
     <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} size="sm" className="input-group-btn" >
@@ -87,12 +87,12 @@ render() {
                       </div>
                       <div className="col-md-6" id="srchcard1">
                           <div className="card-top">
-                            <h5 className="card-title">{data[10]}</h5>
+                            <h5 className="card-subtitle">{data[10]}</h5>
                             <p className="card-text"> Area: {data[2]}</p>
                             <p className="card-text">  Working Hours: {data[12]}</p>
-                          </div>
+                          </div><hr/>
                           <div className="card-bottom" id="srch">
-                            <button type="button" className="btn btn-warning btn-sm" onClick={()=>this.handleRest(data[0])}>View</button>
+                            <button type="button" className="btn btn-warning btn-sm"  style={{float:"right"}} onClick={()=>this.handleRest(data[0])}>View</button>
                           </div>
                     </div>
                   </div>

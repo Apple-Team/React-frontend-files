@@ -1,5 +1,5 @@
 #cardrest.card-img-top{
-	 width:100%;
+	 width:46rem;
 	 height: 23rem;
 }
 
@@ -32,4 +32,10 @@ a:focus, a:hover{
 }
 #firstcol{
 	padding-left: 5px;
+}
+#restlist{
+  background-color: #f5f0f0;
+}
+#searchrest{
+  padding-left:1%;
 }

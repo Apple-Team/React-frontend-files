@@ -57,19 +57,18 @@ render() {
 
 <div id="nearby">
     <div id="tf-nearby" className="text-center">
-
             <div className="content">
                 <div className="txt">
                    <div className="form-group">
-                      <div className="input-group">
+                      <div className="input-group" id="srchbar">
                             <span className="input-group-btn">
                             <Button id="Popover1" type="button" className="btn btn-warning" onClick={this.handleNearby}>
                                Locate Me <i className="fa fa-location-arrow" aria-hidden="true"></i>
                             </Button>
                             </span>
-                           <input type="text" placeholder="Hungry??  Find your favourite Bistro...." onfocus="placeholder=''" size ="100" id="search-bar" ref="inputSearch" autocomplete="off" value={this.state.inputValue}
+                           <input type="text" placeholder="Hungry??  Find your favourite Bistro...." onfocus="placeholder=''" size ="100" id="search-bar" autocomplete="off" value={this.state.inputValue}
                             onChange={this.handleChange.bind(this)}  />
-                           <span className="input-group-btn">
+                           <span className="input-group-btn" id="s">
                            <button id="teamsearchbtn" type="button" className="btn btn-warning" onClick={this.handleSearch}> <i className="fa fa-search"></i></button>
                            </span>
                       </div>

@@ -24,7 +24,7 @@
 .navbar-brand {
 font-family: cursive;
 font-weight: bold;
-font-size: 36px;
+font-size: 32px;
 color: #FCAC46;
 font-weight: 900;
 }
@@ -206,7 +206,7 @@ Navbar > NavItem:active{
   position: relative;
 }
 
-.input-group-btn{
+#s .input-group-btn{
   padding-top: 7px;
   padding-bottom: 7px;
 }
@@ -244,6 +244,11 @@ a.fa.fa-angle-down:hover{
   top: 50%;
   left:50%;
   transform: translate(-50%,-50%);
+  height: 4rem;
+
+}
+div#srchbar.input-group{
+  height: 44px;
 }
 .center-block {
   display: block;
@@ -303,11 +308,14 @@ ol.type li a.active { font-weight: 700; }
 }
 .portfolio-item{
   margin-bottom: 30px;
+  max-height: 210px;
+  max-width:310px;
 }
 .portfolio-item .hover-bg{
-  height: 218px;
+
   overflow: hidden;
   position: relative;
+
 }
 
 .hover-bg .hover-txt {
@@ -316,7 +324,7 @@ ol.type li a.active { font-weight: 700; }
   margin: 0 auto;
   color: #ffffff;
   background: rgba(0, 0, 0, 0.66);
-  padding: 25% 0;
+  padding: 15% 0;
   height: 100%;
   width: 100%;
   opacity: 0;
@@ -349,6 +357,9 @@ ol.type li a.active { font-weight: 700; }
 .hover-bg:hover .hover-txt{
   opacity: 1;
 }
+ #lightbox.row{
+      padding: 5% 5% 5% 5%;
+ }
 
 a.fa.fa-angle-up {
   padding: 10px 15px;
@@ -405,30 +416,7 @@ nav#footer p{
 #Ack,#Ack1{
     color: rgb(18, 83, 93);
 }
-/*Admin*/
-li#admin{
-  padding-left: 600px;
-}
-#tf-admin{
-  background: url(images/images.jpg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  color: #cfcfcf;
-}
 
-#tf-admin .overlay{
-  background: -moz-linear-gradient(top,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.73) 17%, rgba(0,0,0,0.66) 35%, rgba(0,0,0,0.55) 62%, rgba(0,0,0,0.4) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.8)), color-stop(17%,rgba(0,0,0,0.73)), color-stop(35%,rgba(0,0,0,0.66)), color-stop(62%,rgba(0,0,0,0.55)), color-stop(100%,rgba(0,0,0,0.4))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.73) 17%,rgba(0,0,0,0.66) 35%,rgba(0,0,0,0.55) 62%,rgba(0,0,0,0.4) 100%); /* W3C */
-  min-height: 750px;
-  height:all;
-  background-attachment: fixed;
-}
 /*search componenet */
 #tf-nearby{
   background: url(images/home1.jpg) ;
@@ -458,7 +446,9 @@ input:focus::-webkit-input-placeholder
 #collcard{
   padding: 1% 10% 2% 10% ;
 }
-
+input#search-bar{
+  width:inherit;
+}
 
 /*Modal*/
 #Modal1{
@@ -499,11 +489,11 @@ form.modal-content.animate{
         column-count:2;
      }
 #cardrow{
-   padding-left: 48%;
+   padding-left: 38%;
  }
  #srchcard.card {
        position: relative;
-       width:600px!important;
+       width:400px!important;
  }
  div#srch.card-block{
    position: relative;

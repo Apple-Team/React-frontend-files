@@ -88,7 +88,7 @@ onChange(){
    console.log(this.state.image_data);
     // console.log('The App component was rendered')
     return(
-<div  id="content2">
+<div  id="content1s">
 <div className="row">
                <div className="col" id="col1">
                     <AdminHeader />

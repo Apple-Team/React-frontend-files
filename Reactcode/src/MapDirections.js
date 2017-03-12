@@ -49,7 +49,7 @@ class MapDirections extends Component {
     return (
       <div>
 
-      <div id="map" style={{height:"580px",width:"820px"}}></div>
+      <div id="map" style={{height:"422px",width:"460px"}}></div>
       </div>
     );
   }

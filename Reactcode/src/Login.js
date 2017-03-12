@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link,hashHistory} from 'react-router';
-import './Login.css';
 import './Signup.css';
 import Signup from './Signup';
 import Header from './Header';
