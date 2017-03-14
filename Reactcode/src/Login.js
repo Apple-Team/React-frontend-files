@@ -33,48 +33,20 @@ toggle1() {
     });
   }
 
-  validateUsername(ev){
-   var username = document.getElementById("username");
-   var len=username.value.length;
-  if(len<6) {
-    this.setState({
-      popoverOpen1:true
-    });
-  } 
-  else {
-    this.setState({
-      popoverOpen1:false
-    });
-  }
-}
 
-validatePassword(ev){
-   var password = document.getElementById("password");
-  if(password.value.length<6) {
-    this.setState({
-      popoverOpen2:true
-    });
-  } 
-  else {
-    this.setState({
-      popoverOpen2:false
-    });
-  }
-}
 
   handleLogin(){
     var that=this;
      var name=document.getElementById('username').value;
      var password=document.getElementById('password').value;
-     if(name!=''&&password!=''){
+  if(name==''||password==''){
 
-    if((this.state.popoverOpen1)||(this.state.popoverOpen2)) {
-    if(this.state.popoverOpen1){
+    if(name==''){
     this.setState({
       popoverOpen1:true
     });
     }
-    else if(this.state.popoverOpen2){
+    else if(password==''){
     this.setState({
       popoverOpen2:true
     });
@@ -108,10 +80,6 @@ validatePassword(ev){
         });
   }
 }
-else{
-    alert('Fill all the fields');
-  }
-  }
 
 
   render() {
@@ -129,11 +97,11 @@ else{
                                 <h1>Sign In</h1>
                                 <p>
                                     <label for="username" className="uname" > Your Username </label>
-                                    <input id="username" name="username" required="required" type="text" placeholder="myusername" onChange ={this.validateUsername.bind(this)} onKeyUp ={this.validateUsername.bind(this)} onClick={this.validateUsername.bind(this)}/>
+                                    <input id="username" name="username" required="required" type="text" placeholder="myusername" />
                                 </p>
                                 <p>
                                     <label for="password" className="youpasswd"> Your password </label>
-                                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" onChange ={this.validatePassword.bind(this)} onKeyUp ={this.validatePassword.bind(this)} onClick={this.validatePassword.bind(this)}/>
+                                    <input id="password" name="password" required="required" type="password" placeholder="eg. X8df!90EO" />
                                 </p>
 
                                 <p className="login button">
@@ -153,13 +121,13 @@ else{
 
         <div id="pop_username">
         <Popover placement="right" isOpen={this.state.popoverOpen1} target="username" toggle={this.toggle1}>
-          <PopoverContent>Enter a valid username of atleast 6 characters</PopoverContent>
+          <PopoverContent>Please enter your username</PopoverContent>
         </Popover>
       </div>
 
       <div id="pop_password">
         <Popover placement="right" isOpen={this.state.popoverOpen2} target="password" toggle={this.toggle2}>
-          <PopoverContent>Enter valid Password of atleast 6 characters</PopoverContent>
+          <PopoverContent>Please enter your password</PopoverContent>
         </Popover>
       </div>
 
