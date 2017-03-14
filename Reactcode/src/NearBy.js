@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link,hashHistory} from 'react-router';
 import ReactDOM from 'react-dom';
 import Header from './Header';
+import Filters from './Filters';
 import SearchComponent from './SearchComponent';
 import { Button, Popover, PopoverTitle, PopoverContent } from 'reactstrap';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
@@ -58,28 +59,9 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
     <div id="restlist">
     <Header />
     <SearchComponent/>
-
-        <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle} size="sm" className="input-group-btn" >
-        <DropdownToggle caret size="sm">
-           Filter By
-        </DropdownToggle>
-        <DropdownMenu className="menu" right>
-             <DropdownItem  id="cuisine">Cuisine</DropdownItem>
-             <DropdownItem divider />
-              <ButtonDropdown isOpen={this.state.dropdownOpen1} toggle={this.toggle1} size="sm" className="input-group-btn" >
-                    <DropdownToggle caret size="sm">
-                        Opening Hours
-                    </DropdownToggle>
-                     <DropdownMenu className="menu">
-                          <DropdownItem  id="cuisine">9AM -9PM</DropdownItem>
-                          <DropdownItem divider />
-                          <DropdownItem id="openHours">10PM -3AM</DropdownItem>
-                    </DropdownMenu>
-             </ButtonDropdown>
-             </DropdownMenu>
-    </ButtonDropdown>
-  <div >
+  <div  id="searchlist">
     <div className="restaurant-container">
+     <Filters/>
       <div id="cardrow" className="row">
         <div className="card-columns" id="srch">{
        this.state.radius_data.map((data, index)=>{

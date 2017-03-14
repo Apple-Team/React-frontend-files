@@ -171,8 +171,14 @@ PrvImg(image_data)
                            "number": document.getElementById('telephone').value,
                            "latitude": lat1,
                            "longitude": lon1,
-                           "workHours": document.getElementById('working hours').value,
-                           "image": img1
+                           "image": img1,
+                           "workHours": document.getElementById('opening_time').value+"AM to"+ document.getElementById('closing_time').value+"PM",
+                           "opening_time": document.getElementById('opening_time').value,
+                           "closing_time": document.getElementById('closing_time').value,
+                           "free_delivery": document.getElementById('free_delivery').value,
+                           "cost": document.getElementById('cost').value
+
+
 
                          })
    }).then(response=>{
@@ -222,39 +228,39 @@ PrvImg(image_data)
           <div  className="container" >
             <div className="row">
                 <div className="col col-sm-6">
-                  <div className="form-group row">
-                      <label className="col-2 col-form-label">Name</label>
-                      <div className="col-6">
-                          <input type="text" value={this.state.get_data.name} onChange={this.handleChange} id="name"/>
-                      </div>
-                </div>
+  <div className="form-group row">
+     <label className="col-2 col-form-label">Name</label>
+         <div className="col-8">
+               <input type="text"  className="form-control" value={this.state.get_data.name} onChange={this.handleChange} id="name"/>
+          </div>
+   </div>
   <div className="form-group row">
     <label for="example-text-input" className="col-2 col-form-label">Area</label>
-    <div className="col-6">
-       <input type="text" value={this.state.get_data.area} onChange={this.handleChange} id="area"/>
+    <div className="col-8">
+       <input type="text" className="form-control" value={this.state.get_data.area} onChange={this.handleChange} id="area"/>
     </div>
   </div>
   <div className="form-group row">
     <label for="example-text-input" className="col-2 col-form-label">Address</label>
-    <div className="col-6">
-      <input type="text" value={this.state.get_data.address} onChange={this.handleChange} id="address"/>
+    <div className="col-8">
+      <input type="text"  className="form-control" value={this.state.get_data.address} onChange={this.handleChange} id="address"/>
     </div>
   </div>
    <div className="form-group row">
     <label for="example-text-input" className="col-2 col-form-label">Cuisine</label>
-    <div className="col-6">
-      <input type="text" value={this.state.get_data.cuisine} onChange={this.handleChange} id="cuisine"/>
+    <div className="col-8">
+      <input type="text"  className="form-control" value={this.state.get_data.cuisine} onChange={this.handleChange} id="cuisine"/>
     </div>
   </div>
   <div className="form-group row">
     <label for="example-text-input" className="col-2 col-form-label">Description</label>
-    <div className="col-6">
-      <input type="text" value={this.state.get_data.description} onChange={this.handleChange} id="descriptn"/>
+    <div className="col-8">
+      <input type="text"  className="form-control" rows="4" value={this.state.get_data.description} onChange={this.handleChange} id="descriptn"/>
     </div>
   </div>
   <div className="form-group row">
     <label for="example-text-input" className="col-2 col-form-label">Collection</label>
-    <div className="col-6">
+    <div className="col-8">
   <select className="custom-select" id="collection">
     <option selected>{this.state.get_data.collection}</option>
     <option value="Breakfast">Breakfast</option>
@@ -268,59 +274,76 @@ PrvImg(image_data)
   </div>
   <div className="form-group row">
     <label for="example-url-input" className="col-2 col-form-label">Home Page URL</label>
-    <div className="col-6">
-      <input type="text" value={this.state.get_data.homePage} onChange={this.handleChange} id="homepageurl"/>
+    <div className="col-8">
+      <input type="text"  className="form-control" value={this.state.get_data.homePage} onChange={this.handleChange} id="homepageurl"/>
     </div>
   </div>
   <div className="form-group row">
     <label for="example-url-input" className="col-2 col-form-label">Facebook Page URL</label>
-    <div className="col-6">
-      <input type="text" value={this.state.get_data.fbUrl} onChange={this.handleChange} id="fbpageurl"/>
+    <div className="col-8">
+      <input type="text"  className="form-control" value={this.state.get_data.fbUrl} onChange={this.handleChange} id="fbpageurl"/>
     </div>
   </div>
   <div className="form-group row">
     <label for="example-tel-input" className="col-2 col-form-label">Telephone</label>
-    <div className="col-6">
-      <input type="text" value={this.state.get_data.number} onChange={this.handleChange} id="telephone"/>
+    <div className="col-8">
+      <input type="text"  className="form-control" value={this.state.get_data.number} onChange={this.handleChange} id="telephone"/>
     </div>
   </div>
   <div className="form-group row">
-    <label for="example-text-input" className="col-2 col-form-label">Working Hours</label>
-    <div className="col-6">
-      <input type="text" value={this.state.get_data.workHours} onChange={this.handleChange} id="working hours"/>
-    </div>
+  <label for="example-text-input" className="col-2 col-form-label">Working Hours</label>
+  <div className="col-4">
+    <input className="form-control" type="search" value={this.state.get_data.opening_time} onChange={this.handleChange} id="opening_time"/>
   </div>
+  <div className="col-4">
+     <input className="form-control" type="search"  value={this.state.get_data.closing_time} onChange={this.handleChange} id="closing_time"/>
+  </div>
+</div>
+<div className="form-group row">
+  <label for="example-text-input" className="col-2 col-form-label">Free Delivery</label>
+  <div className="col-8">
+    <label className="form-check-label">
+           <select className="custom-select" id="free_delivery">             
+              <option value="1">Yes</option>
+              <option value="0">No</option>
+            </select>
+    </label>
+  </div>
+</div>
+<div className="form-group row">
+  <label for="example-text-input" className="col-2 col-form-label">Cost</label>
+  <div className="col-8">
+    <input className="form-control" type="search" value={this.state.get_data.cost} onChange={this.handleChange} id="cost" />
+  </div>
+</div>
   <div className="form-group row">
     <label for="example-text-input" className="col-2 col-form-label">Latitude</label>
-    <div className="col-6">
-      <input type="text" value={lat1} id="lat"/>
+    <div className="col-8">
+      <input type="text"  className="form-control" value={lat1} id="lat"/>
     </div>
   </div>
   <div className="form-group row">
     <label for="example-text-input" className="col-2 col-form-label">Longitude</label>
-    <div className="col-6">
-      <input type="text" value={lon1} id="long"/>
+    <div className="col-8">
+      <input type="text"  className="form-control" value={lon1} id="long"/>
     </div>
   </div>
 
   <div className="form-group-row">
-      <div className="col-6">
+      <div className="col-8">
         <button type="button" className="btn btn-warning" onClick={() => this.handleUpdate(this.state.get_data.id)}>Submit</button>
       </div>
   </div>
 </div>
 
   <div className="col col-sm-6">
-    <div className="card">
-      <div className="card-block">
         <div>
           <input id="pac-input" className="form-control" size="45" type="text" placeholder="Search Box"/>
 
           <div id="map"  style={{height:"500px",width:"450px"}}></div>
             <button type="button" className="btn btn-warning btn-sm" onClick={this.getLoc}>Get LatLong</button>
           </div>
-       </div>
-    </div>
+       
     <PreviewImg Img={this.PrvImg} pic={this.state.get_data.image}/>
 
 

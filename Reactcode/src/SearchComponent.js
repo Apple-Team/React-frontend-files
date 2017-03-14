@@ -13,18 +13,34 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
 
     
     this.state = {
-    inputValue: ''
-
-    };
-    this.state = { radius_data: [] };
+    inputValue: '',
+    radius_data: [],
+    popoverOpen1: false
+  };
     this.handleSearch=this.handleSearch.bind(this);
     this.handleChange=this.handleChange.bind(this);
+    this.toggle1 = this.toggle1.bind(this); 
   }
 
+toggle1() {
+    this.setState({
+      popoverOpen1: !this.state.popoverOpen1
+    });
+  }
 
   handleSearch(ev){
       console.log(this.state.inputValue);
+      if(this.state.inputValue==''){
+        this.setState({
+      popoverOpen1:true
+    });
+      }
+      else{
+        this.setState({
+      popoverOpen1:false
+    });
       hashHistory.push('/Search/'+this.state.inputValue);
+    }
 
  }
  handleChange(e) {
@@ -56,17 +72,17 @@ render() {
     <div>
 
 <div id="nearby">
-    <div id="tf-nearby" className="text-center">
+    <div id="tf-nearby">
             <div className="content">
                 <div className="txt">
                    <div className="form-group">
-                      <div className="input-group" id="srchbar">
+                      <div className="input-group text-center" id="srchbar">
                             <span className="input-group-btn">
                             <Button id="Popover1" type="button" className="btn btn-warning" onClick={this.handleNearby}>
                                Locate Me <i className="fa fa-location-arrow" aria-hidden="true"></i>
                             </Button>
                             </span>
-                           <input type="text" placeholder="Hungry??  Find your favourite Bistro...." onfocus="placeholder=''" size ="100" id="search-bar" autocomplete="off" value={this.state.inputValue}
+                           <input type="text" placeholder="Hungry??  Find your favourite Bistro...." onfocus="placeholder=''"  className="form-control" size ="100" id="search-bar" autocomplete="on" value={this.state.inputValue}
                             onChange={this.handleChange.bind(this)}  />
                            <span className="input-group-btn" id="s">
                            <button id="teamsearchbtn" type="button" className="btn btn-warning" onClick={this.handleSearch}> <i className="fa fa-search"></i></button>
@@ -79,6 +95,11 @@ render() {
         </div>
    </div>
 </div>
+ <div id="pop_search">
+        <Popover placement="bottom" isOpen={this.state.popoverOpen1} target="search-bar" toggle={this.toggle1}>
+          <PopoverContent>Please enter a value</PopoverContent>
+        </Popover>
+      </div>
 
 
 </div>

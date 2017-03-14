@@ -43,6 +43,8 @@ class Restaurant_detail extends Component {
     // console.log('The App component was rendered')
     var lat=this.state.detail_data.latitude;
     var lng=this.state.detail_data.longitude;
+    if(this.state.detail_data.free_delivery)
+        document.getElementById('fd').style.display="block";
 
   return (
   <div>
@@ -61,6 +63,10 @@ class Restaurant_detail extends Component {
                      </ul>
                      <ul className="list-group list-group-flush">
                         <li className="list-group-item">Phone number: {this.state.detail_data.number}</li>
+                     </ul>
+                     <ul className="list-group list-group-flush">
+                        <li className="list-group-item">Cost: {this.state.detail_data.cost} per Two</li>
+                        <li className="list-group-item" id="fd" style={{display:"none"}}>Free Home Delivery</li>
                      </ul>
                      <div className="card-block">
                         <a href={this.state.detail_data.homePage} target="_blank">View Restaurant Homepage</a>&nbsp;&nbsp;&nbsp;

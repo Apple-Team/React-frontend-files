@@ -471,10 +471,8 @@ form.modal-content.animate{
 .restaurant-container {
     position: relative;
     min-height: 1px;
-    padding-right: 15px;
-    padding-left: 15px;
+    padding: 4% 4% 4% 8%;   
     width: 50%;
-
 }
 #srchcard,#srch.card-top{
   padding: 10px 10px 10px 10px;
@@ -484,12 +482,11 @@ form.modal-content.animate{
   width: 280px;
 }
 #srch.card-columns {
-        padding-top: 8%;
         min-width:inherit;
         column-count:2;
      }
 #cardrow{
-   padding-left: 38%;
+   padding-left: 18%;
  }
  #srchcard.card {
        position: relative;
@@ -499,5 +496,15 @@ form.modal-content.animate{
    position: relative;
    height: auto;
    width: auto;
+   
+ }
+ #searchlist{
    background-color:#e8eaed;
  }
+/*filters*/
+#filtersrch{
+  float:left; 
+  padding:5% 5% 5% 5%;
+  height: 500px;
+  width:200px; 
+}
