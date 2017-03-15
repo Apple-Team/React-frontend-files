@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { Router, Route, hashHistory } from 'react-router';
 import Filters1 from './Filters1';
-var c1,c2,cost;
+var c1,c2,cost,i;
 class Filters extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another classNameName
@@ -25,7 +25,15 @@ class Filters extends Component {
           });
   }
 
-  
+  handleTime(){
+
+      var d = new Date(),
+      h = (d.getHours()<10?'0':'') + d.getHours(),
+      m = (d.getMinutes()<10?'0':'') + d.getMinutes();
+      i = h + ':' + m +':00';
+     console.log(i);
+      this.handleFilters();
+  }
 
   handleParams(c,cost1,cost2){
     cost=c;
@@ -38,8 +46,13 @@ class Filters extends Component {
  handleFilter(e) {
   console.log(cost,c1,c2);
      var that=this;
-
      that.state.colltn=e.currentTarget.value;
+     this.handleFilters();
+}
+handleFilters(e){
+
+     var that=this;
+     var cf;
      that.state.check=document.getElementById('delivery').checked;
 
      console.log(that.state.check);
@@ -47,13 +60,9 @@ class Filters extends Component {
       if(that.state.check==true)
           that.state.check='1';
       else that.state.check='0';
-
      console.log(that.state.colltn);
-     this.handleFilters();
-}
-handleFilters(e){
-     var that=this;
-     var cf;
+
+
      if(that.state.check=='1')
         cf=that.props.s+"&delivery="+that.state.check;
 
@@ -61,6 +70,9 @@ handleFilters(e){
         cf=that.props.s+"&cost1="+c1+"&cost2="+c2;
       }
 
+    if(i){
+        cf=that.props.s+"&time="+i;
+    }
      if(that.state.colltn)
         cf=that.props.s+"&collection="+that.state.colltn;
 
@@ -93,6 +105,11 @@ handleFilters(e){
        });
 
   }
+  handleRemove(){
+    console.log('hh');
+    this.state.colltn='';
+    document.getElementById("collection").checked=false;
+  }
 
    render() {
       return (
@@ -116,9 +133,11 @@ handleFilters(e){
          <h5 className="card-text" style={{paddingLeft:"1px"}}> Cost </h5>
             <Filters1 filter={this.handleParams.bind(this)}/>
             <hr/>
+            <button type="button" className="btn btn-warning btn-sm" onClick={this.handleTime.bind(this)}>Open Now</button>&nbsp;
+            <hr/>
             <FormGroup check>
               <Label check>
-                <Input type="checkbox" id="delivery" onClick={this.handleFilter.bind(this)}/>{' '}
+                <Input type="checkbox" id="delivery" onClick={this.handleFilters.bind(this)}/>{' '}
                 Home Delivery
               </Label>
             </FormGroup>

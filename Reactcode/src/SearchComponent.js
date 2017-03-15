@@ -11,7 +11,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
     // In a constructor, call `super` first if the className extends another className
     super();
 
-    
+
     this.state = {
     inputValue: '',
     radius_data: [],
@@ -19,7 +19,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
   };
     this.handleSearch=this.handleSearch.bind(this);
     this.handleChange=this.handleChange.bind(this);
-    this.toggle1 = this.toggle1.bind(this); 
+    this.toggle1 = this.toggle1.bind(this);
   }
 
 toggle1() {
@@ -39,8 +39,10 @@ toggle1() {
         this.setState({
       popoverOpen1:false
     });
+    document.getElementById("collection").checked=false;
       hashHistory.push('/Search/'+this.state.inputValue);
     }
+
 
  }
  handleChange(e) {
