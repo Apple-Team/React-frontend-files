@@ -52,7 +52,7 @@ coll(collfilter){
   }
   else{
     this.setState({data:[]});
-        document.getElementById('badsrch').style.display='inline';
+        document.getElementById('badsrch').style.display='block';
   }
 }
 
@@ -92,10 +92,9 @@ render() {
        </div>
      </div>
    </div>
- </div>
-
- <div id="badsrch" style={{display: 'none'}}>
-    <h3><i className="fa fa-frown-o fa-3x" aria-hidden="true"></i> No Results Found!!</h3>
+   <div id="badsrch" style={{display: 'none'}}>
+      <h3><i className="fa fa-frown-o fa-3x" aria-hidden="true"></i> No Results Found!!</h3>
+   </div>
  </div>
 
 </div>
