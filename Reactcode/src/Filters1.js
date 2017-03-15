@@ -11,9 +11,11 @@ class Filters1 extends Component {
 
   }
 
+
+
   handleFilter1(e){
   	var c1,c2,cost;
-  	cost=e.currentTarget.value;
+  	cost=document.getElementById("cost").value;
   	console.log(cost);
   	 if(cost==1){
               c1=0;
@@ -36,14 +38,14 @@ class Filters1 extends Component {
                 c2=10000;
         }
         console.log(c1,c2);
+        if(!((c1=='')&&(c2=='')))
         this.props.filter(cost,c1,c2);
   }
 
    render() {
       return (
          <div>
-
-<select className="form-control form-control-sm" id="cost" onChange={this.handleFilter1.bind(this)}>
+            <select className="form-control form-control-sm" id="cost" onChange={this.handleFilter1.bind(this)}>
                     <option selected>Cost per Two</option>
                     <option value="1">Less than &#8377;250</option>
                     <option value="2">&#8377;250 - &#8377;500</option>
@@ -51,6 +53,7 @@ class Filters1 extends Component {
                     <option value="4">&#8377;1000 - &#8377;2000</option>
                     <option value="5">&#8377;2000 above</option>
             </select>
+          
 
           </div>
           );

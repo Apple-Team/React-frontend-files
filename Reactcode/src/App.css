@@ -504,6 +504,7 @@ form.modal-content.animate{
  }
  #searchlist{
    background-color:#e8eaed;
+   height:1000px;
  }
 /*filters*/
 #filtersrch{

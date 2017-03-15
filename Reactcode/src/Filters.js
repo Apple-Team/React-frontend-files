@@ -11,10 +11,10 @@ class Filters extends Component {
      console.log('jjj');
     this.state = { colltn:'', data: [],filter_data:[],check:''};
     this.handleFilter=this.handleFilter.bind(this);
-
+    this.handleFilters=this.handleFilters.bind(this);
   }
   componentDidMount(){
-    
+
   fetch("http://localhost:9000/get_all_collections")
     .then((response) => response.json())
           .then((responseJson) => {
@@ -25,29 +25,35 @@ class Filters extends Component {
           });
   }
 
+  
+
   handleParams(c,cost1,cost2){
     cost=c;
     c1=cost1;
     c2=cost2;
     console.log(cost,c1,c2);
-    this.handleFilter();
+    this.handleFilters();
   }
 
  handleFilter(e) {
   console.log(cost,c1,c2);
      var that=this;
-     var cf;
-     that.state.colltn= e.currentTarget.value;
+
+     that.state.colltn=e.currentTarget.value;
      that.state.check=document.getElementById('delivery').checked;
-     
+
      console.log(that.state.check);
-     
+
       if(that.state.check==true)
           that.state.check='1';
       else that.state.check='0';
 
      console.log(that.state.colltn);
-
+     this.handleFilters();
+}
+handleFilters(e){
+     var that=this;
+     var cf;
      if(that.state.check=='1')
         cf=that.props.s+"&delivery="+that.state.check;
 
@@ -58,17 +64,17 @@ class Filters extends Component {
      if(that.state.colltn)
         cf=that.props.s+"&collection="+that.state.colltn;
 
-     if((that.state.check=='1')&&(!this.state.colltn)){
+     if((that.state.check=='1')&&(that.state.colltn)){
        cf=that.props.s+"&collection="+that.state.colltn+"&delivery="+that.state.check;
      }
       if((that.state.check=='1')&&cost){
        cf=that.props.s+"&delivery="+that.state.check+"&cost1="+c1+"&cost2="+c2;
      }
-      if(cost&&(!this.state.colltn)){
+      if(cost&&(that.state.colltn)){
        cf=that.props.s+"&collection="+that.state.colltn+"&cost1="+c1+"&cost2="+c2;
      }
 
-     if((that.state.check=='1')&&(!this.state.colltn)&&cost){
+     if((that.state.check=='1')&&(that.state.colltn)&&cost){
        cf=that.props.s+"&collection="+that.state.colltn+"&delivery="+that.state.check+"&cost1="+c1+"&cost2="+c2;
      }
 
@@ -100,7 +106,7 @@ class Filters extends Component {
           <FormGroup tag="fieldset">
            <FormGroup check>
             <Label check>
-              <Input type="radio" name="radio1"  id="collection" value={data.collection}  onClick={this.handleFilter.bind(this)}/>{' '}
+              <Input type="radio" name="radio" id="collection" value={data.collection}  onChange={this.handleFilter.bind(this)}/>{' '}
             {data.collection}
             </Label>
           </FormGroup>
