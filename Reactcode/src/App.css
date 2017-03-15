@@ -472,6 +472,16 @@ form.modal-content.animate{
 
 }
 
+#detailRest{
+  background:url(images/home1.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
+
+
+
 .restaurant-container {
     position: relative;
     min-height: 1px;

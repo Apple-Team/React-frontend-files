@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { Link ,hashHistory} from 'react-router';
-import Header from './Header';
+import UserHeader from './UserHeader';
 import Footer from './Footer';
 import './Restaurant_detail.css';
 import GoogleMap from 'google-map-react';
+import StarRatingComponent from 'react-star-rating-component';
 import Maps from'./Maps';
 class Restaurant_detail extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another classNameName
     super();
-    this.state = { detail_data:[] };
+    this.state = { detail_data:[], rating: 0};
 
   }
   componentDidMount(){
@@ -37,9 +38,22 @@ class Restaurant_detail extends Component {
          });
     }
 
+    modalClose2(event){
+    document.getElementById('Modal').style.display ="none";
+  }
+
+    handleCall(){
+      document.getElementById('Modal').style.display='inline';
+    }
+
+    onStarClick(nextValue, prevValue, name) {
+        this.setState({rating: nextValue});
+        console.log(this.state.rating);
+    }
+
     // `render` is called whenever the component's props OR state are updated.
   render() {
-
+    const { rating } = this.state.rating;
     // console.log('The App component was rendered')
     var lat=this.state.detail_data.latitude;
     var lng=this.state.detail_data.longitude;
@@ -49,6 +63,7 @@ class Restaurant_detail extends Component {
   return (
   <div>
     <div id="detailRest">
+    <UserHeader /><br /><br /><br />
         <div className="row" id="searchrest" >
                 <div className="col col-lg-7 branding" id="firstcol">
                   <div className="card" >
@@ -61,16 +76,15 @@ class Restaurant_detail extends Component {
                         <li className="list-group-item">Cuisine: {this.state.detail_data.cuisine}</li>
                         <li className="list-group-item">Working Hours: {this.state.detail_data.workHours}</li>
                      </ul>
-                     <ul className="list-group list-group-flush">
-                        <li className="list-group-item">Phone number: {this.state.detail_data.number}</li>
-                     </ul>
+  
                      <ul className="list-group list-group-flush">
                         <li className="list-group-item">Cost: {this.state.detail_data.cost} per Two</li>
                         <li className="list-group-item" id="fd" style={{display:"none"}}>Free Home Delivery</li>
                      </ul>
                      <div className="card-block">
                         <a href={this.state.detail_data.homePage} target="_blank">View Restaurant Homepage</a>&nbsp;&nbsp;&nbsp;
-                        <a href={this.state.detail_data.fbUrl} target="_blank">View facebook page</a>
+                        <a href={this.state.detail_data.fbUrl} target="_blank">View facebook page</a>&nbsp;&nbsp;&nbsp;
+                        <button id="call" className="btn btn-lg" onClick={this.handleCall.bind(this)}><i className="fa fa-phone" aria-hidden="true"></i></button>
                      </div>
                   </div>
                 </div>
@@ -85,6 +99,17 @@ class Restaurant_detail extends Component {
                          <p className="card-text">{this.state.detail_data.area}</p>
                      </div>
                      <div className="card-header">
+                        Rating
+                      </div>
+                       <div className="card-block">
+                         <StarRatingComponent 
+                    name="rate1" 
+                    starCount={5}
+                    value={this.state.rating}
+                    onStarClick={this.onStarClick.bind(this)}
+                />
+                     </div>
+                     <div className="card-header">
                         Map View
                       </div>
                      <div className="card-block">
@@ -93,6 +118,20 @@ class Restaurant_detail extends Component {
                   </div>
               </div>
 
+              <div id="fff">
+      <div id="Modal" className="modal">
+      <form className="modal-content animate">
+        <div className="imgcontainer">
+          <button className="cancel" onClick={this.modalClose2}>&times;</button>
+          {this.state.detail_data.name}
+        </div>
+        <div className="container" align="center">
+          <label><b><center>PHONE NUMBER</center></b></label> <br />
+          {this.state.detail_data.number}
+        </div>
+      </form>
+      </div>
+      </div>
 
          </div>
      </div>

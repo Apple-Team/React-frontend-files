@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link,hashHistory} from 'react-router';
-import Header from './Header';
+import UserHeader from './UserHeader';
 import Footer from './Footer';
 import './Restaurant_detail.css';
 import MapDirections from'./MapDirections';
@@ -38,6 +38,14 @@ class Restaurant_detail extends Component {
      });
 
     }
+
+    modalClose2(event){
+    document.getElementById('Modal').style.display ="none";
+  }
+
+     handleCall(){
+      document.getElementById('Modal').style.display='inline';
+    }
     // `render` is called whenever the component's props OR state are updated.
   render() {
     // console.log('The App component was rendered')
@@ -46,6 +54,7 @@ class Restaurant_detail extends Component {
   return (
   <div>
     <div id="detailRest">
+    <UserHeader />
         <div className="row" id="searchrest">
                 <div className="col col-lg-7 branding" id="firstcol">
                   <div className="card" >
@@ -64,6 +73,7 @@ class Restaurant_detail extends Component {
                      <div className="card-block">
                         <a href={this.state.detail_data.homePage} target="_blank">View Restaurant Homepage</a>&nbsp;&nbsp;&nbsp;
                         <a href={this.state.detail_data.fbUrl} target="_blank">View facebook page</a>
+                         <button id="call" className="btn btn-lg" onClick={this.handleCall.bind(this)}><i className="fa fa-phone" aria-hidden="true"></i></button>
                      </div>
                   </div>
                 </div>
@@ -85,6 +95,21 @@ class Restaurant_detail extends Component {
                      </div>
                   </div>
               </div>
+
+              <div id="fff">
+      <div id="Modal" className="modal">
+      <form className="modal-content animate">
+        <div className="imgcontainer">
+          <button className="cancel" onClick={this.modalClose2}>&times;</button>
+          {this.state.detail_data.name}
+        </div>
+        <div className="container" align="center">
+          <label><b><center>PHONE NUMBER</center></b></label> <br />
+          {this.state.detail_data.number}
+        </div>
+      </form>
+      </div>
+      </div>
 
 
          </div>
