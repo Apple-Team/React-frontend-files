@@ -5,6 +5,8 @@ import Header from './Header';
 import { Button, Popover, PopoverTitle, PopoverContent } from 'reactstrap';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
+var i=0;
+var input=new Array(1000);
   class SearchComponent extends Component {
 
     constructor() {
@@ -39,8 +41,18 @@ toggle1() {
         this.setState({
       popoverOpen1:false
     });
-      document.getElementById("collection").checked=false;
-      hashHistory.push('/Search/'+this.state.inputValue);
+    if(window.sessionStorage.getItem('token')){
+      var item=window.sessionStorage.getItem('name');
+      localStorage.setItem('username',item );
+      var set=localStorage.getItem('username');
+      console.log('hh'+set);
+      localStorage.setItem(input[i],this.state.inputValue);
+      var get=localStorage.getItem(input[i]);
+      localStorage.setItem(set,get);
+      console.log('ii'+localStorage.getItem(set));
+      i++;
+    }
+      hashHistory.push('/Search/'+this.state.inputValue+'/'+set);
     }
 
 
