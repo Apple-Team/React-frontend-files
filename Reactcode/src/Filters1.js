@@ -37,6 +37,10 @@ class Filters1 extends Component {
                 c1=2000;
                 c2=10000;
         }
+        else if(cost=='Cost per Two'){
+               c1='';
+               c2='';
+        }
         console.log(c1,c2);
         if(!((c1=='')&&(c2=='')))
         this.props.filter(cost,c1,c2);
@@ -53,7 +57,7 @@ class Filters1 extends Component {
                     <option value="4">&#8377;1000 - &#8377;2000</option>
                     <option value="5">&#8377;2000 above</option>
             </select>
-          
+
 
           </div>
           );

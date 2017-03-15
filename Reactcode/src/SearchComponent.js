@@ -39,7 +39,7 @@ toggle1() {
         this.setState({
       popoverOpen1:false
     });
-    document.getElementById("collection").checked=false;
+      document.getElementById("collection").checked=false;
       hashHistory.push('/Search/'+this.state.inputValue);
     }
 
