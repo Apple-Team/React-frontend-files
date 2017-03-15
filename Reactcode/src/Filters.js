@@ -63,32 +63,55 @@ handleFilters(e){
      console.log(that.state.colltn);
 
 
-     if(that.state.check=='1')
+     if(that.state.check=='1'){
         cf=that.props.s+"&delivery="+that.state.check;
-
+      }
      if(cost){
         cf=that.props.s+"&cost1="+c1+"&cost2="+c2;
       }
-
-    if(i){
+     if(i){
         cf=that.props.s+"&time="+i;
-    }
-     if(that.state.colltn)
+     }
+     if(that.state.colltn){
         cf=that.props.s+"&collection="+that.state.colltn;
+    }
+
 
      if((that.state.check=='1')&&(that.state.colltn)){
        cf=that.props.s+"&collection="+that.state.colltn+"&delivery="+that.state.check;
      }
-      if((that.state.check=='1')&&cost){
-       cf=that.props.s+"&delivery="+that.state.check+"&cost1="+c1+"&cost2="+c2;
+     if((that.state.check=='1')&&cost){
+      cf=that.props.s+"&delivery="+that.state.check+"&cost1="+c1+"&cost2="+c2;
+    }
+    if(cost&&(that.state.colltn)){
+     cf=that.props.s+"&collection="+that.state.colltn+"&cost1="+c1+"&cost2="+c2;
+    }
+    if(cost&&i){
+      cf=that.props.s+"&cost1="+c1+"&cost2="+c2+"&time="+i;
+    }
+    if(that.state.check=='1'&&i){
+       cf=that.props.s+"&delivery="+that.state.check+"&time="+i;
      }
-      if(cost&&(that.state.colltn)){
-       cf=that.props.s+"&collection="+that.state.colltn+"&cost1="+c1+"&cost2="+c2;
+     if(that.state.colltn&&i){
+        cf=that.props.s+"&collection="+that.state.colltn+"&time="+i;
+    }
+
+
+     if((that.state.check=='1')&&(that.state.colltn)&&i){
+       cf=that.props.s+"&collection="+that.state.colltn+"&delivery="+that.state.check+"&time="+i;
+     }
+     if((that.state.check=='1')&&cost&&i){
+      cf=that.props.s+"&delivery="+that.state.check+"&cost1="+c1+"&cost2="+c2+"&time="+i;
+    }
+    if((that.state.check=='1')&&(that.state.colltn)&&cost){
+      cf=that.props.s+"&collection="+that.state.colltn+"&delivery="+that.state.check+"&cost1="+c1+"&cost2="+c2;
+    }
+
+
+     if((that.state.check=='1')&&(that.state.colltn)&&cost&&i){
+       cf=that.props.s+"&collection="+that.state.colltn+"&delivery="+that.state.check+"&cost1="+c1+"&cost2="+c2+"&time="+i;
      }
 
-     if((that.state.check=='1')&&(that.state.colltn)&&cost){
-       cf=that.props.s+"&collection="+that.state.colltn+"&delivery="+that.state.check+"&cost1="+c1+"&cost2="+c2;
-     }
 
      console.log(cf);
 

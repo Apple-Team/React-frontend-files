@@ -12,8 +12,8 @@ class Filters1 extends Component {
   }
 
 
-
   handleFilter1(e){
+    
   	var c1,c2,cost;
   	cost=document.getElementById("cost").value;
   	console.log(cost);

@@ -52,7 +52,7 @@ coll(collfilter){
   }
   else{
     this.setState({data:[]});
-        document.getElementById('badsrch').style.display='block';
+    document.getElementById('badsrch').style.display='block';
   }
 }
 

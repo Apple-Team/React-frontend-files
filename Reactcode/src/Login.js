@@ -33,7 +33,7 @@ toggle1() {
     });
   }
 
-
+  
 
   handleLogin(){
     var that=this;
@@ -70,6 +70,8 @@ toggle1() {
                 }
                 else{
                   window.sessionStorage.setItem('token',that.state.clientData.authToken);
+                  window.sessionStorage.setItem('name',that.state.clientData.uname);
+                  window.sessionStorage.setItem('uid',that.state.clientData.uid);
                   hashHistory.push('/UserHome');
                 }
               });
