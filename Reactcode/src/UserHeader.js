@@ -16,11 +16,12 @@ class UserHeader extends Component {
     // In a constructor, call `super` first if the className extends another className
 
     super();
-    this.state = { data: [],get_data:[],popoverOpen: false,isOpen: false};
+    this.state = { data: [],get_data:[],popoverOpen: false, popoverOpen3: false,popoverOpen4: false,isOpen: false};
     this.handleLogout = this.handleLogout.bind(this);
     this.toggle = this.toggle.bind(this);
     this.toggle1 = this.toggle1.bind(this);
-
+    this.toggle4 = this.toggle4.bind(this);
+    this.toggle3 = this.toggle3.bind(this);
     console.log('test');
 
   }
@@ -65,12 +66,90 @@ componentWillMount(){
     });
   }
 
+toggle3() {
+    this.setState({
+      popoverOpen3: !this.state.popoverOpen3
+    });
+  }
+
+  toggle4() {
+    this.setState({
+      popoverOpen4: !this.state.popoverOpen4
+    });
+  }
+
 
   handleChange(event){
    this.setState({
      get_data: event.target.value});
   }
 
+  handlePassword(){
+    document.getElementById('password').style.display='block';
+  }
+
+   validatePassword(ev){
+   var password = document.getElementById("pwd1");
+   var format=/^[A-Za-z0-9_]+$/;
+  if((password.value.length<6)&&(!password.value.match(format))) {
+    this.setState({
+      popoverOpen3:true
+    });
+  } 
+  else {
+    this.setState({
+      popoverOpen3:false
+    });
+  }
+}
+
+ validatePasswords(ev){
+   var password = document.getElementById("pwd1");
+  var confirm_password = document.getElementById("pwd2");
+  if(password.value !=confirm_password.value) {
+    this.setState({
+      popoverOpen4:true
+    });
+  } 
+  else {
+    this.setState({
+      popoverOpen4:false
+    });
+  }
+}
+
+  handleUpdate_Password(){
+    var tok=window.sessionStorage.getItem('token');
+    var id=window.sessionStorage.getItem('uid');
+
+    if(!this.state.popoverOpen3&&!this.state.popoverOpen4){
+   fetch('http://localhost:9000/update_members/'+ id,
+     {
+       headers :{
+         "Content-Type" : "application/json",
+         "Authorization": "Bearer "+tok
+       },
+     method: "PUT",
+     body: JSON.stringify({
+                "pwd": document.getElementById('pwd2').value
+                })  
+      }).then(response=>{
+      if(200==response.status){
+        console.log(this.state.data1);
+        document.getElementById('password').style.display='none';
+
+       }
+       else if (403==response.status) {
+       window.alert("Forbidden!!");
+       }
+       else{
+          hashHistory.push('/UnAuth');
+       }
+     });
+    }
+    else
+      alert('Fill all details to update Password');
+  }
 
   handleUpdate(){
     var tok=window.sessionStorage.getItem('token');
@@ -84,7 +163,7 @@ componentWillMount(){
          "Authorization": "Bearer "+tok
        },
      method: "PUT",
-     body: JSON.stringify({ "pwd": document.getElementById('pwd').value,
+     body: JSON.stringify({ 
                             "email": document.getElementById('email').value,
                             "dob": document.getElementById('bday').value,
                             "user_Address": document.getElementById('address').value,
@@ -138,12 +217,30 @@ return(
 
                       <p className="w3-center">{this.state.get_data.name}</p>
                       <hr/>
-                      <div className="form-group row">
-                        <label for="example-text-input" className="col-2 col-form-label"><i className="fa fa-key" aria-hidden="true"></i></label>
+                      
+                        <button className="btn btn-secondary btn-sm" onClick={this.handlePassword}>Change Password</button> 
+                      <div id="password" style={{display:"none"}}>
+                        <div className="form-group row">
+                          <label for="example-text-input" className="col-2 col-form-label">Old</label>
                         <div className="col-8">
-                           <input type="text" className="form-control" value={this.state.get_data.pwd} onChange={this.handleChange} id="pwd"/>
+                           <input type="text" className="form-control" id="pwd"/>
                         </div>
                       </div>
+                       <div className="form-group row">
+                          <label for="example-text-input" className="col-2 col-form-label" >New</label>
+                        <div className="col-8">
+                           <input type="text" className="form-control" id="pwd1" onChange ={this.validatePassword.bind(this)} onKeyUp ={this.validatePassword.bind(this)} onClick={this.validatePassword.bind(this)}/>
+                        </div>
+                      </div>
+                      <div className="form-group row">
+                          <label for="example-text-input" className="col-2 col-form-label">Confirm</label>
+                        <div className="col-8">
+                           <input type="text" className="form-control" id="pwd2" onChange ={this.validatePasswords.bind(this)} onKeyUp ={this.validatePasswords.bind(this)} onClick={this.validatePasswords.bind(this)}/>
+                        </div>
+                      </div>
+                      <button className="btn btn-secondary btn-sm" onClick={this.handleUpdate_Password}> Submit</button>
+                    </div>
+
                       <div className="form-group row">
                         <label for="example-text-input" className="col-2 col-form-label"><i className="fa fa-envelope-o" aria-hidden="true"></i></label>
                         <div className="col-8">
@@ -183,6 +280,18 @@ return(
           </Collapse>
         </Navbar>
   </div>
+
+  <div id="pop_password">
+        <Popover placement="right" isOpen={this.state.popoverOpen3} target="pwd1" toggle={this.toggle3}>
+          <PopoverContent>Password must be at least 6 characters long and must be alphanumeric</PopoverContent>
+        </Popover>
+      </div>
+
+             <div id="pop_confirmpass">
+        <Popover placement="right" isOpen={this.state.popoverOpen4} target="pwd2" toggle={this.toggle4}>
+          <PopoverContent>Passwords don't Match</PopoverContent>
+        </Popover>
+      </div>
   </div>
 
     );
