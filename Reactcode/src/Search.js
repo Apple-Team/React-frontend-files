@@ -114,14 +114,18 @@ render() {
              )
            })
          }
-
-         </div>
-
-            <div id="second"  style={{display: 'none'}}>
-           <h3 className="w3-center w3-animate-top"><strong>Recommendations</strong> for you</h3>
-          <hr />
-           <div id="cardrow" className="row">
-         <div className="card-columns" id="srch">{
+     </div>
+    </div>
+  </div>
+    <div id="badsrch" style={{display: 'none'}}>
+        <h3><i className="fa fa-frown-o fa-3x" aria-hidden="true"></i> No Results Found!!</h3>
+    </div>
+      <div id="searchlist">
+       <div className="restaurant-container">
+        <h3 className="w3-center w3-animate-top"><strong>Trending</strong> Restaurants</h3>
+        <hr />
+        <div id="cardrow" className="row">
+         <div  id="srch">{
              this.state.data1.map((data, index)=>{
                return (
                  <div id="srchcard" className="card w-100">
@@ -145,15 +149,11 @@ render() {
            })
          }
          </div>
-
        </div>
        </div>
-
      </div>
-   </div>
-   <div id="badsrch" style={{display: 'none'}}>
-      <h3><i className="fa fa-frown-o fa-3x" aria-hidden="true"></i> No Results Found!!</h3>
-   </div>
+
+
  </div>
 
 </div>
