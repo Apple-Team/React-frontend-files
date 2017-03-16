@@ -9,7 +9,7 @@ class Filters extends Component {
     // In a constructor, call `super` first if the className extends another classNameName
     super();
      console.log('jjj');
-    this.state = { colltn:'', data: [],filter_data:[],check:''};
+    this.state = { colltn:'', data: [],filter_data:[],check:false};
     this.handleFilter=this.handleFilter.bind(this);
     this.handleFilters=this.handleFilters.bind(this);
   }

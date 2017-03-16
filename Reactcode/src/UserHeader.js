@@ -32,12 +32,12 @@ class UserHeader extends Component {
 componentWillMount(){
 
   fetch("http://localhost:9000/images/5498f7c0-ca2f-44b4-826c-0deb07521b20")
-  .then(function(response) {
-    return response.blob();
-  })
-  .then(function(imageBlob) {
-    document.getElementById('logo').src = URL.createObjectURL(imageBlob);
-  });
+	.then(function(response) {
+	  return response.blob();
+	})
+	.then(function(imageBlob) {
+	  document.getElementById('logo').src = URL.createObjectURL(imageBlob);
+	});
 
   var tok=window.sessionStorage.getItem('token');
    var id=window.sessionStorage.getItem('uid');
@@ -137,7 +137,7 @@ return(
                       <p className="w3-center"><img src={require('./images/avatar3.png')} className="w3-circle" style={{height:"106px",width:"106px"}} alt="Avatar"/></p>
 
                       <p className="w3-center">{this.state.get_data.name}</p>
-                      <hr/>        
+                      <hr/>
                       <div className="form-group row">
                         <label for="example-text-input" className="col-2 col-form-label"><i className="fa fa-envelope-o" aria-hidden="true"></i></label>
                         <div className="col-8">

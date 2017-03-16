@@ -54,8 +54,8 @@ class UserHome extends Component {
          <div id="ss">
             <div id="bday" classNAme="row" style={{display: 'none'}}>
               <div className="col"><i style={{padding:"50px 200px 50px 50px",fontSize:"22px",float:"left"}}>We Found a Best place to Celebrate your Birthday </i></div>
-              
-              <div className="col">  
+
+              <div className="col">
                 <div id="srchcard"  className="card w-100">
                    <div className="row" id="srch">
                      <div className="col-md-6">
@@ -73,7 +73,7 @@ class UserHome extends Component {
                      </div>
                    </div>
                 </div>
-                <hr />                
+                <hr />
              </div>
              </div>
             <Collection />
