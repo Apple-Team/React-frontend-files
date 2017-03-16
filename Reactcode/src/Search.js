@@ -50,7 +50,7 @@ componentWillReceiveProps(nextProps){
 
                     });
                  }).then(function(e){
-                  document.getElementById('second').style.display='inline';
+                  document.getElementById('PopularList').style.display='block';
                  document.getElementById('badsrch').style.display='none';
                });
 }
@@ -87,7 +87,7 @@ render() {
  {window.sessionStorage.getItem('token') ? <UserHeader /> : <Header />}
 
 <SearchComponent/>
-   <div id="searchlist">
+   <div id="searchlist" >
      <div className="restaurant-container">
          <Filters filtercoll={this.coll.bind(this)} s={this.props.params.s}/>
          <div id="cardrow" className="row">
@@ -120,12 +120,12 @@ render() {
     <div id="badsrch" style={{display: 'none'}}>
         <h3><i className="fa fa-frown-o fa-3x" aria-hidden="true"></i> No Results Found!!</h3>
     </div>
-      <div id="searchlist">
-       <div className="restaurant-container">
-        <h3 className="w3-center w3-animate-top"><strong>Trending</strong> Restaurants</h3>
+      <div id="PopularList" style={{display: 'none'}}>
+       <div className="restaurant-container1">
+        <h3 className="w3-center w3-animate-top"><strong>Popular</strong> Searches</h3>
         <hr />
         <div id="cardrow" className="row">
-         <div  id="srch">{
+         <div className="card-columns" id="PopularSrch">{
              this.state.data1.map((data, index)=>{
                return (
                  <div id="srchcard" className="card w-100">

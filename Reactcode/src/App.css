@@ -499,6 +499,11 @@ form.modal-content.animate{
         min-width:inherit;
         column-count:2;
      }
+ #PopularSrch.card-columns {
+             min-width:inherit;
+             column-count:3;
+  }
+
 #cardrow{
    padding-left: 18%;
  }
