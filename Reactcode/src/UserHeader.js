@@ -84,7 +84,7 @@ componentWillMount(){
          "Authorization": "Bearer "+tok
        },
      method: "PUT",
-     body: JSON.stringify({
+     body: JSON.stringify({ "pwd": document.getElementById('pwd').value,
                             "email": document.getElementById('email').value,
                             "dob": document.getElementById('bday').value,
                             "user_Address": document.getElementById('address').value,
@@ -139,6 +139,12 @@ return(
                       <p className="w3-center">{this.state.get_data.name}</p>
                       <hr/>
                       <div className="form-group row">
+                        <label for="example-text-input" className="col-2 col-form-label"><i className="fa fa-key" aria-hidden="true"></i></label>
+                        <div className="col-8">
+                           <input type="text" className="form-control" value={this.state.get_data.pwd} onChange={this.handleChange} id="pwd"/>
+                        </div>
+                      </div>
+                      <div className="form-group row">
                         <label for="example-text-input" className="col-2 col-form-label"><i className="fa fa-envelope-o" aria-hidden="true"></i></label>
                         <div className="col-8">
                            <input type="text" className="form-control" value={this.state.get_data.email} onChange={this.handleChange} id="email"/>
@@ -147,13 +153,13 @@ return(
                       <div className="form-group row">
                         <label for="example-text-input" className="col-2 col-form-label"><i className="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i></label>
                         <div className="col-8">
-                          <input type="text"  className="form-control"  onChange={this.handleChange} id="bday"/>
+                          <input type="text"  className="form-control"  value={this.state.get_data.dob} onChange={this.handleChange} id="bday"/>
                         </div>
                       </div>
                       <div className="form-group row">
                        <label for="example-text-input" className="col-2 col-form-label"><i className="fa fa-home fa-fw w3-margin-right w3-text-theme"></i></label>
                        <div className="col-8">
-                         <input type="text"  className="form-control"  onChange={this.handleChange} id="address"/>
+                         <input type="text"  className="form-control" value={this.state.get_data.user_Address} onChange={this.handleChange} id="address"/>
                        </div>
                      </div>
                      <div className="form-group-row">

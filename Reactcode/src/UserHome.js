@@ -18,6 +18,7 @@ class UserHome extends Component {
     this.state = { data: [] };
   }
   componentDidMount(){
+    var that=this;
      var tok=window.sessionStorage.getItem('token');
     fetch("http://localhost:9000/users/users_dob",
      {
@@ -27,10 +28,12 @@ class UserHome extends Component {
        }
     }).then((response) => response.json())
          .then((responseJson) => {
-            this.setState({
+            that.setState({
              data: responseJson
            });
          }).then(function(e){
+
+           console.log(that.state.data);
      document.getElementById('bday').style.display="block";
     });
   }
@@ -40,7 +43,8 @@ class UserHome extends Component {
  hashHistory.push('/Restaurant_detail/'+id)
 }
      render() {
-       console.log(window.sessionStorage.getItem('token'));
+       var that=this;
+       console.log(that.state.data.name);
       return (
         <div id="dd">
          <UserHeader />
@@ -59,16 +63,16 @@ class UserHome extends Component {
                 <div id="srchcard"  className="card w-100">
                    <div className="row" id="srch">
                      <div className="col-md-6">
-                       <img id="srchimg" src={this.state.data.image} id="srchimg" alt="Card image cap"/>
+                       <img id="srchimg" src={that.state.data.image} id="srchimg" alt="Card image cap"/>
                      </div>
                      <div className="col-md-6" id="srchcard1">
                          <div className="card-top">
-                           <h5 className="card-subtitle">{this.state.data.name}</h5>
-                           <p className="card-text"> Area: {this.state.data.area}</p>
-                           <p className="card-text">  Working Hours: {this.state.data.workHours}</p>
+                           <h5 className="card-subtitle">{that.state.data.name}</h5>
+                           <p className="card-text"> Area: {that.state.data.area}</p>
+                           <p className="card-text">  Working Hours: {that.state.data.workHours}</p>
                          </div><hr/>
                          <div className="card-bottom" id="srch">
-                           <button type="button" className="btn btn-warning btn-sm"  style={{float:"right"}} onClick={()=>this.handleRest(this.state.data.id)}>View</button>
+                           <button type="button" className="btn btn-warning btn-sm"  style={{float:"right"}} onClick={()=>that.handleRest(that.state.data.id)}>View</button>
                          </div>
                      </div>
                    </div>
