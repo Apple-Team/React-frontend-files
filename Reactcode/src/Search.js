@@ -34,11 +34,15 @@ componentWillReceiveProps(nextProps){
          }).then(function(e){
          document.getElementById('badsrch').style.display='none';
        });
-       console.log('ii1'+localStorage.getItem(this.props.params.set));
 
-       if(nextProps.params.s!=localStorage.getItem(this.props.params.set)){
-         var param=localStorage.getItem(this.props.params.set);
-         fetch("http://localhost:9000/filter?keyword="+param)
+
+
+
+
+  if(window.sessionStorage.getItem('token')){
+
+          for(var i=0;i<this.props.params.count;i++){
+         fetch("http://localhost:9000/filter?keyword="+this.props.params.key)
            .then((response) => response.json())
                  .then((responseJson) => {
                     this.setState({
@@ -49,8 +53,11 @@ componentWillReceiveProps(nextProps){
                   document.getElementById('second').style.display='inline';
                  document.getElementById('badsrch').style.display='none';
                });
-       }
 }
+}
+
+}
+
 handleRest(id)
 {
  this.id=id;

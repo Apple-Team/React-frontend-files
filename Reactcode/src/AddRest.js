@@ -93,7 +93,7 @@ class AddRest extends Component {
     this.setState({
       popoverOpen1:true
     });
-  } 
+  }
   else {
     this.setState({
       popoverOpen1:false
@@ -108,7 +108,7 @@ class AddRest extends Component {
     this.setState({
       popoverOpen2:false
     });
-  } 
+  }
   else {
     this.setState({
       popoverOpen2:true
@@ -123,7 +123,7 @@ class AddRest extends Component {
     this.setState({
       popoverOpen3:true
     });
-  } 
+  }
   else {
     this.setState({
       popoverOpen3:false
@@ -133,12 +133,12 @@ class AddRest extends Component {
 
  validateOpening_time(ev){
    var Opening_time = document.getElementById("opening_time");
-  var time = /^(?:(?:([01]?\d|2[0-3]):)+([0-5]?\d):)+([0-5]?\d)$/;
+  var time = /^(?:(?:([01]?\d|2[0-3]):)+([0-5]?\d))$/;
   if(!Opening_time.value.match(time)) {
     this.setState({
       popoverOpen4:true
     });
-  } 
+  }
   else {
     this.setState({
       popoverOpen4:false
@@ -148,12 +148,12 @@ class AddRest extends Component {
 
  validateClosing_time(ev){
    var Closing_time = document.getElementById("closing_time");
-  var time = /^(?:(?:([01]?\d|2[0-3]):)+([0-5]?\d):)+([0-5]?\d)$/;
+  var time = /^(?:(?:([01]?\d|2[0-3]):)+([0-5]?\d))$/;
   if(!Closing_time.value.match(time)) {
     this.setState({
       popoverOpen5:true
     });
-  } 
+  }
   else {
     this.setState({
       popoverOpen5:false
@@ -168,7 +168,7 @@ validateCost(ev){
     this.setState({
       popoverOpen6:true
     });
-  } 
+  }
   else {
     this.setState({
       popoverOpen6:false
@@ -181,7 +181,7 @@ validateLat(ev){
     this.setState({
       popoverOpen7:false
     });
-  } 
+  }
   else {
     this.setState({
       popoverOpen7:true
@@ -194,7 +194,7 @@ validateLong(ev){
     this.setState({
       popoverOpen8:true
     });
-  } 
+  }
   else {
     this.setState({
       popoverOpen8:false
@@ -374,8 +374,8 @@ validateLong(ev){
                               "longitude": document.getElementById('long').value,
                               "workHours": document.getElementById('opening_time').value+"AM to"+ document.getElementById('closing_time').value+"PM",
                               "image": that.state.image_data,
-                              "opening_time": document.getElementById('opening_time').value,
-                              "closing_time": document.getElementById('closing_time').value,
+                              "opening_time": document.getElementById('opening_time').value+':00',
+                              "closing_time": document.getElementById('closing_time').value+':00',
                               "free_delivery": document.getElementById('free_delivery').value,
                               "cost": document.getElementById('cost').value
 
@@ -500,18 +500,18 @@ validateLong(ev){
 <div className="form-group row">
   <label for="example-text-input" className="col-2 col-form-label">Working Hours</label>
   <div className="col-4">
-    <input className="form-control" type="search" placeholder="09:00:00"  id="opening_time" onChange ={this.validateOpening_time.bind(this)} onKeyUp ={this.validateOpening_time.bind(this)} onClick={this.validateOpening_time.bind(this)}/>
+    <input className="form-control" type="search" placeholder="09:00"  id="opening_time" onChange ={this.validateOpening_time.bind(this)} onKeyUp ={this.validateOpening_time.bind(this)} onClick={this.validateOpening_time.bind(this)}/>
   </div>
   -
   <div className="col-4">
-     <input className="form-control" type="search" placeholder="10:00:00" id="closing_time" onChange ={this.validateClosing_time.bind(this)} onKeyUp ={this.validateClosing_time.bind(this)} onClick={this.validateClosing_time.bind(this)}/>
+     <input className="form-control" type="search" placeholder="10:00" id="closing_time" onChange ={this.validateClosing_time.bind(this)} onKeyUp ={this.validateClosing_time.bind(this)} onClick={this.validateClosing_time.bind(this)}/>
   </div>
 </div>
 <div className="form-group row">
   <label for="example-text-input" className="col-2 col-form-label">Free Delivery</label>
   <div className="col-8">
     <label className="form-check-label">
-           <select className="custom-select" id="free_delivery">             
+           <select className="custom-select" id="free_delivery">
               <option value="1">Yes</option>
               <option value="0">No</option>
             </select>
@@ -587,13 +587,13 @@ validateLong(ev){
 
       <div id="pop_opening_time">
         <Popover placement="right" isOpen={this.state.popoverOpen4} target="opening_time" toggle={this.toggle4}>
-          <PopoverContent>Please enter Opening time in HH:mm:ss format</PopoverContent>
+          <PopoverContent>Please enter Opening time in HH:mm format</PopoverContent>
         </Popover>
       </div>
 
       <div id="pop_closing_time">
         <Popover placement="right" isOpen={this.state.popoverOpen5} target="closing_time" toggle={this.toggle5}>
-          <PopoverContent>Please enter Closing time in HH:mm:ss format</PopoverContent>
+          <PopoverContent>Please enter Closing time in HH:mm format</PopoverContent>
         </Popover>
         </div>
 

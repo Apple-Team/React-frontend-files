@@ -3,16 +3,18 @@ import ReactDOM from 'react-dom';
 import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 import { Router, Route, hashHistory } from 'react-router';
 import Filters1 from './Filters1';
-var c1,c2,cost,i;
+var c1='',c2='',cost,i='',j;
 class Filters extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another classNameName
     super();
      console.log('jjj');
-    this.state = { colltn:'', data: [],filter_data:[],check:false};
+    this.state = { filter:[],
+       data: [],filter_data:[],check:''};
     this.handleFilter=this.handleFilter.bind(this);
     this.handleFilters=this.handleFilters.bind(this);
   }
+
   componentDidMount(){
 
   fetch("http://localhost:9000/get_all_collections")
@@ -52,7 +54,7 @@ class Filters extends Component {
 handleFilters(e){
 
      var that=this;
-     var cf;
+     var cf='';
      that.state.check=document.getElementById('delivery').checked;
 
      console.log(that.state.check);
@@ -62,8 +64,41 @@ handleFilters(e){
       else that.state.check='0';
      console.log(that.state.colltn);
 
+      that.state.filter=[
+        {
+        key:'&collection=',
+        value:that.state.colltn
+        },
+        {
+        key:'&delivery=',
+        value:that.state.check
+        },
+        {
+        key:'&cost1=',
+        value:c1
+        },
+        {
+        key:'&cost2=',
+        value:c2
+        },
+        {
+          key:'&time=',
+          value:i
+      }
+    ]
 
-     if(that.state.check=='1'){
+  var x=that.state.filter.map(function(item, index){
+        if(item.value)
+         return item.key+item.value;
+      });
+      console.log(x);
+      for(j=0;j<x.length;j++){
+        if(x[j]){
+          cf+=x[j];
+          console.log(cf);
+      }
+    }
+    /* if(that.state.check=='1'){
         cf=that.props.s+"&delivery="+that.state.check;
       }
      if(cost){
@@ -111,11 +146,11 @@ handleFilters(e){
      if((that.state.check=='1')&&(that.state.colltn)&&cost&&i){
        cf=that.props.s+"&collection="+that.state.colltn+"&delivery="+that.state.check+"&cost1="+c1+"&cost2="+c2+"&time="+i;
      }
+ */
 
 
-     console.log(cf);
 
-    fetch("http://localhost:9000/filter?keyword="+cf)
+    fetch("http://localhost:9000/filter?keyword="+that.props.s+cf)
     .then((response) => response.json())
      .then((responseJson) => {
         that.setState({

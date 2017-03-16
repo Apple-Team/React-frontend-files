@@ -5,8 +5,9 @@ import Header from './Header';
 import { Button, Popover, PopoverTitle, PopoverContent } from 'reactstrap';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-var i=0;
-var input=new Array(1000);
+
+var input=new Array(10);
+var count=0;
   class SearchComponent extends Component {
 
     constructor() {
@@ -31,6 +32,7 @@ toggle1() {
   }
 
   handleSearch(ev){
+    count++;
       console.log(this.state.inputValue);
       if(this.state.inputValue==''){
         this.setState({
@@ -41,25 +43,27 @@ toggle1() {
         this.setState({
       popoverOpen1:false
     });
-    if(window.sessionStorage.getItem('token')){
-      var item=window.sessionStorage.getItem('name');
-      localStorage.setItem('username',item );
-      var set=localStorage.getItem('username');
-      console.log('hh'+set);
-      localStorage.setItem(input[i],this.state.inputValue);
-      var get=localStorage.getItem(input[i]);
-      localStorage.setItem(set,get);
-      console.log('ii'+localStorage.getItem(set));
-      i++;
-    }
-      hashHistory.push('/Search/'+this.state.inputValue+'/'+set);
-    }
+
+          if(window.sessionStorage.getItem('token')){
+         input[count]=this.state.inputValue;
+      localStorage.setItem("keywords",JSON.stringify(input));
+      console.log('ii'+JSON.parse(localStorage.getItem("keywords")));
+      var key=JSON.parse(localStorage.getItem("keywords"));
+      console.log(key);
+      //var i=parseInt(localStorage.getItem('i'));
+
+    //  localStorage.setItem('i',i);
+
+     }
+   }
 
 
+      hashHistory.push('/Search/'+this.state.inputValue+'/'+key+'/'+count);
  }
  handleChange(e) {
      this.setState({ inputValue: document.getElementById("search-bar").value });
      console.log(this.state.inputValue);
+
 
    }
  handleNearby(){
