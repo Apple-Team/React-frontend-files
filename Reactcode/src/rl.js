@@ -3,13 +3,15 @@ import { Link,hashHistory} from 'react-router';
 import UserHeader from './UserHeader';
 import Footer from './Footer';
 import './Restaurant_detail.css';
+import { Button, Popover, PopoverTitle, PopoverContent } from 'reactstrap';
 import MapDirections from'./MapDirections';
 var lat1,long1;
 class Restaurant_detail extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another classNameName
     super();
-    this.state = { detail_data:[] };
+    this.state = { detail_data:[] ,popoverOpen: false};
+     this.toggle = this.toggle.bind(this);
 
   }
   componentDidMount(){
@@ -39,13 +41,12 @@ class Restaurant_detail extends Component {
 
     }
 
-    modalClose2(event){
-    document.getElementById('Modal').style.display ="none";
-  }
-
-     handleCall(){
-      document.getElementById('Modal').style.display='inline';
-    }
+   
+ toggle() {
+   this.setState({
+     popoverOpen: !this.state.popoverOpen
+   });
+ }
     // `render` is called whenever the component's props OR state are updated.
   render() {
     // console.log('The App component was rendered')
@@ -54,7 +55,7 @@ class Restaurant_detail extends Component {
   return (
   <div>
     <div id="detailRest">
-    <UserHeader />
+    
         <div className="row" id="searchrest">
                 <div className="col col-lg-7 branding" id="firstcol">
                   <div className="card" >
@@ -73,11 +74,23 @@ class Restaurant_detail extends Component {
                      <div className="card-block">
                         <a href={this.state.detail_data.homePage} target="_blank">View Restaurant Homepage</a>&nbsp;&nbsp;&nbsp;
                         <a href={this.state.detail_data.fbUrl} target="_blank">View facebook page</a>
-                         <button id="call" className="btn btn-lg" onClick={this.handleCall.bind(this)}><i className="fa fa-phone" aria-hidden="true"></i></button>
-                     </div>
+                        <Button id="Popover1" style={{backgroundColor:"transparent",borderColor:"transparent"}}  onClick={this.toggle} >
+                            <i className="fa fa-phone" aria-hidden="true"></i>
+                        </Button>
+                       <Popover placement="top" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
+                          <PopoverTitle>
+                            Call
+                          </PopoverTitle>
+                         <PopoverContent>
+                              <div className="container" align="center">
+                                       <label><b><center>PHONE NUMBER</center></b></label> <br />
+                                     {this.state.detail_data.number}
+                               </div>
+                         </PopoverContent>
+                        </Popover>
                   </div>
                 </div>
-
+                </div>
               <div className="col col-lg-5" id="secondcol">
                   <div className="card text-center">
                       <div className="card-header">
@@ -86,6 +99,7 @@ class Restaurant_detail extends Component {
                      <div className="card-block">
                          <p className="card-text">{this.state.detail_data.address}</p>
                          <p className="card-text">{this.state.detail_data.area}</p>
+                         
                      </div>
                      <div className="card-header">
                         Map View
@@ -96,20 +110,6 @@ class Restaurant_detail extends Component {
                   </div>
               </div>
 
-              <div id="fff">
-      <div id="Modal" className="modal">
-      <form className="modal-content animate">
-        <div className="imgcontainer">
-          <button className="cancel" onClick={this.modalClose2}>&times;</button>
-          {this.state.detail_data.name}
-        </div>
-        <div className="container" align="center">
-          <label><b><center>PHONE NUMBER</center></b></label> <br />
-          {this.state.detail_data.number}
-        </div>
-      </form>
-      </div>
-      </div>
 
 
          </div>

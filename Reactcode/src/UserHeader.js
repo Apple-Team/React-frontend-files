@@ -7,7 +7,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
 import './Signup.css';
 import Admin from './Admin';
 
-
+var adob;
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
 
@@ -16,12 +16,11 @@ class UserHeader extends Component {
     // In a constructor, call `super` first if the className extends another className
 
     super();
-    this.state = { data: [],get_data:[],popoverOpen: false, popoverOpen3: false,popoverOpen4: false,isOpen: false};
+    this.state = { data: [],get_data:[],popoverOpen: false,isOpen: false};
     this.handleLogout = this.handleLogout.bind(this);
     this.toggle = this.toggle.bind(this);
     this.toggle1 = this.toggle1.bind(this);
-    this.toggle4 = this.toggle4.bind(this);
-    this.toggle3 = this.toggle3.bind(this);
+
     console.log('test');
 
   }
@@ -31,7 +30,7 @@ class UserHeader extends Component {
    });
  }
 componentWillMount(){
-
+  var that=this;
   fetch("http://localhost:9000/images/5498f7c0-ca2f-44b4-826c-0deb07521b20")
 	.then(function(response) {
 	  return response.blob();
@@ -45,13 +44,19 @@ componentWillMount(){
   fetch("http://localhost:9000/members/"+id)
   .then((response) => response.json())
        .then((responseJson) => {
-          this.setState({
+          that.setState({
            get_data: responseJson
 
           });
-    });
-       console.log(this.state.get_data);
+    }).then(function(e){
+      var d = new Date(that.state.get_data.dob);
+      adob=d.getFullYear() + '-' + (d.getMonth()+1) + '-' + d.getDate();
+       console.log(adob);
+       if(adob=='1970-1-1')
+        adob='';
+       });
  }
+
   handleLogout(){
       console.log(window.sessionStorage.getItem('token'));
       window.sessionStorage.removeItem('token');
@@ -66,96 +71,18 @@ componentWillMount(){
     });
   }
 
-toggle3() {
-    this.setState({
-      popoverOpen3: !this.state.popoverOpen3
-    });
-  }
-
-  toggle4() {
-    this.setState({
-      popoverOpen4: !this.state.popoverOpen4
-    });
-  }
-
 
   handleChange(event){
    this.setState({
      get_data: event.target.value});
   }
 
-  handlePassword(){
-    document.getElementById('password').style.display='block';
-  }
-
-   validatePassword(ev){
-   var password = document.getElementById("pwd1");
-   var format=/^[A-Za-z0-9_]+$/;
-  if((password.value.length<6)&&(!password.value.match(format))) {
-    this.setState({
-      popoverOpen3:true
-    });
-  } 
-  else {
-    this.setState({
-      popoverOpen3:false
-    });
-  }
-}
-
- validatePasswords(ev){
-   var password = document.getElementById("pwd1");
-  var confirm_password = document.getElementById("pwd2");
-  if(password.value !=confirm_password.value) {
-    this.setState({
-      popoverOpen4:true
-    });
-  } 
-  else {
-    this.setState({
-      popoverOpen4:false
-    });
-  }
-}
-
-  handleUpdate_Password(){
-    var tok=window.sessionStorage.getItem('token');
-    var id=window.sessionStorage.getItem('uid');
-
-    if(!this.state.popoverOpen3&&!this.state.popoverOpen4){
-   fetch('http://localhost:9000/update_members/'+ id,
-     {
-       headers :{
-         "Content-Type" : "application/json",
-         "Authorization": "Bearer "+tok
-       },
-     method: "PUT",
-     body: JSON.stringify({
-                "pwd": document.getElementById('pwd2').value
-                })  
-      }).then(response=>{
-      if(200==response.status){
-        console.log(this.state.data1);
-        document.getElementById('password').style.display='none';
-
-       }
-       else if (403==response.status) {
-       window.alert("Forbidden!!");
-       }
-       else{
-          hashHistory.push('/UnAuth');
-       }
-     });
-    }
-    else
-      alert('Fill all details to update Password');
-  }
 
   handleUpdate(){
     var tok=window.sessionStorage.getItem('token');
     var id=window.sessionStorage.getItem('uid');
 
-
+ //console.log(document.getElementById('bday').value);
    fetch('http://localhost:9000/update_members/'+ id,
      {
        headers :{
@@ -193,7 +120,7 @@ return(
       <Navbar fixed="top" toggleable>
           <NavbarToggler right onClick={this.toggle1}><i className="fa fa-bars fa-2x" aria-hidden="true"></i></NavbarToggler>
           <NavbarBrand href="/">
-          <img id="logo" width="60" height="60" className="d-inline-block align-center" />FindO Bistro</NavbarBrand>
+          <img id="logo" width="60" height="60" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
@@ -218,29 +145,6 @@ return(
                       <p className="w3-center">{this.state.get_data.name}</p>
                       <hr/>
                       
-                        <button className="btn btn-secondary btn-sm" onClick={this.handlePassword}>Change Password</button> 
-                      <div id="password" style={{display:"none"}}>
-                        <div className="form-group row">
-                          <label for="example-text-input" className="col-2 col-form-label">Old</label>
-                        <div className="col-8">
-                           <input type="text" className="form-control" id="pwd"/>
-                        </div>
-                      </div>
-                       <div className="form-group row">
-                          <label for="example-text-input" className="col-2 col-form-label" >New</label>
-                        <div className="col-8">
-                           <input type="text" className="form-control" id="pwd1" onChange ={this.validatePassword.bind(this)} onKeyUp ={this.validatePassword.bind(this)} onClick={this.validatePassword.bind(this)}/>
-                        </div>
-                      </div>
-                      <div className="form-group row">
-                          <label for="example-text-input" className="col-2 col-form-label">Confirm</label>
-                        <div className="col-8">
-                           <input type="text" className="form-control" id="pwd2" onChange ={this.validatePasswords.bind(this)} onKeyUp ={this.validatePasswords.bind(this)} onClick={this.validatePasswords.bind(this)}/>
-                        </div>
-                      </div>
-                      <button className="btn btn-secondary btn-sm" onClick={this.handleUpdate_Password}> Submit</button>
-                    </div>
-
                       <div className="form-group row">
                         <label for="example-text-input" className="col-2 col-form-label"><i className="fa fa-envelope-o" aria-hidden="true"></i></label>
                         <div className="col-8">
@@ -250,7 +154,7 @@ return(
                       <div className="form-group row">
                         <label for="example-text-input" className="col-2 col-form-label"><i className="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i></label>
                         <div className="col-8">
-                          <input type="text"  className="form-control"  value={this.state.get_data.dob} onChange={this.handleChange} id="bday"/>
+                          <input type="text"  className="form-control"  value={adob} onChange={this.handleChange} id="bday"/>
                         </div>
                       </div>
                       <div className="form-group row">
@@ -280,18 +184,6 @@ return(
           </Collapse>
         </Navbar>
   </div>
-
-  <div id="pop_password">
-        <Popover placement="right" isOpen={this.state.popoverOpen3} target="pwd1" toggle={this.toggle3}>
-          <PopoverContent>Password must be at least 6 characters long and must be alphanumeric</PopoverContent>
-        </Popover>
-      </div>
-
-             <div id="pop_confirmpass">
-        <Popover placement="right" isOpen={this.state.popoverOpen4} target="pwd2" toggle={this.toggle4}>
-          <PopoverContent>Passwords don't Match</PopoverContent>
-        </Popover>
-      </div>
   </div>
 
     );

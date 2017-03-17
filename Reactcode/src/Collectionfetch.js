@@ -66,8 +66,8 @@ class Collectionfetch extends Component {
         }
         </div>
        </div>
-       <div className="row">
-          <div className="card card-outline-warning mb-3 text-center" >
+       <div className="row w3-center" style={{paddingLeft:"60px"}}>
+          <div className="card card-outline-warning mb-3 " >
                 <MultipleMarkers name={this.props.params.name} />
           </div>
        </div>

@@ -173,7 +173,7 @@ handleFilters(e){
       return (
          <div>
             <div className="card"  id="filtersrch" >
-          <h4 className="card-subtitle">Filters</h4><hr/>
+          <h4 className="card-subtitle">Refine your Search</h4><hr/>
           <h5 className="card-text" style={{paddingLeft:"1px"}}> Collections </h5>
           <div style={{paddingLeft:"2px"}}>{
           this.state.data.map((data,index)=>{

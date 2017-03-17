@@ -485,14 +485,20 @@ form.modal-content.animate{
 .restaurant-container {
     position: relative;
     min-height: 1px;
-    padding: 4% 4% 4% 8%;
+    padding: 4% 4% 4% 4%;
+    width: 50%;
+}
+.restaurant-container1 {
+    position: relative;
+    min-height: 1px;
+    padding: 4% 4% 4% 18%;
     width: 50%;
 }
 #srchcard,#srch.card-top{
   padding: 10px 10px 10px 10px;
 }
 #srchimg,#srchcard1{
-  height: 180px;
+  height: 200px;
   width: 280px;
 }
 #srch.card-columns {
@@ -505,7 +511,7 @@ form.modal-content.animate{
   }
 
 #cardrow{
-   padding-left: 18%;
+   padding-left: 8%;
  }
  #srchcard.card {
        position: relative;
@@ -521,6 +527,9 @@ form.modal-content.animate{
    background-color:#e8eaed;
    min-height:1000px;
  }
+ div#srch.card-bottom{
+  float: bottom;
+ }
 /*filters*/
 #filtersrch{
   float:left;
@@ -530,3 +539,13 @@ form.modal-content.animate{
 #badsrch{
   padding-left: 30%;
 }
+#bdaycard{
+  background: url(images/bday1.jpg);
+   background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: 300px;
+  width: all;
+}
+

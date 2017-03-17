@@ -60,8 +60,8 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
     <Header />
     <SearchComponent/>
   <div  id="searchlist">
-    <div className="restaurant-container">
-     <Filters/>
+    <div className="restaurant-container1">
+     
       <div id="cardrow" className="row">
         <div className="card-columns" id="srch">{
        this.state.radius_data.map((data, index)=>{

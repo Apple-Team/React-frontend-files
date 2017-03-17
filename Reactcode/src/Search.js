@@ -125,7 +125,7 @@ render() {
         <h3 className="w3-center w3-animate-top"><strong>Popular</strong> Searches</h3>
         <hr />
         <div id="cardrow" className="row">
-         <div className="card-columns" id="PopularSrch">{
+         <div className="card-columns" id="srch">{
              this.state.data1.map((data, index)=>{
                return (
                  <div id="srchcard" className="card w-100">

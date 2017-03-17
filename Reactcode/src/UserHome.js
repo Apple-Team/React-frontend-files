@@ -17,7 +17,8 @@ class UserHome extends Component {
     super();
     this.state = { data: [] };
   }
-  componentDidMount(){
+  componentWillReceiveProps(nextProps){
+     document.getElementById('bdaycard').style.display="none";
     var that=this;
      var tok=window.sessionStorage.getItem('token');
     fetch("http://localhost:9000/users/users_dob",
@@ -26,24 +27,28 @@ class UserHome extends Component {
          "Content-Type" : "application/json",
          "Authorization": "Bearer "+tok
        }
-    }).then((response) => response.json())
-         .then((responseJson) => {
-            that.setState({
-             data: responseJson
-           });
-         }).then(function(e){
+    }).then(response=>{
+          if(200==response.status){
+            response.json().then((data)=>{
+                  this.setState({
+                    data: data
+                  });
+                });         
+          
+       
+     console.log(that.state.data);
+     document.getElementById('bdaycard').style.display="block";
+     }
+  });
+}
 
-           console.log(that.state.data);
-     document.getElementById('bday').style.display="block";
-    });
-  }
   handleRest(id)
 {
  this.id=id;
  hashHistory.push('/Restaurant_detail/'+id)
 }
      render() {
-       var that=this;
+        var that=this;
        console.log(that.state.data.name);
       return (
         <div id="dd">
@@ -55,12 +60,15 @@ class UserHome extends Component {
                      <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
              </div>
          </div>
-         <div id="ss">
-            <div id="bday" classNAme="row" style={{display: 'none'}}>
-              <div className="col"><i style={{padding:"50px 200px 50px 50px",fontSize:"22px",float:"left"}}>We Found a Best place to Celebrate your Birthday </i></div>
+         <div id="ss" >
+            <div id="bdaycard">
+              <div className="col" >
+           
+              <b><i style={{padding:"100px 100px 50px 50px",fontSize:"24px",float:"left",color:"#fff"}}> Happy Birthday!!<br/> We Found a Best place to Celebrate your Birthday </i></b>
+              </div>
 
-              <div className="col">
-                <div id="srchcard"  className="card w-100">
+              <div className="col" style={{paddingTop:"40px"}}>
+                <div id="srchcard"  className="card w-100 text-center">
                    <div className="row" id="srch">
                      <div className="col-md-6">
                        <img id="srchimg" src={that.state.data.image} id="srchimg" alt="Card image cap"/>
@@ -77,7 +85,7 @@ class UserHome extends Component {
                      </div>
                    </div>
                 </div>
-                <hr />
+              
              </div>
              </div>
             <Collection />
