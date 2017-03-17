@@ -1,6 +1,5 @@
 #cardrest.card-img-top{
-	 width:46rem;
-	 height: 23rem;
+	 height: 24rem;
 }
 
 .card-header{
@@ -19,11 +18,11 @@ p
 {
 	padding-top: 0px;
 }
-a {
-    color: #FCAC45;   
+#facebook{
+    color:  #3b5998;
 }
-a:focus, a:hover{
-  color: #fcac46;
+#facebook:focus, #facebook:hover{
+  color:  #3b5998;
   font-weight: 700;
 
 }
@@ -38,4 +37,8 @@ a:focus, a:hover{
 }
 #searchrest{
   padding-left:1%;
+}
+b#sideHeading{
+    font-weight: bolder;
+    font-size: large;
 }

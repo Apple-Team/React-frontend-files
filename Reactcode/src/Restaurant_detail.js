@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link ,hashHistory} from 'react-router';
-import UserHeader from './UserHeader';
+import Header from './Header';
 import Footer from './Footer';
 import './Restaurant_detail.css';
 import GoogleMap from 'google-map-react';
@@ -45,9 +45,9 @@ class Restaurant_detail extends Component {
          });
     }
 
-    
 
-    
+
+
 
     onStarClick(nextValue, prevValue, name) {
         this.setState({rating: nextValue});
@@ -65,59 +65,69 @@ class Restaurant_detail extends Component {
 
   return (
   <div>
-    <div id="detailRest">
-    
-        <div className="row" id="searchrest" >
-                <div className="col col-lg-7 branding" id="firstcol">
+   <Header/>
+    <div id="detailRest" style={{height:"100%",width:"100%"}}>
+
+        <div className="container" id="searchrest" >
+           <div className="row">
+                <div className="col col-lg-12 branding" id="firstcol">
                   <div className="card" >
                       <img className="card-img-top image-fluid" src={this.state.detail_data.image} id="cardrest" alt="Card image cap"/>
                       <div className="card-block">
-                        <div className="card-title"><h1><b>{this.state.detail_data.name}</b></h1></div>
-                         <p className="card-text">{this.state.detail_data.description}</p>
-                     </div>
-                     <ul className="list-group list-group-flush">
-                        <li className="list-group-item">Cuisine: {this.state.detail_data.cuisine}</li>
-                        <li className="list-group-item">Working Hours: {this.state.detail_data.workHours}</li>
-                     </ul>
-  
-                     <ul className="list-group list-group-flush">
-                        <li className="list-group-item">Cost: {this.state.detail_data.cost} per Two</li>
-                        <li className="list-group-item" id="fd" style={{display:"none"}}>Free Home Delivery</li>
-                     </ul>
-                     <div className="card-block">
-                        <a href={this.state.detail_data.homePage} target="_blank">View Restaurant Homepage</a>&nbsp;&nbsp;&nbsp;
-                        <a href={this.state.detail_data.fbUrl} target="_blank">View facebook page</a>&nbsp;&nbsp;&nbsp;
-                         <Button id="Popover1" style={{backgroundColor:"transparent",borderColor:"transparent"}}  onClick={this.toggle} >
-                            <i className="fa fa-phone" aria-hidden="true"></i>
-                        </Button>
-                       <Popover placement="top" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
-                          <PopoverTitle>
-                            Call
-                          </PopoverTitle>
-                         <PopoverContent>
-                              <div className="container" align="center">
-                                       <label><b><center>PHONE NUMBER</center></b></label> <br />
-                                     {this.state.detail_data.number}
-                               </div>
-                         </PopoverContent>
-                        </Popover>
-                        
-                     </div>
-                  </div>
-                </div>
+                        <div className="card-title"><h1><b>{this.state.detail_data.name}</b>
+                        <div className="pull-right fnav" id="footer">
+                            <ul className="footer-social">
+                               <li><a href={this.state.detail_data.homePage} target="_blank"><i className="fa fa-home" aria-hidden="true" id="homePage"></i></a></li>
+                               <li><a href={this.state.detail_data.fbUrl} target="_blank"><i className="fa fa-facebook" id="facebook"></i></a></li>
 
-              <div className="col col-lg-5" id="secondcol">
-                  <div className="card text-center">
-                      <div className="card-header">
-                        Address
+                           </ul>
+                        </div>
+                        </h1>
+                        </div>
+                         <p className="card-text">{this.state.detail_data.description}</p>
                       </div>
-                     <div className="card-block">
-                         <p className="card-text">{this.state.detail_data.address}</p>
-                         <p className="card-text">{this.state.detail_data.area}</p>
-                     </div>
-                     
+                      <ul className="list-group list-group-flush">
+                         <li className="list-group-item"><b id="sideHeading">Address:&nbsp;&nbsp;  </b> {this.state.detail_data.address}
+                         </li>
+
+                      </ul>
+                     <ul className="list-group list-group-flush">
+                        <li className="list-group-item"><b id="sideHeading">Cuisine:&nbsp;&nbsp;  </b> {this.state.detail_data.cuisine}</li>
+                        <li className="list-group-item"><b id="sideHeading">Working Hours:&nbsp;&nbsp;</b> {this.state.detail_data.workHours}</li>
+                     </ul>
+
+                     <ul className="list-group list-group-flush">
+                        <li className="list-group-item"><b id="sideHeading">Cost:&nbsp;&nbsp;</b> {this.state.detail_data.cost} per Two</li>
+                        <li className="list-group-item" id="fd" style={{display:"none"}}><b id="sideHeading">Free Home Delivery&nbsp;<i className="fa fa-check" style={{color:"green"}} aria-hidden="true"></i>
+</b>
+                        <div className="pull-right fnav" id="footer">
+                            <ul className="footer-social">
+                             <Button id="Popover1" style={{backgroundColor:"transparent",borderColor:"transparent"}}  onClick={this.toggle} >
+                                 <i className="fa fa-phone" aria-hidden="true"></i>
+                              </Button>
+                              <Popover placement="top" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
+                               <PopoverTitle>
+                                 Call
+                              </PopoverTitle>
+                             <PopoverContent>
+                                 <div className="container" align="center">
+                                          <label><b><center>PHONE NUMBER</center></b></label> <br />
+                                        {this.state.detail_data.number}
+                                  </div>
+                            </PopoverContent>
+                           </Popover>
+
+                           </ul>
+                        </div>
+                       </li>
+                     </ul>
+
+                  </div>
+
+                  <div className="card text-center">
+
                      <div className="card-header">
-                        Map View
+                        <b id="sideHeading">Map View</b>
                       </div>
                      <div className="card-block">
                         <Maps lati={lat} long={lng}/>
@@ -125,9 +135,11 @@ class Restaurant_detail extends Component {
                   </div>
               </div>
 
-              
-      
+            </div>
+            <div className="row">
 
+
+            </div>
          </div>
      </div>
 

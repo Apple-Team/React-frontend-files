@@ -1,6 +1,9 @@
 /*maps*/
-#map{
+
+body, html {
   height: 100%;
+  width: 100%;
+  background: #f1f5f7
 }
 #list{
     display: none; /* Hidden by default */
@@ -181,7 +184,7 @@ Navbar > NavItem:active{
 }
 /* Home Style */
 #tf-home{
-  background: url(images/home1.jpg)  no-repeat center center fixed;
+  background: url(images/restaurant2.jpg)  no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -419,7 +422,7 @@ nav#footer p{
 
 /*search componenet */
 #tf-nearby{
-  background: url(images/home1.jpg) ;
+  background: url(images/restaurant2.jpg) ;
 
   background-size: cover;
   background-position: center;
@@ -473,11 +476,8 @@ form.modal-content.animate{
 }
 
 #detailRest{
-  background:url(images/home1.jpg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  background: #f1f5f7;
+  font-variant: small-caps;
 }
 
 
@@ -524,7 +524,7 @@ form.modal-content.animate{
 
  }
  #searchlist{
-   background-color:#e8eaed;
+   background-color:#f1f5f7;
    min-height:1000px;
  }
  div#srch.card-bottom{
@@ -548,4 +548,3 @@ form.modal-content.animate{
   height: 300px;
   width: all;
 }
-

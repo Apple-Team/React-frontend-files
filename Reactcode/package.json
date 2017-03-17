@@ -40,7 +40,11 @@
     "prebuild": "npm run lint",
     "build": "webpack --progress --bail -p",
     "lint": "eslint --ext .js --ext .jsx src test adapters ./*.js",
-    "start": "webpack-dev-server --progress --colors -d --watch --port 8081",
+    "start": "webpack-dev-server --progress --colors -d --watch --port 8080",
     "test": "echo \"Error: no test specified\" && exit 1"
-  }
+  },
+  "description": "",
+  "main": "webpack.config.js",
+  "author": "",
+  "license": "ISC"
 }

@@ -41,7 +41,7 @@ class Restaurant_detail extends Component {
 
     }
 
-   
+
  toggle() {
    this.setState({
      popoverOpen: !this.state.popoverOpen
@@ -54,8 +54,10 @@ class Restaurant_detail extends Component {
     var lng=this.state.detail_data.longitude;
   return (
   <div>
-    <div id="detailRest">
-    
+  <Header/>
+   <div id="detailRest" style={{height:"100%",width:"100%"}}>
+
+       <div className="container" id="searchrest" >
         <div className="row" id="searchrest">
                 <div className="col col-lg-7 branding" id="firstcol">
                   <div className="card" >
@@ -99,7 +101,7 @@ class Restaurant_detail extends Component {
                      <div className="card-block">
                          <p className="card-text">{this.state.detail_data.address}</p>
                          <p className="card-text">{this.state.detail_data.area}</p>
-                         
+
                      </div>
                      <div className="card-header">
                         Map View
@@ -111,7 +113,7 @@ class Restaurant_detail extends Component {
               </div>
 
 
-
+             </div>
          </div>
      </div>
 

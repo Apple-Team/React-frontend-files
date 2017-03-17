@@ -33,9 +33,9 @@ class UserHome extends Component {
                   this.setState({
                     data: data
                   });
-                });         
-          
-       
+                });
+
+
      console.log(that.state.data);
      document.getElementById('bdaycard').style.display="block";
      }
@@ -63,11 +63,11 @@ class UserHome extends Component {
          <div id="ss" >
             <div id="bdaycard">
               <div className="col" >
-           
+
               <b><i style={{padding:"100px 100px 50px 50px",fontSize:"24px",float:"left",color:"#fff"}}> Happy Birthday!!<br/> We Found a Best place to Celebrate your Birthday </i></b>
               </div>
 
-              <div className="col" style={{paddingTop:"40px"}}>
+              <div className="col" style={{paddingTop:"40px",paddingLeft:"100px"}}>
                 <div id="srchcard"  className="card w-100 text-center">
                    <div className="row" id="srch">
                      <div className="col-md-6">
@@ -85,7 +85,7 @@ class UserHome extends Component {
                      </div>
                    </div>
                 </div>
-              
+
              </div>
              </div>
             <Collection />

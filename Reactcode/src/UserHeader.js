@@ -90,7 +90,7 @@ componentWillMount(){
          "Authorization": "Bearer "+tok
        },
      method: "PUT",
-     body: JSON.stringify({ 
+     body: JSON.stringify({
                             "email": document.getElementById('email').value,
                             "dob": document.getElementById('bday').value,
                             "user_Address": document.getElementById('address').value,
@@ -117,10 +117,10 @@ return(
   <div>
   <div className="tf-nav">
 
-      <Navbar fixed="top" toggleable>
+      <Navbar toggleable>
           <NavbarToggler right onClick={this.toggle1}><i className="fa fa-bars fa-2x" aria-hidden="true"></i></NavbarToggler>
           <NavbarBrand href="/">
-          <img id="logo" width="60" height="60" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
+          <img id="logo" width="50" height="50" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
@@ -144,7 +144,7 @@ return(
 
                       <p className="w3-center">{this.state.get_data.name}</p>
                       <hr/>
-                      
+
                       <div className="form-group row">
                         <label for="example-text-input" className="col-2 col-form-label"><i className="fa fa-envelope-o" aria-hidden="true"></i></label>
                         <div className="col-8">
