@@ -5,9 +5,11 @@ import Header from './Header';
 import { Button, Popover, PopoverTitle, PopoverContent } from 'reactstrap';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
-
-var input=new Array(10);
+var items=new Array();
+var input=new Array();
+var names=new Array();
 var count=0;
+var count1=0;
   class SearchComponent extends Component {
 
     constructor() {
@@ -32,7 +34,7 @@ toggle1() {
   }
 
   handleSearch(ev){
-    count++;
+    var key=new Array();
       console.log(this.state.inputValue);
       if(this.state.inputValue==''){
         this.setState({
@@ -44,21 +46,40 @@ toggle1() {
       popoverOpen1:false
     });
 
-          if(window.sessionStorage.getItem('token')){
-         input[count]=this.state.inputValue;
-      localStorage.setItem("keywords",JSON.stringify(input));
-      console.log('ii'+JSON.parse(localStorage.getItem("keywords")));
-      var key=JSON.parse(localStorage.getItem("keywords"));
-      console.log(key);
+    if(window.sessionStorage.getItem('token')){
+
+      input[count]=this.state.inputValue;
+      names[count1]=window.sessionStorage.getItem('name');
+      items.push([names[count1],input[count]]);
+      localStorage.setItem("items",JSON.stringify(items));
+      console.log(items);
+      var sent_name=window.sessionStorage.getItem('name');
+      var item=JSON.parse(localStorage.getItem("items"));
+      console.log(count1);
+
+      for(var i=0;i<count1;i++){
+        console.log('jj');
+            if(names[i]==sent_name){
+                console.log('kkk');
+                  key[i]=items[i][1];
+
+             }
+           }
+                   console.log(key);
       //var i=parseInt(localStorage.getItem('i'));
 
     //  localStorage.setItem('i',i);
+    count1++;
+    count++;
 
      }
+
    }
+   if((key!='')&&count1)
+     hashHistory.push('/Search/'+this.state.inputValue+'/'+key+'/'+count1);
+    else
+      hashHistory.push('/Search/'+this.state.inputValue);
 
-
-      hashHistory.push('/Search/'+this.state.inputValue+'/'+key+'/'+count);
  }
  handleChange(e) {
      this.setState({ inputValue: document.getElementById("search-bar").value });

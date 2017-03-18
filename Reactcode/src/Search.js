@@ -37,12 +37,13 @@ componentWillReceiveProps(nextProps){
 
 
 
-
-
-  if(window.sessionStorage.getItem('token')){
-
-          for(var i=0;i<this.props.params.count;i++){
-         fetch("http://localhost:9000/filter?keyword="+this.props.params.key)
+var key1=this.props.params.key;
+var recvd_name=window.sessionStorage.getItem('name');
+console.log(recvd_name);
+if(this.props.params.count1!=0){
+  if(recvd_name){
+      for(var i=1;i<=this.props.params.count1;i++){
+         fetch("http://localhost:9000/filter?keyword="+key1)
            .then((response) => response.json())
                  .then((responseJson) => {
                     this.setState({
@@ -53,9 +54,10 @@ componentWillReceiveProps(nextProps){
                   document.getElementById('PopularList').style.display='block';
                  document.getElementById('badsrch').style.display='none';
                });
-}
+          }
 }
 
+}
 }
 
 handleRest(id)
@@ -127,7 +129,7 @@ render() {
      </div>
     <div className="col-lg-2" id="PopularList"  style={{display: 'none'}}>
      <div className="card card-block">
-       <h3 className="w3-center"><strong>Popular</strong> Searches</h3>
+       <h3 className="w3-center"><strong>Recommendations</strong> for you</h3>
        {
          this.state.data1.map((data, index)=>{
            return (
@@ -136,11 +138,10 @@ render() {
                        <div className="card card-block" id="redirect">
                          <li className="media">
 
-                           <img className="d-flex mr-3" src={data[7]} height="100px" width="110px" alt="Generic placeholder image"/>
+                           <a onClick={()=>this.handleRest(data[0])}><img className="d-flex mr-3" src={data[7]} height="100px" width="110px" alt="Generic placeholder image"/></a>
                            <div className="media-body">
                                 <p className="card-text"><h5 className="mt-0 mb-1">{data[10]}</h5>
-                                   <span id="ptext">{data[2]}<br />
-                                  {data[12]}
+                                   <span id="ptext">{data[2]}
                                    </span>
                                 </p>
                              </div>
