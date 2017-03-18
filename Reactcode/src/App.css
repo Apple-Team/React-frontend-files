@@ -487,13 +487,13 @@ form.modal-content.animate{
     position: relative;
     min-height: 1px;
     padding: 4% 4% 4% 4%;
-    width: 50%;
+
 }
 .restaurant-container1 {
     position: relative;
     min-height: 1px;
-    padding: 4% 4% 4% 18%;
-    width: 50%;
+    padding: 4% ;
+
 }
 #srchcard,#srch.card-top{
   padding: 10px 10px 10px 10px;
@@ -506,17 +506,13 @@ form.modal-content.animate{
         min-width:inherit;
         column-count:2;
      }
- #PopularSrch.card-columns {
-             min-width:inherit;
-             column-count:3;
-  }
 
 #cardrow{
    padding-left: 8%;
  }
  #srchcard.card {
        position: relative;
-       width:400px!important;
+       width:450px!important;
  }
  div#srch.card-block{
    position: relative;
@@ -534,7 +530,7 @@ form.modal-content.animate{
 /*filters*/
 #filtersrch{
   float:left;
-  padding:5% 5% 5% 5%;
+  padding:5% 2% 5% 5%;
   width:230px;
 }
 #badsrch{
@@ -548,4 +544,32 @@ form.modal-content.animate{
   background-repeat: no-repeat;
   height: 300px;
   width: all;
+}
+/*popular */
+ul{
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 4px;
+}
+#ptext{
+  color: #8c8181;
+  font-size: 16px;
+}
+#stext {
+    color: #352525;
+    font-size: 18px;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+#subtext {
+    color: #3c280f;
+    font-size: 16px;
+}
+/*User Header*/
+i#user{
+  color:#fcac46;
 }

@@ -66,25 +66,26 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
         <div className="card-columns" id="srch">{
        this.state.radius_data.map((data, index)=>{
         return (
-          <div id="srchcard" className="card w-100">
-            <div className="row" id="srch">
-              <div className="col-md-6">
-                <img id="srchimg" src={data[7]} id="srchimg" alt="Card image cap"/>
-              </div>
-              <div className="col-md-6" id="srchcard1">
-                  <div className="card-top">
-                    <h5 className="card-subtitle">{data[10]}</h5>
-                    <p className="card-text"> Area: {data[2]}</p>
-                    <p className="card-text">  Working Hours: {data[12]}</p>
-                  </div>
-                  <hr />
-                  <div id="srch">
-                    <p className="card-text" style={{float:"left"}}>{data[18].toFixed(2)} kms away</p>
-                    <button type="button" style={{float:"right"}} className="btn btn-warning btn-sm" onClick={()=>this.handleRest(data[0])}>View</button>
-                  </div>
+        
+        <div id="srchcard" className="card w-100">
+          <div className="row" id="srch">
+            <div className="col-md-6">
+              <img id="srchimg" src={data[7]} id="srchimg" alt="Card image cap"/>
             </div>
+            <div className="col-md-6" id="srchcard1">
+                <div className="card-top">
+                  <h5 className="card-subtitle"><span id="stext"> {data[10]}</span></h5><br/>
+                  <p className="card-text">
+                  <span id="subtext"> {data[2]}<br/>
+                       {data[12]}</span></p>
+                </div><hr/>
+                <div id="srch">
+                  <p className="card-text" style={{float:"left"}}>{data[18].toFixed(2)} kms away</p>
+                  <button type="button" style={{float:"right"}} className="btn btn-warning btn-sm" onClick={()=>this.handleRest(data[0])}>View</button>
+                </div>
           </div>
         </div>
+      </div>
          )
         })
        }

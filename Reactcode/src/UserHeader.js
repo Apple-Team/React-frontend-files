@@ -131,7 +131,7 @@ return(
               </NavItem>
               <NavItem>
                 <Button id="Popover1" style={{color:"fcac46",backgroundColor:"transparent",borderColor:"transparent"}}  onClick={this.toggle} >
-                  <i  className="fa fa-user-circle-o" aria-hidden="true"></i>
+                  <i  className="fa fa-user-circle-o" id="user" aria-hidden="true"></i>
                 </Button>
                 <Popover placement="bottom right" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
                   <PopoverTitle>
