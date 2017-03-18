@@ -25,7 +25,7 @@ import AddRest from './AddRest';
 import ViewRest from './ViewRest';
 import UpdateRest from './UpdateRest';
 import Restaurant_detail from './Restaurant_detail';
-import rl from './rl';
+import NearBy_detail from './NearBy_detail';
 import Collectionfetch from './Collectionfetch';
 import collection from './collection';
 import AckHeader from './AckHeader'
@@ -57,7 +57,7 @@ ReactDOM.render(
  	  <Route path="/Search/:s/:key/:count" component={Search}/>
  	  <Route path="/NearBy/:lati/:longi" component={NearBy}/>
  	  <Route path="/Restaurant_detail/:id" component={Restaurant_detail}/>
- 	  <Route path="/rl/:id/:lat/:long" component={rl}/>
+ 	  <Route path="/rl/:id/:lat/:long" component={NearBy_detail}/>
  	  <Route path="/ViewRest" component={ViewRest}/>
  	  <Route path="/ViewCollection" component={ViewCollection}/>
 	  <Route path="/AddRest" component={AddRest}/>

@@ -1,70 +1,59 @@
 import React, { Component } from 'react';
-import { Link ,hashHistory} from 'react-router';
+import { Link,hashHistory} from 'react-router';
 import Header from './Header';
 import Footer from './Footer';
 import './Restaurant_detail.css';
-import GoogleMap from 'google-map-react';
 import { Button, Popover, PopoverTitle, PopoverContent } from 'reactstrap';
-import StarRatingComponent from 'react-star-rating-component';
-import Maps from'./Maps';
-class Restaurant_detail extends Component {
+import MapDirections from'./MapDirections';
+var lat1,long1;
+class NearBy_detail extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another classNameName
     super();
-    this.state = { detail_data:[], rating: 0,popoverOpen: false};
-      this.toggle = this.toggle.bind(this);
+    this.state = { detail_data:[] ,popoverOpen: false};
+     this.toggle = this.toggle.bind(this);
 
   }
-   toggle() {
+  componentDidMount(){
+    var tok=window.sessionStorage.getItem('token');
+    lat1=this.props.params.lat;
+    long1=this.props.params.long;
+    fetch("http://localhost:9000/restaurants_by_id/"+this.props.params.id,{
+      headers: {
+          "Content-Type": "application/json",
+          "Authorization": "Bearer "+tok
+        }
+    }).then(response=>{
+      if(200==response.status){
+        response.json().then((data)=>{
+              this.setState({
+               detail_data: data
+              });
+            });
+           }
+       else if (403==response.status) {
+       window.alert("Forbidden!!");
+       }
+       else{
+          hashHistory.push('/UnAuth');
+       }
+     });
+
+    }
+
+
+ toggle() {
    this.setState({
      popoverOpen: !this.state.popoverOpen
    });
  }
-  componentDidMount(){
-  console.log(window.sessionStorage.getItem('token'));
-  var tok=window.sessionStorage.getItem('token');
-    fetch("http://localhost:9000/restaurants_by_id/"+this.props.params.id,{
-       headers: {
-           "Content-Type": "application/json",
-           "Authorization": "Bearer "+tok
-         }
-        }).then(response=>{
-          if(200==response.status){
-            response.json().then((data)=>{
-                  this.setState({
-                   detail_data: data
-                  });
-                });
-               }
-           else if (403==response.status) {
-           window.alert("Forbidden!!");
-           }
-           else{
-              hashHistory.push('/UnAuth');
-           }
-         });
-    }
-
-
-
-
-
-    onStarClick(nextValue, prevValue, name) {
-        this.setState({rating: nextValue});
-        console.log(this.state.rating);
-    }
-
     // `render` is called whenever the component's props OR state are updated.
   render() {
-    const { rating } = this.state.rating;
     // console.log('The App component was rendered')
     var lat=this.state.detail_data.latitude;
     var lng=this.state.detail_data.longitude;
-    if(this.state.detail_data.free_delivery)
-        document.getElementById('fd').style.display="block";
-
   return (
-  <div>
+   <div>
    <Header/>
     <div id="detailRest" style={{height:"100%",width:"100%"}}>
 
@@ -119,9 +108,9 @@ class Restaurant_detail extends Component {
                      <ul className="list-group list-group-flush">
                         <li className="list-group-item"><b id="sideHeading">Cost:&nbsp;&nbsp;</b> {this.state.detail_data.cost} per Two</li>
                         <li className="list-group-item" id="fd" style={{display:"none"}}>
-                          <b id="sideHeading">Free Home Delivery&nbsp;<i className="fa fa-check" style={{color:"green"}} aria-hidden="true"></i>                       
+                          <b id="sideHeading">Free Home Delivery&nbsp;<i className="fa fa-check" style={{color:"green"}} aria-hidden="true"></i>
                           </b>
-                        </li>                                              
+                        </li>
                      </ul>
 
                   </div>
@@ -132,7 +121,7 @@ class Restaurant_detail extends Component {
                         <b id="sideHeading">Map View</b>
                       </div>
                      <div className="card-block">
-                        <Maps lati={lat} long={lng}/>
+                       <MapDirections destlat={lat} destlong={lng} orgnlat={lat1} orgnlong={long1}/>
                      </div>
                   </div>
               </div>
@@ -151,4 +140,4 @@ class Restaurant_detail extends Component {
  }
 }
 
-export default Restaurant_detail;
+export default NearBy_detail;
