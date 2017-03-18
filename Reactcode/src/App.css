@@ -85,7 +85,7 @@ font-weight: 900;
   padding-top:9px;
   border :none;
   cursor:pointer;
-  color:#000;
+  color:#fcac46;
   font-size: 14px;
   letter-spacing: 1px;
   width: auto;
@@ -178,7 +178,7 @@ Navbar > NavItem:active{
   padding-left: 550px;
  }
  .btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
-    color: #292b2c;
+    color: #fcac46;
      background-color: #fcac46;
      border-color: #fcac46;
 }
@@ -417,7 +417,7 @@ nav#footer p{
 }
 
 #Ack,#Ack1{
-    color: rgb(18, 83, 93);
+    color: #3c91ad;
 }
 
 /*search componenet */
@@ -478,6 +478,7 @@ form.modal-content.animate{
 #detailRest{
   background: #f1f5f7;
   font-variant: small-caps;
+  padding-top: 4%;
 }
 
 

@@ -120,7 +120,7 @@ return(
       <Navbar fixed="top" toggleable>
           <NavbarToggler right onClick={this.toggle1}><i className="fa fa-bars fa-2x" style={{color:"#fcac46"}} aria-hidden="true"></i></NavbarToggler>
           <NavbarBrand href="/">
-          <img id="logo" width="50" height="50" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
+          <img id="logo" width="50" height="50" className="d-inline-block align-center" />FindO Bistro</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
@@ -130,7 +130,7 @@ return(
                 <NavLink href="#tf-collection"><b>Collections</b></NavLink>
               </NavItem>
               <NavItem>
-                <Button id="Popover1" style={{backgroundColor:"transparent",borderColor:"transparent"}}  onClick={this.toggle} >
+                <Button id="Popover1" style={{color:"fcac46",backgroundColor:"transparent",borderColor:"transparent"}}  onClick={this.toggle} >
                   <i  className="fa fa-user-circle-o" aria-hidden="true"></i>
                 </Button>
                 <Popover placement="bottom right" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>

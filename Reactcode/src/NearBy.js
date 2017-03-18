@@ -59,9 +59,9 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
     <div id="restlist">
     <Header />
     <SearchComponent/>
-  <div  id="searchlist">
+  <div  id="searchlist"  className="container">
     <div className="restaurant-container1">
-     
+
       <div id="cardrow" className="row">
         <div className="card-columns" id="srch">{
        this.state.radius_data.map((data, index)=>{

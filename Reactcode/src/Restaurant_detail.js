@@ -119,9 +119,9 @@ class Restaurant_detail extends Component {
                      <ul className="list-group list-group-flush">
                         <li className="list-group-item"><b id="sideHeading">Cost:&nbsp;&nbsp;</b> {this.state.detail_data.cost} per Two</li>
                         <li className="list-group-item" id="fd" style={{display:"none"}}>
-                          <b id="sideHeading">Free Home Delivery&nbsp;<i className="fa fa-check" style={{color:"green"}} aria-hidden="true"></i>                       
+                          <b id="sideHeading">Free Home Delivery&nbsp;<i className="fa fa-check" style={{color:"green"}} aria-hidden="true"></i>
                           </b>
-                        </li>                                              
+                        </li>
                      </ul>
 
                   </div>

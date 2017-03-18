@@ -87,7 +87,7 @@ render() {
  {window.sessionStorage.getItem('token') ? <UserHeader /> : <Header />}
 
 <SearchComponent/>
-   <div id="searchlist" >
+   <div id="searchlist"  className="container">
      <div className="restaurant-container">
          <Filters filtercoll={this.coll.bind(this)} s={this.props.params.s}/>
          <div id="cardrow" className="row">
