@@ -96,8 +96,8 @@ render() {
           <div className="col-lg-2">
             <Filters filtercoll={this.coll.bind(this)} s={this.props.params.s}/>
          </div>
-         <div className="col-lg-6">
-         <div className="card-columns" id="srch">{
+         <div className="col-lg-5">
+         <div className="card-columns" id="srch1">{
              this.state.data.map((data, index)=>{
                return (
                  <div id="srchcard" className="card w-100">
@@ -105,7 +105,7 @@ render() {
                      <div className="col-md-6">
                        <img id="srchimg" src={data[7]} id="srchimg" alt="Card image cap"/>
                      </div>
-                     <div className="col-md-6" id="srchcard1">
+                     <div className="col-md-6" id="srchcard2">
                          <div className="card-top">
                            <h5 className="card-subtitle"><span id="stext"> {data[10]}</span></h5><br/>
                            <p className="card-text">
@@ -137,7 +137,6 @@ render() {
                       <ul>
                        <div className="card card-block" id="redirect">
                          <li className="media">
-
                            <a onClick={()=>this.handleRest(data[0])}><img className="d-flex mr-3" src={data[7]} height="100px" width="110px" alt="Generic placeholder image"/></a>
                            <div className="media-body">
                                 <p className="card-text"><h5 className="mt-0 mb-1">{data[10]}</h5>

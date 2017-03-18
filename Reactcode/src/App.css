@@ -507,12 +507,21 @@ form.modal-content.animate{
         column-count:2;
      }
 
+     #srch1.card-columns {
+             min-width:inherit;
+             column-count:1;
+          }
+
 #cardrow{
    padding-left: 8%;
  }
  #srchcard.card {
        position: relative;
        width:450px!important;
+ }
+ #srchcard2.card {
+       position: relative;
+       width:650px!important;
  }
  div#srch.card-block{
    position: relative;

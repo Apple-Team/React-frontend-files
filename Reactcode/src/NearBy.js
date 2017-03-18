@@ -66,7 +66,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
         <div className="card-columns" id="srch">{
        this.state.radius_data.map((data, index)=>{
         return (
-        
+
         <div id="srchcard" className="card w-100">
           <div className="row" id="srch">
             <div className="col-md-6">
