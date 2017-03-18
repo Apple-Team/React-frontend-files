@@ -36,7 +36,7 @@ font-weight: 900;
 
 }
 .navbar-light .navbar-brand, .navbar-light .navbar-toggler {
-    color: #000000;
+    color: #fcac46;
 }
 .card-img{
   width:320px;
@@ -44,7 +44,7 @@ font-weight: 900;
 }
 .navbar .navbar-nav > li > a {
   text-transform: uppercase;
-  color: #000000;
+  color: #fcac46;
   font-size: 14px;
   letter-spacing: 1px;
   width: auto;
@@ -52,7 +52,7 @@ font-weight: 900;
 }
 .navbar .navbar-nav > li > a:hover {
   text-transform: uppercase;
-  color: #000000;
+  color: #fcac46;
   font-size: 15px;
   letter-spacing: 1px;
   width: auto;
@@ -64,7 +64,7 @@ font-weight: 900;
   padding-top:9px;
   border :none;
   cursor:pointer;
-  color:#fcac45;
+  color:#fcac46;
   font-size: 14px;
   letter-spacing: 1px;
   width: auto;
@@ -102,10 +102,10 @@ font-weight: 900;
 }
 
 #searchdrop .btn-secondary{
-  background-color: #fcac45;
+  background-color: #fcac46;
 }
 .menu{
-  background-color:#FCAC45;
+  background-color:#fcac46;
 }
 .btn-secondary:active{
 
@@ -160,16 +160,16 @@ Navbar > NavItem:active{
   border-color: transparent;
   }
 .navbar .navbar-toggler:hover >.icon-bar {
-  background-color: #000000;
+  background-color: #fcac46;
 }
 .navbar-caption: {
               color: #ffffff;
             },
 .navbar-toggler: {
-              color: #000000;
+              color: #fcac46;
             }
 .link, ButtonDropdown: {
-              color: #fcac45;
+              color: #fcac46;
             },
 .link: {
               font-size: 0.75rem;
@@ -179,12 +179,12 @@ Navbar > NavItem:active{
  }
  .btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
     color: #292b2c;
-     background-color: #fcac45;
-     border-color: #fcac45;
+     background-color: #fcac46;
+     border-color: #fcac46;
 }
 /* Home Style */
 #tf-home{
-  background: url(images/restaurant2.jpg)  no-repeat center center fixed;
+  background: url(images/rest2.jpg)  no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -217,11 +217,11 @@ Navbar > NavItem:active{
 .btn:active,
 .btn:visited,
 .btn:focus {
-    background-color:#FCAC45;
-    border-color: #FCAC45;
+    background-color:#fcac46;
+    border-color: #fcac46;
 }
 .color{
-  color: #fcac45;
+  color: #fcac46;
 }
 img{
   max-width: 100%;
@@ -238,9 +238,9 @@ a.fa.fa-angle-down {
   transition: all 0.5s;
 }
 a.fa.fa-angle-down:hover{
-  background: #fcac45;
+  background: #fcac46;
   color: #ffffff;
-  border: 2px solid #fcac45;
+  border: 2px solid #fcac46;
 }
 .txt{
   position: absolute;
@@ -373,9 +373,9 @@ a.fa.fa-angle-up {
   transition: all 0.5s;
 }
 a.fa.fa-angle-up:hover{
-  background: #fcac45;
+  background: #fcac46;
   color: #ffffff;
-  border: 2px solid #fcac45;
+  border: 2px solid #fcac46;
 }
 #tf-collection  button{
       background-color: rgba(255, 255, 255, 0.15);
@@ -411,8 +411,8 @@ nav#footer p{
   transition: all 0.5s;
 }
 #footer i.fa:hover{
-  background: #FCAC45;
-  border-color: #FCAC45;
+  background: #fcac46;
+  border-color: #fcac46;
   color: #ffffff;
 }
 
@@ -422,7 +422,7 @@ nav#footer p{
 
 /*search componenet */
 #tf-nearby{
-  background: url(images/restaurant2.jpg) ;
+  background: url(images/rest2.jpg) ;
 
   background-size: cover;
   background-position: center;

@@ -117,8 +117,8 @@ return(
   <div>
   <div className="tf-nav">
 
-      <Navbar toggleable>
-          <NavbarToggler right onClick={this.toggle1}><i className="fa fa-bars fa-2x" aria-hidden="true"></i></NavbarToggler>
+      <Navbar fixed="top" toggleable>
+          <NavbarToggler right onClick={this.toggle1}><i className="fa fa-bars fa-2x" style={{color:"#fcac46"}} aria-hidden="true"></i></NavbarToggler>
           <NavbarBrand href="/">
           <img id="logo" width="50" height="50" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
