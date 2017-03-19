@@ -6,7 +6,6 @@ import Footer from './Footer';
 import Header from './Header';
 import Search from './Search';
 import NearBy from './NearBy';
-import MainView from './Carousel';
 import SearchComponent from './SearchComponent';
 import { Button, Popover, PopoverTitle, PopoverContent } from 'reactstrap';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
@@ -35,7 +34,7 @@ class App extends Component {
         <div className="overlay">
                 <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
         </div>
-        <MainView />
+
    </div>
     <div id="ss">
     <Collection />
