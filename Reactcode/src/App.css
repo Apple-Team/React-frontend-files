@@ -1,6 +1,9 @@
 /*maps*/
-#map{
+
+body, html {
   height: 100%;
+  width: 100%;
+  background: #f1f5f7
 }
 #list{
     display: none; /* Hidden by default */
@@ -17,9 +20,8 @@
 /* Navigation */
 
 .navbar {
-  background-color:transparent;
-  border-color: rgba(231, 231, 231, 0);
-  opacity: 0.9;
+  background-color:#000000;
+ 
   }
 .navbar-brand {
 font-family: cursive;
@@ -33,7 +35,7 @@ font-weight: 900;
 
 }
 .navbar-light .navbar-brand, .navbar-light .navbar-toggler {
-    color: #000000;
+    color: #fcac46;
 }
 .card-img{
   width:320px;
@@ -41,16 +43,16 @@ font-weight: 900;
 }
 .navbar .navbar-nav > li > a {
   text-transform: uppercase;
-  color: #000000;
-  font-size: 14px;
+  color: #fcac46;
+  font-size: 15px;
   letter-spacing: 1px;
   width: auto;
   display:table-cell;
 }
 .navbar .navbar-nav > li > a:hover {
   text-transform: uppercase;
-  color: #000000;
-  font-size: 15px;
+  color: #fcac46;
+  font-size: 16px;
   letter-spacing: 1px;
   width: auto;
   display:table-cell;
@@ -61,7 +63,7 @@ font-weight: 900;
   padding-top:9px;
   border :none;
   cursor:pointer;
-  color:#fcac45;
+  color:#fcac46;
   font-size: 14px;
   letter-spacing: 1px;
   width: auto;
@@ -82,7 +84,7 @@ font-weight: 900;
   padding-top:9px;
   border :none;
   cursor:pointer;
-  color:#000;
+  color:#fcac46;
   font-size: 14px;
   letter-spacing: 1px;
   width: auto;
@@ -99,10 +101,10 @@ font-weight: 900;
 }
 
 #searchdrop .btn-secondary{
-  background-color: #fcac45;
+  background-color: #fcac46;
 }
 .menu{
-  background-color:#FCAC45;
+  background-color:#fcac46;
 }
 .btn-secondary:active{
 
@@ -157,16 +159,16 @@ Navbar > NavItem:active{
   border-color: transparent;
   }
 .navbar .navbar-toggler:hover >.icon-bar {
-  background-color: #000000;
+  background-color: #fcac46;
 }
 .navbar-caption: {
               color: #ffffff;
             },
 .navbar-toggler: {
-              color: #000000;
+              color: #fcac46;
             }
 .link, ButtonDropdown: {
-              color: #fcac45;
+              color: #fcac46;
             },
 .link: {
               font-size: 0.75rem;
@@ -175,13 +177,13 @@ Navbar > NavItem:active{
   padding-left: 550px;
  }
  .btn-secondary:active, .btn-secondary.active, .show > .btn-secondary.dropdown-toggle {
-    color: #292b2c;
-     background-color: #fcac45;
-     border-color: #fcac45;
+    color: #fcac46;
+     background-color: #fcac46;
+     border-color: #fcac46;
 }
 /* Home Style */
 #tf-home{
-  background: url(images/home1.jpg)  no-repeat center center fixed;
+  background: url(images/rest2.jpg)  no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -194,7 +196,6 @@ Navbar > NavItem:active{
 
 #tf-home .overlay{
 
-  height: 650px;
   background-attachment: fixed;
 }
 #tf-home p.lead{
@@ -214,11 +215,11 @@ Navbar > NavItem:active{
 .btn:active,
 .btn:visited,
 .btn:focus {
-    background-color:#FCAC45;
-    border-color: #FCAC45;
+    background-color:#fcac46;
+    border-color: #fcac46;
 }
 .color{
-  color: #fcac45;
+  color: #fcac46;
 }
 img{
   max-width: 100%;
@@ -235,9 +236,9 @@ a.fa.fa-angle-down {
   transition: all 0.5s;
 }
 a.fa.fa-angle-down:hover{
-  background: #fcac45;
+  background: #fcac46;
   color: #ffffff;
-  border: 2px solid #fcac45;
+  border: 2px solid #fcac46;
 }
 .txt{
   position: absolute;
@@ -370,9 +371,9 @@ a.fa.fa-angle-up {
   transition: all 0.5s;
 }
 a.fa.fa-angle-up:hover{
-  background: #fcac45;
+  background: #fcac46;
   color: #ffffff;
-  border: 2px solid #fcac45;
+  border: 2px solid #fcac46;
 }
 #tf-collection  button{
       background-color: rgba(255, 255, 255, 0.15);
@@ -408,18 +409,18 @@ nav#footer p{
   transition: all 0.5s;
 }
 #footer i.fa:hover{
-  background: #FCAC45;
-  border-color: #FCAC45;
+  background: #fcac46;
+  border-color: #fcac46;
   color: #ffffff;
 }
 
 #Ack,#Ack1{
-    color: rgb(18, 83, 93);
+    color: #3c91ad;
 }
 
 /*search componenet */
 #tf-nearby{
-  background: url(images/home1.jpg) ;
+  background: url(images/rest2.jpg) ;
 
   background-size: cover;
   background-position: center;
@@ -473,11 +474,9 @@ form.modal-content.animate{
 }
 
 #detailRest{
-  background:url(images/home1.jpg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
+  background: #f1f5f7;
+  font-variant: small-caps;
+ 
 }
 
 
@@ -486,13 +485,13 @@ form.modal-content.animate{
     position: relative;
     min-height: 1px;
     padding: 4% 4% 4% 4%;
-    width: 50%;
+
 }
 .restaurant-container1 {
     position: relative;
     min-height: 1px;
-    padding: 4% 4% 4% 18%;
-    width: 50%;
+    padding: 4% ;
+
 }
 #srchcard,#srch.card-top{
   padding: 10px 10px 10px 10px;
@@ -505,17 +504,20 @@ form.modal-content.animate{
         min-width:inherit;
         column-count:2;
      }
- #PopularSrch.card-columns {
-             min-width:inherit;
-             column-count:3;
-  }
 
-#cardrow{
-   padding-left: 8%;
- }
+     #srch1.card-columns {
+             min-width:inherit;
+             column-count:1;
+          }
+
+
  #srchcard.card {
        position: relative;
-       width:400px!important;
+       width:450px!important;
+ }
+ #srchcard2.card {
+       position: relative;
+       width:650px!important;
  }
  div#srch.card-block{
    position: relative;
@@ -524,7 +526,7 @@ form.modal-content.animate{
 
  }
  #searchlist{
-   background-color:#e8eaed;
+   background-color:#f1f5f7;
    min-height:1000px;
  }
  div#srch.card-bottom{
@@ -533,8 +535,8 @@ form.modal-content.animate{
 /*filters*/
 #filtersrch{
   float:left;
-  padding:5% 5% 5% 5%;
-  width:230px;
+  padding:5% 2% 5% 5%;
+  width:200px;
 }
 #badsrch{
   padding-left: 30%;
@@ -548,4 +550,38 @@ form.modal-content.animate{
   height: 300px;
   width: all;
 }
-
+/*popular */
+ul{
+    display: block;
+    list-style-type: disc;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-start: 4px;
+}
+#ptext{
+  color: #8c8181;
+  font-size: 16px;
+}
+#stext {
+    color: #352525;
+    font-size: 18px;
+    font-weight: bold;
+    font-variant: small-caps;
+}
+#subtext {
+    color: #3c280f;
+    font-size: 16px;
+}
+/*User Header*/
+i#user{
+  color:#fcac46;
+}
+/*app*/
+#Main_Title{
+  font-size: 34px;
+  font-style: italic;
+  color: #fcac48;
+  font-weight: bolder;
+}

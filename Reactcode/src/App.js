@@ -29,11 +29,35 @@ class App extends Component {
     <Header />
     <div id="home">
     <div id="tf-home" className="text-center">
+    <div><span id="Main_Title" className="text-center">Hungry??<br/>  Find your favourite Bistro...</span></div>
     <SearchComponent />
         <div className="overlay">
                 <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
         </div>
+
+   <div id="carouselExampleControls" className="carousel slide" data-ride="carousel" data-interval="3000">
+  <div className="carousel-inner" role="listbox">
+    <div className="carousel-item active">
+      <img className="d-block img-fluid" src={require('./images/bf.jpg')} alt="First slide"/>
     </div>
+    <div className="carousel-item">
+      <img className="d-block img-fluid" src={require('./images/fd.jpg')} alt="Second slide"/>
+    </div>
+    <div className="carousel-item">
+      <img className="d-block img-fluid" src={require('./images/bb.jpg')} alt="Third slide"/>
+    </div>
+  </div>
+  <a className="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="sr-only">Previous</span>
+  </a>
+  <a className="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="sr-only">Next</span>
+  </a>
+</div>
+
+   </div>
     <div id="ss">
     <Collection />
 

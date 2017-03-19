@@ -58,13 +58,11 @@ componentWillReceiveProps(nextProps){
   console.log(data1);
 
 });
-
-  }
-
+}
   render() {
     return (
-      <div>
-        <div id="map" style={{height:"640px",width:"1120px"}}></div>
+      <div >
+        <div id="map" style={{height:"600px"}}></div>
       </div>
     );
   }

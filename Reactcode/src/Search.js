@@ -37,12 +37,13 @@ componentWillReceiveProps(nextProps){
 
 
 
-
-
-  if(window.sessionStorage.getItem('token')){
-
-          for(var i=0;i<this.props.params.count;i++){
-         fetch("http://localhost:9000/filter?keyword="+this.props.params.key)
+var key1=this.props.params.key;
+var recvd_name=window.sessionStorage.getItem('name');
+console.log(recvd_name);
+if(this.props.params.count1!=0){
+  if(recvd_name){
+      for(var i=1;i<=this.props.params.count1;i++){
+         fetch("http://localhost:9000/filter?keyword="+key1)
            .then((response) => response.json())
                  .then((responseJson) => {
                     this.setState({
@@ -53,9 +54,10 @@ componentWillReceiveProps(nextProps){
                   document.getElementById('PopularList').style.display='block';
                  document.getElementById('badsrch').style.display='none';
                });
-}
+          }
 }
 
+}
 }
 
 handleRest(id)
@@ -87,11 +89,15 @@ render() {
  {window.sessionStorage.getItem('token') ? <UserHeader /> : <Header />}
 
 <SearchComponent/>
-   <div id="searchlist" >
+   <div id="searchlist">
      <div className="restaurant-container">
-         <Filters filtercoll={this.coll.bind(this)} s={this.props.params.s}/>
-         <div id="cardrow" className="row">
-         <div className="card-columns" id="srch">{
+
+       <div id="cardrow" className="row">
+          <div className="col-md-2">
+            <Filters filtercoll={this.coll.bind(this)} s={this.props.params.s}/>
+         </div>
+         <div className="col-md-5">
+         <div className="card-columns" id="srch1">{
              this.state.data.map((data, index)=>{
                return (
                  <div id="srchcard" className="card w-100">
@@ -99,11 +105,12 @@ render() {
                      <div className="col-md-6">
                        <img id="srchimg" src={data[7]} id="srchimg" alt="Card image cap"/>
                      </div>
-                     <div className="col-md-6" id="srchcard1">
+                     <div className="col-md-6" id="srchcard2">
                          <div className="card-top">
-                           <h5 className="card-subtitle">{data[10]}</h5>
-                           <p className="card-text"> Area: {data[2]}</p>
-                           <p className="card-text">  Working Hours: {data[12]}</p>
+                           <h5 className="card-subtitle"><span id="stext"> {data[10]}</span></h5><br/>
+                           <p className="card-text">
+                           <span id="subtext"> {data[2]}<br/>
+                                {data[12]}</span></p>
                          </div><hr/>
                          <div className="card-bottom" id="srch">
                            <button type="button" className="btn btn-warning btn-sm"  style={{float:"right"}} onClick={()=>this.handleRest(data[0])}>View</button>
@@ -115,44 +122,42 @@ render() {
            })
          }
      </div>
-    </div>
-  </div>
-    <div id="badsrch" style={{display: 'none'}}>
-        <h3><i className="fa fa-frown-o fa-3x" aria-hidden="true"></i> No Results Found!!</h3>
-    </div>
-      <div id="PopularList" style={{display: 'none'}}>
-       <div className="restaurant-container1">
-        <h3 className="w3-center w3-animate-top"><strong>Popular</strong> Searches</h3>
-        <hr />
-        <div id="cardrow" className="row">
-         <div className="card-columns" id="srch">{
-             this.state.data1.map((data, index)=>{
-               return (
-                 <div id="srchcard" className="card w-100">
-                   <div className="row" id="srch">
-                     <div className="col-md-6">
-                       <img id="srchimg" src={data[7]} id="srchimg" alt="Card image cap"/>
-                     </div>
-                     <div className="col-md-6" id="srchcard1">
-                         <div className="card-top">
-                           <h5 className="card-subtitle">{data[10]}</h5>
-                           <p className="card-text"> Area: {data[2]}</p>
-                           <p className="card-text">  Working Hours: {data[12]}</p>
-                         </div><hr/>
-                         <div className="card-bottom" id="srch">
-                           <button type="button" className="btn btn-warning btn-sm"  style={{float:"right"}} onClick={()=>this.handleRest(data[0])}>View</button>
-                         </div>
-                   </div>
-                 </div>
-               </div>
-             )
-           })
-         }
-         </div>
-       </div>
-       </div>
+     <div id="badsrch" style={{display: 'none'}}>
+         <h3><i className="fa fa-frown-o fa-3x" aria-hidden="true"></i> No Results Found!!</h3>
      </div>
 
+     </div>
+    <div className="col-md-2" id="PopularList"  style={{display: 'none'}}>
+     <div className="card card-block">
+       <h3 className="w3-center"><strong>Recommendations</strong> for you</h3>
+       {
+         this.state.data1.map((data, index)=>{
+           return (
+
+                      <ul>
+                       <div className="card card-block" id="redirect">
+                         <li className="media">
+                           <a onClick={()=>this.handleRest(data[0])}><img className="d-flex " src={data[7]} height="100px" width="110px" alt="Generic placeholder image"/></a>
+                           <div className="media-body">
+                                <p className="card-text"><h5 className="mt-0 mb-1">{data[10]}</h5>
+                                   <span id="ptext">{data[2]}
+                                   </span>
+                                </p>
+                             </div>
+
+                         </li>
+                         </div>
+                       </ul>
+
+         )
+       })
+     }
+
+      </div>
+     </div>
+    </div>
+
+  </div>
 
  </div>
 

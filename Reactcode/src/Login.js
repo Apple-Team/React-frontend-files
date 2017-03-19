@@ -86,9 +86,9 @@ toggle1() {
 
   render() {
     return (
-      <div id="tf-home">
+      <div>
       <Header />
-        <div className="container1">
+        <div className="container1" id="tf-home">
 
             <section>
                 <div id="container1_demo" >

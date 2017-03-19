@@ -558,6 +558,9 @@ validateLong(ev){
     <button type="button" className="btn btn-warning btn-sm" onClick={this.getLoc}>Get LatLong</button>
 
   </div>
+
+  <br />
+  
   <img src={this.state.imgSrc}  />
 
 </div>
