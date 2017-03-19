@@ -24,9 +24,10 @@ class Maps extends Component {
     if(this.props.lati)
       this.handleMap();
     return (
-      <div style={{height:"100%",width:"100%"}}>
-      <div id="map" style={{height:"422px"}}> </div>
-     </div>
+
+      <div id="map" style={{height:"422px",width:"460px"}}>
+
+      </div>
     );
   }
 }
