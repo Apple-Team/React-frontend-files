@@ -7,7 +7,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
 import './Signup.css';
 import Admin from './Admin';
 
-
+var adob;
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
 
@@ -30,27 +30,33 @@ class UserHeader extends Component {
    });
  }
 componentWillMount(){
-
+  var that=this;
   fetch("http://localhost:9000/images/5498f7c0-ca2f-44b4-826c-0deb07521b20")
-	.then(function(response) {
-	  return response.blob();
-	})
-	.then(function(imageBlob) {
-	  document.getElementById('logo').src = URL.createObjectURL(imageBlob);
-	});
+  .then(function(response) {
+    return response.blob();
+  })
+  .then(function(imageBlob) {
+    document.getElementById('logo').src = URL.createObjectURL(imageBlob);
+  });
 
   var tok=window.sessionStorage.getItem('token');
    var id=window.sessionStorage.getItem('uid');
   fetch("http://localhost:9000/members/"+id)
   .then((response) => response.json())
        .then((responseJson) => {
-          this.setState({
+          that.setState({
            get_data: responseJson
 
           });
-    });
-       console.log(this.state.get_data);
+    }).then(function(e){
+      var d = new Date(that.state.get_data.dob);
+      adob=d.getFullYear() + '-' + ("0" + (d.getMonth() + 1)).slice(-2) + '-' + ("0" + d.getDate()).slice(-2);
+       console.log(adob);
+       if(adob=='1970-1-1')
+        adob='';
+       });
  }
+
   handleLogout(){
       console.log(window.sessionStorage.getItem('token'));
       window.sessionStorage.removeItem('token');
@@ -76,7 +82,7 @@ componentWillMount(){
     var tok=window.sessionStorage.getItem('token');
     var id=window.sessionStorage.getItem('uid');
 
- console.log(document.getElementById('bday').value);
+ //console.log(document.getElementById('bday').value);
    fetch('http://localhost:9000/update_members/'+ id,
      {
        headers :{
@@ -114,7 +120,7 @@ return(
       <Navbar fixed="top" toggleable>
           <NavbarToggler right onClick={this.toggle1}><i className="fa fa-bars fa-2x" aria-hidden="true"></i></NavbarToggler>
           <NavbarBrand href="/">
-          <img id="logo" width="60" height="60" className="d-inline-block align-center" />FindO Bistro</NavbarBrand>
+          <img id="logo" width="60" height="60" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
@@ -133,9 +139,7 @@ return(
                   </PopoverTitle>
                   <PopoverContent>
                     <div >
-
                       <p className="w3-center"><img src={require('./images/avatar3.png')} className="w3-circle" style={{height:"106px",width:"106px"}} alt="Avatar"/></p>
-
                       <p className="w3-center">{this.state.get_data.name}</p>
                       <hr/>
                       
@@ -148,7 +152,7 @@ return(
                       <div className="form-group row">
                         <label for="example-text-input" className="col-2 col-form-label"><i className="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i></label>
                         <div className="col-8">
-                          <input type="text"  className="form-control"  value={this.state.get_data.dob} onChange={this.handleChange} id="bday"/>
+                          <input type="text"  className="form-control"  value={adob} onChange={this.handleChange} id="bday"/>
                         </div>
                       </div>
                       <div className="form-group row">
@@ -167,22 +171,17 @@ return(
                             <button type="button" id="logout1" className="btn btn-secondary" onClick={this.handleLogout}><i className="fa fa-sign-out" aria-hidden="true">LOGOUT</i></button>
                           </div>
                      </div>
-
                     </div>
                   <br/>
                   </PopoverContent>
                 </Popover>
               </NavItem>
-
             </Nav>
           </Collapse>
         </Navbar>
   </div>
   </div>
-
     );
-
    }
  }
-
 export default UserHeader;
