@@ -17,8 +17,8 @@ class UserHome extends Component {
     super();
     this.state = { data: [] };
   }
-  componentWillReceiveProps(nextProps){
-     document.getElementById('bdaycard').style.display="none";
+  componentWillMount(){
+    
     var that=this;
      var tok=window.sessionStorage.getItem('token');
     fetch("http://localhost:9000/users/users_dob",
@@ -30,12 +30,12 @@ class UserHome extends Component {
     }).then(response=>{
           if(200==response.status){
             response.json().then((data)=>{
-                  this.setState({
+                  that.setState({
                     data: data
                   });
-                });
-
-
+                });         
+          
+       
      console.log(that.state.data);
      document.getElementById('bdaycard').style.display="block";
      }
@@ -48,8 +48,6 @@ class UserHome extends Component {
  hashHistory.push('/Restaurant_detail/'+id)
 }
      render() {
-        var that=this;
-       console.log(that.state.data.name);
       return (
         <div id="dd">
          <UserHeader />
@@ -61,31 +59,31 @@ class UserHome extends Component {
              </div>
          </div>
          <div id="ss" >
-            <div id="bdaycard">
+            <div id="bdaycard" style={{display:"none"}}>
               <div className="col" >
-
+           
               <b><i style={{padding:"100px 100px 50px 50px",fontSize:"24px",float:"left",color:"#fff"}}> Happy Birthday!!<br/> We Found a Best place to Celebrate your Birthday </i></b>
               </div>
 
-              <div className="col" style={{paddingTop:"40px",paddingLeft:"100px"}}>
+              <div className="col" style={{paddingTop:"40px"}}>
                 <div id="srchcard"  className="card w-100 text-center">
                    <div className="row" id="srch">
                      <div className="col-md-6">
-                       <img id="srchimg" src={that.state.data.image} id="srchimg" alt="Card image cap"/>
+                       <img id="srchimg" src={this.state.data.image} id="srchimg" alt="Card image cap"/>
                      </div>
                      <div className="col-md-6" id="srchcard1">
                          <div className="card-top">
-                           <h5 className="card-subtitle">{that.state.data.name}</h5>
-                           <p className="card-text"> Area: {that.state.data.area}</p>
-                           <p className="card-text">  Working Hours: {that.state.data.workHours}</p>
+                           <h5 className="card-subtitle">{this.state.data.name}</h5>
+                           <p className="card-text"> Area: {this.state.data.area}</p>
+                           <p className="card-text">  Working Hours: {this.state.data.workHours}</p>
                          </div><hr/>
                          <div className="card-bottom" id="srch">
-                           <button type="button" className="btn btn-warning btn-sm"  style={{float:"right"}} onClick={()=>that.handleRest(that.state.data.id)}>View</button>
+                           <button type="button" className="btn btn-warning btn-sm"  style={{float:"right"}} onClick={()=>this.handleRest(this.state.data.id)}>View</button>
                          </div>
                      </div>
                    </div>
                 </div>
-
+              
              </div>
              </div>
             <Collection />

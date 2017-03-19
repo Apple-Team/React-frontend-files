@@ -69,14 +69,14 @@ class Signup extends Component {
   validateEmail(ev){
    var email = document.getElementById("emailsignup");
    var mailformat =/^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
-  if(email.value.match(mailformat)) {
+  if(!email.value.match(mailformat)) {
     this.setState({
-      popoverOpen2:false
+      popoverOpen2:true
     });
   } 
   else {
     this.setState({
-      popoverOpen2:true
+      popoverOpen2:false
     });
   }
   console.log(this.state.popoverOpen2);
@@ -182,6 +182,11 @@ class Signup extends Component {
      }).then(response=>{
        if(200==response.status){
           document.getElementById('Ack').style.display="block";
+          document.getElementById('Ack2').style.display="none";
+            }
+            else if(400==response.status){
+              document.getElementById('Ack').style.display="none";
+              document.getElementById('Ack2').style.display="block";
             }
       }).catch(function (error) {
             document.getElementById('Ack1').style.display="block";
@@ -205,6 +210,9 @@ else{
           </div>
           <div id="Ack1" style={{display: 'none'}}>
               <h3> Sorry.. <i className="fa fa-frown-o" aria-hidden="true"></i> Something went wrong! Try Signing up again</h3>
+          </div>
+          <div id="Ack2" style={{display: 'none'}}>
+              <h3> Sorry.. <i className="fa fa-frown-o" aria-hidden="true"></i> Username already exists!</h3>
           </div>
           <br />
             <section>
