@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Link,hashHistory} from 'react-router';
 import { Button, Popover, PopoverTitle, PopoverContent } from 'reactstrap';
-import StaticMap from './StaticMap';
 import AdminHeader from './AdminHeader';
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.

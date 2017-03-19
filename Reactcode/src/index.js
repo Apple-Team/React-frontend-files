@@ -35,7 +35,6 @@ import ViewCollection from './ViewCollection';
 import AddCollection from './AddCollection';
 
 import Maps from './Maps';
-import StaticMap from './StaticMap';
 import MapDirections from './MapDirections';
 import UnAuth from './UnAuth';
 
@@ -52,7 +51,6 @@ ReactDOM.render(
  	  <Route path="/Login" component={Login}/>
  	  <Route path="/Signup" component={Signup}/>
  	  <Route path="/map" component={Maps}/>
- 	  <Route path="/StaticMap" component={StaticMap}/>
  	  <Route path="/Logout" component={Logout}/>
  	  <Route path="/Search/:s/:key/:count1" component={Search}/>
     <Route path="/Search/:s" component={Search}/>

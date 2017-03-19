@@ -11,7 +11,7 @@ var MainView = React.createClass({
             width: 380,
             layout: 'classic',
             ease: 'linear',
-            duration: 400
+            duration: 800
         };
     },
     componentWillMount: function () {

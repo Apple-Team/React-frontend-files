@@ -32,12 +32,12 @@ class UserHeader extends Component {
 componentWillMount(){
   var that=this;
   fetch("http://localhost:9000/images/5498f7c0-ca2f-44b4-826c-0deb07521b20")
-  .then(function(response) {
-    return response.blob();
-  })
-  .then(function(imageBlob) {
-    document.getElementById('logo').src = URL.createObjectURL(imageBlob);
-  });
+	.then(function(response) {
+	  return response.blob();
+	})
+	.then(function(imageBlob) {
+	  document.getElementById('logo').src = URL.createObjectURL(imageBlob);
+	});
 
   var tok=window.sessionStorage.getItem('token');
    var id=window.sessionStorage.getItem('uid');
@@ -91,6 +91,7 @@ componentWillMount(){
        },
      method: "PUT",
      body: JSON.stringify({ 
+                             "pwd":this.state.get_data.pwd,
                             "email": document.getElementById('email').value,
                             "dob": document.getElementById('bday').value,
                             "user_Address": document.getElementById('address').value,
@@ -117,10 +118,10 @@ return(
   <div>
   <div className="tf-nav">
 
-      <Navbar fixed="top" toggleable>
-          <NavbarToggler right onClick={this.toggle1}><i className="fa fa-bars fa-2x" aria-hidden="true"></i></NavbarToggler>
+      <Navbar toggleable id="Header">
+          <NavbarToggler right onClick={this.toggle1}><i className="fa fa-bars fa-2x" style={{color:"#fcac46"}} aria-hidden="true"></i></NavbarToggler>
           <NavbarBrand href="/">
-          <img id="logo" width="60" height="60" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
+          <img id="logo" width="50" height="50" className="d-inline-block align-center" />FindO Bistro</NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
@@ -130,19 +131,23 @@ return(
                 <NavLink href="#tf-collection"><b>Collections</b></NavLink>
               </NavItem>
               <NavItem>
-                <Button id="Popover1" style={{backgroundColor:"transparent",borderColor:"transparent"}}  onClick={this.toggle} >
-                  <i  className="fa fa-user-circle-o" aria-hidden="true"></i>
+                <Button id="Popover1" style={{color:"#fcac46",backgroundColor:"transparent",borderColor:"transparent"}}  onClick={this.toggle} >
+                  <i  className="fa fa-user-circle-o" id="user" aria-hidden="true"></i>
                 </Button>
                 <Popover placement="bottom right" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
-                  <PopoverTitle>
-                  My Profile
-                  </PopoverTitle>
+                 <PopoverTitle className="w3-center">
+                  <b>My Profile</b>
+                </PopoverTitle>
+
+                  
                   <PopoverContent>
                     <div >
+
                       <p className="w3-center"><img src={require('./images/avatar3.png')} className="w3-circle" style={{height:"106px",width:"106px"}} alt="Avatar"/></p>
+
                       <p className="w3-center">{this.state.get_data.name}</p>
                       <hr/>
-                      
+
                       <div className="form-group row">
                         <label for="example-text-input" className="col-2 col-form-label"><i className="fa fa-envelope-o" aria-hidden="true"></i></label>
                         <div className="col-8">
@@ -166,22 +171,22 @@ return(
                            <button type="button" className="btn btn-warning" onClick={() => this.handleUpdate(this.state.get_data.id)}>Submit</button>
                          </div>
                      </div>
-                      <div className="form-group-row">
-                         <div className="col-8">
-                            <button type="button" id="logout1" className="btn btn-secondary" onClick={this.handleLogout}><i className="fa fa-sign-out" aria-hidden="true">LOGOUT</i></button>
-                          </div>
-                     </div>
-                    </div>
-                  <br/>
-                  </PopoverContent>
+                   </div>
+                  <hr/>
+                  <button type="button" id="logout1" style={{float:"right"}} className="btn btn-secondary" onClick={this.handleLogout}><i className="fa fa-sign-out" aria-hidden="true">LOGOUT</i></button>
+                 </PopoverContent>
                 </Popover>
               </NavItem>
+
             </Nav>
           </Collapse>
         </Navbar>
   </div>
   </div>
+
     );
+
    }
  }
+
 export default UserHeader;

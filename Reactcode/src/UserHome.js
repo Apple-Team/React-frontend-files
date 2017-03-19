@@ -17,8 +17,8 @@ class UserHome extends Component {
     super();
     this.state = { data: [] };
   }
-  componentWillMount(){
-    
+  componentWillReceiveProps(nextProps){
+     document.getElementById('bdaycard').style.display="none";
     var that=this;
      var tok=window.sessionStorage.getItem('token');
     fetch("http://localhost:9000/users/users_dob",
@@ -30,12 +30,12 @@ class UserHome extends Component {
     }).then(response=>{
           if(200==response.status){
             response.json().then((data)=>{
-                  that.setState({
+                  this.setState({
                     data: data
                   });
-                });         
-          
-       
+                });
+
+
      console.log(that.state.data);
      document.getElementById('bdaycard').style.display="block";
      }
@@ -48,47 +48,38 @@ class UserHome extends Component {
  hashHistory.push('/Restaurant_detail/'+id)
 }
      render() {
+        var that=this;
+       console.log(that.state.data.name);
       return (
         <div id="dd">
          <UserHeader />
          <div id="home">
          <div id="tf-home" className="text-center">
          <SearchComponent />
+             
+        
+            <div id="bdaycard" className="row">
+              <div className="col col-md-10" >
+                 <b><i style={{padding:"100px 100px 50px 50px",fontSize:"24px",float:"left",color:"#fff"}}> Happy Birthday!!<br/> We Found a Best place to Celebrate your Birthday </i></b>
+              </div>
+              <div className="col" style={{paddingTop:"30px",paddingRight:"10px"}}>           
+                  <div className="card">
+                      <img className="card-img-top image-fluid" src={this.state.data.image} style={{height:"10rem"}} alt="Card image cap"/>
+                      <div className="card-block">
+                        <div className="card-subtitle"><b>{this.state.data.name}</b></div><br/>                       
+                        {this.state.data.area}
+                         <button type="button" className="btn btn-warning btn-sm"  style={{float:"right"}} onClick={()=>that.handleRest(that.state.data.id)}>View</button>
+                       </div>                   
+                  </div>
+              </div>
+             </div>              
              <div className="overlay">
                      <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
-             </div>
-         </div>
-         <div id="ss" >
-            <div id="bdaycard" style={{display:"none"}}>
-              <div className="col" >
-           
-              <b><i style={{padding:"100px 100px 50px 50px",fontSize:"24px",float:"left",color:"#fff"}}> Happy Birthday!!<br/> We Found a Best place to Celebrate your Birthday </i></b>
-              </div>
-
-              <div className="col" style={{paddingTop:"40px"}}>
-                <div id="srchcard"  className="card w-100 text-center">
-                   <div className="row" id="srch">
-                     <div className="col-md-6">
-                       <img id="srchimg" src={this.state.data.image} id="srchimg" alt="Card image cap"/>
-                     </div>
-                     <div className="col-md-6" id="srchcard1">
-                         <div className="card-top">
-                           <h5 className="card-subtitle">{this.state.data.name}</h5>
-                           <p className="card-text"> Area: {this.state.data.area}</p>
-                           <p className="card-text">  Working Hours: {this.state.data.workHours}</p>
-                         </div><hr/>
-                         <div className="card-bottom" id="srch">
-                           <button type="button" className="btn btn-warning btn-sm"  style={{float:"right"}} onClick={()=>this.handleRest(this.state.data.id)}>View</button>
-                         </div>
-                     </div>
-                   </div>
-                </div>
-              
              </div>
              </div>
             <Collection />
             <div className="text-center"><a href="#tf-home" className="fa fa-angle-up fa-3x"></a></div>
-         </div>
+         
          <Footer />
          </div>
        </div>

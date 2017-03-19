@@ -1,7 +1,7 @@
 module.exports = [
-    '/images/avatar3.png',
-    'http://s21.postimg.org/er8b066p3/zen2.jpg',
-    'http://s4.postimg.org/6mbbcgmwd/zen1.jpg',
+    "/src/images/r.jpeg",
+    "/src/images/1.png",
+    "/src/images/2.png",
     'http://s30.postimg.org/x3cgpdtgx/zen3.jpg',
     'http://s21.postimg.org/h1estw95z/zen4.jpg',
     'http://s8.postimg.org/upypfrk8l/zen5.jpg',

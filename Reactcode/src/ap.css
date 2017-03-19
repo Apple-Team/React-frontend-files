@@ -1,6 +1,6 @@
 
 #content {
-  width: 400px;
+  width: 1400px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
@@ -12,22 +12,22 @@ margin: 0
     width: 400px;
     height: 300px;
     position: relative;
-    perspective: 1000px;
+    perspective: 1200px;
 }
 
 .react-3d-carousel .carousel {
     margin-left: 100px;
     width: 150%;
     height: 150%;
-    position: absolute;
+    position: relative;
     transform-style: preserve-3d;
 }
 
 .react-3d-carousel .carousel  figure {
     display: block;
     position: absolute;
-    width: 400px;
-    height: 300px;
+    width: 890px;
+    height: 490px;
 
     top: 20%;
     border: 2px solid black;
@@ -52,12 +52,12 @@ margin: 0
     position: absolute;
     height: 100%;
     width: 15%;
-    top: 80px;
+    top: 160px;
     left: 100px;
 }
 
 .react-3d-carousel   .prev:before {
-   content: url("http://s3.postimg.org/o6xpvkidb/chevron_left_white.png");
+   /*content: url("http://s3.postimg.org/o6xpvkidb/chevron_left_white.png");*/
     position: absolute;
     top: 0;
     bottom: 0;
@@ -72,12 +72,12 @@ margin: 0
     position: absolute;
     height: 100%;
     width: 15%;
-    top: 80px;
-    right: -85px;
+    top: 160px;
+    left:910px;
 }
 .react-3d-carousel  .next:before
 {
-    content: url("http://s2.postimg.org/l0n6eaoad/chevron_right_white.png");
+    /*content: url("http://s2.postimg.org/l0n6eaoad/chevron_right_white.png");*/
     position: absolute;
     top: 0;
     bottom: 0;
