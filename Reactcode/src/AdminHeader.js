@@ -30,7 +30,7 @@ return(
 <Navbar  toggleable id="adminHeader">
    <NavbarToggler right onClick={this.toggle} ><i className="fa fa-bars fa-2x" style={{color:"#fcac46"}} aria-hidden="true"></i></NavbarToggler>
        <NavbarBrand href="/">
-         <img src={require('./images/logo.png')} width="80" height="80" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
+         <img src={require('./images/logo.png')} width="50" height="50" className="d-inline-block align-center" />Find'O Bistro</NavbarBrand>
          <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>

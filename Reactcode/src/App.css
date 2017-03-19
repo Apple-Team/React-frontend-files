@@ -19,7 +19,7 @@ body, html {
 }
 /* Navigation */
 
-.navbar {
+#Header.navbar {
   background-color:#000000;
  
   }
@@ -190,7 +190,7 @@ Navbar > NavItem:active{
   background-size: cover;  background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  color: #cfcfcf;
+  background-color: #cfcfcf;
   padding-top: 50px;
 }
 
@@ -542,7 +542,7 @@ form.modal-content.animate{
   padding-left: 30%;
 }
 #bdaycard{
-  background: url(images/bday1.jpg);
+  background: url(images/bday2.jpg);
    background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -584,4 +584,10 @@ i#user{
   font-style: italic;
   color: #fcac48;
   font-weight: bolder;
+}
+a{
+  color:#fcac46;
+}
+a:hover{
+  color:#fcac46;
 }

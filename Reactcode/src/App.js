@@ -6,11 +6,13 @@ import Footer from './Footer';
 import Header from './Header';
 import Search from './Search';
 import NearBy from './NearBy';
+import MainView from './MainView';
 import SearchComponent from './SearchComponent';
 import { Button, Popover, PopoverTitle, PopoverContent } from 'reactstrap';
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 
 import './App.css';
+
 
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
@@ -34,7 +36,10 @@ class App extends Component {
         <div className="overlay">
                 <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
         </div>
-
+        <div id="carousel">
+          <MainView />
+        </div>
+        
    </div>
     <div id="ss">
     <Collection />

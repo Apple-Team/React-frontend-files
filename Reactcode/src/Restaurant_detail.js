@@ -65,7 +65,7 @@ class Restaurant_detail extends Component {
 
   return (
   <div>
-   <Header/>
+   
     <div id="detailRest" style={{height:"100%",width:"100%"}}>
 
         <div className="container" id="searchrest" >
