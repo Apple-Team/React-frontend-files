@@ -13,6 +13,7 @@ class Filters extends Component {
        data: [],filter_data:[],check:''};
     this.handleFilter=this.handleFilter.bind(this);
     this.handleFilters=this.handleFilters.bind(this);
+    this.handleRemove=this.handleRemove.bind(this);
   }
 
   componentDidMount(){
@@ -51,27 +52,31 @@ class Filters extends Component {
      that.state.colltn=e.currentTarget.value;
      this.handleFilters();
 }
+handleParams1(ot) {
+    console.log(ot);
+    i=ot;
+    this.handleFilters();
+}
+
 handleFilters(e){
 
      var that=this;
      var cf='';
      that.state.check=document.getElementById('delivery').checked;
 
-     console.log(that.state.check);
-
-      if(that.state.check==true)
+      if(that.state.check==true){
           that.state.check='1';
-      else that.state.check='0';
+            cf+='&delivery=1'
+        }
+      else
+         that.state.check='0';
+      console.log(that.state.check);
      console.log(that.state.colltn);
 
       that.state.filter=[
         {
         key:'&collection=',
         value:that.state.colltn
-        },
-        {
-        key:'&delivery=',
-        value:that.state.check
         },
         {
         key:'&cost1=',
@@ -98,6 +103,7 @@ handleFilters(e){
           console.log(cf);
       }
     }
+
     /* if(that.state.check=='1'){
         cf=that.props.s+"&delivery="+that.state.check;
       }
@@ -150,7 +156,7 @@ handleFilters(e){
 
 
 
-    fetch("http://localhost:9000/filter?keyword="+that.props.s+cf)
+    fetch("http://localhost:9000/filter_restaurants?keyword="+that.props.s+cf)
     .then((response) => response.json())
      .then((responseJson) => {
         that.setState({
@@ -163,17 +169,28 @@ handleFilters(e){
        });
 
   }
-  handleRemove(){
-    console.log('hh');
-    this.state.colltn='';
-    document.getElementById("collection").checked=false;
+  handleRemove(e){
+
+    console.log('Remove');
+    document.getElementById('delivery').checked=false;
+    document.getElementById('collection').checked=false;
+    document.getElementById("otime").value='0';
+    document.getElementById("cost").value='0';
+    //document.getElementById("collection").checked=false;
+    this.setState({
+    check: !this.state.check,
+      colltn: !this.state.colltn
+    });
+    i='';
+    c1='';
+    c2='';
   }
 
    render() {
       return (
          <div>
             <div className="card"  id="filtersrch" >
-          <h4 className="card-subtitle">Refine your Search</h4><hr/>
+          <h4 className="card-subtitle">Refine your Search</h4><i id="ptext"><a onClick={this.handleRemove.bind(this)}>Remove</a></i><hr/>
           <h5 className="card-text" style={{paddingLeft:"1px"}}> Collections </h5>
           <div style={{paddingLeft:"2px"}}>{
           this.state.data.map((data,index)=>{
@@ -181,16 +198,16 @@ handleFilters(e){
           <FormGroup tag="fieldset">
            <FormGroup check>
             <Label check>
-              <Input type="radio" name="radio" id="collection" value={data.collection}  onChange={this.handleFilter.bind(this)}/>{' '}
+              <Input type="radio" name="radio" id="collection" value={data.collection} checked={this.state.colltn === data.collection} onChange={this.handleFilter.bind(this)}/>{' '}
             {data.collection}
             </Label>
           </FormGroup>
         </FormGroup>)}
         )}
       </div><hr/>
-         <h5 className="card-text" style={{paddingLeft:"1px"}}> Cost </h5>
-            <Filters1 filter={this.handleParams.bind(this)}/>
-            <hr/>
+
+            <Filters1 filter={this.handleParams.bind(this)} filter1={this.handleParams1.bind(this)}/><br/>
+
             <button type="button" className="btn btn-warning btn-sm" onClick={this.handleTime.bind(this)}>Open Now</button>&nbsp;
             <hr/>
             <FormGroup check>

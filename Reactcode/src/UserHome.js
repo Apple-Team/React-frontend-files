@@ -17,8 +17,8 @@ class UserHome extends Component {
     super();
     this.state = { data: [] };
   }
-  componentWillReceiveProps(nextProps){
-     document.getElementById('bdaycard').style.display="none";
+  componentDidMount(){
+
     var that=this;
      var tok=window.sessionStorage.getItem('token');
     fetch("http://localhost:9000/users/users_dob",
@@ -30,14 +30,17 @@ class UserHome extends Component {
     }).then(response=>{
           if(200==response.status){
             response.json().then((data)=>{
-                  this.setState({
+                  that.setState({
                     data: data
                   });
+                }).then(function(ev){
+                  if(that.state.data)
+                  document.getElementById('bdaycard').style.display="block";
                 });
 
 
      console.log(that.state.data);
-     document.getElementById('bdaycard').style.display="block";
+
      }
   });
 }
@@ -48,38 +51,38 @@ class UserHome extends Component {
  hashHistory.push('/Restaurant_detail/'+id)
 }
      render() {
-        var that=this;
-       console.log(that.state.data.name);
+
+       console.log(this.state.data.name);
       return (
         <div id="dd">
          <UserHeader />
          <div id="home">
          <div id="tf-home" className="text-center">
          <SearchComponent />
-             
-        
-            <div id="bdaycard" className="row">
+
+
+            <div id="bdaycard" className="row" style={{display:"none"}}>
               <div className="col col-md-10" >
                  <b><i style={{padding:"100px 100px 50px 50px",fontSize:"24px",float:"left",color:"#fff"}}> Happy Birthday!!<br/> We Found a Best place to Celebrate your Birthday </i></b>
               </div>
-              <div className="col" style={{paddingTop:"30px",paddingRight:"10px"}}>           
+              <div className="col" style={{paddingTop:"30px",paddingRight:"10px"}}>
                   <div className="card">
                       <img className="card-img-top image-fluid" src={this.state.data.image} style={{height:"10rem"}} alt="Card image cap"/>
                       <div className="card-block">
-                        <div className="card-subtitle"><b>{this.state.data.name}</b></div><br/>                       
+                        <div className="card-subtitle"><b>{this.state.data.name}</b></div><br/>
                         {this.state.data.area}
-                         <button type="button" className="btn btn-warning btn-sm"  style={{float:"right"}} onClick={()=>that.handleRest(that.state.data.id)}>View</button>
-                       </div>                   
+                         <button type="button" className="btn btn-warning btn-sm"  style={{float:"right"}} onClick={()=>this.handleRest(this.state.data.id)}>View</button>
+                       </div>
                   </div>
               </div>
-             </div>              
+             </div>
              <div className="overlay">
                      <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
              </div>
              </div>
             <Collection />
             <div className="text-center"><a href="#tf-home" className="fa fa-angle-up fa-3x"></a></div>
-         
+
          <Footer />
          </div>
        </div>

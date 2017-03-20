@@ -52,7 +52,7 @@ componentWillMount(){
       var d = new Date(that.state.get_data.dob);
       adob=d.getFullYear() + '-' + ("0" + (d.getMonth() + 1)).slice(-2) + '-' + ("0" + d.getDate()).slice(-2);
        console.log(adob);
-       if(adob=='1970-1-1')
+       if(adob=='1970-01-01')
         adob='';
        });
  }
@@ -90,8 +90,8 @@ componentWillMount(){
          "Authorization": "Bearer "+tok
        },
      method: "PUT",
-     body: JSON.stringify({ 
-                             "pwd":this.state.get_data.pwd,
+     body: JSON.stringify({
+                            //"pwd":this.state.get_data.pwd,
                             "email": document.getElementById('email').value,
                             "dob": document.getElementById('bday').value,
                             "user_Address": document.getElementById('address').value,
@@ -139,7 +139,7 @@ return(
                   <b>My Profile</b>
                 </PopoverTitle>
 
-                  
+
                   <PopoverContent>
                     <div >
 
