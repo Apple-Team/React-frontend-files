@@ -67,8 +67,9 @@ ReactDOM.render(
     <Route path="/AdminHeader" component={AdminHeader}/>
     <Route path="/AckHeader" component={AckHeader}/>
     <Route path="/UserHome" component={UserHome}/>
+    <Route path="/UserHeader" component={UserHeader}/>
     <Route path="/UnAuth" component={UnAuth}/>
-
+    <Route path="/Admin" component={Admin}/>
 	  <Route path="/Admin/:name" component={Admin}>
 	  		<Route path="/ViewRest" component={ViewRest}/>
 	    	<Route path="/AddRest" component={AddRest}/>

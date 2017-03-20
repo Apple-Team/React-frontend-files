@@ -18,8 +18,8 @@
 .react-3d-carousel .carousel  figure {
     display: block;
     position: absolute;
-    width: 890px;
-    height: 490px;
+    width: 600px;
+    height: 360px;
 
     top: 20%;
     border: 2px solid black;

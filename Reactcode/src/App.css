@@ -587,7 +587,21 @@ i#user{
 }
 a{
   color:#fcac46;
+  text-decoration: none;
 }
 a:hover{
   color:#fcac46;
+  text-decoration: none;
+}
+a:active{
+  color:#fcac46;
+  text-decoration: none;
+}
+a:visited{
+  color:#fcac46;
+  text-decoration: none;
+}
+#aboutus{
+  font-style: italic;
+
 }

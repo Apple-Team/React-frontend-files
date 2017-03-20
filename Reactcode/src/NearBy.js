@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link,hashHistory} from 'react-router';
 import ReactDOM from 'react-dom';
 import Header from './Header';
+import UserHeader from './UserHeader';
 import Filters from './Filters';
 import SearchComponent from './SearchComponent';
 import { Button, Popover, PopoverTitle, PopoverContent } from 'reactstrap';
@@ -57,7 +58,7 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
 
   return(
     <div id="restlist">
-    <Header />
+    {window.sessionStorage.getItem('token') ? <UserHeader /> : <Header />}
     <SearchComponent/>
   <div  id="searchlist"  className="container">
     <div className="restaurant-container1">

@@ -36,13 +36,19 @@ class App extends Component {
         <div className="overlay">
                 <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
         </div>
-
-
    </div>
 
     <div id="ss">
     <div id="carousel" className="container">
+    <div className="row">
+
+      <div style={{float:"left"}} className="col">
+          <h1 className="w3-display-left w3-animate-left" id="aboutus"> <strong>About Us</strong></h1>
+      </div>
+        <div style={{float:"right"}} className="col">
       <MainView />
+      </div>
+    </div>
     </div>
     <Collection />
 

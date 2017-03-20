@@ -13,7 +13,7 @@ class Admin extends Component {
     super();
 
   }
-  
+
 
 
   // `render` is called whenever the component's props OR state are updated.
@@ -30,7 +30,7 @@ class Admin extends Component {
             <div className="row">
                 <div className="col" id="col2">
                     	<div className="content">
-                				<p><x2>Welcome, {this.props.params.name}!</x2>
+                				<p><x2>Welcome, {window.sessionStorage.getItem('name1')}!</x2>
                 		</p>
                 				</div>
 

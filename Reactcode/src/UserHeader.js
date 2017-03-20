@@ -6,6 +6,7 @@ import { Button, Popover, PopoverTitle, PopoverContent } from 'reactstrap';
 import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } from 'reactstrap';
 import './Signup.css';
 import Admin from './Admin';
+import UserHome from './UserHome';
 
 var adob;
 // webpack.config.js specifies index.js as the entry point, and
@@ -120,8 +121,8 @@ return(
 
       <Navbar toggleable id="Header">
           <NavbarToggler right onClick={this.toggle1}><i className="fa fa-bars fa-2x" style={{color:"#fcac46"}} aria-hidden="true"></i></NavbarToggler>
-          <NavbarBrand href="/">
-          <img id="logo" width="50" height="50" className="d-inline-block align-center" />FindO Bistro</NavbarBrand>
+          <NavbarBrand >
+            <Link to="/UserHome"><img id="logo" width="50" height="50" className="d-inline-block align-center" />Find'O Bistro</Link></NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>

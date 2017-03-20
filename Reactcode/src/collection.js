@@ -42,7 +42,7 @@ return (
         <div className="container">
 
             <div className="w3-container">
-                <h3 className="w3-center w3-animate-top">Take a look at our <strong>Collections</strong></h3>
+                <h3 className="w3-center w3-animate-right">Take a look at our <strong>Collections</strong></h3>
                 <div className="line">
                     <hr />
                 </div>

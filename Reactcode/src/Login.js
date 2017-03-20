@@ -33,7 +33,7 @@ toggle1() {
     });
   }
 
-  
+
 
   handleLogin(){
     var that=this;
@@ -65,8 +65,9 @@ toggle1() {
           }).then(function(e){
                 console.log(that.state.clientData.role);
                 if(that.state.clientData.role=='ADMIN'){
-                  hashHistory.push('/Admin/'+name);
+                  hashHistory.push('/Admin');
                   window.sessionStorage.setItem('token',that.state.clientData.authToken);
+                window.sessionStorage.setItem('name1',that.state.clientData.uname);
                 }
                 else{
                   window.sessionStorage.setItem('token',that.state.clientData.authToken);
