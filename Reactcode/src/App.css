@@ -507,20 +507,18 @@ form.modal-content.animate{
         column-count:2;
      }
 
-     #srch1.card-columns {
-             min-width:inherit;
-             column-count:1;
-          }
+ #srch1.card-columns {
+         min-width:inherit;
+        column-count:1;
+  }
 
 
  #srchcard.card {
        position: relative;
        width:450px!important;
+       margin-bottom: 0.75rem;
  }
- #srchcard2.card {
-       position: relative;
-       width:650px!important;
- }
+
  div#srch.card-block{
    position: relative;
    height: auto;

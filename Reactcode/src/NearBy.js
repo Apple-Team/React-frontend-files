@@ -76,8 +76,8 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
                 <div className="card-top">
                   <h5 className="card-subtitle"><span id="stext"> {data[10]}</span></h5><br/>
                   <p className="card-text">
-                  <span id="subtext"> {data[2]}<br/>
-                       {data[12]}</span></p>
+                  <span id="subtext"> {data[2]}</span><br/>
+                  <span id="subtext"> {data[12]}</span></p>
                 </div><hr/>
                 <div id="srch">
                   <p className="card-text" style={{float:"left"}}>{data[18].toFixed(2)} kms away</p>

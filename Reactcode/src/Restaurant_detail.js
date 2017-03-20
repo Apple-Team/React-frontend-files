@@ -64,12 +64,9 @@ class Restaurant_detail extends Component {
                    hashHistory.push('/UnAuth');
                 }
               }).then(function(e){
-              for(var i=0;i<=this.state.data.length;i++)
-                 {
 
-                   names[i]=this.state.data[0][1];
-                   console.log('names',names[i]);
-               }
+                   console.log(this.state.data[0][1]);
+               
              });
 
     }

@@ -97,7 +97,7 @@ render() {
             <Filters filtercoll={this.coll.bind(this)} s={this.props.params.s}/>
          </div>
          <div className="col-md-5">
-         <div className="card-columns" id="srch1">{
+         <div id="srch1">{
              this.state.data.map((data, index)=>{
                return (
                  <div id="srchcard" className="card w-100">
