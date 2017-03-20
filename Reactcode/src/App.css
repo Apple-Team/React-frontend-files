@@ -184,9 +184,6 @@ Navbar > NavItem:active{
 /* Home Style */
 #tf-home{
   background: url(images/rest2.jpg)  no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
   background-size: cover;  background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
@@ -197,7 +194,7 @@ Navbar > NavItem:active{
     height: 930px;
 }
 #tf-home .overlay{
-
+  
   background-attachment: fixed;
 }
 #tf-home p.lead{
@@ -248,7 +245,6 @@ a.fa.fa-angle-down:hover{
   left:50%;
   transform: translate(-50%,-50%);
   height: 4rem;
-
 }
 div#srchbar.input-group{
   height: 44px;
@@ -281,34 +277,7 @@ ol.type li:after{
 
 ol.type li a{ color: #222222}
 ol.type li a.active { font-weight: 700; }
-.isotope-item { z-index: 2 }
-.isotope-hidden.isotope-item { z-index: 1 }
-.isotope,
-.isotope .isotope-item {
-    /* change duration value to whatever you like */
-    -webkit-transition-duration: 0.8s;
-    -moz-transition-duration: 0.8s;
-    transition-duration: 0.8s;
-}
-.isotope-item {
-    margin-right: -1px;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-}
-.isotope {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transition-property: height, width;
-    -moz-transition-property: height, width;
-    transition-property: height, width;
-}
-.isotope .isotope-item {
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-    -webkit-transition-property: -webkit-transform, opacity;
-    -moz-transition-property: -moz-transform, opacity;
-    transition-property: transform, opacity;
-}
+
 .portfolio-item{
   margin-bottom: 30px;
   max-height: 210px;
@@ -560,16 +529,6 @@ margin-left: 130px;
 #badsrch{
   padding-left: 50%;
 }
-
-#bdaycard{
-  background: url(images/bday2.jpg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  height: 300px;
-  width: all;
-}
 i#ptext{
   cursor:pointer;
 }
@@ -578,6 +537,12 @@ i#ptext{
 }
 #image{
   cursor: pointer;
+}
+
+#random_rest{
+  left:380px;
+  height:200px;
+  width:500px;
 }
 /*popular */
 ul{

@@ -1,5 +1,6 @@
 import React ,{Component} from 'react';
 import ReactDOM from 'react-dom';
+import { Badge } from 'reactstrap';
 import UserHeader from './UserHeader';
 import { Router, Route, hashHistory } from 'react-router';
 import Collection from './collection';
@@ -11,6 +12,7 @@ import MainView from './MainView';
 import SearchComponent from './SearchComponent';
 
 import './App.css';
+import './animate.min.css';
 
 class UserHome extends Component {
   constructor() {
@@ -63,33 +65,40 @@ class UserHome extends Component {
 
 
             <div id="bdaycard" className="row" style={{display:"none"}}>
-              <div className="col col-md-10" >
-                 <b><i style={{padding:"100px 100px 50px 50px",fontSize:"24px",float:"left",color:"#fff"}}> Happy Birthday!!<br/> We Found a Best place to Celebrate your Birthday </i></b>
+              <div className="wow animated fadeInDownBig" style={{paddingTop:"-20px"}}><img src={require('./images/hbday.png')} />
+                <br />
+                <h2> <Badge color="warning"> We Found a Best place to Celebrate your Birthday</Badge></h2>
+             </div>
+              
+          <div id="srchcard" className="card" style={{paddingRight:"10px"}} id="random_rest">
+            <div className="row" id="srch">
+             <div className="col">
+              <img id="srchimg" src={this.state.data.image} id="srchimg" alt="Card image cap"/>
+             </div>
+             <div className="col-md-6" id="srchcard1">
+                <div className="card-top">
+                <br />
+                  <h5 className="card-subtitle"><span id="stext"> {this.state.data.name}</span></h5><br/>
+                  
+                  <span id="subtext"> {this.state.data.area}</span><br/>
+                  <hr />
+                </div>
+                <div id="srch">
+                  <button type="button" className="btn btn-warning btn-sm" onClick={()=>this.handleRest(this.state.data.id)}>View</button>
+                </div>
+             </div>
+          </div>
               </div>
-              <div className="col" style={{paddingTop:"30px",paddingRight:"10px"}}>
-                  <div className="card">
-                      <img className="card-img-top image-fluid" src={this.state.data.image} style={{height:"10rem"}} alt="Card image cap"/>
-                      <div className="card-block">
-                        <div className="card-subtitle"><b>{this.state.data.name}</b></div><br/>
-                        {this.state.data.area}
-                         <button type="button" className="btn btn-warning btn-sm"  style={{float:"right"}} onClick={()=>this.handleRest(this.state.data.id)}>View</button>
-                       </div>
-                  </div>
-              </div>
-             </div>
-             <div className="overlay">
-                     <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
              </div>
              </div>
-             <div id="carousel" className="container">
-               <MainView />
+             
              </div>
+             
             <Collection />
             <div className="text-center"><a href="#tf-home" className="fa fa-angle-up fa-3x"></a></div>
 
          <Footer />
          </div>
-       </div>
       )
    }
 }
