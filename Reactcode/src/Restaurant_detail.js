@@ -7,11 +7,12 @@ import GoogleMap from 'google-map-react';
 import { Button, Popover, PopoverTitle, PopoverContent } from 'reactstrap';
 import StarRatingComponent from 'react-star-rating-component';
 import Maps from'./Maps';
+var names=new Array();
 class Restaurant_detail extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another classNameName
     super();
-    this.state = { detail_data:[], rating: 0,popoverOpen: false};
+    this.state = { detail_data:[],data:[], rating: 0,popoverOpen: false};
       this.toggle = this.toggle.bind(this);
 
   }
@@ -43,6 +44,34 @@ class Restaurant_detail extends Component {
               hashHistory.push('/UnAuth');
            }
          });
+         fetch("http://localhost:9000/ratings_reviews?id="+this.props.params.id,{
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": "Bearer "+tok
+              }
+             }).then(response=>{
+               if(200==response.status){
+                 response.json().then((data)=>{
+                       this.setState({
+                        data: data
+                       });
+                     });
+                    }
+                else if (403==response.status) {
+                window.alert("Forbidden!!");
+                }
+                else{
+                   hashHistory.push('/UnAuth');
+                }
+              }).then(function(e){
+              for(var i=0;i<=this.state.data.length;i++)
+                 {
+
+                   names[i]=this.state.data[0][1];
+                   console.log('names',names[i]);
+               }
+             });
+
     }
 
 
@@ -63,9 +92,11 @@ class Restaurant_detail extends Component {
     if(this.state.detail_data.free_delivery)
         document.getElementById('fd').style.display="block";
 
+      console.log(this.state.data.length);
+
   return (
   <div>
-   
+
     <div id="detailRest" style={{height:"100%",width:"100%"}}>
 
         <div className="container" id="searchrest" >
@@ -89,9 +120,6 @@ class Restaurant_detail extends Component {
                       <ul className="list-group list-group-flush">
                          <li className="list-group-item"><b id="sideHeading">Address:&nbsp;&nbsp;  </b> {this.state.detail_data.address}
                          </li>
-
-                      </ul>
-                     <ul className="list-group list-group-flush">
                         <li className="list-group-item"><b id="sideHeading">Cuisine:&nbsp;&nbsp;  </b> {this.state.detail_data.cuisine}</li>
                         <li className="list-group-item"><b id="sideHeading">Working Hours:&nbsp;&nbsp;</b> {this.state.detail_data.workHours}
                             <div className="pull-right fnav" id="footer">
@@ -114,9 +142,7 @@ class Restaurant_detail extends Component {
                            </ul>
                         </div>
                         </li>
-                     </ul>
 
-                     <ul className="list-group list-group-flush">
                         <li className="list-group-item"><b id="sideHeading">Cost:&nbsp;&nbsp;</b> {this.state.detail_data.cost} per Two</li>
                         <li className="list-group-item" id="fd" style={{display:"none"}}>
                           <b id="sideHeading">Free Home Delivery&nbsp;<i className="fa fa-check" style={{color:"green"}} aria-hidden="true"></i>
@@ -125,7 +151,17 @@ class Restaurant_detail extends Component {
                      </ul>
 
                   </div>
+                  <div className="card">
 
+                     <div className="card-header">
+                        <b id="sideHeading">Reviews</b>
+
+                      </div>
+                     <div className="card-block">
+                     {names[0]}
+
+                     </div>
+                  </div>
                   <div className="card text-center">
 
                      <div className="card-header">
