@@ -36,12 +36,14 @@ class App extends Component {
         <div className="overlay">
                 <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
         </div>
-        <div id="carousel">
-          <MainView />
-        </div>
-        
+
+
    </div>
+
     <div id="ss">
+    <div id="carousel" className="container">
+      <MainView />
+    </div>
     <Collection />
 
     <div className="text-center"><a href="#tf-home" className="fa fa-angle-up fa-3x"></a></div>

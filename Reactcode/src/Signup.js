@@ -58,7 +58,7 @@ class Signup extends Component {
     this.setState({
       popoverOpen1:true
     });
-  } 
+  }
   else {
     this.setState({
       popoverOpen1:false
@@ -73,7 +73,7 @@ class Signup extends Component {
     this.setState({
       popoverOpen2:true
     });
-  } 
+  }
   else {
     this.setState({
       popoverOpen2:false
@@ -89,7 +89,7 @@ class Signup extends Component {
     this.setState({
       popoverOpen3:true
     });
-  } 
+  }
   else {
     this.setState({
       popoverOpen3:false
@@ -104,7 +104,7 @@ class Signup extends Component {
     this.setState({
       popoverOpen4:true
     });
-  } 
+  }
   else {
     this.setState({
       popoverOpen4:false
@@ -119,7 +119,7 @@ class Signup extends Component {
     this.setState({
       popoverOpen5:true
     });
-  } 
+  }
   else {
     this.setState({
       popoverOpen5:false
@@ -200,9 +200,9 @@ else{
 
   render() {
     return (
-      <div id="tf-home">
+      <div >
        <Header/>
-          <div className="container1">
+          <div id="tf-home" className="container1">
           <br />
 
           <div id="Ack" style={{display: 'none'}}>

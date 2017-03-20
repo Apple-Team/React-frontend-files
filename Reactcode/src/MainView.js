@@ -8,7 +8,7 @@ var MainView = React.createClass({
     getInitialState: function () {
         return {
             images: images.slice(0, 6),
-            width: 380,
+            width: 300,
             layout: 'classic',
             ease: 'linear',
             duration: 800
@@ -39,10 +39,10 @@ var MainView = React.createClass({
                           ease={this.state.ease}
                           duration={this.state.duration}
                           layout={this.state.layout}/>
-              
+
             </div>
         );
     }
 });
 
-module.exports = MainView;      
+module.exports = MainView;

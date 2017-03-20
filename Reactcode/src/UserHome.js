@@ -7,6 +7,7 @@ import Footer from './Footer';
 import Header from './Header';
 import Search from './Search';
 import NearBy from './NearBy';
+import MainView from './MainView';
 import SearchComponent from './SearchComponent';
 
 import './App.css';
@@ -79,6 +80,9 @@ class UserHome extends Component {
              <div className="overlay">
                      <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
              </div>
+             </div>
+             <div id="carousel" className="container">
+               <MainView />
              </div>
             <Collection />
             <div className="text-center"><a href="#tf-home" className="fa fa-angle-up fa-3x"></a></div>

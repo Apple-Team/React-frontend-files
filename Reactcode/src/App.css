@@ -21,7 +21,7 @@ body, html {
 
 #Header.navbar {
   background-color:#000000;
- 
+
   }
 .navbar-brand {
 font-family: cursive;
@@ -193,7 +193,9 @@ Navbar > NavItem:active{
   background-color: #cfcfcf;
   padding-top: 50px;
 }
-
+#tf-home {
+    height: 930px;
+}
 #tf-home .overlay{
 
   background-attachment: fixed;
@@ -257,7 +259,7 @@ div#srchbar.input-group{
   margin-left: auto;
 }
 #tf-collection{
-  padding: 80px 0
+  padding: 400px 0
 }
 .categories{
   padding: 10px 0;
@@ -476,7 +478,7 @@ form.modal-content.animate{
 #detailRest{
   background: #f1f5f7;
   font-variant: small-caps;
- 
+
 }
 
 
@@ -590,7 +592,4 @@ a{
 }
 a:hover{
   color:#fcac46;
-}
-#carousel{
-  padding-left: 160px;
 }
