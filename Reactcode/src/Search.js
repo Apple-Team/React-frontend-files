@@ -128,7 +128,7 @@ render() {
 
      </div>
     <div className="col-md-2" id="PopularList"  style={{display: 'none'}}>
-     <div className="card card-block">
+     <div className="card card-block" id="recommendations">
        <h3 className="w3-center"><strong>Recommendations</strong> for you</h3>
        {
          this.state.data1.map((data, index)=>{
@@ -137,9 +137,9 @@ render() {
                       <ul>
                        <div className="card card-block" id="redirect">
                          <li className="media">
-                           <a onClick={()=>this.handleRest(data[0])}><img className="d-flex " src={data[7]} height="100px" width="110px" alt="Generic placeholder image"/></a>
-                           <div className="media-body">
-                                <p className="card-text"><h5 className="mt-0 mb-1">{data[10]}</h5>
+                           <a id="image" onClick={()=>this.handleRest(data[0])}><img className="d-flex " src={data[7]} height="100px" width="110px" alt="Generic placeholder image"/></a>
+                           <div className="media-body" id="text">
+                                <p className="card-text"><h5 id="image" className="mt-0 mb-1" onClick={()=>this.handleRest(data[0])}>{data[10]}</h5>
                                    <span id="ptext">{data[2]}
                                    </span>
                                 </p>

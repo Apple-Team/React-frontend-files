@@ -497,10 +497,12 @@ form.modal-content.animate{
 }
 #srchcard,#srch.card-top{
   padding: 10px 10px 10px 10px;
+  left:100px;
 }
 #srchimg,#srchcard1{
-  height: 200px;
-  width: 280px;
+  
+  height: 210px;
+  width: 210px;
 }
 #srch.card-columns {
         min-width:inherit;
@@ -508,7 +510,8 @@ form.modal-content.animate{
      }
 
  #srch1.card-columns {
-         min-width:inherit;
+
+        min-width:;
         column-count:1;
   }
 
@@ -517,7 +520,11 @@ form.modal-content.animate{
        position: relative;
        width:450px!important;
        margin-bottom: 0.75rem;
+       margin-left: 40px;
+
  }
+
+
 
  div#srch.card-block{
    position: relative;
@@ -532,23 +539,43 @@ form.modal-content.animate{
  div#srch.card-bottom{
   float: bottom;
  }
+
+ #PopularList{
+margin-left: 130px;
+
+ }
+
+ #recommendations{
+  width: 300px;
+ }
 /*filters*/
 #filtersrch{
   float:left;
   padding:5% 2% 5% 5%;
   width:200px;
+  left:100px;
 }
 #badsrch{
-  padding-left: 30%;
+  padding-left: 50%;
 }
+
 #bdaycard{
   background: url(images/bday2.jpg);
-   background-size: cover;
+  background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   height: 300px;
   width: all;
+}
+i#ptext{
+  cursor:pointer;
+}
+#text{
+  padding-left:20px;
+}
+#image{
+  cursor: pointer;
 }
 /*popular */
 ul{
