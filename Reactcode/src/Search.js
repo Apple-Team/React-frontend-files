@@ -24,7 +24,7 @@ class Search extends Component {
 
 componentWillReceiveProps(nextProps){
  console.log(nextProps);
- fetch("http://localhost:9000/filter?keyword="+nextProps.params.s)
+ fetch("http://localhost:9000/filter_restaurants?keyword="+nextProps.params.s)
    .then((response) => response.json())
          .then((responseJson) => {
             this.setState({
@@ -33,7 +33,10 @@ componentWillReceiveProps(nextProps){
             });
          }).then(function(e){
          document.getElementById('badsrch').style.display='none';
+         if(this.state.data=='')
+            document.getElementById('badsrch').style.display='block';
        });
+
 
 
 
@@ -43,7 +46,7 @@ console.log(recvd_name);
 if(this.props.params.count1!=0){
   if(recvd_name){
       for(var i=1;i<=this.props.params.count1;i++){
-         fetch("http://localhost:9000/filter?keyword="+key1)
+         fetch("http://localhost:9000/filter_restaurants?keyword="+key1)
            .then((response) => response.json())
                  .then((responseJson) => {
                     this.setState({

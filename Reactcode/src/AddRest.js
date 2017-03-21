@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link,hashHistory} from 'react-router';
 import { Button, Popover, PopoverTitle, PopoverContent } from 'reactstrap';
 import AdminHeader from './AdminHeader';
+import './Admin.css';
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
 var lat,lon;
@@ -327,7 +328,7 @@ validateLong(ev){
    var description= document.getElementById('descriptn').value;
    var free_delivery= document.getElementById('free_delivery').value;
 
-   if(name==''||cuisine==''||address==''||area==''||collection==''||description==''||free_delivery==''||(this.state.popoverOpen1)||(this.state.popoverOpen2)||(this.state.popoverOpen3)||(this.state.popoverOpen4)||(this.state.popoverOpen5)||(this.state.popoverOpen6)||(this.state.popoverOpen7)||(this.state.popoverOpen8)||(photo==undefined)){
+   if(name==''||cuisine==''||address==''||area==''||collection==''||description==''||free_delivery==''||(this.state.popoverOpen3)||(this.state.popoverOpen4)||(this.state.popoverOpen5)||(this.state.popoverOpen6)||(this.state.popoverOpen7)||(this.state.popoverOpen8)||(photo==undefined)){
     if(photo==undefined){
     this.setState({
       popoverOpen9:true
@@ -429,9 +430,14 @@ validateLong(ev){
       <AdminHeader />
   </div>
  </div>
- <div className="card card-block">
+ <section>
+     <div id="container1_demo" >
+     <div id="wrapper1" style={{width:"1300px"}}>
+       <div id="register">
+            <form autocomplete="on">
   <div  className="container" >
-   <div className="row" style={{paddingLeft:"10%"}}>
+  <h1>Add Restaurant</h1>
+   <div className="row" >
     <div className="col col-sm-6">
 
  <div className="form-group row">
@@ -468,7 +474,7 @@ validateLong(ev){
   <label for="example-text-input" className="col-2 col-form-label">Collection</label>
   <div className="col-6">
 <select className="custom-select" id="collection">
-  <option selected>Open this select collection</option>
+  <option selected>Open this to select a collection</option>
   <option value="Breakfast">Breakfast</option>
   <option value="Sunday Brunch">Sunday Brunch</option>
   <option value="Fine Dining">Fine Dine</option>
@@ -492,18 +498,18 @@ validateLong(ev){
 </div>
 <div className="form-group row">
   <label for="example-tel-input" className="col-2 col-form-label">Telephone</label>
-  <div className="col-6">
+  <div className="col-8">
     <input className="form-control" type="tel" placeholder="ex: 1-(555)-555-5555" id="telephone" onChange ={this.validateTelephone.bind(this)} onKeyUp ={this.validateTelephone.bind(this)} onClick={this.validateTelephone.bind(this)}/>
   </div>
 </div>
 <div className="form-group row">
   <label for="example-text-input" className="col-2 col-form-label">Working Hours</label>
-  <div className="col-4">
-    <input className="form-control" type="search" placeholder="09:00"  id="opening_time" onChange ={this.validateOpening_time.bind(this)} onKeyUp ={this.validateOpening_time.bind(this)} onClick={this.validateOpening_time.bind(this)}/>
+  <div className="col-3">
+    <input className="form-control" type="search" placeholder="09:00 AM"  id="opening_time" onChange ={this.validateOpening_time.bind(this)} onKeyUp ={this.validateOpening_time.bind(this)} onClick={this.validateOpening_time.bind(this)}/>
   </div>
-  -
-  <div className="col-4">
-     <input className="form-control" type="search" placeholder="10:00" id="closing_time" onChange ={this.validateClosing_time.bind(this)} onKeyUp ={this.validateClosing_time.bind(this)} onClick={this.validateClosing_time.bind(this)}/>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div className="col-3">
+     <input className="form-control" type="search" placeholder="10:00 PM" id="closing_time" onChange ={this.validateClosing_time.bind(this)} onKeyUp ={this.validateClosing_time.bind(this)} onClick={this.validateClosing_time.bind(this)}/>
   </div>
 </div>
 <div className="form-group row">
@@ -543,7 +549,7 @@ validateLong(ev){
     </div>
   </div>
 <div className="form-group-row">
-    <div className="col-4">
+    <div className="col" style={{paddingLeft: "18%"}}>
       <button type="button" className="btn btn-warning" onClick={this.handleClick.bind(this)}>Submit</button>
     </div>
 </div>
@@ -551,7 +557,7 @@ validateLong(ev){
 
 <div className="col col-sm-6">
     <div>
-     <input id="pac-input" className="form-control" size="45" type="text" placeholder="Search Box"/>
+     <input id="pac-input" className="form-control" size="45" type="text" placeholder="Search Box" style={{width:"60%"}}/>
 
     <div id="map"  style={{height:"500px",width:"450px"}}></div>
     <button type="button" className="btn btn-warning btn-sm" onClick={this.getLoc}>Get LatLong</button>
@@ -559,7 +565,7 @@ validateLong(ev){
   </div>
 
   <br />
-  
+
   <img src={this.state.imgSrc}  />
 
 </div>
@@ -567,7 +573,12 @@ validateLong(ev){
 </div>
 </div>
 
+</form>
+  </div>
+
+ </div>
 </div>
+</section>
 
   <div id="pop_homepageurl">
         <Popover placement="right" isOpen={this.state.popoverOpen1} target="homepageurl" toggle={this.toggle1}>
@@ -589,13 +600,13 @@ validateLong(ev){
 
       <div id="pop_opening_time">
         <Popover placement="right" isOpen={this.state.popoverOpen4} target="opening_time" toggle={this.toggle4}>
-          <PopoverContent>Please enter Opening time in HH:mm format</PopoverContent>
+          <PopoverContent>Please enter Opening time in HH:MM format</PopoverContent>
         </Popover>
       </div>
 
       <div id="pop_closing_time">
         <Popover placement="right" isOpen={this.state.popoverOpen5} target="closing_time" toggle={this.toggle5}>
-          <PopoverContent>Please enter Closing time in HH:mm format</PopoverContent>
+          <PopoverContent>Please enter Closing time in HH:MM format</PopoverContent>
         </Popover>
         </div>
 

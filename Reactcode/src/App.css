@@ -3,7 +3,7 @@
 body, html {
   height: 100%;
   width: 100%;
-  background: #f1f5f7
+
 }
 #list{
     display: none; /* Hidden by default */
@@ -190,11 +190,8 @@ Navbar > NavItem:active{
   background-color: #cfcfcf;
   padding-top: 50px;
 }
-#tf-home {
-    height: 930px;
-}
 #tf-home .overlay{
-  
+
   background-attachment: fixed;
 }
 #tf-home p.lead{
@@ -352,6 +349,7 @@ a.fa.fa-angle-up:hover{
 /*search*/
 #ss{
   padding-top: 20px;
+  min-height: 800px;
 }
 
 /*Footer*/
@@ -468,7 +466,7 @@ form.modal-content.animate{
   padding: 10px 10px 10px 10px;
 }
 #srchimg,#srchcard1{
-  
+
   height: 210px;
   width: 210px;
 }
@@ -574,7 +572,7 @@ i#user{
 }
 /*app*/
 #Main_Title{
-  font-size: 34px;
+  font-size: 48px;
   font-style: italic;
   color: #fcac48;
   font-weight: bolder;
@@ -598,4 +596,14 @@ a:visited{
 #aboutus{
   font-style: italic;
 
+}
+#map img {
+max-width: none;
+}
+#coll{
+  background: url(images/coll.jpg) ;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }

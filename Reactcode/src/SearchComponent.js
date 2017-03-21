@@ -90,19 +90,19 @@ toggle1() {
  handleNearby(){
 
 
-          navigator.geolocation.getCurrentPosition(function(position) {
+          /*navigator.geolocation.getCurrentPosition(function(position) {
             var pos = {
               lat: position.coords.latitude,
               lng: position.coords.longitude
-            };
-              console.log(pos);
-            console.log(position.coords.latitude);
+            };*/
+              //console.log(pos);
+            //console.log(position.coords.latitude);
            var home=document.getElementById("ss");
-           var lati=position.coords.latitude;
-           var longi=position.coords.longitude;
+           var lati=17.4113;
+           var longi=78.399;
            console.log(longi);
           hashHistory.push('/NearBy/'+lati+'/'+longi);
-          });
+        
  }
 
 render() {

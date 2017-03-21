@@ -35,6 +35,15 @@ li#admin{
   background-repeat: no-repeat;
   color: #cfcfcf;
 }
+#content1{
+  background-image: url(images/admin_back.jpg);
+background-size: cover;
+height: 1300px;
+background-position: center;
+background-attachment: fixed;
+background-repeat: no-repeat;
+color:#fcac46;
+}
 .col{
 
     text-align:center;
@@ -229,3 +238,13 @@ line-height: 1.428571429;
 /*#content ,#Update ,#content1{
   padding-top: 70px;
 }*/
+#pac-input {
+    z-index: 0;
+    position: absolute;
+    padding-top: 7px;
+    left: 113px;
+    width: 70%;
+}
+#logout{
+  cursor:pointer;
+}

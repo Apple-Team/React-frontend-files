@@ -60,7 +60,7 @@ toggle1() {
       popoverOpen2:false
     });
 
-      
+
 
       formData.set('image',photo);
       fetch('http://localhost:9000/images', {
@@ -122,18 +122,23 @@ onChange(){
    console.log(this.state.image_data);
     // console.log('The App component was rendered')
     return(
-<div  id="content1s">
+<div  id="content1">
+
   <div className="row">
     <div className="col" id="col1">
       <AdminHeader />
     </div>
   </div>
-  <div className="card card-block">
-    <div  className="container" >
-      <div className="row" style={{paddingLeft:"10%"}}>
-        <div className="col col-sm-6 ">
+   <section>
+    <div id="container1_demo" style={{padding: "5%"}} >
+    <div id="wrapper1" style={{width:"1000px",height:"500px"}}>
+      <div id="register">
+           <form autocomplete="on">
+             <h1>Add Collection</h1>
+             <div className="row" >
+              <div className="col col-md-7">
 
-          <div className="form-group row">
+           <div className="form-group row">
             <label className="col-2 col-form-label">Name</label>
             <div className="col-6">
               <input className="form-control" name="username" type="search" placeholder="Collection Name" id="name"/>
@@ -147,22 +152,27 @@ onChange(){
             <small id="fileHelp" className="form-text text-muted">Browse Image file location </small>
           </div>
         </div>
-
+     <br/>
       <div className="form-group-row">
-        <div className="col-6">
+        <div className="col" style={{paddingLeft: "18%"}}>
           <button type="button" className="btn btn-warning" onClick={this.handleClick.bind(this)}>Submit</button>
         </div>
       </div>
 
+      </div>
+      <div className="col col-md-5">
+
+          <img src={this.state.imgSrc} />
+
+    </div>
+
+    </div>
+    </form>
+   </div>
+
   </div>
-
-<img src={this.state.imgSrc}  />
-
 </div>
-</div>
-
-</div>
-
+</section>
  <div id="pop_colname">
         <Popover placement="right" isOpen={this.state.popoverOpen1} target="name" toggle={this.toggle1}>
           <PopoverContent>Select a collection name</PopoverContent>

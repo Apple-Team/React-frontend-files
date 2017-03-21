@@ -34,23 +34,23 @@ componentWillReceiveProps(nextProps){
     title:data1.name
 
   });
-  var content='<div>'+
-            '<h1 id="firstHeading" class="firstHeading">data1.name</h1>'+
+  var content='<div id="content">'+
+            '<h5 id="firstHeading" class="firstHeading">'+data1.name+'</h5>'+
             '<div id="bodyContent">'+
-            '<p>data1.cuisine</p>' +
-            '<p>data1.address</p>'+'</div>'+'</div>';
+            '<p>'+data1.cuisine+'</p>' +
+            '<p>'+data1.address+'</p>'+'</div>'+'</div>';
 // Adding a new info window for the object
-    var clicker = addClicker(marker, data1.name);
+    var clicker = addClicker(marker, content);
 
    function addClicker(marker, content) {
     google.maps.event.addListener(marker, 'click', function() {
-
-      if (infowindow) {infowindow.close();}
        var infowindow = new google.maps.InfoWindow({content: content});
+      if (infowindow) {infowindow.close();}
+
       infowindow.open(map, marker);
 
     });
-  }
+  }6
 
       console.log(data1.name);
  }

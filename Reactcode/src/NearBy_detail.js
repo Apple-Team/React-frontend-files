@@ -53,89 +53,83 @@ class NearBy_detail extends Component {
     var lat=this.state.detail_data.latitude;
     var lng=this.state.detail_data.longitude;
   return (
-   <div>
-   <Header/>
-    <div id="detailRest" style={{height:"100%",width:"100%"}}>
+    <div>
 
-        <div className="container" id="searchrest" >
-           <div className="row">
-                <div className="col col-lg-12 branding" id="firstcol">
-                  <div className="card" >
-                      <img className="card-img-top image-fluid" src={this.state.detail_data.image} id="cardrest" alt="Card image cap"/>
-                      <div className="card-block">
-                        <div className="card-title"><h1><b>{this.state.detail_data.name}</b>
-                        <div className="pull-right fnav" id="footer">
-                            <ul className="footer-social">
-                               <li><a href={this.state.detail_data.homePage} target="_blank"><i className="fa fa-home" aria-hidden="true" id="homePage"></i></a></li>
-                               <li><a href={this.state.detail_data.fbUrl} target="_blank"><i className="fa fa-facebook" id="facebook"></i></a></li>
+      <div id="detailRest" style={{height:"100%",width:"100%"}}>
 
-                           </ul>
+          <div className="container" id="searchrest" >
+             <div className="row">
+                  <div className="col col-lg-12 branding" id="firstcol">
+                    <div className="card" >
+                        <img className="card-img-top image-fluid" src={this.state.detail_data.image} id="cardrest" alt="Card image cap"/>
+                        <div className="card-block">
+                          <div className="card-title"><h1><b>{this.state.detail_data.name}</b>
+                          <div className="pull-right fnav" id="footer">
+                              <ul className="footer-social">
+                                 <li><a href={this.state.detail_data.homePage} target="_blank"><i className="fa fa-home" aria-hidden="true" id="homePage"></i></a></li>
+                                 <li><a href={this.state.detail_data.fbUrl} target="_blank"><i className="fa fa-facebook" id="facebook"></i></a></li>
+
+                             </ul>
+                          </div>
+                          </h1>
+                          </div>
+                           <p className="card-text">{this.state.detail_data.description}</p>
                         </div>
-                        </h1>
+                        <ul className="list-group list-group-flush">
+                           <li className="list-group-item"><b id="sideHeading">Address:&nbsp;&nbsp;  </b> {this.state.detail_data.address}
+                           </li>
+                          <li className="list-group-item"><b id="sideHeading">Cuisine:&nbsp;&nbsp;  </b> {this.state.detail_data.cuisine}</li>
+                          <li className="list-group-item"><b id="sideHeading">Working Hours:&nbsp;&nbsp;</b> {this.state.detail_data.workHours}
+                              <div className="pull-right fnav" id="footer">
+                              <ul className="footer-social">
+                               <Button id="Popover1" style={{backgroundColor:"transparent",borderColor:"transparent"}}  onClick={this.toggle} >
+                                   <i className="fa fa-phone" aria-hidden="true"></i>
+                                </Button>
+                                <Popover placement="top" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
+                                 <PopoverTitle>
+                                   Call
+                                </PopoverTitle>
+                               <PopoverContent>
+                                   <div className="container" align="center">
+                                            <label><b><center>PHONE NUMBER</center></b></label> <br />
+                                          {this.state.detail_data.number}
+                                    </div>
+                              </PopoverContent>
+                             </Popover>
+
+                             </ul>
+                          </div>
+                          </li>
+
+                          <li className="list-group-item"><b id="sideHeading">Cost:&nbsp;&nbsp;</b> {this.state.detail_data.cost} per Two</li>
+                          <li className="list-group-item" id="fd" style={{display:"none"}}>
+                            <b id="sideHeading">Free Home Delivery&nbsp;<i className="fa fa-check" style={{color:"green"}} aria-hidden="true"></i>
+                            </b>
+                          </li>
+                       </ul>
+
+                    </div>
+
+                    <div className="card text-center">
+
+                       <div className="card-header">
+                          <b id="sideHeading">Map View</b>
                         </div>
-                         <p className="card-text">{this.state.detail_data.description}</p>
-                      </div>
-                      <ul className="list-group list-group-flush">
-                         <li className="list-group-item"><b id="sideHeading">Address:&nbsp;&nbsp;  </b> {this.state.detail_data.address}
-                         </li>
+                       <div className="card-block">
+                          <MapDirections destlat={lat} destlong={lng} orgnlat={lat1} orgnlong={long1}/>
+                       </div>
+                    </div>
+                </div>
 
-                      </ul>
-                     <ul className="list-group list-group-flush">
-                        <li className="list-group-item"><b id="sideHeading">Cuisine:&nbsp;&nbsp;  </b> {this.state.detail_data.cuisine}</li>
-                        <li className="list-group-item"><b id="sideHeading">Working Hours:&nbsp;&nbsp;</b> {this.state.detail_data.workHours}
-                            <div className="pull-right fnav" id="footer">
-                            <ul className="footer-social">
-                             <Button id="Popover1" style={{backgroundColor:"transparent",borderColor:"transparent"}}  onClick={this.toggle} >
-                                 <i className="fa fa-phone" aria-hidden="true"></i>
-                              </Button>
-                              <Popover placement="top" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
-                               <PopoverTitle>
-                                 Call
-                              </PopoverTitle>
-                             <PopoverContent>
-                                 <div className="container" align="center">
-                                          <label><b><center>PHONE NUMBER</center></b></label> <br />
-                                        {this.state.detail_data.number}
-                                  </div>
-                            </PopoverContent>
-                           </Popover>
-
-                           </ul>
-                        </div>
-                        </li>
-                     </ul>
-
-                     <ul className="list-group list-group-flush">
-                        <li className="list-group-item"><b id="sideHeading">Cost:&nbsp;&nbsp;</b> {this.state.detail_data.cost} per Two</li>
-                        <li className="list-group-item" id="fd" style={{display:"none"}}>
-                          <b id="sideHeading">Free Home Delivery&nbsp;<i className="fa fa-check" style={{color:"green"}} aria-hidden="true"></i>
-                          </b>
-                        </li>
-                     </ul>
-
-                  </div>
-
-                  <div className="card text-center">
-
-                     <div className="card-header">
-                        <b id="sideHeading">Map View</b>
-                      </div>
-                     <div className="card-block">
-                       <MapDirections destlat={lat} destlong={lng} orgnlat={lat1} orgnlong={long1}/>
-                     </div>
-                  </div>
               </div>
-
-            </div>
-            <div className="row">
+              <div className="row">
 
 
-            </div>
-         </div>
-     </div>
+              </div>
+           </div>
+       </div>
 
-  </div>
-
+    </div>
   );
  }
 }

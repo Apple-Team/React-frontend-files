@@ -37,12 +37,12 @@ class collection extends Component {
 render() {
 
 return (
-  <div id="content1">
+  <div id="content2">
   <div id="tf-collection">
         <div className="container">
 
             <div className="w3-container">
-                <h3 className="w3-center w3-animate-right">Take a look at our <strong>Collections</strong></h3>
+                <h1 className="w3-center w3-animate-right">Take a look at our <strong>Collections</strong></h1>
                 <div className="line">
                     <hr />
                 </div>

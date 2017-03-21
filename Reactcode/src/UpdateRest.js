@@ -218,13 +218,18 @@ PrvImg(image_data)
    lon1=this.state.get_data.longitude;
     return(
 
-    <div id="Update">
+    <div id="content1">
       <div className="row">
          <div className="col" id="col1">
             <AdminHeader />
         </div>
         </div>
-       <div className="card card-block">
+        <section>
+            <div id="container1_demo" >
+            <div id="wrapper1" style={{width:"1300px"}}>
+              <div id="register">
+                   <form autocomplete="on">
+                    <h1>Update Restaurant</h1>
           <div  className="container" >
             <div className="row">
                 <div className="col col-sm-6">
@@ -292,10 +297,10 @@ PrvImg(image_data)
   </div>
   <div className="form-group row">
   <label for="example-text-input" className="col-2 col-form-label">Working Hours</label>
-  <div className="col-4">
+  <div className="col-3">
     <input className="form-control" type="search" value={this.state.get_data.opening_time} onChange={this.handleChange} id="opening_time"/>
-  </div>
-  <div className="col-4">
+  </div>   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <div className="col-3">
      <input className="form-control" type="search"  value={this.state.get_data.closing_time} onChange={this.handleChange} id="closing_time"/>
   </div>
 </div>
@@ -303,7 +308,7 @@ PrvImg(image_data)
   <label for="example-text-input" className="col-2 col-form-label">Free Delivery</label>
   <div className="col-8">
     <label className="form-check-label">
-           <select className="custom-select" id="free_delivery">             
+           <select className="custom-select" id="free_delivery">
               <option value="1">Yes</option>
               <option value="0">No</option>
             </select>
@@ -330,7 +335,7 @@ PrvImg(image_data)
   </div>
 
   <div className="form-group-row">
-      <div className="col-8">
+      <div className="col" style={{paddingLeft: "18%"}}>
         <button type="button" className="btn btn-warning" onClick={() => this.handleUpdate(this.state.get_data.id)}>Submit</button>
       </div>
   </div>
@@ -338,21 +343,24 @@ PrvImg(image_data)
 
   <div className="col col-sm-6">
         <div>
-          <input id="pac-input" className="form-control" size="45" type="text" placeholder="Search Box"/>
+          <input id="pac-input" className="form-control" size="45" type="text" placeholder="Search Box" style={{width:"60%"}}/>
 
           <div id="map"  style={{height:"500px",width:"450px"}}></div>
             <button type="button" className="btn btn-warning btn-sm" onClick={this.getLoc}>Get LatLong</button>
           </div>
-       
-    <PreviewImg Img={this.PrvImg} pic={this.state.get_data.image}/>
-
+          <hr/>
+        <PreviewImg Img={this.PrvImg} pic={this.state.get_data.image}/>
 
   </div>
 
+</div>
+</div>
+</form>
+  </div>
 
+ </div>
 </div>
-</div>
-</div>
+</section>
 </div>
 
 

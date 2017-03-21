@@ -65,11 +65,11 @@ class UserHome extends Component {
 
 
             <div id="bdaycard" className="row" style={{display:"none"}}>
-              <div className="wow animated fadeInDownBig" style={{paddingTop:"-20px"}}><img src={require('./images/hbday.png')} />
+              <div className="wow animated fadeInUpBig" style={{paddingTop:"-20px"}}><img src={require('./images/bday123.png')} />
                 <br />
                 <h2> <Badge color="warning"> We Found a Best place to Celebrate your Birthday</Badge></h2>
              </div>
-              
+
           <div id="srchcard" className="card" style={{paddingRight:"10px"}} id="random_rest">
             <div className="row" id="srch">
              <div className="col">
@@ -79,7 +79,7 @@ class UserHome extends Component {
                 <div className="card-top">
                 <br />
                   <h5 className="card-subtitle"><span id="stext"> {this.state.data.name}</span></h5><br/>
-                  
+
                   <span id="subtext"> {this.state.data.area}</span><br/>
                   <hr />
                 </div>
@@ -91,9 +91,9 @@ class UserHome extends Component {
               </div>
              </div>
              </div>
-             
+
              </div>
-             
+
             <Collection />
             <div className="text-center"><a href="#tf-home" className="fa fa-angle-up fa-3x"></a></div>
 

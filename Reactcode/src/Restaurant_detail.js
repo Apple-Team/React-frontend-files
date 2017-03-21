@@ -64,9 +64,9 @@ class Restaurant_detail extends Component {
                    hashHistory.push('/UnAuth');
                 }
               }).then(function(e){
+                  console.log("hello");
+                   console.log(this.state.data.length);
 
-                   console.log(this.state.data[0][1]);
-               
              });
 
     }
@@ -89,7 +89,7 @@ class Restaurant_detail extends Component {
     if(this.state.detail_data.free_delivery)
         document.getElementById('fd').style.display="block";
 
-      console.log(this.state.data.length);
+      console.log(this.state.detail_data);
 
   return (
   <div>
@@ -148,17 +148,7 @@ class Restaurant_detail extends Component {
                      </ul>
 
                   </div>
-                  <div className="card">
-
-                     <div className="card-header">
-                        <b id="sideHeading">Reviews</b>
-
-                      </div>
-                     <div className="card-block">
-                     {names[0]}
-
-                     </div>
-                  </div>
+                
                   <div className="card text-center">
 
                      <div className="card-header">

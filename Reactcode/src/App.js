@@ -39,21 +39,23 @@ class App extends Component {
    </div>
 
     <div id="ss">
-    <div id="carousel" className="container">
-    <div className="row">
-
-      <div style={{float:"left"}} className="col">
-          <h1 className="w3-display-left w3-animate-left" id="aboutus"> <strong>About Us</strong></h1>
-      </div>
-        <div style={{float:"right"}} className="col">
-      <MainView />
-      </div>
+    <div className="container w3-center">
+          <br/><br/>
+          <h1 id="aboutus"> <strong>What we Believe in!</strong></h1>
+          <hr/>
+          <MainView />
     </div>
     </div>
+    <div id="coll">
+       <br/>
+       <br/>
+       <br/>
+    </div>
+    <div id="ss">
     <Collection />
-
-    <div className="text-center"><a href="#tf-home" className="fa fa-angle-up fa-3x"></a></div>
     </div>
+    <div className="text-center"><a href="#tf-home" className="fa fa-angle-up fa-3x"></a></div>
+
     <Footer />
     </div>
   </div>
