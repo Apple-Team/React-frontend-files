@@ -28,9 +28,10 @@ class App extends Component {
     // console.log('The App component was rendered')
   return (
    <div id="dd">
-    <Header />
+    
     <div id="home">
     <div id="tf-home" className="text-center">
+    <Header />
     <div><span id="Main_Title" className="text-center">Hungry??<br/>  Find your favourite Bistro...</span></div>
     <SearchComponent />
         <div className="overlay">
