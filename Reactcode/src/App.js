@@ -27,16 +27,17 @@ class App extends Component {
   render() {
     // console.log('The App component was rendered')
   return (
-   <div id="dd">
-    
+   <div id="dd">    
     <div id="home">
     <div id="tf-home" className="text-center">
+    <div className="overlay">
     <Header />
     <div><span id="Main_Title" className="text-center">Hungry??<br/>  Find your favourite Bistro...</span></div>
     <SearchComponent />
-        <div className="overlay">
+        
                 <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
-        </div>
+        
+   </div>
    </div>
 
     <div id="ss">
@@ -56,7 +57,7 @@ class App extends Component {
     <Collection />
     </div>
     <div className="text-center"><a href="#tf-home" className="fa fa-angle-up fa-3x"></a></div>
-
+    
     <Footer />
     </div>
   </div>

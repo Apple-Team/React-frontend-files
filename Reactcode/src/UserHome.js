@@ -58,9 +58,10 @@ class UserHome extends Component {
        console.log(this.state.data.name);
       return (
         <div id="dd">
-         <UserHeader />
+         
          <div id="home">
          <div id="tf-home" className="text-center">
+         <UserHeader />
          <SearchComponent />
 
 

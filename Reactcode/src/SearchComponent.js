@@ -112,6 +112,7 @@ render() {
 
 <div id="nearby">
     <div id="tf-nearby">
+    <div className="overlay">
             <div className="content">
                 <div className="txt">
                    <div className="form-group">
@@ -121,7 +122,7 @@ render() {
                                Locate Me <i className="fa fa-location-arrow" aria-hidden="true"></i>
                             </Button>
                             </span>
-                           <input type="text" placeholder="Search Restauarnt Name,Area,Cuisine..." onfocus="placeholder=''"  className="form-control" size ="100" id="search-bar" autocomplete="on" value={this.state.inputValue}
+                           <input type="text" placeholder="Search Restaurant Name,Area,Cuisine..." onfocus="placeholder=''"  className="form-control" size ="100" id="search-bar" autocomplete="on" value={this.state.inputValue}
                             onChange={this.handleChange.bind(this)}  />
                            <span className="input-group-btn" id="s">
                            <button id="teamsearchbtn" type="button" className="btn btn-warning" onClick={this.handleSearch}> <i className="fa fa-search"></i></button>
@@ -130,7 +131,7 @@ render() {
                     </div>
 
                 </div>
-
+              </div>
         </div>
    </div>
 </div>

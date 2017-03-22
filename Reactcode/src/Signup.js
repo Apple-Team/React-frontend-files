@@ -201,8 +201,9 @@ else{
   render() {
     return (
       <div >
-       <Header/>
+       
           <div id="tf-home" className="container1">
+          <Header/>
           <br />
 
           <div id="Ack" style={{display: 'none'}}>

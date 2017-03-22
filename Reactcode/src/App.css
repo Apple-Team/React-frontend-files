@@ -17,11 +17,12 @@ body, html {
     background-color: rgb(255,255,255); /* Fallback color *//* Black w/ opacity */
     padding-top:80px;
 }
-/* Navigation */
+/* Navigation
 
 #Header.navbar {
-  background-color:none;
-  }
+  background-color:#000000;
+
+  } */
 .navbar-brand {
 font-family: cursive;
 font-weight: bold;
@@ -126,6 +127,7 @@ font-weight: 900;
 }
 
 #tf-nav{
+  background-color: transparent;
   font-weight: 700;
 }
 
@@ -180,13 +182,20 @@ Navbar > NavItem:active{
      border-color: #fcac46;
 }
 /* Home Style */
+
 #tf-home{
-  background: url(images/rest2.jpg)  no-repeat center center fixed;
+   background: url(images/rest.jpeg)  no-repeat center center fixed;
   background-size: cover;  background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-color: #cfcfcf;
+
 }
+.overlay{
+  background:rgba(0,0,0,.5);
+-webkit-transition: opacity .25s ease;
+}
+
 #tf-home .overlay{
 
   background-attachment: fixed;
@@ -249,7 +258,7 @@ div#srchbar.input-group{
   margin-left: auto;
 }
 #tf-collection{
-  padding: 400px 0
+  padding: 100px 0
 }
 .categories{
   padding: 10px 0;
@@ -380,13 +389,13 @@ nav#footer p{
   color: #ffffff;
 }
 
-#Ack,#Ack1{
-    color: #3c91ad;
+#Ack,#Ack1,#Ack2{
+    color: #fcac46;
 }
 
 /*search componenet */
 #tf-nearby{
-  background: url(images/rest2.jpg) ;
+  background: url(images/rest.jpeg) ;
 
   background-size: cover;
   background-position: center;
@@ -423,7 +432,7 @@ input#search-bar{
 
 /*Modal*/
 #Modal1{
-  background:url(images/home1.jpg);
+  background:url(images/rest.jpeg);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -603,4 +612,8 @@ max-width: none;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
+   height: 400px;
+}
+#Main_Title{
+ 
 }

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link ,hashHistory} from 'react-router';
 import Header from './Header';
+import UserHeader from './UserHeader';
+import AdminHeader from './AdminHeader';
 import Footer from './Footer';
 import './Restaurant_detail.css';
 import GoogleMap from 'google-map-react';
@@ -12,7 +14,8 @@ class Restaurant_detail extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another classNameName
     super();
-    this.state = { detail_data:[],data:[], rating: 0,popoverOpen: false};
+    this.state = { detail_data:[],data:[], rating: 0,popoverOpen: false,
+      isLoggedIn:false};
       this.toggle = this.toggle.bind(this);
 
   }
@@ -93,7 +96,7 @@ class Restaurant_detail extends Component {
 
   return (
   <div>
-
+      {window.sessionStorage.getItem('name1') ? <AdminHeader />:<UserHeader />}
     <div id="detailRest" style={{height:"100%",width:"100%"}}>
 
         <div className="container" id="searchrest" >
