@@ -27,20 +27,18 @@ class App extends Component {
   render() {
     // console.log('The App component was rendered')
   return (
-   <div id="dd">    
+   <div id="dd">
     <div id="home">
     <div id="tf-home" className="text-center">
-    <div className="overlay">
+    <div>
     <Header />
-    <div><span id="Main_Title" className="text-center">Hungry??<br/>  Find your favourite Bistro...</span></div>
+    <div ><span id="Main_Title" className="text-center" >Hungry??<br/>  Find your favourite Bistro...</span></div>
     <SearchComponent />
-        
-                <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
-        
-   </div>
+      </div>
+        <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
    </div>
 
-    <div id="ss">
+    <div id="ss" style={{paddingTop:"100px",height:"1000px"}}>
     <div className="container w3-center">
           <br/><br/>
           <h1 id="aboutus"> <strong>What we Believe in!</strong></h1>
@@ -48,16 +46,18 @@ class App extends Component {
           <MainView />
     </div>
     </div>
-    <div id="coll">
-       <br/>
-       <br/>
+    <div id="coll" className="w3-center">
+       <br/><br/><br/><br/>
+          <br/>
+        <h1 id="mission" style={{color:"#fff"}} className="w3-center"> <strong>Our Mission</strong></h1><br/>
+        <h1 style={{color:"#fff"}}>To help people discover great place around them</h1>
        <br/>
     </div>
     <div id="ss">
     <Collection />
     </div>
     <div className="text-center"><a href="#tf-home" className="fa fa-angle-up fa-3x"></a></div>
-    
+
     <Footer />
     </div>
   </div>

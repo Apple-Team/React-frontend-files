@@ -102,7 +102,7 @@ toggle1() {
            var longi=78.399;
            console.log(longi);
           hashHistory.push('/NearBy/'+lati+'/'+longi);
-        
+
  }
 
 render() {
@@ -112,7 +112,7 @@ render() {
 
 <div id="nearby">
     <div id="tf-nearby">
-    <div className="overlay">
+    <div>
             <div className="content">
                 <div className="txt">
                    <div className="form-group">

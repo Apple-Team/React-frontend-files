@@ -93,7 +93,7 @@ render() {
 
 <SearchComponent/>
    <div id="searchlist">
-     <div className="restaurant-container">
+     <div className="container restaurant-container">
 
        <div id="cardrow" className="row">
           <div className="col-md-2">
@@ -136,7 +136,6 @@ render() {
        {
          this.state.data1.map((data, index)=>{
            return (
-
                       <ul>
                        <div className="card card-block" id="redirect">
                          <li className="media">
@@ -151,7 +150,6 @@ render() {
                          </li>
                          </div>
                        </ul>
-
          )
        })
      }

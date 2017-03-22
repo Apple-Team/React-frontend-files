@@ -26,7 +26,7 @@ body, html {
 .navbar-brand {
 font-family: cursive;
 font-weight: bold;
-font-size: 32px;
+font-size: 42px;
 color: #FCAC46;
 font-weight: 900;
 }
@@ -44,7 +44,7 @@ font-weight: 900;
 .navbar .navbar-nav > li > a {
   text-transform: uppercase;
   color: #fcac46;
-  font-size: 15px;
+  font-size: 16px;
   letter-spacing: 1px;
   width: auto;
   display:table-cell;
@@ -52,7 +52,7 @@ font-weight: 900;
 .navbar .navbar-nav > li > a:hover {
   text-transform: uppercase;
   color: #fcac46;
-  font-size: 16px;
+  font-size: 16.5px;
   letter-spacing: 1px;
   width: auto;
   display:table-cell;
@@ -184,22 +184,19 @@ Navbar > NavItem:active{
 /* Home Style */
 
 #tf-home{
-   background: url(images/rest.jpeg)  no-repeat center center fixed;
+   background: url(images/rest2.jpeg)  no-repeat center center fixed;
   background-size: cover;  background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-color: #cfcfcf;
+  height:1350px;
 
 }
 .overlay{
-  background:rgba(0,0,0,.5);
+  background:rgba(0,0,0,.2);
 -webkit-transition: opacity .25s ease;
 }
 
-#tf-home .overlay{
-
-  background-attachment: fixed;
-}
 #tf-home p.lead{
   color: #e3e3e3;
 }
@@ -234,7 +231,7 @@ a.fa.fa-angle-down {
   border: 2px solid #b4b4b4;
   border-radius: 50%;
   font-size: 24px;
-  margin-top: 200px;
+
   transition: all 0.5s;
 }
 a.fa.fa-angle-down:hover{
@@ -362,7 +359,7 @@ a.fa.fa-angle-up:hover{
 nav#footer{
   background: #222222;
   color: #ffffff;
-  padding: 20px 0 50px 0;
+  padding: 20px 0 70px 0;
 }
 nav#footer .fnav{ vertical-align: middle;}
 ul.footer-social li{
@@ -370,7 +367,7 @@ ul.footer-social li{
   margin-right: 10px;
 }
 nav#footer p{
-  font-size: 12px;
+  font-size: 16px;
   margin-top: 10px;
 }
 #footer i.fa {
@@ -395,7 +392,7 @@ nav#footer p{
 
 /*search componenet */
 #tf-nearby{
-  background: url(images/rest.jpeg) ;
+  background: url(images/rest2.jpeg) ;
 
   background-size: cover;
   background-position: center;
@@ -481,9 +478,7 @@ form.modal-content.animate{
         column-count:2;
      }
 
-#srch1{
-  margin-left: 100px;
-}
+
  #srch1.card-columns {
 
         min-width:;
@@ -528,7 +523,7 @@ margin-left: 130px;
   float:left;
   padding:5% 2% 5% 5%;
   width:200px;
-  left:100px;
+  left:-40px;
 }
 #badsrch{
   padding-left: 50%;
@@ -544,7 +539,7 @@ i#ptext{
 }
 
 #random_rest{
-  left:380px;
+  left:1050px;
   height:200px;
   width:500px;
 }
@@ -607,13 +602,15 @@ a:visited{
 max-width: none;
 }
 #coll{
-  background: url(images/coll.jpg) ;
+  background: url(images/back.jpg) ;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
    height: 400px;
 }
-#Main_Title{
- 
+#mission{
+      text-underline-position: center;
+      font-style: italic;
+
 }

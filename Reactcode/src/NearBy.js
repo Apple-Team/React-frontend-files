@@ -60,8 +60,8 @@ import { Collapse, Navbar, NavbarToggler, NavbarBrand, Nav, NavItem, NavLink } f
     <div id="tf-home">
     {window.sessionStorage.getItem('token') ? <UserHeader /> : <Header />}
     <SearchComponent/>
-  <div  id="searchlist"  className="container">
-    <div className="restaurant-container1">
+  <div  id="searchlist" >
+    <div className="container restaurant-container1">
 
       <div id="cardrow" className="row">
         <div className="card-columns" id="srch">{
