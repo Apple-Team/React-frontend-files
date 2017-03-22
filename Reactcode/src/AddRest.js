@@ -12,6 +12,7 @@ class AddRest extends Component {
     super();
     this.state = { data: [],lat1:[],lon1:[],image_data:[],imgSrc:'' };
     this.handleClick=this.handleClick.bind(this);
+    
     this.getLoc = this.getLoc.bind(this);
     this.onChange= this.onChange.bind(this);
     this.toggle1 = this.toggle1.bind(this);
@@ -308,7 +309,8 @@ validateLong(ev){
          });
 
 
-  }
+
+          }
 
 
    handleClick(ev){

@@ -19,6 +19,7 @@ class UserHeader extends Component {
     super();
     this.state = { data: [],get_data:[],popoverOpen: false,isOpen: false};
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleHistory = this.handleHistory.bind(this);
     this.toggle = this.toggle.bind(this);
     this.toggle1 = this.toggle1.bind(this);
 
@@ -63,6 +64,10 @@ componentWillMount(){
       window.sessionStorage.removeItem('token');
       window.sessionStorage.clear();
       hashHistory.push('/home');
+    }
+  handleHistory(){
+
+        hashHistory.push('/srchHistory');
     }
 
 
@@ -122,7 +127,7 @@ return(
       <Navbar toggleable id="Header">
           <NavbarToggler right onClick={this.toggle1}><i className="fa fa-bars fa-2x" style={{color:"#fcac46"}} aria-hidden="true"></i></NavbarToggler>
           <NavbarBrand >
-            <Link to="/UserHome"><img id="logo" width="50" height="50" className="d-inline-block align-center" />Find'O Bistro</Link></NavbarBrand>
+            <Link to="/UserHome"><img id="logo" width="50" height="50" className="d-inline-block align-center" />FindO Bistro</Link></NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
@@ -174,7 +179,8 @@ return(
                      </div>
                    </div>
                   <hr/>
-                  <button type="button" id="logout1" style={{float:"right"}} className="btn btn-secondary" onClick={this.handleLogout}><i className="fa fa-sign-out" aria-hidden="true">LOGOUT</i></button>
+                  <button type="button" id="logout1" style={{float:"left"}} className="btn btn-secondary" onClick={this.handleHistory}><i className="fa fa-search">Search History</i></button>
+                  <button type="button" id="logout1" style={{float:"left"}} className="btn btn-secondary" onClick={this.handleLogout}><i className="fa fa-sign-out" aria-hidden="true">LOGOUT</i></button>
                  </PopoverContent>
                 </Popover>
               </NavItem>

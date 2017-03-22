@@ -23,45 +23,24 @@ class Search extends Component {
  }
 
 componentWillReceiveProps(nextProps){
+  var that=this;
  console.log(nextProps);
  fetch("http://localhost:9000/filter_restaurants?keyword="+nextProps.params.s)
    .then((response) => response.json())
          .then((responseJson) => {
-            this.setState({
+            that.setState({
              data: responseJson
 
             });
          }).then(function(e){
-         document.getElementById('badsrch').style.display='none';
-         if(this.state.data=='')
+
+         if(that.state.data==null)
             document.getElementById('badsrch').style.display='block';
+        else {
+           document.getElementById('badsrch').style.display='none';
+        }
        });
 
-
-
-
-var key1=this.props.params.key;
-var recvd_name=window.sessionStorage.getItem('name');
-console.log(recvd_name);
-console.log(this.props.params.names123);
-if(this.props.params.count1!=0){
-  if(recvd_name==this.props.params.names123){
-      for(var i=1;i<=this.props.params.count1;i++){
-         fetch("http://localhost:9000/filter_restaurants?keyword="+key1)
-           .then((response) => response.json())
-                 .then((responseJson) => {
-                    this.setState({
-                     data1: responseJson
-
-                    });
-                 }).then(function(e){
-                  document.getElementById('PopularList').style.display='block';
-                 document.getElementById('badsrch').style.display='none';
-               });
-          }
-}
-
-}
 }
 
 handleRest(id)
@@ -131,32 +110,7 @@ render() {
      </div>
 
      </div>
-    <div className="col-md-2" id="PopularList"  style={{display: 'none'}}>
-     <div className="card card-block" id="recommendations">
-       <h3 className="w3-center"><strong>Recommendations</strong> for you</h3>
-       {
-         this.state.data1.map((data, index)=>{
-           return (
-                      <ul>
-                       <div className="card card-block" id="redirect">
-                         <li className="media">
-                           <a id="image" onClick={()=>this.handleRest(data[0])}><img className="d-flex " src={data[7]} height="100px" width="110px" alt="Generic placeholder image"/></a>
-                           <div className="media-body" id="text">
-                                <p className="card-text"><h5 id="image" className="mt-0 mb-1" onClick={()=>this.handleRest(data[0])}>{data[10]}</h5>
-                                   <span id="ptext">{data[2]}
-                                   </span>
-                                </p>
-                             </div>
 
-                         </li>
-                         </div>
-                       </ul>
-         )
-       })
-     }
-
-      </div>
-     </div>
     </div>
 
   </div>

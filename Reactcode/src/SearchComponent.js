@@ -79,13 +79,17 @@ toggle1() {
 
    }
 
-   if((key!='')&&count1){
-     console.log(names123);
-     hashHistory.push('/Search/'+this.state.inputValue+'/'+key+'/'+count1+'/'+names123);
-   }
-    else
-      hashHistory.push('/Search/'+this.state.inputValue);
 
+   if((key!='')&&count1){
+     localStorage.setItem("key",key);
+    localStorage.setItem("count1",count1);
+    localStorage.setItem("names123",names123);
+    hashHistory.push('/Search/'+this.state.inputValue);
+   }
+    else{
+    console.log("hello");
+      hashHistory.push('/Search/'+this.state.inputValue);
+    }
  }
  handleChange(e) {
      this.setState({ inputValue: document.getElementById("search-bar").value });

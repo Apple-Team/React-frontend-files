@@ -41,7 +41,7 @@ class App extends Component {
     <div id="ss" style={{paddingTop:"100px",height:"1000px"}}>
     <div className="container w3-center">
           <br/><br/>
-          <h1 id="aboutus"> <strong>What we Believe in!</strong></h1>
+          <h1 id="aboutus"> <strong>About Us</strong></h1>
           <hr/>
           <MainView />
     </div>

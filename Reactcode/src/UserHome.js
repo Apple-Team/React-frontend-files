@@ -71,10 +71,10 @@ class UserHome extends Component {
                 <h2> <Badge color="warning"> We Found a Best place to Celebrate your Birthday</Badge></h2>
 
 
-          <div id="srchcard" className="card" style={{paddingRight:"10px"}} id="random_rest">
-            <div className="row" id="srch">
+          <div id="srchcard" className="card container" style={{paddingRight:"10px"}} id="random_rest">
+            <div className="row">
              <div className="col">
-              <img id="srchimg" src={this.state.data.image} id="srchimg" alt="Card image cap"/>
+              <img  src={this.state.data.image} id="srchimg" alt="Card image cap"/>
              </div>
              <div className="col-md-6 w3-center" id="srchcard1">
                 <div className="card-top">

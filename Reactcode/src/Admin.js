@@ -21,7 +21,7 @@ class Admin extends Component {
     // console.log('The App component was rendered')
  	 	return(
  	 	<div className="wrapper" >
-          <div className="overlay">
+          <div>
              <div className="row">
                <div className="col" id="col1">
                   <AdminHeader/>
