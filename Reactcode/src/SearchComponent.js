@@ -10,6 +10,7 @@ var input=new Array();
 var names=new Array();
 var count=0;
 var count1=0;
+var names123;
   class SearchComponent extends Component {
 
     constructor() {
@@ -49,6 +50,7 @@ toggle1() {
     if(window.sessionStorage.getItem('token')){
 
       input[count]=this.state.inputValue;
+
       names[count1]=window.sessionStorage.getItem('name');
       items.push([names[count1],input[count]]);
       localStorage.setItem("items",JSON.stringify(items));
@@ -57,7 +59,7 @@ toggle1() {
       var item=JSON.parse(localStorage.getItem("items"));
       console.log(count1);
 
-      for(var i=0;i<count1;i++){
+      for(var i=0;i<=count1;i++){
         console.log('jj');
             if(names[i]==sent_name){
                 console.log('kkk');
@@ -67,6 +69,7 @@ toggle1() {
            }
                    console.log(key);
       //var i=parseInt(localStorage.getItem('i'));
+     names123=names[count1];
 
     //  localStorage.setItem('i',i);
     count1++;
@@ -75,8 +78,11 @@ toggle1() {
      }
 
    }
-   if((key!='')&&count1)
-     hashHistory.push('/Search/'+this.state.inputValue+'/'+key+'/'+count1);
+
+   if((key!='')&&count1){
+     console.log(names123);
+     hashHistory.push('/Search/'+this.state.inputValue+'/'+key+'/'+count1+'/'+names123);
+   }
     else
       hashHistory.push('/Search/'+this.state.inputValue);
 

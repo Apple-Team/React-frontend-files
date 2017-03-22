@@ -43,8 +43,9 @@ componentWillReceiveProps(nextProps){
 var key1=this.props.params.key;
 var recvd_name=window.sessionStorage.getItem('name');
 console.log(recvd_name);
+console.log(this.props.params.names123);
 if(this.props.params.count1!=0){
-  if(recvd_name){
+  if(recvd_name==this.props.params.names123){
       for(var i=1;i<=this.props.params.count1;i++){
          fetch("http://localhost:9000/filter_restaurants?keyword="+key1)
            .then((response) => response.json())
