@@ -127,7 +127,7 @@ return(
       <Navbar toggleable id="Header">
           <NavbarToggler right onClick={this.toggle1}><i className="fa fa-bars fa-2x" style={{color:"#fcac46"}} aria-hidden="true"></i></NavbarToggler>
           <NavbarBrand >
-            <Link to="/UserHome"><img id="logo" width="50" height="50" className="d-inline-block align-center" />FindO Bistro</Link></NavbarBrand>
+            <Link to="/UserHome"><img id="logo" width="50" height="50" className="d-inline-block align-center" />Find'O Bistro</Link></NavbarBrand>
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
@@ -163,13 +163,13 @@ return(
                       <div className="form-group row">
                         <label for="example-text-input" className="col-2 col-form-label"><i className="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i></label>
                         <div className="col-8">
-                          <input type="text"  className="form-control"  value={adob} onChange={this.handleChange} id="bday"/>
+                          <input type="text"  className="form-control" placeholder="YYYY-MM-DD" value={adob} onChange={this.handleChange} id="bday"/>
                         </div>
                       </div>
                       <div className="form-group row">
                        <label for="example-text-input" className="col-2 col-form-label"><i className="fa fa-home fa-fw w3-margin-right w3-text-theme"></i></label>
                        <div className="col-8">
-                         <input type="text"  className="form-control" value={this.state.get_data.user_Address} onChange={this.handleChange} id="address"/>
+                         <input type="text"  className="form-control" placeholder="enter address" value={this.state.get_data.user_Address} onChange={this.handleChange} id="address"/>
                        </div>
                      </div>
                      <div className="form-group-row">
