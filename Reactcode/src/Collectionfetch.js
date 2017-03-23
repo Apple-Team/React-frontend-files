@@ -54,9 +54,9 @@ class Collectionfetch extends Component {
             <div className="card card-outline-warning mb-3 text-center" >
                 <img className="card-img img-fluid" src={data.image} id="cardimg" alt="Card image cap"/>
                 <div className="card-block">
-                    <h5 className="card-subtitle">{data.name}</h5>
-                    <p className="card-text">{data.cuisine}</p>
-                    <p className="card-text">{data.area}</p>
+                    <h5 className="card-subtitle"><span id="stext">{data.name}</span></h5><br/>
+                    <p className="card-text"><span id="subtext">{data.cuisine}</span></p>
+                    <p className="card-text"><span id="subtext">{data.area}</span></p>
                 </div>
                 <div className="card-footer">
                     <button type="button" className="btn btn-warning btn-sm" onClick={()=>this.detailRest(data.id)}>View More</button>
