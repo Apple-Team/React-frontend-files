@@ -5,7 +5,8 @@ import AdminHeader from './AdminHeader';
 import './Admin.css';
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
-var lat,lon;
+var lat,lon,collnames;
+var collnames1=new Array();
 class AddRest extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another className
@@ -307,9 +308,12 @@ validateLong(ev){
            });
            map.fitBounds(bounds);
          });
-
-
-
+ 
+        collnames=JSON.parse(localStorage.getItem("collnames"));
+for(var k=0;k<collnames.length;k++)
+collnames1[k]=collnames[k].collection;
+console.log(collnames);
+console.log(collnames1);
           }
 
 
@@ -475,14 +479,13 @@ validateLong(ev){
 <div className="form-group row">
   <label for="example-text-input" className="col-2 col-form-label">Collection</label>
   <div className="col-6">
-<select className="custom-select" id="collection">
-  <option selected>Open this to select a collection</option>
-  <option value="Breakfast">Breakfast</option>
-  <option value="Sunday Brunch">Sunday Brunch</option>
-  <option value="Fine Dining">Fine Dine</option>
-  <option value="Barbeque & Grills">Barbeque & Grills</option>
-  <option value="Frozen Delights">Frozen Delight</option>
-  <option value="Street Food">Street Food</option>
+<select className="custom-select" id="collection">{
+  collnames1.map((data,index)=>{
+           return (
+  <option value={collnames1[index]} >{collnames1[index]}</option>  
+  )}
+)}
+
 </select>
 </div>
 </div>

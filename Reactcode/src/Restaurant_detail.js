@@ -124,10 +124,10 @@ class Restaurant_detail extends Component {
                         <li className="list-group-item"><b id="sideHeading">Working Hours:&nbsp;&nbsp;</b> {this.state.detail_data.workHours}
                             <div className="pull-right fnav" id="footer">
                             <ul className="footer-social">
-                             <Button id="Popover1" style={{backgroundColor:"transparent",borderColor:"transparent"}}  onClick={this.toggle} >
+                             <Button id="contact" style={{backgroundColor:"transparent",borderColor:"transparent"}}  onClick={this.toggle} >
                                  <i className="fa fa-phone" aria-hidden="true"></i>
                               </Button>
-                              <Popover placement="top" isOpen={this.state.popoverOpen} target="Popover1" toggle={this.toggle}>
+                              <Popover placement="top" isOpen={this.state.popoverOpen} target="contact" toggle={this.toggle}>
                                <PopoverTitle>
                                  Call
                               </PopoverTitle>

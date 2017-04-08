@@ -24,11 +24,11 @@ body, html {
 
   } */
 .navbar-brand {
-font-family: cursive;
+font-style: italic;
 font-weight: bold;
-font-size: 42px;
+font-size: 32px;
 color: #FCAC46;
-font-weight: 900;
+font-weight: 600;
 }
 .navbar-brand:hover{
   color: #FCAC46;
@@ -44,7 +44,7 @@ font-weight: 900;
 .navbar .navbar-nav > li > a {
   text-transform: uppercase;
   color: #fcac46;
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 1px;
   width: auto;
   display:table-cell;
@@ -52,7 +52,7 @@ font-weight: 900;
 .navbar .navbar-nav > li > a:hover {
   text-transform: uppercase;
   color: #fcac46;
-  font-size: 16.5px;
+  font-size: 14.5px;
   letter-spacing: 1px;
   width: auto;
   display:table-cell;
@@ -189,7 +189,7 @@ Navbar > NavItem:active{
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-color: #cfcfcf;
-  height:1350px;
+  height:950px;
 
 }
 .overlay{
@@ -255,7 +255,7 @@ div#srchbar.input-group{
   margin-left: auto;
 }
 #tf-collection{
-  padding: 100px 0
+  padding: 50px 0
 }
 .categories{
   padding: 10px 0;
@@ -352,14 +352,14 @@ a.fa.fa-angle-up:hover{
 /*search*/
 #ss{
   padding-top: 20px;
-  min-height: 800px;
+  min-height: 650px;
 }
 
 /*Footer*/
 nav#footer{
   background: #222222;
   color: #ffffff;
-  padding: 20px 0 70px 0;
+  padding: 10px 0 50px 0;
 }
 nav#footer .fnav{ vertical-align: middle;}
 ul.footer-social li{
@@ -367,7 +367,7 @@ ul.footer-social li{
   margin-right: 10px;
 }
 nav#footer p{
-  font-size: 16px;
+  font-size: 12px;
   margin-top: 10px;
 }
 #footer i.fa {
@@ -477,7 +477,10 @@ form.modal-content.animate{
         min-width:inherit;
         column-count:2;
      }
-
+     
+#srch1{
+  padding-left:80px;
+}
 
  #srch1.card-columns {
 
@@ -523,7 +526,6 @@ margin-left: 130px;
   float:left;
   padding:5% 2% 5% 5%;
   width:220px;
-  left:-40px;
 }
 #badsrch{
   padding-left: 50%;
@@ -607,7 +609,7 @@ max-width: none;
   background-position: center;
   background-attachment: fixed;
   background-repeat: no-repeat;
-   height: 400px;
+   height: 250px;
 }
 #mission{
       text-underline-position: center;

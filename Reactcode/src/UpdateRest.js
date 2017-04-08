@@ -5,7 +5,9 @@ import PreviewImg from './PreviewImg';
 // webpack.config.js specifies index.js as the entry point, and
 // index.js imports and renders this `App` component.
 var lat,lon;
-var lat1,lon1;
+var lat1,lon1,collnames;
+var collnames1=new Array();
+
 class UpdateRest extends Component {
   constructor() {
     // In a constructor, call `super` first if the className extends another className
@@ -131,6 +133,11 @@ class UpdateRest extends Component {
            map.fitBounds(bounds);
          });
        });
+         collnames=JSON.parse(localStorage.getItem("collnames"));
+for(var k=0;k<collnames.length;k++)
+collnames1[k]=collnames[k].collection;
+console.log(collnames);
+console.log(collnames1);
  }
 
 PrvImg(image_data)
@@ -266,14 +273,12 @@ PrvImg(image_data)
   <div className="form-group row">
     <label for="example-text-input" className="col-2 col-form-label">Collection</label>
     <div className="col-8">
-  <select className="custom-select" id="collection">
-    <option selected>{this.state.get_data.collection}</option>
-    <option value="Breakfast">Breakfast</option>
-    <option value="Sunday Brunch">Sunday Brunch</option>
-    <option value="Fine Dining">Fine Dine</option>
-    <option value="Barbeque & Grills">Barbeque & Grills</option>
-    <option value="Frozen Delights">Frozen Delight</option>
-    <option value="Street Food">Street Food</option>
+  <select className="custom-select" id="collection">{
+  collnames1.map((data,index)=>{
+           return (
+  <option value={collnames1[index]} >{collnames1[index]}</option>  
+  )}
+)}
   </select>
   </div>
   </div>

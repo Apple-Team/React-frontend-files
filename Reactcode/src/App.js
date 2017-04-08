@@ -38,7 +38,7 @@ class App extends Component {
         <a href="#tf-collection" className="fa fa-angle-down page-scroll"></a>
    </div>
 
-    <div id="ss" style={{paddingTop:"100px",height:"1000px"}}>
+    <div id="ss" style={{height:"650px"}}>
     <div className="container w3-center">
           <br/><br/>
           <h1 id="aboutus"> <strong>About Us</strong></h1>
@@ -47,10 +47,10 @@ class App extends Component {
     </div>
     </div>
     <div id="coll" className="w3-center">
-       <br/><br/><br/><br/>
+       <br/>
           <br/>
         <h1 id="mission" style={{color:"#fff"}} className="w3-center"> <strong>Our Mission</strong></h1><br/>
-        <h1 style={{color:"#fff"}}>To help people discover great place around them</h1>
+        <h2 style={{color:"#fff"}}>To help people discover great restaurants around them</h2>
        <br/>
     </div>
     <div id="ss">

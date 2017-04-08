@@ -1,8 +1,8 @@
-
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Link,hashHistory } from 'react-router';
 import Collectionfetch from './Collectionfetch';
+var collnames=new Array();
 
 class collection extends Component {
   constructor() {
@@ -13,7 +13,7 @@ class collection extends Component {
     this.state = { data: [] };
   }
   componentWillMount(){
-
+console.log("helo");
     fetch("http://localhost:9000/get_all_collections")
             .then((response) => response.json())
             .then((responseJson) => {
@@ -35,7 +35,8 @@ class collection extends Component {
   //detail description view
 
 render() {
-
+localStorage.setItem("collnames",JSON.stringify(this.state.data));
+              console.log("hel");
 return (
   <div id="content2">
   <div id="tf-collection">

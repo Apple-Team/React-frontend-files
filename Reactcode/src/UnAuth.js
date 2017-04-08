@@ -10,7 +10,8 @@ class UnAuth extends Component {
            <div id="tf-home">
            <Header/>
             <p><h2 style={{paddingTop:"4%"}}>Join us to view this page!!<br/>
-                                         <Link to="/Signup"><i>Please</i> <i style={{color:"#fcac46",textDecoration:"underline"}}>Sign Up</i></Link>...</h2></p>
+                                         <Link to="/Signup"><i>Please</i> <i style={{color:"#fcac46",textDecoration:"underline"}}>Sign Up</i></Link>...<br /><br />
+                                         Not a new member? <i>Please </i><Link to="/Login"><i style={{color:"#fcac46",textDecoration:"underline"}}>Sign in</i></Link></h2></p>
          </div>
          </div>
       )
